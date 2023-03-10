@@ -23,6 +23,17 @@
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
 			<artifactId>bcprov-jdk18on</artifactId>
+			<systemPath>${project.basedir}/libs/bcprov-jdk18on-173b20.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcpkix-jdk18on</artifactId>
+			<systemPath>${project.basedir}/libs/bcpkix-jdk18on-173b20.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcutil-jdk18on</artifactId>
+			<systemPath>${project.basedir}/libs/bcutil-jdk18on-173b20.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
