@@ -90,7 +90,7 @@ public class CertificateToken extends Token {
 
 		// TODO The Algorithm OID is used and not the name {@code x509Certificate.getSigAlgName()}
 		this.signatureAlgorithm = SignatureAlgorithm.forOidAndParams(x509Certificate.getSigAlgOID(), x509Certificate.getSigAlgParams());
-		this.signatureAlgorithm2 = SignatureAlgorithm.forOidAndParams(x509Certificate.getSigAlgOID(), x509Certificate.getSigAlgParams()); // TODO change a bit
+//		this.signatureAlgorithm2 = SignatureAlgorithm.forOidAndParams(x509Certificate.getSigAlgOID(), x509Certificate.getSigAlgParams()); // TODO change a bit
 	}
 
 	@Override
