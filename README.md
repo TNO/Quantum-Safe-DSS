@@ -1,4 +1,4 @@
-## DSS : Digital Signature Service
+## DSS FORK : Digital Signature Service with Hybrid Certificates
 
 This is the official repository for project DSS : https://ec.europa.eu/digital-building-blocks/wikis/display/DIGITAL/Digital+Signature+Service+-++DSS. 
 
