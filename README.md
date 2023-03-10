@@ -1,5 +1,7 @@
 ## DSS FORK : Digital Signature Service with Hybrid Certificates
 
+**NOTE, THE POM.XML FILE REQUIRES AN ABSOLUTE SYSTEM PATH TO JARS! THIS MEANS THAT YOU NEED IT BUT DO NOT PUSH POM.XML**
+
 This is the official repository for project DSS : https://ec.europa.eu/digital-building-blocks/wikis/display/DIGITAL/Digital+Signature+Service+-++DSS. 
 
 # Issue Tracker
