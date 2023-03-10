@@ -8,6 +8,13 @@
 	<version>5.12.RC1</version>
 	<packaging>pom</packaging>
 
+	<repositories>
+		<repository>
+			<id>local-maven-repo</id>
+			<url>file:///${project.basedir}/libs</url>
+		</repository>
+	</repositories>
+
 	<name>Digital Signature Services</name>
 	<description>
 		DSS (Digital Signature Services) is an open-source software library for electronic signature creation
@@ -46,7 +53,7 @@
 		<slf4j.version>2.0.6</slf4j.version>
 		<logback-classic.version>1.3.5</logback-classic.version> <!-- Version 1.4+ supports only Java 11+ -->
 
-		<bouncycastle.version>1.72</bouncycastle.version>
+		<bouncycastle.version>1.70</bouncycastle.version>
 		<xmlsec.version>2.3.2</xmlsec.version>
 		<jose4j.version>0.9.3</jose4j.version>
 		<pdfbox.version>2.0.27</pdfbox.version>
@@ -913,11 +920,22 @@
 				<groupId>org.bouncycastle</groupId>
 				<artifactId>bcprov-jdk18on</artifactId>
 				<version>${bouncycastle.version}</version>
+				<scope>system</scope>
+				<systemPath>/home/joao/IdeaProjects/dss/libs/bcprov-jdk18on-1.70.jar</systemPath>
 			</dependency>
 			<dependency>
 				<groupId>org.bouncycastle</groupId>
 				<artifactId>bcpkix-jdk18on</artifactId>
 				<version>${bouncycastle.version}</version>
+				<scope>system</scope>
+				<systemPath>/home/joao/IdeaProjects/dss/libs/bcpkix-jdk18on-1.70.jar</systemPath>
+			</dependency>
+			<dependency>
+				<groupId>org.bouncycastle</groupId>
+				<artifactId>bcutil-jdk18on</artifactId>
+				<version>${bouncycastle.version}</version>
+				<scope>system</scope>
+				<systemPath>/home/joao/IdeaProjects/dss/libs/bcutil-jdk18on-1.70.jar</systemPath>
 			</dependency>
 			<dependency>
 				<groupId>org.bitbucket.b_c</groupId>
