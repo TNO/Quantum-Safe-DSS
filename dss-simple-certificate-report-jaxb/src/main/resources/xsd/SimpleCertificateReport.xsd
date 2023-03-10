@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified"
+	elementFormDefault="qualified" 
+	targetNamespace="http://dss.esig.europa.eu/validation/simple-certificate-report"
+	xmlns="http://dss.esig.europa.eu/validation/simple-certificate-report" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<!-- Root element -->
+	<xs:element name="SimpleCertificateReport" type="SimpleCertificateReport" />
+
+	<xs:complexType name="SimpleCertificateReport">
+		<xs:sequence>
+			<xs:element name="ValidationPolicy" type="ValidationPolicy" />
+			<xs:element name="Chain" type="Chain" maxOccurs="1" minOccurs="0" />
+		</xs:sequence>
+		<xs:attribute name="ValidationTime" type="xs:dateTime" />
+	</xs:complexType>
+
+	<xs:complexType name="ValidationPolicy">
+		<xs:sequence>
+			<xs:element name="PolicyName" type="xs:string" minOccurs="0" />
+			<xs:element name="PolicyDescription" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+		
+	<xs:complexType name="Chain">
+		<xs:sequence>
+			<xs:element name="ChainItem" type="ChainItem" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ChainItem">
+		<xs:sequence>
+			<xs:element name="id" type="xs:string" />
+			<xs:element name="subject" type="Subject" />
+			<xs:element name="issuerId" type="xs:string" minOccurs="0" />
+			<xs:element name="notBefore" type="xs:dateTime" />
+			<xs:element name="notAfter" type="xs:dateTime" />
+			<xs:element name="keyUsages" type="KeyUsages" minOccurs="0" />	
+			<xs:element name="extendedKeyUsages" type="ExtendedKeyUsages" minOccurs="0" />			
+			<xs:element name="ocspUrls" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ocspUrl" type="xs:string" maxOccurs="unbounded" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="crlUrls" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="crlUrl" type="xs:string" maxOccurs="unbounded" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="aiaUrls" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="aiaUrl" type="xs:string" maxOccurs="unbounded" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="cpsUrls" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="cpsUrl" type="xs:string" maxOccurs="unbounded" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="pdsUrls" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="pdsUrl" type="xs:string" maxOccurs="unbounded" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="qualificationAtIssuance" type="CertificateQualification" minOccurs="0" />
+			<xs:element name="qualificationDetailsAtIssuance" type="Details" minOccurs="0" />
+			<xs:element name="qualificationAtValidation" type="CertificateQualification" minOccurs="0" />
+			<xs:element name="qualificationDetailsAtValidation" type="Details" minOccurs="0" />
+			<xs:element name="enactedMRA" type="xs:boolean" minOccurs="0" />
+			<xs:element name="revocation" type="Revocation" minOccurs="0" />
+			<xs:element name="trustAnchors" type="TrustAnchors" minOccurs="0" />
+			<xs:element name="Indication" type="Indication" />
+			<xs:element name="SubIndication" type="SubIndication" minOccurs="0" />
+			<xs:element name="X509ValidationDetails" type="Details" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="Subject">
+		<xs:sequence>
+			<xs:element name="commonName" type="xs:string" minOccurs="0" />
+			<xs:element name="surname" type="xs:string" minOccurs="0" />
+			<xs:element name="givenName" type="xs:string" minOccurs="0" />
+			<xs:element name="pseudonym" type="xs:string" minOccurs="0" />
+			<xs:element name="organizationName" type="xs:string" minOccurs="0" />
+			<xs:element name="organizationUnit" type="xs:string" minOccurs="0" />
+			<xs:element name="email" type="xs:string" minOccurs="0" />
+			<xs:element name="locality" type="xs:string" minOccurs="0" />
+			<xs:element name="state" type="xs:string" minOccurs="0" />
+			<xs:element name="country" type="xs:string" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="KeyUsages">
+		<xs:sequence>
+			<xs:element name="keyUsage" type="KeyUsage" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="ExtendedKeyUsages">
+		<xs:sequence>
+			<xs:element name="extendedKeyUsage" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="KeyUsage" final="restriction">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="digitalSignature" />
+			<xs:enumeration value="nonRepudiation" />
+			<xs:enumeration value="keyEncipherment" />
+			<xs:enumeration value="dataEncipherment" />
+			<xs:enumeration value="keyAgreement" />
+			<xs:enumeration value="keyCertSign" />
+			<xs:enumeration value="crlSign" />
+			<xs:enumeration value="encipherOnly" />
+			<xs:enumeration value="decipherOnly" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="Revocation">
+		<xs:sequence>
+			<xs:element name="thisUpdate" type="xs:dateTime" minOccurs="0" />
+			<xs:element name="revocationDate" type="xs:dateTime" minOccurs="0" />
+			<xs:element name="revocationReason" type="RevocationReason" minOccurs="0" />		
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="RevocationReason" final="restriction">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="unspecified" />
+			<xs:enumeration value="keyCompromise" />
+			<xs:enumeration value="cACompromise" />
+			<xs:enumeration value="affiliationChanged" />
+			<xs:enumeration value="superseded" />
+			<xs:enumeration value="cessationOfOperation" />
+			<xs:enumeration value="certificateHold" />
+			<xs:enumeration value="unknown" />
+			<xs:enumeration value="removeFromCRL" />
+			<xs:enumeration value="privilegeWithdrawn" />
+			<xs:enumeration value="aACompromise" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:complexType name="TrustAnchors">
+		<xs:sequence>
+			<xs:element name="trustAnchor" type="TrustAnchor" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TrustAnchor">
+		<xs:sequence>
+			<xs:element name="countryCode" type="xs:string" />
+			<xs:element name="tslType" type="xs:string" minOccurs="0" />
+			<xs:element name="trustServiceProvider" type="xs:string" />
+			<xs:element name="trustServiceProviderRegistrationId" type="xs:string" />
+			<xs:element name="trustServiceName" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="CertificateQualification" final="restriction">
+		<xs:restriction base="xs:string">
+		
+			<xs:enumeration value="QC for eSig with QSCD" />
+			<xs:enumeration value="QC for eSeal with QSCD" />
+			<xs:enumeration value="QC for unknown type with QSCD" />
+			<!-- non sense <xs:enumeration value="QC Cert for WSA with QSCD" /> -->
+			
+			<xs:enumeration value="QC for eSig" />
+			<xs:enumeration value="QC for eSeal" />
+			<xs:enumeration value="QC for WSA" />
+			<xs:enumeration value="QC for unknown type" />
+
+			<xs:enumeration value="Cert for eSig" />
+			<xs:enumeration value="Cert for eSeal" />
+			<xs:enumeration value="Cert for WSA" />
+			<xs:enumeration value="Cert for unknown type" />
+			
+			<xs:enumeration value="N/A" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="Indication" final="restriction">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PASSED" />
+			<xs:enumeration value="INDETERMINATE" />
+			<xs:enumeration value="FAILED" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="SubIndication" final="restriction">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NO_SIGNING_CERTIFICATE_FOUND" />
+			<xs:enumeration value="FORMAT_FAILURE" />
+			<xs:enumeration value="SIGNATURE_POLICY_NOT_AVAILABLE" />
+			<xs:enumeration value="POLICY_PROCESSING_ERROR" />
+			<xs:enumeration value="OUT_OF_BOUNDS_NO_POE" />
+			<xs:enumeration value="NO_CERTIFICATE_CHAIN_FOUND" />
+			<xs:enumeration value="TRY_LATER" />
+			<xs:enumeration value="REVOKED_NO_POE" />
+			<xs:enumeration value="REVOKED_CA_NO_POE" />
+			<xs:enumeration value="CHAIN_CONSTRAINTS_FAILURE" />
+			<xs:enumeration value="CRYPTO_CONSTRAINTS_FAILURE" />
+			<xs:enumeration value="CRYPTO_CONSTRAINTS_FAILURE_NO_POE" />
+			<xs:enumeration value="SIGNED_DATA_NOT_FOUND" />
+			<xs:enumeration value="HASH_FAILURE" />
+			<xs:enumeration value="SIG_CRYPTO_FAILURE" />
+			<xs:enumeration value="SIG_CONSTRAINTS_FAILURE" />
+			<xs:enumeration value="NOT_YET_VALID" />
+			<xs:enumeration value="TIMESTAMP_ORDER_FAILURE" />
+			<xs:enumeration value="REVOKED" />
+			<xs:enumeration value="EXPIRED" />
+			<xs:enumeration value="NO_POE" />
+			<xs:enumeration value="CERTIFICATE_CHAIN_GENERAL_FAILURE" />
+			<xs:enumeration value="UNEXPECTED_ERROR" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:complexType name="Details">
+		<xs:sequence>
+			<xs:element name="Error" type="Message" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="Warning" type="Message" minOccurs="0" maxOccurs="unbounded" />
+			<xs:element name="Info" type="Message" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="Message">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="Key" type="xs:string" />
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+</xs:schema>

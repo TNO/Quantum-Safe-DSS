@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>eu.europa.ec.joinup.sd-dss</groupId>
+		<artifactId>sd-dss</artifactId>
+		<version>5.12.RC1</version>
+	</parent>
+
+	<artifactId>dss-utils</artifactId>
+	<name>DSS Utils API</name>
+	<description>DSS Utils API : utility methods for String, Collection,...</description>
+
+	<properties>
+		<module-name>jpms_dss_utils</module-name>
+	</properties>
+
+	<dependencies>
+		<dependency>
+		    <groupId>org.junit.platform</groupId>
+		    <artifactId>junit-platform-launcher</artifactId>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.junit.jupiter</groupId>
+		    <artifactId>junit-jupiter-engine</artifactId>
+		    <scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>quick-init</id>
+			<properties>
+				<maven.test.skip>false</maven.test.skip>
+				<maven.test.skip.exec>true</maven.test.skip.exec>
+			</properties>
+		</profile>
+	</profiles>
+
+</project>
