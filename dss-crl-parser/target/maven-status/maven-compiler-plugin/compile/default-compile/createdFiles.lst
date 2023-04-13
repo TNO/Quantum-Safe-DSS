@@ -1,0 +1,6 @@
+eu\europa\esig\dss\crl\AbstractCRLUtils.class
+eu\europa\esig\dss\crl\CRLBinary.class
+eu\europa\esig\dss\crl\CRLUtils.class
+eu\europa\esig\dss\crl\CRLValidity.class
+eu\europa\esig\dss\crl\ICRLUtils.class
+eu\europa\esig\dss\crl\PemToDerConverter.class

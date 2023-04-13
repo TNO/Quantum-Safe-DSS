@@ -1,0 +1,10 @@
+eu\europa\esig\asic\manifest\jaxb\ExtensionsListType.class
+eu\europa\esig\asic\manifest\jaxb\XAdESSignaturesType.class
+eu\europa\esig\asic\manifest\jaxb\ExtensionType.class
+eu\europa\esig\asic\manifest\jaxb\ObjectFactory.class
+eu\europa\esig\asic\manifest\ASiCManifestUtils.class
+eu\europa\esig\asic\manifest\jaxb\package-info.class
+eu\europa\esig\asic\manifest\jaxb\ASiCManifestType.class
+eu\europa\esig\asic\manifest\jaxb\AnyType.class
+eu\europa\esig\asic\manifest\jaxb\DataObjectReferenceType.class
+eu\europa\esig\asic\manifest\jaxb\SigReferenceType.class

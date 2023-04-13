@@ -58,7 +58,7 @@ public abstract class AbstractCRLUtils {
 	public CRLBinary buildCRLBinary(byte[] binaries) {
 		return new CRLBinary(getDERContent(binaries));
 	}
-	
+
 	private byte[] getDERContent(byte[] binaries) {
 		if (binaries != null && binaries.length > 0) {
 			byte first = binaries[0];

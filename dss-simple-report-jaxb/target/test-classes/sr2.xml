@@ -1,0 +1,47 @@
+<SimpleReport ValidationTime="2016-05-04T15:15:00Z" xmlns="http://dss.esig.europa.eu/validation/simple-report">
+    <ValidationPolicy>
+        <PolicyName>QES AdESQC TL based</PolicyName>
+        <PolicyDescription>Validate electronic signatures and indicates whether they are Advanced electronic Signatures (AdES), AdES supported by a Qualified Certificate (AdES/QC) or a
+		Qualified electronic Signature (QES). All certificates and their related chains supporting the signatures are validated against the EU Member State Trusted Lists (this includes
+		signer's certificate and certificates used to validate certificate validity status services - CRLs, OCSP, and time-stamps).
+	</PolicyDescription>
+    </ValidationPolicy>
+    <DocumentName>Signature-X-IT_ETSI-5.xml</DocumentName>
+    <ValidSignaturesCount>1</ValidSignaturesCount>
+    <SignaturesCount>1</SignaturesCount>
+    <Signature SignatureFormat="XAdES-BASELINE-T" Id="xmldsig-0a9a9d45-c8f6-44c5-9e74-462fa3441a26">
+        <CertificateChain>
+            <Certificate Id="C-725A763273585DD8DFA026EB2066F5667FFF6ED45F72052B3F9C2D3565DF6B5E">
+                <QualifiedName>L R</QualifiedName>
+            </Certificate>
+            <Certificate Id="C-B689BFCFDAEE078405383971E848C3D077457CD0EC6B685550F10ED250F8FDC5" trusted="true">
+                <QualifiedName>InfoCert Firma Qualificata 2</QualifiedName>
+                <TrustAnchors>
+                    <TrustAnchor countryCode="FR">
+                        <TSLType>http://uri.etsi.org/TrstSvc/TrustedList/TSLType/EUgeneric</TSLType>
+                        <TrustServiceProvider>InfoCert S.p.A.</TrustServiceProvider>
+                        <TrustServiceProviderRegistrationId>VATIT-07945211006</TrustServiceProviderRegistrationId>
+                        <TrustServiceName>InfoCert Firma Qualificata 2</TrustServiceName>
+                    </TrustAnchor>
+                </TrustAnchors>
+            </Certificate>
+        </CertificateChain>
+        <Indication>TOTAL_PASSED</Indication>
+        <AdESValidationDetails>
+            <Warning>The structure of the signature is not valid!</Warning>
+            <Warning>The authority info access is not present!</Warning>
+            <Warning>The revocation info access is not present!</Warning>
+            <Warning>The revocation acceptance check is not conclusive!</Warning>
+            <Warning>The signers certificate does not have an expected extended key-usage!</Warning>
+            <Warning>The revocation data is not consistent!</Warning>
+        </AdESValidationDetails>
+        <QualificationDetails>
+            <Error>Unable to build a certificate chain until a trusted list!</Error>
+        </QualificationDetails>
+        <SigningTime>2014-10-14T14:49:49Z</SigningTime>
+        <BestSignatureTime>2014-10-14T14:53:02Z</BestSignatureTime>
+        <SignedBy>L R</SignedBy>
+        <SignatureLevel description="Not applicable">N/A</SignatureLevel>
+        <SignatureScope Id="D-85DD8DFA026EB2066F5667FFF6ED45F72052B725A76327353F9C2D3565DF6B5E" name="Full XML File" scope="FULL">The full XML file with transformations.</SignatureScope>
+    </Signature>
+</SimpleReport>

@@ -1,0 +1,5 @@
+eu\europa\esig\dss\ws\signature\rest\client\RestExternalCMSService.class
+eu\europa\esig\dss\ws\signature\rest\client\RestPAdESWithExternalCMSService.class
+eu\europa\esig\dss\ws\signature\rest\client\RestTrustedListSignatureService.class
+eu\europa\esig\dss\ws\signature\rest\client\RestMultipleDocumentSignatureService.class
+eu\europa\esig\dss\ws\signature\rest\client\RestDocumentSignatureService.class
