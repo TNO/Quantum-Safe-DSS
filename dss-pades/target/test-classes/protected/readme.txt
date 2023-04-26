@@ -1,1 +1,0 @@
-All documents are protected with a space password ' '.

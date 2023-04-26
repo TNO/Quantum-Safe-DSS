@@ -43,4 +43,15 @@ public class SignatureValueTest {
 		assertEquals("SignatureValue [algorithm=RSA_SSA_PSS_SHA224_MGF1, value=AQID]", sv.toString());
 	}
 
+	@Test
+	public void testToStringPQ(){
+		SignatureValue sv = new SignatureValue();
+		LOG.info("{}", sv);
+		assertEquals("SignatureValue [algorithm=null, value=null]", sv.toString());
+		sv.setAlgorithm(SignatureAlgorithm.DILITHIUM3);
+		sv.setValue(new byte[] { 1, 2, 3});
+		LOG.info("{}", sv);
+		assertEquals("SignatureValue [algorithm=DILITHIUM3, value=AQID]", sv.toString());
+	}
+
 }

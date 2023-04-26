@@ -432,7 +432,7 @@ public final class DSSASN1Utils {
 	}
 
 	/**
-	 * Gets the ASN.1 algorithm identifier structure corresponding to the algorithm 
+	 * Gets the ASN.1 algorithm identifier structure corresponding to the algorithm
 	 * found in the provided Timestamp Hash Index Table, if such algorithm is present
 	 *
 	 * @param atsHashIndexValue

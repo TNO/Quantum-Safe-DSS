@@ -238,6 +238,9 @@ public enum EncryptionAlgorithm implements OidBasedEnum { //TODO add other schem
 		if (this.isEdDSAFamily() && encryptionAlgorithm.isEdDSAFamily()) {
 			return true;
 		}
+		if (this.isDilithiumFamily() && encryptionAlgorithm.isDilithiumFamily()){
+			return true;
+		}
 		return false;
 	}
 
@@ -247,6 +250,10 @@ public enum EncryptionAlgorithm implements OidBasedEnum { //TODO add other schem
 
 	private boolean isEdDSAFamily() {
 		return X25519 == this || X448 == this || EDDSA == this;
+	}
+
+	private boolean isDilithiumFamily(){
+		return DILITHIUM2 == this || DILITHIUM2_AES == this || DILITHIUM3 == this || DILITHIUM3_AES == this || DILITHIUM5 == this || DILITHIUM5_AES == this;
 	}
 
 }
