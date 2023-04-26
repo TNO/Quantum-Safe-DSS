@@ -253,7 +253,13 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 	DILITHIUM5(EncryptionAlgorithm.DILITHIUM5, null),
 
 	/**Dilithium 5 with AES */
-	DILITHIUM5_AES(EncryptionAlgorithm.DILITHIUM5_AES, null);
+	DILITHIUM5_AES(EncryptionAlgorithm.DILITHIUM5_AES, null),
+
+	/** Falcon 512 */
+	FALCON_512(EncryptionAlgorithm.FALCON_512, null),
+
+	/** Falcon 1024 */
+	FALCON_1024(EncryptionAlgorithm.FALCON_1024, null);
 
 	/** The encryption algorithm */
 	private final EncryptionAlgorithm encryptionAlgo;
@@ -465,7 +471,7 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 		javaAlgorithms.put("SHA3-512withRSA", RSA_SHA3_512);
 
 		javaAlgorithms.put("NONEwithRSAandMGF1", RSA_SSA_PSS_RAW_MGF1);
-		
+
 		javaAlgorithms.put("SHA1withRSAandMGF1", RSA_SSA_PSS_SHA1_MGF1);
 		javaAlgorithms.put("SHA224withRSAandMGF1", RSA_SSA_PSS_SHA224_MGF1);
 		javaAlgorithms.put("SHA256withRSAandMGF1", RSA_SSA_PSS_SHA256_MGF1);
@@ -483,7 +489,7 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 		javaAlgorithms.put("MD2withRSA", RSA_MD2);
 
 		javaAlgorithms.put("NONEwithECDSA", ECDSA_RAW);
-		
+
 		javaAlgorithms.put("SHA1withECDSA", ECDSA_SHA1);
 		javaAlgorithms.put("SHA224withECDSA", ECDSA_SHA224);
 		javaAlgorithms.put("SHA256withECDSA", ECDSA_SHA256);
@@ -543,6 +549,9 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 		javaAlgorithms.put("Dilithium3withAES", DILITHIUM3_AES);
 		javaAlgorithms.put("Dilithium5", DILITHIUM5);
 		javaAlgorithms.put("Dilithium5withAES", DILITHIUM5_AES);
+
+		javaAlgorithms.put("Falcon512", FALCON_512);
+		javaAlgorithms.put("Falcon1024", FALCON_1024);
 
 		return javaAlgorithms;
 	}

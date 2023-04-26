@@ -69,7 +69,13 @@ public enum EncryptionAlgorithm implements OidBasedEnum { //TODO add other schem
 	DILITHIUM5("DILITHIUM5", "1.3.6.1.4.1.2.267.7.8.7", ""),
 
 	/** DILITHIUM 5 - AES */
-	DILITHIUM5_AES("DILITHIUM5_AES", "1.3.6.1.4.1.2.267.11.8.7", "");
+	DILITHIUM5_AES("DILITHIUM5_AES", "1.3.6.1.4.1.2.267.11.8.7", ""),
+
+	/** FALCON 512 */
+	FALCON_512("FALCON_512", "1.3.9999.3.1", ""),
+
+	/** FALCON 1024 */
+	FALCON_1024("FALCON_1024", "1.3.9999.3.4", "");
 
 	/** The name of the algorithm */
 	private String name;
@@ -189,7 +195,7 @@ public enum EncryptionAlgorithm implements OidBasedEnum { //TODO add other schem
 
 	/**
 	 * Get the algorithm name
-	 * 
+	 *
 	 * @return the name
 	 */
 	public String getName() {
@@ -198,7 +204,7 @@ public enum EncryptionAlgorithm implements OidBasedEnum { //TODO add other schem
 
 	/**
 	 * Get the ASN1 algorithm OID
-	 * 
+	 *
 	 * @return the OID
 	 */
 	@Override
@@ -208,7 +214,7 @@ public enum EncryptionAlgorithm implements OidBasedEnum { //TODO add other schem
 
 	/**
 	 * Get the algorithm padding
-	 * 
+	 *
 	 * @return the padding
 	 */
 	public String getPadding() {

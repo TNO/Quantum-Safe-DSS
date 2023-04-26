@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DiagnosticData xmlns="http://dss.esig.europa.eu/validation/diagnostic">
+    <ValidationDate>2018-12-07T12:58:28Z</ValidationDate>
+    <UsedCertificates>
+        <Certificate Id="C-D63E106FC51D93A2A04C36C66BC951B1C774AFC9A50CEBFC43836AE63C60B02A">
+            <SubjectDistinguishedName Format="CANONICAL">c=it,ou=cert for test,o=tsp-5.3 name,cn=sdi-5.3.3</SubjectDistinguishedName>
+            <SubjectDistinguishedName Format="RFC2253">C=IT,OU=CERT FOR TEST,O=TSP-5.3 Name,CN=SDI-5.3.3</SubjectDistinguishedName>
+            <IssuerDistinguishedName Format="CANONICAL">c=it,ou=cert for test,o=tsp-5.3 name,cn=sdi-5.3.3</IssuerDistinguishedName>
+            <IssuerDistinguishedName Format="RFC2253">C=IT,OU=CERT FOR TEST,O=TSP-5.3 Name,CN=SDI-5.3.3</IssuerDistinguishedName>
+            <SerialNumber>26</SerialNumber>
+            <CommonName>SDI-5.3.3</CommonName>
+            <CountryName>IT</CountryName>
+            <OrganizationName>TSP-5.3 Name</OrganizationName>
+            <OrganizationalUnit>CERT FOR TEST</OrganizationalUnit>
+            <Sources>
+            	<Source>UNKNOWN</Source>
+            	<Source>TRUSTED_LIST</Source>
+            </Sources>
+            <NotAfter>2019-12-02T00:01:14Z</NotAfter>
+            <NotBefore>2017-12-02T00:01:14Z</NotBefore>
+            <PublicKeySize>2048</PublicKeySize>
+            <PublicKeyEncryptionAlgo>RSA</PublicKeyEncryptionAlgo>
+            <EntityKey>PK-D63E106FC51D93A2A04C36C66BC951B1C774AFC9A50CEBFC43836AE63C60B02A</EntityKey>
+            <BasicSignature>
+                <EncryptionAlgoUsedToSignThisToken>RSA</EncryptionAlgoUsedToSignThisToken>
+                <KeyLengthUsedToSignThisToken>2048</KeyLengthUsedToSignThisToken>
+                <DigestAlgoUsedToSignThisToken>SHA256</DigestAlgoUsedToSignThisToken>
+                <SignatureIntact>true</SignatureIntact>
+                <SignatureValid>true</SignatureValid>
+            </BasicSignature>
+            <CertificateChain/>
+            <Trusted>true</Trusted>
+            <SelfSigned>true</SelfSigned>
+            <CertificateExtensions>
+                <BasicConstraints OID="2.5.29.19" critical="true" CA="true" />
+                <KeyUsages OID="2.5.29.15" critical="true">
+                    <keyUsageBit>keyCertSign</keyUsageBit>
+                    <keyUsageBit>crlSign</keyUsageBit>
+                </KeyUsages>
+            </CertificateExtensions>
+            <TrustedServiceProviders>
+                <TrustedServiceProvider TL="TL-DDB04A2C92BCE7C39A7611EA814F5CC1C6425BD6A5D979A57CBF58B14436FD5D" LOTL="LOTL-5593FFFD1C67322CB1EDD3E26916E1487F630F7FA22644ADA5B90DA7F1C9E05E">
+                    <TSPNames><TSPName lang="en">TSP-5.3 Name</TSPName></TSPNames>
+                    <TSPRegistrationIdentifiers><TSPRegistrationIdentifier>VATDE-200438262</TSPRegistrationIdentifier></TSPRegistrationIdentifiers>
+                    <TrustedServices>
+                        <TrustedService ServiceDigitalIdentifier="C-D63E106FC51D93A2A04C36C66BC951B1C774AFC9A50CEBFC43836AE63C60B02A">
+                            <ServiceNames><ServiceName lang="en">TS-5.3.3 Name - A</ServiceName></ServiceNames>
+                            <ServiceType>http://uri.etsi.org/TrstSvc/Svctype/CA/QC</ServiceType>
+                            <Status>http://uri.etsi.org/TrstSvc/TrustedList/Svcstatus/granted</Status>
+                            <StartDate>2016-06-30T22:00:00Z</StartDate>
+                            <AdditionalServiceInfoUris>
+                                <AdditionalServiceInfoUri>http://uri.etsi.org/TrstSvc/TrustedList/SvcInfoExt/ForeSignatures</AdditionalServiceInfoUri>
+                            </AdditionalServiceInfoUris>
+                        </TrustedService>
+                        <TrustedService ServiceDigitalIdentifier="C-D63E106FC51D93A2A04C36C66BC951B1C774AFC9A50CEBFC43836AE63C60B02A">
+                            <ServiceNames><ServiceName lang="en">TS-5.3.3 Name - B</ServiceName></ServiceNames>
+                            <ServiceType>http://uri.etsi.org/TrstSvc/Svctype/CA/QC</ServiceType>
+                            <Status>http://uri.etsi.org/TrstSvc/TrustedList/Svcstatus/granted</Status>
+                            <StartDate>2016-06-30T22:00:00Z</StartDate>
+                            <AdditionalServiceInfoUris>
+                                <AdditionalServiceInfoUri>http://uri.etsi.org/TrstSvc/TrustedList/SvcInfoExt/ForeSeals</AdditionalServiceInfoUri>
+                            </AdditionalServiceInfoUris>
+                        </TrustedService>
+                    </TrustedServices>
+                </TrustedServiceProvider>
+            </TrustedServiceProviders>
+            <Revocations/>
+            <DigestAlgoAndValue>
+            	<DigestMethod>SHA1</DigestMethod>
+            	<DigestValue>8d0e2202302048715c05ef6450dee967f9db74d9</DigestValue>
+            </DigestAlgoAndValue>
+        </Certificate>
+        <Certificate Id="C-E4A94773CF7B28C2BDF25015BE6716E501E73AB82BF0A9788D0DF8AD14D6876D">
+            <SubjectDistinguishedName Format="CANONICAL">c=it,ou=cert for test,o=tl5 organization,cn=cert-test-5.3.3</SubjectDistinguishedName>
+            <SubjectDistinguishedName Format="RFC2253">C=IT,OU=CERT FOR TEST,O=TL5 Organization,CN=CERT-TEST-5.3.3</SubjectDistinguishedName>
+            <IssuerDistinguishedName Format="CANONICAL">c=it,ou=cert for test,o=tsp-5.3 name,cn=sdi-5.3.3</IssuerDistinguishedName>
+            <IssuerDistinguishedName Format="RFC2253">C=IT,OU=CERT FOR TEST,O=TSP-5.3 Name,CN=SDI-5.3.3</IssuerDistinguishedName>
+            <SerialNumber>27</SerialNumber>
+            <CommonName>CERT-TEST-5.3.3</CommonName>
+            <CountryName>IT</CountryName>
+            <OrganizationName>TL5 Organization</OrganizationName>
+            <OrganizationalUnit>CERT FOR TEST</OrganizationalUnit>
+            <Sources>
+            	<Source>UNKNOWN</Source>
+            </Sources>
+            <NotAfter>2019-12-02T00:01:15Z</NotAfter>
+            <NotBefore>2017-12-02T00:01:15Z</NotBefore>
+            <PublicKeySize>2048</PublicKeySize>
+            <PublicKeyEncryptionAlgo>RSA</PublicKeyEncryptionAlgo>
+            <EntityKey>PK-E4A94773CF7B28C2BDF25015BE6716E501E73AB82BF0A9788D0DF8AD14D6876D</EntityKey>
+            <BasicSignature>
+                <EncryptionAlgoUsedToSignThisToken>RSA</EncryptionAlgoUsedToSignThisToken>
+                <KeyLengthUsedToSignThisToken>2048</KeyLengthUsedToSignThisToken>
+                <DigestAlgoUsedToSignThisToken>SHA256</DigestAlgoUsedToSignThisToken>
+                <SignatureIntact>true</SignatureIntact>
+                <SignatureValid>true</SignatureValid>
+            </BasicSignature>
+            <SigningCertificate Certificate="C-D63E106FC51D93A2A04C36C66BC951B1C774AFC9A50CEBFC43836AE63C60B02A"/>
+            <CertificateChain>
+                <ChainItem Certificate="C-D63E106FC51D93A2A04C36C66BC951B1C774AFC9A50CEBFC43836AE63C60B02A"/>
+            </CertificateChain>
+            <Trusted>false</Trusted>
+            <SelfSigned>false</SelfSigned>
+            <CertificateExtensions>
+                <KeyUsages OID="2.5.29.15" critical="true">
+                    <keyUsageBit>nonRepudiation</keyUsageBit>
+                </KeyUsages>
+                <AuthorityInformationAccess OID="1.3.6.1.5.5.7.1.1" critical="false">
+                    <caIssuersUrl>http://46.101.246.130:8080/esig-validation-tests/crt/SDI-5.3.3.crt</caIssuersUrl>
+                </AuthorityInformationAccess>
+                <CRLDistributionPoints OID="2.5.29.31" critical="false">
+                    <crlUrl>http://46.101.246.130:8080/esig-validation-tests/crl/SDI-5.3.3.crl</crlUrl>
+                </CRLDistributionPoints>
+                <QcStatements OID="1.3.6.1.5.5.7.1.3" critical="false">
+                    <QcCompliance present="true"/>
+                    <QcSSCD present="true"/>
+                    <QcTypes>
+                        <QcType Description="qc-type-esign">0.4.0.1862.1.6.1</QcType>
+                    </QcTypes>
+                </QcStatements>
+            </CertificateExtensions>
+            <TrustedServiceProviders>
+                <TrustedServiceProvider TL="TL-DDB04A2C92BCE7C39A7611EA814F5CC1C6425BD6A5D979A57CBF58B14436FD5D" LOTL="LOTL-5593FFFD1C67322CB1EDD3E26916E1487F630F7FA22644ADA5B90DA7F1C9E05E">
+                    <TSPNames><TSPName lang="en">TSP-5.3 Name</TSPName></TSPNames>
+                    <TSPRegistrationIdentifiers><TSPRegistrationIdentifier>VATDE-200438262</TSPRegistrationIdentifier></TSPRegistrationIdentifiers>
+                    <TrustedServices>
+                        <TrustedService ServiceDigitalIdentifier="C-D63E106FC51D93A2A04C36C66BC951B1C774AFC9A50CEBFC43836AE63C60B02A">
+                            <ServiceNames><ServiceName lang="en">TS-5.3.3 Name - A</ServiceName></ServiceNames>
+                            <ServiceType>http://uri.etsi.org/TrstSvc/Svctype/CA/QC</ServiceType>
+                            <Status>http://uri.etsi.org/TrstSvc/TrustedList/Svcstatus/granted</Status>
+                            <StartDate>2016-06-30T22:00:00Z</StartDate>
+                            <CapturedQualifiers/>
+                            <AdditionalServiceInfoUris>
+                                <AdditionalServiceInfoUri>http://uri.etsi.org/TrstSvc/TrustedList/SvcInfoExt/ForeSignatures</AdditionalServiceInfoUri>
+                            </AdditionalServiceInfoUris>
+                        </TrustedService>
+                        <TrustedService ServiceDigitalIdentifier="C-D63E106FC51D93A2A04C36C66BC951B1C774AFC9A50CEBFC43836AE63C60B02A">
+                            <ServiceNames><ServiceName lang="en">TS-5.3.3 Name - B</ServiceName></ServiceNames>
+                            <ServiceType>http://uri.etsi.org/TrstSvc/Svctype/CA/QC</ServiceType>
+                            <Status>http://uri.etsi.org/TrstSvc/TrustedList/Svcstatus/granted</Status>
+                            <StartDate>2016-06-30T22:00:00Z</StartDate>
+                            <CapturedQualifiers>
+                                <Qualifier>http://uri.etsi.org/TrstSvc/TrustedList/SvcInfoExt/QCForESeal</Qualifier>
+                            </CapturedQualifiers>
+                            <AdditionalServiceInfoUris>
+                                <AdditionalServiceInfoUri>http://uri.etsi.org/TrstSvc/TrustedList/SvcInfoExt/ForeSeals</AdditionalServiceInfoUri>
+                            </AdditionalServiceInfoUris>
+                        </TrustedService>
+                    </TrustedServices>
+                </TrustedServiceProvider>
+            </TrustedServiceProviders>
+            <Revocations>
+                <CertificateRevocation Revocation="R-e4a94773cf7b28c2bdf25015be6716e501e73ab82bf0a9788d0df8ad14d6876d1113ca4e946c23557f42043c15ccb567d952fa13b5dea850d5fcef23cacbfca9">
+                    <Status>GOOD</Status>
+                </CertificateRevocation>
+            </Revocations>
+            <DigestAlgoAndValue>
+            	<DigestMethod>SHA1</DigestMethod>
+            	<DigestValue>a34efe0ceed8a54a58629e39ebe0e150c6d131b5</DigestValue>
+            </DigestAlgoAndValue>
+        </Certificate>
+    </UsedCertificates>
+    <UsedRevocations>
+        <Revocation Id="R-e4a94773cf7b28c2bdf25015be6716e501e73ab82bf0a9788d0df8ad14d6876d1113ca4e946c23557f42043c15ccb567d952fa13b5dea850d5fcef23cacbfca9">
+            <Origin>EXTERNAL</Origin>
+            <Type>CRL</Type>
+            <SourceAddress>http://46.101.246.130:8080/esig-validation-tests/crl/SDI-5.3.3.crl</SourceAddress>
+            <ProductionDate>2018-12-07T12:54:39Z</ProductionDate>
+            <ThisUpdate>2018-12-07T12:54:39Z</ThisUpdate>
+            <NextUpdate>2018-12-08T12:54:39Z</NextUpdate>
+            <BasicSignature>
+                <EncryptionAlgoUsedToSignThisToken>RSA</EncryptionAlgoUsedToSignThisToken>
+                <KeyLengthUsedToSignThisToken>2048</KeyLengthUsedToSignThisToken>
+                <DigestAlgoUsedToSignThisToken>SHA1</DigestAlgoUsedToSignThisToken>
+                <SignatureIntact>true</SignatureIntact>
+                <SignatureValid>true</SignatureValid>
+            </BasicSignature>
+            <SigningCertificate Certificate="C-D63E106FC51D93A2A04C36C66BC951B1C774AFC9A50CEBFC43836AE63C60B02A"/>
+            <CertificateChain>
+                <ChainItem Certificate="C-D63E106FC51D93A2A04C36C66BC951B1C774AFC9A50CEBFC43836AE63C60B02A"/>
+            </CertificateChain>
+            <DigestAlgoAndValue>
+            	<DigestMethod>SHA1</DigestMethod>
+            	<DigestValue>86240121c6afe7ebd27e11918bfe1e06e55dec5b</DigestValue>
+            </DigestAlgoAndValue>
+        </Revocation>
+    </UsedRevocations>
+    <TrustedLists>
+        <TrustedList Id="TL-DDB04A2C92BCE7C39A7611EA814F5CC1C6425BD6A5D979A57CBF58B14436FD5D">
+            <CountryCode>IT</CountryCode>
+            <Url>http://46.101.246.130:8080/esig-validation-tests/tl/TL-5.xml</Url>
+            <SequenceNumber>1</SequenceNumber>
+            <Version>5</Version>
+            <LastLoading>2018-12-07T12:12:31Z</LastLoading>
+            <IssueDate>2018-12-01T00:00:00Z</IssueDate>
+            <NextUpdate>2019-01-02T00:00:00Z</NextUpdate>
+            <WellSigned>true</WellSigned>
+        </TrustedList>
+    	<TrustedList Id="LOTL-5593FFFD1C67322CB1EDD3E26916E1487F630F7FA22644ADA5B90DA7F1C9E05E" LOTL="true">
+	        <CountryCode>EU</CountryCode>
+	        <Url>http://46.101.246.130:8080/esig-validation-tests/tl/LOTL-3.xml</Url>
+	        <SequenceNumber>1</SequenceNumber>
+	        <Version>5</Version>
+	        <LastLoading>2018-12-07T12:12:31Z</LastLoading>
+	        <IssueDate>2018-12-01T00:00:00Z</IssueDate>
+	        <NextUpdate>2019-01-02T00:00:00Z</NextUpdate>
+	        <WellSigned>true</WellSigned>
+	    </TrustedList>
+    </TrustedLists>
+</DiagnosticData>
