@@ -20,7 +20,7 @@
  */
 package eu.europa.esig.dss.model.identifier;
 
-import eu.europa.esig.dss.model.x509.CertificateToken;
+import eu.europa.esig.dss.model.x509.CertificateToken; // TODO: change
 
 /**
  * This class is used to obtain a unique id for CertificateToken

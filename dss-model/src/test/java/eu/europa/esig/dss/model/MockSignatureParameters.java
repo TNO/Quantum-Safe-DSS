@@ -20,7 +20,7 @@
  */
 package eu.europa.esig.dss.model;
 
-import eu.europa.esig.dss.model.x509.CertificateToken;
+import eu.europa.esig.dss.model.x509.CertificateToken; // TODO: change
 
 @SuppressWarnings("serial")
 public class MockSignatureParameters extends AbstractSerializableSignatureParameters<MockTimestampParameters> {

@@ -34,7 +34,7 @@ import org.junit.jupiter.api.Test;
 
 import eu.europa.esig.dss.enumerations.DigestAlgorithm;
 import eu.europa.esig.dss.model.DSSException;
-import eu.europa.esig.dss.model.x509.CertificateToken;
+import eu.europa.esig.dss.model.x509.CertificateToken; // TODO: change
 
 public class CertificateTokenIdentifierTest {
 
