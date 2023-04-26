@@ -395,7 +395,7 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 		this.altEncryptionAlgorithm = altEncryptionAlgorithm;
 		if (this.digestAlgorithm != null) {
 			altSignatureAlgorithm = SignatureAlgorithm.getAlgorithm(this.altEncryptionAlgorithm, this.digestAlgorithm,
-					this.maskGenerationFunction); // TODO: what about dilithium and digest algorithm?
+					this.maskGenerationFunction);
 		}
 	}
 

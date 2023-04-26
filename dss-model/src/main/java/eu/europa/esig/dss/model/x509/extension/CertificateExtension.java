@@ -22,7 +22,7 @@ package eu.europa.esig.dss.model.x509.extension;
 
 import eu.europa.esig.dss.enumerations.CertificateExtensionEnum;
 import eu.europa.esig.dss.enumerations.OidDescription;
-import eu.europa.esig.dss.model.x509.CertificateToken; // TODO: change
+import eu.europa.esig.dss.model.x509.CertificateToken;
 
 /**
  * Abstract implementation of a certificate extension
