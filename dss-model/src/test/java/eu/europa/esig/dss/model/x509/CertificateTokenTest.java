@@ -158,8 +158,8 @@ public class CertificateTokenTest {
 		try (FileInputStream fis = new FileInputStream(certFile)) {
 			CertificateToken certificate = getCertificate(fis);
 			assertNotNull(certificate);
-			// assertEquals(SignatureAlgorithm.RSA_SSA_PSS_SHA512_MGF1, certificate.getSignatureAlgorithm());
-			assertEquals(SignatureAlgorithm.DILITHIUM3, certificate.getSignatureAlgorithm());
+			assertEquals(SignatureAlgorithm.RSA_SSA_PSS_SHA512_MGF1, certificate.getSignatureAlgorithm());
+			//assertEquals(SignatureAlgorithm.DILITHIUM3, certificate.getSignatureAlgorithm());
 		}
 	}
 

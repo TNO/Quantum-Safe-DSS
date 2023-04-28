@@ -1,0 +1,60 @@
+-html5
+@options
+@packages
+-classpath
+'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-model/target/dss-model-5.12.RC1.jar;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-enumerations/target/dss-enumerations-5.12.RC1.jar;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-crl-parser/libs/bcprov-jdk18on-173b20.jar;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-crl-parser/libs/bcpkix-jdk18on-173b20.jar;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-crl-parser/libs/bcutil-jdk18on-173b20.jar;C:/Users/amadoria/.m2/repository/org/slf4j/slf4j-api/2.0.6/slf4j-api-2.0.6.jar'
+-encoding
+'UTF-8'
+-protected
+--release
+8
+-sourcepath
+'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-crl-parser/src/main/java;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-crl-parser/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-crl-parser/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'DSS CRL Parser API 5.12.RC1 API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' 'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-crl-parser/target/javadoc-bundle-options'
+-linkoffline
+'https://github.com/esig/dss/dss-model/apidocs' 'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-model/target/apidocs'
+-use
+-version
+-windowtitle
+'DSS CRL Parser API 5.12.RC1 API'
+eu.europa.esig.dss.crl
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-model\target\dss-model-5.12.RC1.jar = 1682674572768
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-enumerations\target\dss-enumerations-5.12.RC1.jar = 1682674206032
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\libs\bcprov-jdk18on-173b20.jar = 1678698393623
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\libs\bcpkix-jdk18on-173b20.jar = 1678698393571
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\libs\bcutil-jdk18on-173b20.jar = 1678698393628
+C:\Users\amadoria\.m2\repository\org\slf4j\slf4j-api\2.0.6\slf4j-api-2.0.6.jar = 1677770050986
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\src\main\java = 1678457388265
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\generated-sources\annotations = 1682674584263
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\apidocs\allclasses-index.html = 1682674596991
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\apidocs\allpackages-index.html = 1682674596998
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\apidocs\copy.svg = 1682674597170
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\apidocs\element-list = 1682674596813
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\apidocs\help-doc.html = 1682674597137
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\apidocs\index-all.html = 1682674597078
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\apidocs\index.html = 1682674597088
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\apidocs\jquery-ui.overrides.css = 1682674597233
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\apidocs\member-search-index.js = 1682674597010
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\apidocs\module-search-index.js = 1682674597000
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\apidocs\overview-tree.html = 1682674596963
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\apidocs\package-search-index.js = 1682674597003
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\apidocs\script.js = 1682674597155
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\apidocs\search-page.js = 1682674597182
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\apidocs\search.html = 1682674597084
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\apidocs\search.js = 1682674597176
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\apidocs\serialized-form.html = 1682674596878
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\apidocs\stylesheet.css = 1682674597149
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\apidocs\tag-search-index.js = 1682674597013
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\apidocs\type-search-index.js = 1682674597006

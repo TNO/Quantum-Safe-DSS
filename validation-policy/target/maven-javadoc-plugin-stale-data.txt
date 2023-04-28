@@ -1,0 +1,144 @@
+-html5
+@options
+@packages
+-classpath
+'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-utils/target/dss-utils-5.12.RC1.jar;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-policy-jaxb/target/dss-policy-jaxb-5.12.RC1.jar;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-jaxb-parsers/target/dss-jaxb-parsers-5.12.RC1.jar;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-jaxb-common/target/dss-jaxb-common-5.12.RC1.jar;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-enumerations/target/dss-enumerations-5.12.RC1.jar;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-alert/target/dss-alert-5.12.RC1.jar;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-diagnostic-jaxb/target/dss-diagnostic-jaxb-5.12.RC1.jar;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-simple-report-jaxb/target/dss-simple-report-jaxb-5.12.RC1.jar;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-simple-certificate-report-jaxb/target/dss-simple-certificate-report-jaxb-5.12.RC1.jar;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-detailed-report-jaxb/target/dss-detailed-report-jaxb-5.12.RC1.jar;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/specs-validation-report/target/specs-validation-report-5.12.RC1.jar;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/specs-xmldsig/target/specs-xmldsig-5.12.RC1.jar;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/specs-xades/target/specs-xades-5.12.RC1.jar;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/specs-trusted-list/target/specs-trusted-list-5.12.RC1.jar;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-i18n/target/dss-i18n-5.12.RC1.jar;C:/Users/amadoria/.m2/repository/org/slf4j/slf4j-api/2.0.6/slf4j-api-2.0.6.jar;C:/Users/amadoria/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3.jar;C:/Users/amadoria/.m2/repository/jakarta/activation/jakarta.activation-api/1.2.2/jakarta.activation-api-1.2.2.jar'
+-encoding
+'UTF-8'
+-protected
+--release
+8
+-sourcepath
+'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/validation-policy/src/main/java;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/validation-policy/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/validation-policy/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'validation-policy 5.12.RC1 API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' 'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/validation-policy/target/javadoc-bundle-options'
+-linkoffline
+'https://github.com/esig/dss/specs-validation-report/apidocs' 'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/specs-validation-report/target/apidocs'
+-linkoffline
+'https://github.com/esig/dss/dss-policy-jaxb/apidocs' 'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-policy-jaxb/target/apidocs'
+-linkoffline
+'https://github.com/esig/dss/dss-diagnostic-jaxb/apidocs' 'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-diagnostic-jaxb/target/apidocs'
+-linkoffline
+'https://github.com/esig/dss/dss-detailed-report-jaxb/apidocs' 'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-detailed-report-jaxb/target/apidocs'
+-linkoffline
+'https://github.com/esig/dss/dss-simple-report-jaxb/apidocs' 'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-simple-report-jaxb/target/apidocs'
+-linkoffline
+'https://github.com/esig/dss/dss-simple-certificate-report-jaxb/apidocs' 'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-simple-certificate-report-jaxb/target/apidocs'
+-linkoffline
+'https://github.com/esig/dss/dss-utils/apidocs' 'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-utils/target/apidocs'
+-linkoffline
+'https://github.com/esig/dss/dss-utils-google-guava/apidocs' 'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-utils-google-guava/target/apidocs'
+-linkoffline
+'https://github.com/esig/dss/dss-i18n/apidocs' 'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-i18n/target/apidocs'
+-use
+-version
+-windowtitle
+'validation-policy 5.12.RC1 API'
+eu.europa.esig.dss.validation.executor
+eu.europa.esig.dss.validation.executor.certificate
+eu.europa.esig.dss.validation.executor.signature
+eu.europa.esig.dss.validation.process
+eu.europa.esig.dss.validation.process.bbb
+eu.europa.esig.dss.validation.process.bbb.cv.checks
+eu.europa.esig.dss.validation.process.bbb.cv
+eu.europa.esig.dss.validation.process.bbb.fc
+eu.europa.esig.dss.validation.process.bbb.fc.checks
+eu.europa.esig.dss.validation.process.bbb.isc.checks
+eu.europa.esig.dss.validation.process.bbb.isc
+eu.europa.esig.dss.validation.process.bbb.sav
+eu.europa.esig.dss.validation.process.bbb.sav.cc
+eu.europa.esig.dss.validation.process.bbb.sav.checks
+eu.europa.esig.dss.validation.process.bbb.vci.checks
+eu.europa.esig.dss.validation.process.bbb.vci
+eu.europa.esig.dss.validation.process.bbb.xcv.checks
+eu.europa.esig.dss.validation.process.bbb.xcv.crs
+eu.europa.esig.dss.validation.process.bbb.xcv.rac.checks
+eu.europa.esig.dss.validation.process.bbb.xcv.rac
+eu.europa.esig.dss.validation.process.bbb.xcv.rfc.checks
+eu.europa.esig.dss.validation.process.bbb.xcv.rfc
+eu.europa.esig.dss.validation.process.bbb.xcv.sub.checks
+eu.europa.esig.dss.validation.process.bbb.xcv.sub.checks.pseudo
+eu.europa.esig.dss.validation.process.bbb.xcv.sub
+eu.europa.esig.dss.validation.process.bbb.xcv
+eu.europa.esig.dss.validation.process.qualification.certificate
+eu.europa.esig.dss.validation.process.qualification.certificate.checks
+eu.europa.esig.dss.validation.process.qualification.certificate.checks.qscd
+eu.europa.esig.dss.validation.process.qualification.certificate.checks.qualified
+eu.europa.esig.dss.validation.process.qualification.certificate.checks.type
+eu.europa.esig.dss.validation.process.qualification
+eu.europa.esig.dss.validation.process.qualification.signature.checks
+eu.europa.esig.dss.validation.process.qualification.signature
+eu.europa.esig.dss.validation.process.qualification.timestamp.checks
+eu.europa.esig.dss.validation.process.qualification.timestamp
+eu.europa.esig.dss.validation.process.qualification.trust.checks
+eu.europa.esig.dss.validation.process.qualification.trust.consistency
+eu.europa.esig.dss.validation.process.qualification.trust.filter
+eu.europa.esig.dss.validation.process.qualification.trust
+eu.europa.esig.dss.validation.process.vpfbs
+eu.europa.esig.dss.validation.process.vpfbs.checks
+eu.europa.esig.dss.validation.process.vpfltvd.checks
+eu.europa.esig.dss.validation.process.vpfltvd
+eu.europa.esig.dss.validation.process.vpfswatsp.checks
+eu.europa.esig.dss.validation.process.vpfswatsp.checks.pcv.checks
+eu.europa.esig.dss.validation.process.vpfswatsp.checks.pcv
+eu.europa.esig.dss.validation.process.vpfswatsp.checks.psv.checks
+eu.europa.esig.dss.validation.process.vpfswatsp.checks.psv
+eu.europa.esig.dss.validation.process.vpfswatsp.checks.vts.checks
+eu.europa.esig.dss.validation.process.vpfswatsp.checks.vts
+eu.europa.esig.dss.validation.process.vpfswatsp
+eu.europa.esig.dss.validation.process.vpftsp.checks
+eu.europa.esig.dss.validation.process.vpftsp
+eu.europa.esig.dss.validation.reports
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-utils\target\dss-utils-5.12.RC1.jar = 1682674537891
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-policy-jaxb\target\dss-policy-jaxb-5.12.RC1.jar = 1682674419129
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-jaxb-parsers\target\dss-jaxb-parsers-5.12.RC1.jar = 1682674245031
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-jaxb-common\target\dss-jaxb-common-5.12.RC1.jar = 1682674234749
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-enumerations\target\dss-enumerations-5.12.RC1.jar = 1682674206032
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-alert\target\dss-alert-5.12.RC1.jar = 1682674224063
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-diagnostic-jaxb\target\dss-diagnostic-jaxb-5.12.RC1.jar = 1682674442779
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-simple-report-jaxb\target\dss-simple-report-jaxb-5.12.RC1.jar = 1682674509051
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-simple-certificate-report-jaxb\target\dss-simple-certificate-report-jaxb-5.12.RC1.jar = 1682674528563
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-detailed-report-jaxb\target\dss-detailed-report-jaxb-5.12.RC1.jar = 1682674486641
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-validation-report\target\specs-validation-report-5.12.RC1.jar = 1682674339033
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\specs-xmldsig-5.12.RC1.jar = 1682674258723
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xades\target\specs-xades-5.12.RC1.jar = 1682674280355
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-trusted-list\target\specs-trusted-list-5.12.RC1.jar = 1682674312481
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-i18n\target\dss-i18n-5.12.RC1.jar = 1682674559220
+C:\Users\amadoria\.m2\repository\org\slf4j\slf4j-api\2.0.6\slf4j-api-2.0.6.jar = 1677770050986
+C:\Users\amadoria\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\2.3.3\jakarta.xml.bind-api-2.3.3.jar = 1677767553431
+C:\Users\amadoria\.m2\repository\jakarta\activation\jakarta.activation-api\1.2.2\jakarta.activation-api-1.2.2.jar = 1677767567511
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\src\main\java = 1678457396131
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\generated-sources\annotations = 1682674768490
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\apidocs\allclasses-index.html = 1682674854065
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\apidocs\allpackages-index.html = 1682674854072
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\apidocs\constant-values.html = 1682674850210
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\apidocs\copy.svg = 1682674854433
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\apidocs\element-list = 1682674849109
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\apidocs\help-doc.html = 1682674854414
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\apidocs\index-all.html = 1682674854369
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\apidocs\index.html = 1682674853611
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\apidocs\jquery-ui.overrides.css = 1682674854466
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\apidocs\member-search-index.js = 1682674854090
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\apidocs\module-search-index.js = 1682674854075
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\apidocs\overview-summary.html = 1682674854389
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\apidocs\overview-tree.html = 1682674853601
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\apidocs\package-search-index.js = 1682674854078
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\apidocs\script.js = 1682674854428
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\apidocs\search-page.js = 1682674854439
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\apidocs\search.html = 1682674854379
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\apidocs\search.js = 1682674854437
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\apidocs\serialized-form.html = 1682674850235
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\apidocs\stylesheet.css = 1682674854420
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\apidocs\tag-search-index.js = 1682674854093
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\apidocs\type-search-index.js = 1682674854082

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: eu.europa.esig.dss.jades.signature.JAdESLevelBSerializationWithB64Test
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.97 s - in eu.europa.esig.dss.jades.signature.JAdESLevelBSerializationWithB64Test

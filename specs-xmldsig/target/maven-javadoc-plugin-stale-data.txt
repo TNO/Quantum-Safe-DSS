@@ -1,0 +1,64 @@
+-html5
+@options
+@packages
+-classpath
+'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-jaxb-common/target/dss-jaxb-common-5.12.RC1.jar;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-enumerations/target/dss-enumerations-5.12.RC1.jar;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-alert/target/dss-alert-5.12.RC1.jar;C:/Users/amadoria/.m2/repository/org/slf4j/slf4j-api/2.0.6/slf4j-api-2.0.6.jar;C:/Users/amadoria/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/2.3.3/jakarta.xml.bind-api-2.3.3.jar;C:/Users/amadoria/.m2/repository/jakarta/activation/jakarta.activation-api/1.2.2/jakarta.activation-api-1.2.2.jar'
+-encoding
+'UTF-8'
+-protected
+--release
+8
+-sourcepath
+'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/specs-xmldsig/src/main/java;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/specs-xmldsig/target/generated-sources/xjc;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/specs-xmldsig/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/specs-xmldsig/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'JAXB XMLDsig Model 5.12.RC1 API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' 'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/specs-xmldsig/target/javadoc-bundle-options'
+-linkoffline
+'https://github.com/esig/dss/dss-jaxb-common/apidocs' 'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/dss-jaxb-common/target/apidocs'
+-use
+-version
+-windowtitle
+'JAXB XMLDsig Model 5.12.RC1 API'
+eu.europa.esig.xmldsig
+eu.europa.esig.xmldsig.jaxb
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-jaxb-common\target\dss-jaxb-common-5.12.RC1.jar = 1682674234749
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-enumerations\target\dss-enumerations-5.12.RC1.jar = 1682674206032
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-alert\target\dss-alert-5.12.RC1.jar = 1682674224063
+C:\Users\amadoria\.m2\repository\org\slf4j\slf4j-api\2.0.6\slf4j-api-2.0.6.jar = 1677770050986
+C:\Users\amadoria\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\2.3.3\jakarta.xml.bind-api-2.3.3.jar = 1677767553431
+C:\Users\amadoria\.m2\repository\jakarta\activation\jakarta.activation-api\1.2.2\jakarta.activation-api-1.2.2.jar = 1677767567511
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\src\main\java = 1678457396097
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\generated-sources\xjc = 1682674252338
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\generated-sources\annotations = 1682674252721
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\apidocs\allclasses-index.html = 1682674264367
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\apidocs\allpackages-index.html = 1682674264375
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\apidocs\constant-values.html = 1682674263782
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\apidocs\copy.svg = 1682674264565
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\apidocs\element-list = 1682674263650
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\apidocs\help-doc.html = 1682674264548
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\apidocs\index-all.html = 1682674264503
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\apidocs\index.html = 1682674264298
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\apidocs\jquery-ui.overrides.css = 1682674264620
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\apidocs\member-search-index.js = 1682674264392
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\apidocs\module-search-index.js = 1682674264378
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\apidocs\overview-summary.html = 1682674264529
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\apidocs\overview-tree.html = 1682674264291
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\apidocs\package-search-index.js = 1682674264382
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\apidocs\script.js = 1682674264562
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\apidocs\search-page.js = 1682674264582
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\apidocs\search.html = 1682674264516
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\apidocs\search.js = 1682674264571
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\apidocs\serialized-form.html = 1682674263857
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\apidocs\stylesheet.css = 1682674264557
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\apidocs\tag-search-index.js = 1682674264396
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\apidocs\type-search-index.js = 1682674264385

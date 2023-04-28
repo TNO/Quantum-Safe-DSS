@@ -1,0 +1,5 @@
+eu\europa\esig\dss\pdfa\PDFAStructureValidatorTest.class
+eu\europa\esig\dss\pdfa\signature\suite\PDFAPAdESLevelBTest.class
+eu\europa\esig\dss\pdfa\signature\suite\PDFAWithFontSubsetTest.class
+eu\europa\esig\dss\pdfa\signature\visible\suite\PDFAVisibleSignatureTest.class
+eu\europa\esig\dss\pdfa\signature\suite\AbstractPDFATestSignature.class

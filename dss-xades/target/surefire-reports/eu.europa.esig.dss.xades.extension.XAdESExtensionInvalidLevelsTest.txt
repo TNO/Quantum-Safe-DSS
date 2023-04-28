@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: eu.europa.esig.dss.xades.extension.XAdESExtensionInvalidLevelsTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.237 s - in eu.europa.esig.dss.xades.extension.XAdESExtensionInvalidLevelsTest

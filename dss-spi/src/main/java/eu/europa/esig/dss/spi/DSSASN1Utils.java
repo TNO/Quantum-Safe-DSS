@@ -144,6 +144,7 @@ public final class DSSASN1Utils {
 
 	static {
 		Security.addProvider(DSSSecurityProvider.getSecurityProvider());
+		Security.addProvider(new org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider());
 
 		timestampOids = new ArrayList<>();
 		timestampOids.add(id_aa_ets_contentTimestamp);

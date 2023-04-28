@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="eu.europa.esig.dss.token.SignDigestECDSASignatureAlgorithmTest" time="1.007" tests="10" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="19"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token\target\test-classes;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token\target\classes;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-model\target\dss-model-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-enumerations\target\dss-enumerations-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token\libs\bcpkix-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token\libs\bcprov-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token\libs\bcutil-jdk18on-173b20.jar;C:\Users\amadoria\.m2\repository\org\slf4j\slf4j-api\2.0.6\slf4j-api-2.0.6.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-spi\target\dss-spi-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-utils\target\dss-utils-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\dss-crl-parser-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-launcher\1.9.2\junit-platform-launcher-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.2\junit-jupiter-params-5.9.2.jar;C:\Users\amadoria\.m2\repository\ch\qos\logback\logback-classic\1.3.5\logback-classic-1.3.5.jar;C:\Users\amadoria\.m2\repository\ch\qos\logback\logback-core\1.3.5\logback-core-1.3.5.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Amsterdam"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="java.vm.specification.version" value="19"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-19\bin"/>
+    <property name="sun.java.command" value="C:\Users\amadoria\AppData\Local\Temp\surefire13431589743088422765\surefirebooter-20230428114237113_477.jar C:\Users\amadoria\AppData\Local\Temp\surefire13431589743088422765 2023-04-28T11-29-53_553-jvmRun1 surefire-20230428114237113_475tmp surefire_29-20230428114237113_476tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token\target\test-classes;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token\target\classes;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-model\target\dss-model-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-enumerations\target\dss-enumerations-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token\libs\bcpkix-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token\libs\bcprov-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token\libs\bcutil-jdk18on-173b20.jar;C:\Users\amadoria\.m2\repository\org\slf4j\slf4j-api\2.0.6\slf4j-api-2.0.6.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-spi\target\dss-spi-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-utils\target\dss-utils-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\dss-crl-parser-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-launcher\1.9.2\junit-platform-launcher-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.2\junit-jupiter-params-5.9.2.jar;C:\Users\amadoria\.m2\repository\ch\qos\logback\logback-classic\1.3.5\logback-classic-1.3.5.jar;C:\Users\amadoria\.m2\repository\ch\qos\logback\logback-core\1.3.5\logback-core-1.3.5.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\amadoria"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2023-01-17"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-19"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\amadoria\AppData\Local\Temp\surefire13431589743088422765\surefirebooter-20230428114237113_477.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="19.0.2+7-44"/>
+    <property name="user.name" value="amadoria"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\amadoria\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\amadoria\AppData\Local\Temp\"/>
+    <property name="java.version" value="19.0.2"/>
+    <property name="user.dir" value="C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-19\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Eclipse Adoptium\jdk-17.0.5.8-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\ProgramData\chocolatey\bin;C:\Program Files\Gradle\gradle-8.0.2\bin;C:\Program Files\Maven\apache-maven-3.9.0\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\Users\amadoria\AppData\Local\Programs\Python\Python38\Scripts\;C:\Users\amadoria\AppData\Local\Programs\Python\Python38\;C:\Users\amadoria\AppData\Local\Microsoft\WindowsApps;C:\Users\amadoria\AppData\Local\Programs\MiKTeX\miktex\bin\x64\;C:\Users\amadoria\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\amadoria\AppData\Roaming\Python\Scripts\;C:\Users\amadoria\AppData\Local\Programs\Git\cmd;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.3.3\bin;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="19.0.2+7-44"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="63.0"/>
+  </properties>
+  <testcase name="testPkcs12(SignatureAlgorithm)[1]" classname="eu.europa.esig.dss.token.SignDigestECDSASignatureAlgorithmTest" time="0.085">
+    <system-out><![CDATA[11:42:46.833 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : SHA1withECDSA
+11:42:46.864 [main] INFO eu.europa.esig.dss.token.SignDigestDSATest - Sig value : MEUCIEFnqN3u23Otj63JscHBb1W8+RYm4eRdSDCbF/6fBPnlAiEA21p2E+RN+S35d+NyeCZ08pXeu+P8RhVKPyZPIRVS01M=
+11:42:46.883 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : NONEwithECDSA
+11:42:46.890 [main] INFO eu.europa.esig.dss.token.SignDigestDSATest - Sig value : MEUCICJ+Oi5EIyATUrtn9l52Y02ZCPA9ac8fSyQz78DcYrUKAiEApqlN8iWukRmCE2gja3e/2GlBG+wwR2qJbmnThLqIzbU=
+]]></system-out>
+  </testcase>
+  <testcase name="testPkcs12(SignatureAlgorithm)[2]" classname="eu.europa.esig.dss.token.SignDigestECDSASignatureAlgorithmTest" time="0.056">
+    <system-out><![CDATA[11:42:46.923 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : SHA224withECDSA
+11:42:46.937 [main] INFO eu.europa.esig.dss.token.SignDigestDSATest - Sig value : MEQCIGi5FQsUWd1XV2ByRQMjCSiEBpmFjIcPjI8BOykHq8ARAiAQoD2lfusg7a8GJP7tuisxeZnzNjBnRnEgGHoG64GtQQ==
+11:42:46.943 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : NONEwithECDSA
+11:42:46.948 [main] INFO eu.europa.esig.dss.token.SignDigestDSATest - Sig value : MEYCIQDOYeY3b3/V0DtV0K2QQSzhzTwseSZGu+/IDSTyGRRr4QIhAN2ySXFG2bONQTGPKbC09oRnpPdDW21zEfX5ABmq6Gg2
+]]></system-out>
+  </testcase>
+  <testcase name="testPkcs12(SignatureAlgorithm)[3]" classname="eu.europa.esig.dss.token.SignDigestECDSASignatureAlgorithmTest" time="0.045">
+    <system-out><![CDATA[11:42:46.981 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : SHA256withECDSA
+11:42:46.987 [main] INFO eu.europa.esig.dss.token.SignDigestDSATest - Sig value : MEUCIDVfShQXJV+oNluEnK/6sknY+/U/ajcIWjolpmkPGywcAiEA9YyhfiqTVBLyRwZ0saYNjJ+bXINiWKO4Ak6p1PKqtcw=
+11:42:46.991 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : NONEwithECDSA
+11:42:46.993 [main] INFO eu.europa.esig.dss.token.SignDigestDSATest - Sig value : MEUCIQC4zdun1Lwz7sKPqLfov7B/L615rwsYi4/yJk5lU7ISCQIgHXWQY+QsWzmQx33nKdG6GVmWJo50en8LjFJu5D/ImTs=
+]]></system-out>
+  </testcase>
+  <testcase name="testPkcs12(SignatureAlgorithm)[4]" classname="eu.europa.esig.dss.token.SignDigestECDSASignatureAlgorithmTest" time="0.042">
+    <system-out><![CDATA[11:42:47.022 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : SHA384withECDSA
+11:42:47.028 [main] INFO eu.europa.esig.dss.token.SignDigestDSATest - Sig value : MEYCIQDJlmPLc9nvxooVttKhYAbce461j+FEhvrYzFRVGm0ppQIhAJyOvBpJ99wd74WnFWjgkAtdH61DJ2c7duhqcPmq800P
+11:42:47.036 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : NONEwithECDSA
+11:42:47.040 [main] INFO eu.europa.esig.dss.token.SignDigestDSATest - Sig value : MEQCIArutUxlkazOSwR1lj63v0XyEMiJR8v02KWdLxES8+wxAiApdm1iT8oJYsh3Tl9x6ZwdSV8NtCZhhH3MjtJVTEWzGA==
+]]></system-out>
+  </testcase>
+  <testcase name="testPkcs12(SignatureAlgorithm)[5]" classname="eu.europa.esig.dss.token.SignDigestECDSASignatureAlgorithmTest" time="0.034">
+    <system-out><![CDATA[11:42:47.065 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : SHA512withECDSA
+11:42:47.069 [main] INFO eu.europa.esig.dss.token.SignDigestDSATest - Sig value : MEUCIB5L2teigmYnHuq2lggze2fsvK7UE5IzpAKXwu4IUapDAiEArglLb0u0zGyNdYnWWdJk1gYxfCeRk2KCxu2HDyEzXBw=
+11:42:47.075 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : NONEwithECDSA
+11:42:47.078 [main] INFO eu.europa.esig.dss.token.SignDigestDSATest - Sig value : MEUCIQC1yoHXDkwMz//nRsr5CRmKoiNeHUl6cUUpH/tp5ttLwgIgcWHVqtUfKQtJq6KOvy5p2mSk5bRQ9WTOTAKPKQdTvdY=
+]]></system-out>
+  </testcase>
+  <testcase name="testPkcs12(SignatureAlgorithm)[6]" classname="eu.europa.esig.dss.token.SignDigestECDSASignatureAlgorithmTest" time="0.036">
+    <system-out><![CDATA[11:42:47.101 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : SHA3-224withECDSA
+11:42:47.106 [main] INFO eu.europa.esig.dss.token.SignDigestDSATest - Sig value : MEYCIQC+af3zge5dSCnvTEKpPvZusfv0yUEPgeFj0Z9zWHEUJAIhAK/2qgsR2lxdLSB0iVblQg5C19GYxDAag4PWsR7Ot22b
+11:42:47.109 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : NONEwithECDSA
+11:42:47.118 [main] INFO eu.europa.esig.dss.token.SignDigestDSATest - Sig value : MEUCIQCr4/2gb4qmGjl+7sHKeOCYI2IEXbRib+1whRDCyjpZxQIgGB6Dlg0WeL031ze3ZHPA4YDcP4XGCRmC1Q1O8v77Bxk=
+]]></system-out>
+  </testcase>
+  <testcase name="testPkcs12(SignatureAlgorithm)[7]" classname="eu.europa.esig.dss.token.SignDigestECDSASignatureAlgorithmTest" time="0.038">
+    <system-out><![CDATA[11:42:47.148 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : SHA3-256withECDSA
+11:42:47.153 [main] INFO eu.europa.esig.dss.token.SignDigestDSATest - Sig value : MEUCIGrVV6QoiWVqTcyop9a8SJizUnJLuaYHwLMHOPoBQS+HAiEA7ho6nXmcjT+tedyrh3e3FGqBCWGu+jGGOHE+QfXvL5w=
+11:42:47.158 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : NONEwithECDSA
+11:42:47.162 [main] INFO eu.europa.esig.dss.token.SignDigestDSATest - Sig value : MEUCIQCL/LaAiVSpefV5ylFip6eS+TRLs6sPomEH/Sz3MOB1BAIgDblsfNSnje6JfM+grmi1eEea22tbtZVAJ40fJO76fVI=
+]]></system-out>
+  </testcase>
+  <testcase name="testPkcs12(SignatureAlgorithm)[8]" classname="eu.europa.esig.dss.token.SignDigestECDSASignatureAlgorithmTest" time="0.038">
+    <system-out><![CDATA[11:42:47.183 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : SHA3-384withECDSA
+11:42:47.190 [main] INFO eu.europa.esig.dss.token.SignDigestDSATest - Sig value : MEQCIDzATxP1oeg9CN0vKFOkk/a9dptIQCiowZm8rH4UDskzAiAk4aMoOTnK1CtWul6+39cgEqiBLCb//IL/xQsHSqUp5Q==
+11:42:47.198 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : NONEwithECDSA
+11:42:47.203 [main] INFO eu.europa.esig.dss.token.SignDigestDSATest - Sig value : MEYCIQCKzVgCpCw+hmuW85aBPmSKhNqxtbJy7CmsWvuovu75dgIhAMPuymJDuwRqGQWuNbszSq+1QGkZRHbkf0LySPN6/h7v
+]]></system-out>
+  </testcase>
+  <testcase name="testPkcs12(SignatureAlgorithm)[9]" classname="eu.europa.esig.dss.token.SignDigestECDSASignatureAlgorithmTest" time="0.03">
+    <system-out><![CDATA[11:42:47.220 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : SHA3-512withECDSA
+11:42:47.225 [main] INFO eu.europa.esig.dss.token.SignDigestDSATest - Sig value : MEUCICl2kLMWPd9ul8AN0f0LBg9uOTGgTRpR/VsdBPitJizIAiEA05ilMcmHRumCh1pwulfHMAEcms8XhLE5ACEA1w0Bdy4=
+11:42:47.231 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : NONEwithECDSA
+11:42:47.233 [main] INFO eu.europa.esig.dss.token.SignDigestDSATest - Sig value : MEYCIQC5ilGSTj2loTq4KP6jCQNakP5IQmCetS0Q+/f9QW3WjAIhAM2K0kYIQH2qPimwU0lJr8/Jpjs6b2dmaQrQIchELBMv
+]]></system-out>
+  </testcase>
+  <testcase name="testPkcs12(SignatureAlgorithm)[10]" classname="eu.europa.esig.dss.token.SignDigestECDSASignatureAlgorithmTest" time="0.569">
+    <system-out><![CDATA[11:42:47.251 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : RIPEMD160withECDSA
+11:42:47.738 [main] INFO eu.europa.esig.dss.token.SignDigestDSATest - Sig value : MEUCIArTXjnl6zgQlaz58kaFQtyv3BL7I/fG+meEoGry1dtXAiEAtC5wGwgjGxO0XqIPRoft5nuTfXTlhrZTtaFsvDiGDN4=
+11:42:47.804 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : NONEwithECDSA
+11:42:47.806 [main] INFO eu.europa.esig.dss.token.SignDigestDSATest - Sig value : MEQCIGLcczFcehPjMvoTNIhRXTiXpjZzbxkbmFheAY9eGjIEAiApsJxIYyshCyt4itQzHv2hv2vUrrXrY950MDrbsf/Yew==
+]]></system-out>
+  </testcase>
+</testsuite>

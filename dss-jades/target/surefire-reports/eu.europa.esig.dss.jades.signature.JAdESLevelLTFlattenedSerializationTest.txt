@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: eu.europa.esig.dss.jades.signature.JAdESLevelLTFlattenedSerializationTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.236 s - in eu.europa.esig.dss.jades.signature.JAdESLevelLTFlattenedSerializationTest

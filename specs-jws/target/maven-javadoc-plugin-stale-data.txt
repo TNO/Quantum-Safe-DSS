@@ -1,0 +1,61 @@
+-html5
+@options
+@packages
+-classpath
+'C:/Users/amadoria/.m2/repository/com/github/erosb/everit-json-schema/1.14.1/everit-json-schema-1.14.1.jar;C:/Users/amadoria/.m2/repository/org/json/json/20220320/json-20220320.jar;C:/Users/amadoria/.m2/repository/commons-validator/commons-validator/1.7/commons-validator-1.7.jar;C:/Users/amadoria/.m2/repository/commons-digester/commons-digester/2.1/commons-digester-2.1.jar;C:/Users/amadoria/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar;C:/Users/amadoria/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar;C:/Users/amadoria/.m2/repository/com/damnhandy/handy-uri-templates/2.1.8/handy-uri-templates-2.1.8.jar;C:/Users/amadoria/.m2/repository/joda-time/joda-time/2.10.2/joda-time-2.10.2.jar;C:/Users/amadoria/.m2/repository/com/google/re2j/re2j/1.6/re2j-1.6.jar;C:/Users/amadoria/.m2/repository/org/slf4j/slf4j-api/2.0.6/slf4j-api-2.0.6.jar'
+-encoding
+'UTF-8'
+-protected
+--release
+8
+-sourcepath
+'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/specs-jws/src/main/java;C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/specs-jws/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/specs-jws/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'JWS Schema Module 5.12.RC1 API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' 'C:/Users/amadoria/Documents/Projects/HAPKIDO/WP4/dss-fork/specs-jws/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'JWS Schema Module 5.12.RC1 API'
+eu.europa.esig.jws
+C:\Users\amadoria\.m2\repository\com\github\erosb\everit-json-schema\1.14.1\everit-json-schema-1.14.1.jar = 1677767570991
+C:\Users\amadoria\.m2\repository\org\json\json\20220320\json-20220320.jar = 1677767570983
+C:\Users\amadoria\.m2\repository\commons-validator\commons-validator\1.7\commons-validator-1.7.jar = 1677767571007
+C:\Users\amadoria\.m2\repository\commons-digester\commons-digester\2.1\commons-digester-2.1.jar = 1677767570999
+C:\Users\amadoria\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar = 1677767570993
+C:\Users\amadoria\.m2\repository\commons-collections\commons-collections\3.2.2\commons-collections-3.2.2.jar = 1677767552900
+C:\Users\amadoria\.m2\repository\com\damnhandy\handy-uri-templates\2.1.8\handy-uri-templates-2.1.8.jar = 1677767571034
+C:\Users\amadoria\.m2\repository\joda-time\joda-time\2.10.2\joda-time-2.10.2.jar = 1677767571048
+C:\Users\amadoria\.m2\repository\com\google\re2j\re2j\1.6\re2j-1.6.jar = 1677767571051
+C:\Users\amadoria\.m2\repository\org\slf4j\slf4j-api\2.0.6\slf4j-api-2.0.6.jar = 1677770050986
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-jws\src\main\java = 1678457395844
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-jws\target\generated-sources\annotations = 1682674396894
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-jws\target\apidocs\allclasses-index.html = 1682674404522
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-jws\target\apidocs\allpackages-index.html = 1682674404531
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-jws\target\apidocs\copy.svg = 1682674404646
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-jws\target\apidocs\element-list = 1682674404363
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-jws\target\apidocs\help-doc.html = 1682674404626
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-jws\target\apidocs\index-all.html = 1682674404596
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-jws\target\apidocs\index.html = 1682674404611
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-jws\target\apidocs\jquery-ui.overrides.css = 1682674404687
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-jws\target\apidocs\member-search-index.js = 1682674404556
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-jws\target\apidocs\module-search-index.js = 1682674404542
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-jws\target\apidocs\overview-tree.html = 1682674404480
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-jws\target\apidocs\package-search-index.js = 1682674404547
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-jws\target\apidocs\script.js = 1682674404637
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-jws\target\apidocs\search-page.js = 1682674404660
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-jws\target\apidocs\search.html = 1682674404601
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-jws\target\apidocs\search.js = 1682674404654
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-jws\target\apidocs\stylesheet.css = 1682674404633
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-jws\target\apidocs\tag-search-index.js = 1682674404562
+C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-jws\target\apidocs\type-search-index.js = 1682674404550

@@ -100,6 +100,8 @@ public final class DSSUtils {
 
 	static {
 		Security.addProvider(DSSSecurityProvider.getSecurityProvider());
+		Security.addProvider(new org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider());
+
 	}
 
 	/** Empty byte array */

@@ -1,0 +1,9 @@
+eu.europa.esig.saml
+eu.europa.esig.saml.jaxb.assertion
+eu.europa.esig.saml.jaxb.assertion.runtime
+eu.europa.esig.saml.jaxb.authn.context
+eu.europa.esig.saml.jaxb.dce
+eu.europa.esig.saml.jaxb.ecp
+eu.europa.esig.saml.jaxb.protocol
+eu.europa.esig.soap.jaxb.envelope
+eu.europa.esig.xmlenc.jaxb

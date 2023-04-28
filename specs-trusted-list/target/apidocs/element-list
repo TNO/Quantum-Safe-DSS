@@ -1,0 +1,9 @@
+eu.europa.esig.trustedlist
+eu.europa.esig.trustedlist.enums
+eu.europa.esig.trustedlist.jaxb.ecc
+eu.europa.esig.trustedlist.jaxb.mra
+eu.europa.esig.trustedlist.jaxb.tsl
+eu.europa.esig.trustedlist.jaxb.tslx
+eu.europa.esig.trustedlist.mra
+eu.europa.esig.trustedlist.mra.parsers
+eu.europa.esig.trustedlist.parsers

@@ -1,0 +1,1164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="eu.europa.esig.dss.validation.TimestampTokenTest" time="1.444" tests="13" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="19"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-document\target\test-classes;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-document\target\classes;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-spi\target\dss-spi-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-model\target\dss-model-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-enumerations\target\dss-enumerations-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-utils\target\dss-utils-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\dss-crl-parser-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\org\slf4j\slf4j-api\2.0.6\slf4j-api-2.0.6.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-document\libs\bcpkix-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-document\libs\bcprov-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-document\libs\bcutil-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\validation-policy-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-policy-jaxb\target\dss-policy-jaxb-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-jaxb-parsers\target\dss-jaxb-parsers-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-jaxb-common\target\dss-jaxb-common-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-alert\target\dss-alert-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.8\jaxb-runtime-2.3.8.jar;C:\Users\amadoria\.m2\repository\org\glassfish\jaxb\txw2\2.3.8\txw2-2.3.8.jar;C:\Users\amadoria\.m2\repository\com\sun\istack\istack-commons-runtime\3.0.12\istack-commons-runtime-3.0.12.jar;C:\Users\amadoria\.m2\repository\com\sun\activation\jakarta.activation\1.2.2\jakarta.activation-1.2.2.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-diagnostic-jaxb\target\dss-diagnostic-jaxb-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-simple-report-jaxb\target\dss-simple-report-jaxb-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-simple-certificate-report-jaxb\target\dss-simple-certificate-report-jaxb-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-detailed-report-jaxb\target\dss-detailed-report-jaxb-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-validation-report\target\specs-validation-report-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\specs-xmldsig-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xades\target\specs-xades-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-trusted-list\target\specs-trusted-list-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-i18n\target\dss-i18n-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\ch\qos\logback\logback-classic\1.3.5\logback-classic-1.3.5.jar;C:\Users\amadoria\.m2\repository\ch\qos\logback\logback-core\1.3.5\logback-core-1.3.5.jar;C:\Users\amadoria\.m2\repository\com\fasterxml\jackson\module\jackson-module-jaxb-annotations\2.14.2\jackson-module-jaxb-annotations-2.14.2.jar;C:\Users\amadoria\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.14.2\jackson-annotations-2.14.2.jar;C:\Users\amadoria\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.14.2\jackson-core-2.14.2.jar;C:\Users\amadoria\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.14.2\jackson-databind-2.14.2.jar;C:\Users\amadoria\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\2.3.3\jakarta.xml.bind-api-2.3.3.jar;C:\Users\amadoria\.m2\repository\jakarta\activation\jakarta.activation-api\1.2.2\jakarta.activation-api-1.2.2.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-launcher\1.9.2\junit-platform-launcher-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.2\junit-jupiter-params-5.9.2.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-utils-google-guava\target\dss-utils-google-guava-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\com\google\guava\guava\31.1-jre\guava-31.1-jre.jar;C:\Users\amadoria\.m2\repository\com\google\guava\failureaccess\1.0.1\failureaccess-1.0.1.jar;C:\Users\amadoria\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\amadoria\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\amadoria\.m2\repository\org\checkerframework\checker-qual\3.12.0\checker-qual-3.12.0.jar;C:\Users\amadoria\.m2\repository\com\google\errorprone\error_prone_annotations\2.11.0\error_prone_annotations-2.11.0.jar;C:\Users\amadoria\.m2\repository\com\google\j2objc\j2objc-annotations\1.3\j2objc-annotations-1.3.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser-stream\target\dss-crl-parser-stream-5.12.RC1.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Amsterdam"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="java.vm.specification.version" value="19"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-19\bin"/>
+    <property name="sun.java.command" value="C:\Users\amadoria\AppData\Local\Temp\surefire7385040301634076511\surefirebooter-20230428114100642_335.jar C:\Users\amadoria\AppData\Local\Temp\surefire7385040301634076511 2023-04-28T11-29-53_553-jvmRun1 surefire-20230428114100642_333tmp surefire_27-20230428114100642_334tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-document\target\test-classes;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-document\target\classes;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-spi\target\dss-spi-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-model\target\dss-model-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-enumerations\target\dss-enumerations-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-utils\target\dss-utils-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\dss-crl-parser-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\org\slf4j\slf4j-api\2.0.6\slf4j-api-2.0.6.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-document\libs\bcpkix-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-document\libs\bcprov-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-document\libs\bcutil-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\validation-policy-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-policy-jaxb\target\dss-policy-jaxb-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-jaxb-parsers\target\dss-jaxb-parsers-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-jaxb-common\target\dss-jaxb-common-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-alert\target\dss-alert-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.8\jaxb-runtime-2.3.8.jar;C:\Users\amadoria\.m2\repository\org\glassfish\jaxb\txw2\2.3.8\txw2-2.3.8.jar;C:\Users\amadoria\.m2\repository\com\sun\istack\istack-commons-runtime\3.0.12\istack-commons-runtime-3.0.12.jar;C:\Users\amadoria\.m2\repository\com\sun\activation\jakarta.activation\1.2.2\jakarta.activation-1.2.2.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-diagnostic-jaxb\target\dss-diagnostic-jaxb-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-simple-report-jaxb\target\dss-simple-report-jaxb-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-simple-certificate-report-jaxb\target\dss-simple-certificate-report-jaxb-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-detailed-report-jaxb\target\dss-detailed-report-jaxb-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-validation-report\target\specs-validation-report-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\specs-xmldsig-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xades\target\specs-xades-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-trusted-list\target\specs-trusted-list-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-i18n\target\dss-i18n-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\ch\qos\logback\logback-classic\1.3.5\logback-classic-1.3.5.jar;C:\Users\amadoria\.m2\repository\ch\qos\logback\logback-core\1.3.5\logback-core-1.3.5.jar;C:\Users\amadoria\.m2\repository\com\fasterxml\jackson\module\jackson-module-jaxb-annotations\2.14.2\jackson-module-jaxb-annotations-2.14.2.jar;C:\Users\amadoria\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.14.2\jackson-annotations-2.14.2.jar;C:\Users\amadoria\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.14.2\jackson-core-2.14.2.jar;C:\Users\amadoria\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.14.2\jackson-databind-2.14.2.jar;C:\Users\amadoria\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\2.3.3\jakarta.xml.bind-api-2.3.3.jar;C:\Users\amadoria\.m2\repository\jakarta\activation\jakarta.activation-api\1.2.2\jakarta.activation-api-1.2.2.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-launcher\1.9.2\junit-platform-launcher-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.2\junit-jupiter-params-5.9.2.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-utils-google-guava\target\dss-utils-google-guava-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\com\google\guava\guava\31.1-jre\guava-31.1-jre.jar;C:\Users\amadoria\.m2\repository\com\google\guava\failureaccess\1.0.1\failureaccess-1.0.1.jar;C:\Users\amadoria\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\amadoria\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\amadoria\.m2\repository\org\checkerframework\checker-qual\3.12.0\checker-qual-3.12.0.jar;C:\Users\amadoria\.m2\repository\com\google\errorprone\error_prone_annotations\2.11.0\error_prone_annotations-2.11.0.jar;C:\Users\amadoria\.m2\repository\com\google\j2objc\j2objc-annotations\1.3\j2objc-annotations-1.3.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser-stream\target\dss-crl-parser-stream-5.12.RC1.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\amadoria"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2023-01-17"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-19"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-document"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\amadoria\AppData\Local\Temp\surefire7385040301634076511\surefirebooter-20230428114100642_335.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="19.0.2+7-44"/>
+    <property name="user.name" value="amadoria"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\amadoria\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\amadoria\AppData\Local\Temp\"/>
+    <property name="java.version" value="19.0.2"/>
+    <property name="user.dir" value="C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-document"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-19\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Eclipse Adoptium\jdk-17.0.5.8-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\ProgramData\chocolatey\bin;C:\Program Files\Gradle\gradle-8.0.2\bin;C:\Program Files\Maven\apache-maven-3.9.0\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\Users\amadoria\AppData\Local\Programs\Python\Python38\Scripts\;C:\Users\amadoria\AppData\Local\Programs\Python\Python38\;C:\Users\amadoria\AppData\Local\Microsoft\WindowsApps;C:\Users\amadoria\AppData\Local\Programs\MiKTeX\miktex\bin\x64\;C:\Users\amadoria\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\amadoria\AppData\Roaming\Python\Scripts\;C:\Users\amadoria\AppData\Local\Programs\Git\cmd;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.3.3\bin;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="19.0.2+7-44"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="63.0"/>
+  </properties>
+  <testcase name="cadesSignatureTimestampTest" classname="eu.europa.esig.dss.validation.TimestampTokenTest" time="0.078">
+    <system-out><![CDATA[11:41:22.570 [main] DEBUG eu.europa.esig.dss.validation.CMSCertificateSource - Found Certificate Hash in signingCertificateAttributeV1 6f7cc1f13b6d773088136539200e9afe93f1a6f9 with algorithm SHA1
+]]></system-out>
+  </testcase>
+  <testcase name="eeTSTwithoutCertsAndCertSource" classname="eu.europa.esig.dss.validation.TimestampTokenTest" time="0.046">
+    <system-out><![CDATA[11:41:22.632 [main] DEBUG eu.europa.esig.dss.validation.CMSCertificateSource - Found Certificate Hash in signingCertificateAttributeV1 02b197ef78aee171f6a1475f50eacc6571f1fc0b with algorithm SHA1
+11:41:22.644 [main] INFO eu.europa.esig.dss.validation.CommonCertificateVerifier - + New CommonCertificateVerifier created.
+11:41:22.669 [main] INFO eu.europa.esig.dss.validation.AIACertificateSource - Retrieving C-834A78BAB833DE9C27C892ECBAD091BC669BA47B2F618B7E75BFA457130B9895 certificate's issuer using AIA.
+11:41:22.669 [main] INFO eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - There is no AIA extension for certificate download.
+11:41:22.670 [main] WARN eu.europa.esig.dss.validation.SignatureValidationContext - POE extraction is skipped for untrusted timestamp : T-FBCC44801188AA6AC047F306F07256A2F3F05A922BC91F8E59D9335762B76B50.
+11:41:22.671 [main] WARN eu.europa.esig.dss.validation.SignatureValidationContext - Issuer not found for certificate C-834A78BAB833DE9C27C892ECBAD091BC669BA47B2F618B7E75BFA457130B9895
+]]></system-out>
+  </testcase>
+  <testcase name="correctToken" classname="eu.europa.esig.dss.validation.TimestampTokenTest" time="0.033">
+    <system-out><![CDATA[11:41:22.702 [main] DEBUG eu.europa.esig.dss.validation.CMSCertificateSource - Found Certificate Hash in SigningCertificateV2 18d6051732e476a89aabb2b76f57bc3894bd032c73b7bd93ec64979c641e806d with algorithm SHA256
+11:41:22.702 [main] INFO eu.europa.esig.dss.validation.TimestampTokenTest - TimestampToken[signedBy=null, generated: 2016-11-28T13:16:26Z / ARCHIVE_TIMESTAMP
+]
+11:41:22.704 [main] WARN eu.europa.esig.dss.validation.timestamp.TimestampToken - Timestamped data not found !
+11:41:22.705 [main] WARN eu.europa.esig.dss.validation.timestamp.TimestampToken - Provided digest value for TimestampToken matchData : A5BYxvLAy0ksUzsKTRTvd8wPeKvMztUofYShogEc+4E=
+11:41:22.705 [main] WARN eu.europa.esig.dss.validation.timestamp.TimestampToken - Digest (SHA256) present in TimestampToken : gkV3yPmIS0b14LCVSroPJnuAgwD/jFhgnC1m61Qwl7c=
+11:41:22.705 [main] WARN eu.europa.esig.dss.validation.timestamp.TimestampToken - Digest in TimestampToken matches digest of extracted data from document: false
+]]></system-out>
+  </testcase>
+  <testcase name="testEdDSA" classname="eu.europa.esig.dss.validation.TimestampTokenTest" time="0.058">
+    <system-out><![CDATA[11:41:22.717 [main] DEBUG eu.europa.esig.dss.validation.CMSCertificateSource - Found Certificate Hash in signingCertificateAttributeV1 a944cdea3fee33ec0bbf83b3954c29043a9d850c with algorithm SHA1
+]]></system-out>
+  </testcase>
+  <testcase name="disig" classname="eu.europa.esig.dss.validation.TimestampTokenTest" time="1.076">
+    <system-out><![CDATA[11:41:22.845 [main] DEBUG eu.europa.esig.dss.validation.CMSCertificateSource - Found Certificate Hash in signingCertificateAttributeV1 3463672f44956601a9bcbd57f95123ec913c1d42 with algorithm SHA1
+11:41:22.846 [main] DEBUG eu.europa.esig.dss.validation.CMSCertificateSource - Found Certificate Hash in SigningCertificateV2 cb3318e88e441039ca548c83fb444d8b91fd3e78c7d317c6564dd16825154465 with algorithm SHA256
+11:41:22.864 [main] INFO eu.europa.esig.dss.validation.CommonCertificateVerifier - + New CommonCertificateVerifier created.
+11:41:22.865 [main] DEBUG eu.europa.esig.dss.validation.SignedDocumentValidator - No provided validation policy : use the default policy
+11:41:22.878 [main] INFO eu.europa.esig.dss.validation.SignedDocumentValidator - Document validation...
+11:41:22.884 [main] DEBUG eu.europa.esig.dss.validation.CMSCertificateSource - Found Certificate Hash in signingCertificateAttributeV1 3463672f44956601a9bcbd57f95123ec913c1d42 with algorithm SHA1
+11:41:22.884 [main] DEBUG eu.europa.esig.dss.validation.CMSCertificateSource - Found Certificate Hash in SigningCertificateV2 cb3318e88e441039ca548c83fb444d8b91fd3e78c7d317c6564dd16825154465 with algorithm SHA256
+11:41:22.884 [main] WARN eu.europa.esig.dss.validation.timestamp.TimestampToken - Timestamped data not found !
+11:41:22.895 [main] INFO eu.europa.esig.dss.validation.CommonCertificateVerifier - + New CommonCertificateVerifier created.
+11:41:22.902 [main] INFO eu.europa.esig.dss.validation.AIACertificateSource - Retrieving C-CB3318E88E441039CA548C83FB444D8B91FD3E78C7D317C6564DD16825154465 certificate's issuer using AIA.
+11:41:22.902 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Loading certificate(s) from 'http://cdn.disig.sk/aca3/cert/aca3_disig.p7c'.
+11:41:23.073 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Base64 content : 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
+11:41:23.122 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - 1 certificate(s) loaded from 'http://cdn.disig.sk/aca3/cert/aca3_disig.p7c'
+11:41:23.125 [main] INFO eu.europa.esig.dss.validation.AIACertificateSource - Retrieving C-C30B32E75F8277A7F28E6ADFD9EBE48C2CA50564F4DFA899CEEFCB886C1A3572 certificate's issuer using AIA.
+11:41:23.125 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Loading certificate(s) from 'http://ep.nbusr.sk/kca/certs/kca3/kcanbusr3_p7c.p7c'.
+11:41:23.388 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Base64 content : 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
+11:41:23.433 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - 1 certificate(s) loaded from 'http://ep.nbusr.sk/kca/certs/kca3/kcanbusr3_p7c.p7c'
+11:41:23.433 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Loading certificate(s) from 'ldap://ep.nbusr.sk/cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary'.
+11:41:23.434 [main] WARN eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Unable to download certificate from 'ldap://ep.nbusr.sk/cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary': An error occurred while reading from url 'ldap://ep.nbusr.sk/cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary' : unknown protocol: ldap
+eu.europa.esig.dss.spi.exception.DSSExternalResourceException: An error occurred while reading from url 'ldap://ep.nbusr.sk/cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary' : unknown protocol: ldap
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:119)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:37)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.request(NativeHTTPDataLoader.java:147)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.get(NativeHTTPDataLoader.java:199)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.get(NativeHTTPDataLoader.java:185)
+	at eu.europa.esig.dss.spi.x509.aia.DefaultAIASource.getCertificatesAndAIAUrls(DefaultAIASource.java:147)
+	at eu.europa.esig.dss.spi.x509.aia.DefaultAIASource.getCertificatesByAIA(DefaultAIASource.java:104)
+	at eu.europa.esig.dss.validation.AIACertificateSource.getIssuerFromAIA(AIACertificateSource.java:73)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.getIssuer(SignatureValidationContext.java:439)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.getCertChain(SignatureValidationContext.java:389)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.registerTimestampUsageDate(SignatureValidationContext.java:670)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.addTimestampTokenForVerification(SignatureValidationContext.java:650)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareDetachedTimestampValidationContext(SignedDocumentValidator.java:651)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareValidationContext(SignedDocumentValidator.java:505)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareDiagnosticDataBuilder(SignedDocumentValidator.java:481)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.getDiagnosticData(SignedDocumentValidator.java:466)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:445)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:413)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:342)
+	at eu.europa.esig.dss.validation.TimestampTokenTest.disig(TimestampTokenTest.java:118)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:55)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:223)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:175)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:139)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
+Caused by: java.net.MalformedURLException: unknown protocol: ldap
+	at java.base/java.net.URL.<init>(URL.java:682)
+	at java.base/java.net.URL.<init>(URL.java:570)
+	at java.base/java.net.URL.<init>(URL.java:517)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.createConnection(NativeDataLoaderCall.java:134)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:98)
+	... 88 common frames omitted
+11:41:23.439 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Loading certificate(s) from 'ldap:///cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary'.
+11:41:23.439 [main] WARN eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Unable to download certificate from 'ldap:///cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary': An error occurred while reading from url 'ldap:///cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary' : unknown protocol: ldap
+eu.europa.esig.dss.spi.exception.DSSExternalResourceException: An error occurred while reading from url 'ldap:///cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary' : unknown protocol: ldap
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:119)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:37)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.request(NativeHTTPDataLoader.java:147)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.get(NativeHTTPDataLoader.java:199)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.get(NativeHTTPDataLoader.java:185)
+	at eu.europa.esig.dss.spi.x509.aia.DefaultAIASource.getCertificatesAndAIAUrls(DefaultAIASource.java:147)
+	at eu.europa.esig.dss.spi.x509.aia.DefaultAIASource.getCertificatesByAIA(DefaultAIASource.java:104)
+	at eu.europa.esig.dss.validation.AIACertificateSource.getIssuerFromAIA(AIACertificateSource.java:73)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.getIssuer(SignatureValidationContext.java:439)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.getCertChain(SignatureValidationContext.java:389)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.registerTimestampUsageDate(SignatureValidationContext.java:670)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.addTimestampTokenForVerification(SignatureValidationContext.java:650)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareDetachedTimestampValidationContext(SignedDocumentValidator.java:651)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareValidationContext(SignedDocumentValidator.java:505)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareDiagnosticDataBuilder(SignedDocumentValidator.java:481)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.getDiagnosticData(SignedDocumentValidator.java:466)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:445)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:413)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:342)
+	at eu.europa.esig.dss.validation.TimestampTokenTest.disig(TimestampTokenTest.java:118)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:55)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:223)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:175)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:139)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
+Caused by: java.net.MalformedURLException: unknown protocol: ldap
+	at java.base/java.net.URL.<init>(URL.java:682)
+	at java.base/java.net.URL.<init>(URL.java:570)
+	at java.base/java.net.URL.<init>(URL.java:517)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.createConnection(NativeDataLoaderCall.java:134)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:98)
+	... 88 common frames omitted
+11:41:23.443 [main] WARN eu.europa.esig.dss.validation.SignatureValidationContext - POE extraction is skipped for untrusted timestamp : T-20371DB8980D561A40C8836A82721ABE9F89F16A32E96CA0783668826CEF3F46.
+11:41:23.444 [main] WARN eu.europa.esig.dss.validation.SignatureValidationContext - No revocation found for the certificate C-A4093AF0B3717E51658AC1ECDF923CE5F95CC724B9CDA164B07AA0EA8D5ABC57
+11:41:23.444 [main] WARN eu.europa.esig.dss.validation.SignatureValidationContext - No revocation found for the certificate C-C30B32E75F8277A7F28E6ADFD9EBE48C2CA50564F4DFA899CEEFCB886C1A3572
+11:41:23.445 [main] DEBUG eu.europa.esig.dss.validation.SignatureValidationContext - Revocation data is not required for certificate : C-D83477E0388C40BA092FECA484A5EBD3AD3028BF60220132E95158C00DDCE98F
+11:41:23.446 [main] WARN eu.europa.esig.dss.validation.SignatureValidationContext - No revocation found for the certificate C-CB3318E88E441039CA548C83FB444D8B91FD3E78C7D317C6564DD16825154465
+11:41:23.446 [main] WARN eu.europa.esig.dss.validation.DiagnosticDataBuilder - Provided CertificateSource configuration contains none of trusted sources of type TRUSTED_STORE or TRUSTED_LIST!
+11:41:23.446 [main] INFO eu.europa.esig.dss.validation.SignedDocumentValidator - Default SignaturePolicyProvider instantiated with NativeHTTPDataLoader.
+11:41:23.456 [main] DEBUG eu.europa.esig.dss.validation.SignedDocumentValidator - No provided validation policy : use the default policy
+11:41:23.459 [main] INFO eu.europa.esig.dss.validation.SignedDocumentValidator - Document validation...
+11:41:23.462 [main] DEBUG eu.europa.esig.dss.validation.CMSCertificateSource - Found Certificate Hash in signingCertificateAttributeV1 3463672f44956601a9bcbd57f95123ec913c1d42 with algorithm SHA1
+11:41:23.462 [main] DEBUG eu.europa.esig.dss.validation.CMSCertificateSource - Found Certificate Hash in SigningCertificateV2 cb3318e88e441039ca548c83fb444d8b91fd3e78c7d317c6564dd16825154465 with algorithm SHA256
+11:41:23.462 [main] WARN eu.europa.esig.dss.validation.timestamp.TimestampToken - Timestamped data not found !
+11:41:23.466 [main] INFO eu.europa.esig.dss.validation.CommonCertificateVerifier - + New CommonCertificateVerifier created.
+11:41:23.469 [main] INFO eu.europa.esig.dss.validation.AIACertificateSource - Retrieving C-CB3318E88E441039CA548C83FB444D8B91FD3E78C7D317C6564DD16825154465 certificate's issuer using AIA.
+11:41:23.469 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Loading certificate(s) from 'http://cdn.disig.sk/aca3/cert/aca3_disig.p7c'.
+11:41:23.514 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Base64 content : 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
+11:41:23.515 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - 1 certificate(s) loaded from 'http://cdn.disig.sk/aca3/cert/aca3_disig.p7c'
+11:41:23.517 [main] INFO eu.europa.esig.dss.validation.AIACertificateSource - Retrieving C-C30B32E75F8277A7F28E6ADFD9EBE48C2CA50564F4DFA899CEEFCB886C1A3572 certificate's issuer using AIA.
+11:41:23.517 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Loading certificate(s) from 'http://ep.nbusr.sk/kca/certs/kca3/kcanbusr3_p7c.p7c'.
+11:41:23.562 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Base64 content : 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
+11:41:23.563 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - 1 certificate(s) loaded from 'http://ep.nbusr.sk/kca/certs/kca3/kcanbusr3_p7c.p7c'
+11:41:23.563 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Loading certificate(s) from 'ldap://ep.nbusr.sk/cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary'.
+11:41:23.564 [main] WARN eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Unable to download certificate from 'ldap://ep.nbusr.sk/cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary': An error occurred while reading from url 'ldap://ep.nbusr.sk/cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary' : unknown protocol: ldap
+eu.europa.esig.dss.spi.exception.DSSExternalResourceException: An error occurred while reading from url 'ldap://ep.nbusr.sk/cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary' : unknown protocol: ldap
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:119)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:37)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.request(NativeHTTPDataLoader.java:147)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.get(NativeHTTPDataLoader.java:199)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.get(NativeHTTPDataLoader.java:185)
+	at eu.europa.esig.dss.spi.x509.aia.DefaultAIASource.getCertificatesAndAIAUrls(DefaultAIASource.java:147)
+	at eu.europa.esig.dss.spi.x509.aia.DefaultAIASource.getCertificatesByAIA(DefaultAIASource.java:104)
+	at eu.europa.esig.dss.validation.AIACertificateSource.getIssuerFromAIA(AIACertificateSource.java:73)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.getIssuer(SignatureValidationContext.java:439)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.getCertChain(SignatureValidationContext.java:389)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.registerTimestampUsageDate(SignatureValidationContext.java:670)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.addTimestampTokenForVerification(SignatureValidationContext.java:650)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareDetachedTimestampValidationContext(SignedDocumentValidator.java:651)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareValidationContext(SignedDocumentValidator.java:505)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareDiagnosticDataBuilder(SignedDocumentValidator.java:481)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.getDiagnosticData(SignedDocumentValidator.java:466)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:445)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:413)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:342)
+	at eu.europa.esig.dss.validation.TimestampTokenTest.disig(TimestampTokenTest.java:137)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:55)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:223)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:175)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:139)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
+Caused by: java.net.MalformedURLException: unknown protocol: ldap
+	at java.base/java.net.URL.<init>(URL.java:682)
+	at java.base/java.net.URL.<init>(URL.java:570)
+	at java.base/java.net.URL.<init>(URL.java:517)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.createConnection(NativeDataLoaderCall.java:134)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:98)
+	... 88 common frames omitted
+11:41:23.565 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Loading certificate(s) from 'ldap:///cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary'.
+11:41:23.566 [main] WARN eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Unable to download certificate from 'ldap:///cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary': An error occurred while reading from url 'ldap:///cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary' : unknown protocol: ldap
+eu.europa.esig.dss.spi.exception.DSSExternalResourceException: An error occurred while reading from url 'ldap:///cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary' : unknown protocol: ldap
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:119)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:37)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.request(NativeHTTPDataLoader.java:147)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.get(NativeHTTPDataLoader.java:199)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.get(NativeHTTPDataLoader.java:185)
+	at eu.europa.esig.dss.spi.x509.aia.DefaultAIASource.getCertificatesAndAIAUrls(DefaultAIASource.java:147)
+	at eu.europa.esig.dss.spi.x509.aia.DefaultAIASource.getCertificatesByAIA(DefaultAIASource.java:104)
+	at eu.europa.esig.dss.validation.AIACertificateSource.getIssuerFromAIA(AIACertificateSource.java:73)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.getIssuer(SignatureValidationContext.java:439)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.getCertChain(SignatureValidationContext.java:389)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.registerTimestampUsageDate(SignatureValidationContext.java:670)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.addTimestampTokenForVerification(SignatureValidationContext.java:650)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareDetachedTimestampValidationContext(SignedDocumentValidator.java:651)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareValidationContext(SignedDocumentValidator.java:505)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareDiagnosticDataBuilder(SignedDocumentValidator.java:481)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.getDiagnosticData(SignedDocumentValidator.java:466)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:445)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:413)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:342)
+	at eu.europa.esig.dss.validation.TimestampTokenTest.disig(TimestampTokenTest.java:137)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:55)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:223)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:175)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:139)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
+Caused by: java.net.MalformedURLException: unknown protocol: ldap
+	at java.base/java.net.URL.<init>(URL.java:682)
+	at java.base/java.net.URL.<init>(URL.java:570)
+	at java.base/java.net.URL.<init>(URL.java:517)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.createConnection(NativeDataLoaderCall.java:134)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:98)
+	... 88 common frames omitted
+11:41:23.570 [main] WARN eu.europa.esig.dss.validation.SignatureValidationContext - POE extraction is skipped for timestamp : T-20371DB8980D561A40C8836A82721ABE9F89F16A32E96CA0783668826CEF3F46. The message-imprint is not intact!
+11:41:23.571 [main] DEBUG eu.europa.esig.dss.validation.SignatureValidationContext - Revocation data is not required for certificate : C-A4093AF0B3717E51658AC1ECDF923CE5F95CC724B9CDA164B07AA0EA8D5ABC57
+11:41:23.572 [main] WARN eu.europa.esig.dss.validation.SignatureValidationContext - No revocation found for the certificate C-C30B32E75F8277A7F28E6ADFD9EBE48C2CA50564F4DFA899CEEFCB886C1A3572
+11:41:23.572 [main] DEBUG eu.europa.esig.dss.validation.SignatureValidationContext - Revocation data is not required for certificate : C-D83477E0388C40BA092FECA484A5EBD3AD3028BF60220132E95158C00DDCE98F
+11:41:23.573 [main] DEBUG eu.europa.esig.dss.validation.SignatureValidationContext - Revocation data is not required for certificate : C-CB3318E88E441039CA548C83FB444D8B91FD3E78C7D317C6564DD16825154465
+11:41:23.573 [main] INFO eu.europa.esig.dss.validation.SignedDocumentValidator - Default SignaturePolicyProvider instantiated with NativeHTTPDataLoader.
+11:41:23.585 [main] DEBUG eu.europa.esig.dss.validation.SignedDocumentValidator - No provided validation policy : use the default policy
+11:41:23.590 [main] INFO eu.europa.esig.dss.validation.SignedDocumentValidator - Document validation...
+11:41:23.593 [main] DEBUG eu.europa.esig.dss.validation.CMSCertificateSource - Found Certificate Hash in signingCertificateAttributeV1 3463672f44956601a9bcbd57f95123ec913c1d42 with algorithm SHA1
+11:41:23.593 [main] DEBUG eu.europa.esig.dss.validation.CMSCertificateSource - Found Certificate Hash in SigningCertificateV2 cb3318e88e441039ca548c83fb444d8b91fd3e78c7d317c6564dd16825154465 with algorithm SHA256
+11:41:23.593 [main] WARN eu.europa.esig.dss.validation.timestamp.TimestampToken - Timestamped data not found !
+11:41:23.597 [main] INFO eu.europa.esig.dss.validation.CommonCertificateVerifier - + New CommonCertificateVerifier created.
+11:41:23.599 [main] INFO eu.europa.esig.dss.validation.AIACertificateSource - Retrieving C-CB3318E88E441039CA548C83FB444D8B91FD3E78C7D317C6564DD16825154465 certificate's issuer using AIA.
+11:41:23.599 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Loading certificate(s) from 'http://cdn.disig.sk/aca3/cert/aca3_disig.p7c'.
+11:41:23.644 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Base64 content : 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
+11:41:23.644 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - 1 certificate(s) loaded from 'http://cdn.disig.sk/aca3/cert/aca3_disig.p7c'
+11:41:23.647 [main] INFO eu.europa.esig.dss.validation.AIACertificateSource - Retrieving C-C30B32E75F8277A7F28E6ADFD9EBE48C2CA50564F4DFA899CEEFCB886C1A3572 certificate's issuer using AIA.
+11:41:23.647 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Loading certificate(s) from 'http://ep.nbusr.sk/kca/certs/kca3/kcanbusr3_p7c.p7c'.
+11:41:23.693 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Base64 content : 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
+11:41:23.693 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - 1 certificate(s) loaded from 'http://ep.nbusr.sk/kca/certs/kca3/kcanbusr3_p7c.p7c'
+11:41:23.693 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Loading certificate(s) from 'ldap://ep.nbusr.sk/cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary'.
+11:41:23.694 [main] WARN eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Unable to download certificate from 'ldap://ep.nbusr.sk/cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary': An error occurred while reading from url 'ldap://ep.nbusr.sk/cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary' : unknown protocol: ldap
+eu.europa.esig.dss.spi.exception.DSSExternalResourceException: An error occurred while reading from url 'ldap://ep.nbusr.sk/cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary' : unknown protocol: ldap
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:119)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:37)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.request(NativeHTTPDataLoader.java:147)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.get(NativeHTTPDataLoader.java:199)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.get(NativeHTTPDataLoader.java:185)
+	at eu.europa.esig.dss.spi.x509.aia.DefaultAIASource.getCertificatesAndAIAUrls(DefaultAIASource.java:147)
+	at eu.europa.esig.dss.spi.x509.aia.DefaultAIASource.getCertificatesByAIA(DefaultAIASource.java:104)
+	at eu.europa.esig.dss.validation.AIACertificateSource.getIssuerFromAIA(AIACertificateSource.java:73)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.getIssuer(SignatureValidationContext.java:439)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.getCertChain(SignatureValidationContext.java:389)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.registerTimestampUsageDate(SignatureValidationContext.java:670)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.addTimestampTokenForVerification(SignatureValidationContext.java:650)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareDetachedTimestampValidationContext(SignedDocumentValidator.java:651)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareValidationContext(SignedDocumentValidator.java:505)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareDiagnosticDataBuilder(SignedDocumentValidator.java:481)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.getDiagnosticData(SignedDocumentValidator.java:466)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:445)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:413)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:342)
+	at eu.europa.esig.dss.validation.TimestampTokenTest.disig(TimestampTokenTest.java:153)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:55)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:223)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:175)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:139)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
+Caused by: java.net.MalformedURLException: unknown protocol: ldap
+	at java.base/java.net.URL.<init>(URL.java:682)
+	at java.base/java.net.URL.<init>(URL.java:570)
+	at java.base/java.net.URL.<init>(URL.java:517)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.createConnection(NativeDataLoaderCall.java:134)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:98)
+	... 88 common frames omitted
+11:41:23.695 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Loading certificate(s) from 'ldap:///cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary'.
+11:41:23.696 [main] WARN eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Unable to download certificate from 'ldap:///cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary': An error occurred while reading from url 'ldap:///cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary' : unknown protocol: ldap
+eu.europa.esig.dss.spi.exception.DSSExternalResourceException: An error occurred while reading from url 'ldap:///cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary' : unknown protocol: ldap
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:119)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:37)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.request(NativeHTTPDataLoader.java:147)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.get(NativeHTTPDataLoader.java:199)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.get(NativeHTTPDataLoader.java:185)
+	at eu.europa.esig.dss.spi.x509.aia.DefaultAIASource.getCertificatesAndAIAUrls(DefaultAIASource.java:147)
+	at eu.europa.esig.dss.spi.x509.aia.DefaultAIASource.getCertificatesByAIA(DefaultAIASource.java:104)
+	at eu.europa.esig.dss.validation.AIACertificateSource.getIssuerFromAIA(AIACertificateSource.java:73)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.getIssuer(SignatureValidationContext.java:439)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.getCertChain(SignatureValidationContext.java:389)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.registerTimestampUsageDate(SignatureValidationContext.java:670)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.addTimestampTokenForVerification(SignatureValidationContext.java:650)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareDetachedTimestampValidationContext(SignedDocumentValidator.java:651)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareValidationContext(SignedDocumentValidator.java:505)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareDiagnosticDataBuilder(SignedDocumentValidator.java:481)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.getDiagnosticData(SignedDocumentValidator.java:466)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:445)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:413)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:342)
+	at eu.europa.esig.dss.validation.TimestampTokenTest.disig(TimestampTokenTest.java:153)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:55)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:223)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:175)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:139)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
+Caused by: java.net.MalformedURLException: unknown protocol: ldap
+	at java.base/java.net.URL.<init>(URL.java:682)
+	at java.base/java.net.URL.<init>(URL.java:570)
+	at java.base/java.net.URL.<init>(URL.java:517)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.createConnection(NativeDataLoaderCall.java:134)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:98)
+	... 88 common frames omitted
+11:41:23.699 [main] WARN eu.europa.esig.dss.validation.SignatureValidationContext - POE extraction is skipped for timestamp : T-20371DB8980D561A40C8836A82721ABE9F89F16A32E96CA0783668826CEF3F46. The message-imprint is not intact!
+11:41:23.699 [main] DEBUG eu.europa.esig.dss.validation.SignatureValidationContext - Revocation data is not required for certificate : C-A4093AF0B3717E51658AC1ECDF923CE5F95CC724B9CDA164B07AA0EA8D5ABC57
+11:41:23.700 [main] WARN eu.europa.esig.dss.validation.SignatureValidationContext - No revocation found for the certificate C-C30B32E75F8277A7F28E6ADFD9EBE48C2CA50564F4DFA899CEEFCB886C1A3572
+11:41:23.700 [main] DEBUG eu.europa.esig.dss.validation.SignatureValidationContext - Revocation data is not required for certificate : C-D83477E0388C40BA092FECA484A5EBD3AD3028BF60220132E95158C00DDCE98F
+11:41:23.700 [main] DEBUG eu.europa.esig.dss.validation.SignatureValidationContext - Revocation data is not required for certificate : C-CB3318E88E441039CA548C83FB444D8B91FD3E78C7D317C6564DD16825154465
+11:41:23.700 [main] INFO eu.europa.esig.dss.validation.SignedDocumentValidator - Default SignaturePolicyProvider instantiated with NativeHTTPDataLoader.
+11:41:23.709 [main] DEBUG eu.europa.esig.dss.validation.SignedDocumentValidator - No provided validation policy : use the default policy
+11:41:23.715 [main] INFO eu.europa.esig.dss.validation.SignedDocumentValidator - Document validation...
+11:41:23.718 [main] DEBUG eu.europa.esig.dss.validation.CMSCertificateSource - Found Certificate Hash in signingCertificateAttributeV1 3463672f44956601a9bcbd57f95123ec913c1d42 with algorithm SHA1
+11:41:23.718 [main] DEBUG eu.europa.esig.dss.validation.CMSCertificateSource - Found Certificate Hash in SigningCertificateV2 cb3318e88e441039ca548c83fb444d8b91fd3e78c7d317c6564dd16825154465 with algorithm SHA256
+11:41:23.718 [main] WARN eu.europa.esig.dss.validation.timestamp.TimestampToken - Timestamped data not found !
+11:41:23.721 [main] INFO eu.europa.esig.dss.validation.CommonCertificateVerifier - + New CommonCertificateVerifier created.
+11:41:23.732 [main] INFO eu.europa.esig.dss.validation.AIACertificateSource - Retrieving C-CB3318E88E441039CA548C83FB444D8B91FD3E78C7D317C6564DD16825154465 certificate's issuer using AIA.
+11:41:23.732 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Loading certificate(s) from 'http://cdn.disig.sk/aca3/cert/aca3_disig.p7c'.
+11:41:23.781 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Base64 content : 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
+11:41:23.781 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - 1 certificate(s) loaded from 'http://cdn.disig.sk/aca3/cert/aca3_disig.p7c'
+11:41:23.784 [main] INFO eu.europa.esig.dss.validation.AIACertificateSource - Retrieving C-C30B32E75F8277A7F28E6ADFD9EBE48C2CA50564F4DFA899CEEFCB886C1A3572 certificate's issuer using AIA.
+11:41:23.784 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Loading certificate(s) from 'http://ep.nbusr.sk/kca/certs/kca3/kcanbusr3_p7c.p7c'.
+11:41:23.830 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Base64 content : 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
+11:41:23.830 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - 1 certificate(s) loaded from 'http://ep.nbusr.sk/kca/certs/kca3/kcanbusr3_p7c.p7c'
+11:41:23.831 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Loading certificate(s) from 'ldap://ep.nbusr.sk/cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary'.
+11:41:23.831 [main] WARN eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Unable to download certificate from 'ldap://ep.nbusr.sk/cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary': An error occurred while reading from url 'ldap://ep.nbusr.sk/cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary' : unknown protocol: ldap
+eu.europa.esig.dss.spi.exception.DSSExternalResourceException: An error occurred while reading from url 'ldap://ep.nbusr.sk/cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary' : unknown protocol: ldap
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:119)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:37)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.request(NativeHTTPDataLoader.java:147)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.get(NativeHTTPDataLoader.java:199)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.get(NativeHTTPDataLoader.java:185)
+	at eu.europa.esig.dss.spi.x509.aia.DefaultAIASource.getCertificatesAndAIAUrls(DefaultAIASource.java:147)
+	at eu.europa.esig.dss.spi.x509.aia.DefaultAIASource.getCertificatesByAIA(DefaultAIASource.java:104)
+	at eu.europa.esig.dss.validation.AIACertificateSource.getIssuerFromAIA(AIACertificateSource.java:73)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.getIssuer(SignatureValidationContext.java:439)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.getCertChain(SignatureValidationContext.java:389)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.registerTimestampUsageDate(SignatureValidationContext.java:670)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.addTimestampTokenForVerification(SignatureValidationContext.java:650)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareDetachedTimestampValidationContext(SignedDocumentValidator.java:651)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareValidationContext(SignedDocumentValidator.java:505)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareDiagnosticDataBuilder(SignedDocumentValidator.java:481)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.getDiagnosticData(SignedDocumentValidator.java:466)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:445)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:413)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:342)
+	at eu.europa.esig.dss.validation.TimestampTokenTest.disig(TimestampTokenTest.java:169)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:55)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:223)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:175)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:139)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
+Caused by: java.net.MalformedURLException: unknown protocol: ldap
+	at java.base/java.net.URL.<init>(URL.java:682)
+	at java.base/java.net.URL.<init>(URL.java:570)
+	at java.base/java.net.URL.<init>(URL.java:517)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.createConnection(NativeDataLoaderCall.java:134)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:98)
+	... 88 common frames omitted
+11:41:23.831 [main] DEBUG eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Loading certificate(s) from 'ldap:///cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary'.
+11:41:23.832 [main] WARN eu.europa.esig.dss.spi.x509.aia.DefaultAIASource - Unable to download certificate from 'ldap:///cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary': An error occurred while reading from url 'ldap:///cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary' : unknown protocol: ldap
+eu.europa.esig.dss.spi.exception.DSSExternalResourceException: An error occurred while reading from url 'ldap:///cn=KCA NBU SR 3,ou=SIBEP,o=Narodny bezpecnostny urad,l=Bratislava,c=SK?caCertificate;binary' : unknown protocol: ldap
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:119)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:37)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.request(NativeHTTPDataLoader.java:147)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.get(NativeHTTPDataLoader.java:199)
+	at eu.europa.esig.dss.spi.client.http.NativeHTTPDataLoader.get(NativeHTTPDataLoader.java:185)
+	at eu.europa.esig.dss.spi.x509.aia.DefaultAIASource.getCertificatesAndAIAUrls(DefaultAIASource.java:147)
+	at eu.europa.esig.dss.spi.x509.aia.DefaultAIASource.getCertificatesByAIA(DefaultAIASource.java:104)
+	at eu.europa.esig.dss.validation.AIACertificateSource.getIssuerFromAIA(AIACertificateSource.java:73)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.getIssuer(SignatureValidationContext.java:439)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.getCertChain(SignatureValidationContext.java:389)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.registerTimestampUsageDate(SignatureValidationContext.java:670)
+	at eu.europa.esig.dss.validation.SignatureValidationContext.addTimestampTokenForVerification(SignatureValidationContext.java:650)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareDetachedTimestampValidationContext(SignedDocumentValidator.java:651)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareValidationContext(SignedDocumentValidator.java:505)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.prepareDiagnosticDataBuilder(SignedDocumentValidator.java:481)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.getDiagnosticData(SignedDocumentValidator.java:466)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:445)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:413)
+	at eu.europa.esig.dss.validation.SignedDocumentValidator.validateDocument(SignedDocumentValidator.java:342)
+	at eu.europa.esig.dss.validation.TimestampTokenTest.disig(TimestampTokenTest.java:169)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:55)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:223)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:175)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:139)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
+Caused by: java.net.MalformedURLException: unknown protocol: ldap
+	at java.base/java.net.URL.<init>(URL.java:682)
+	at java.base/java.net.URL.<init>(URL.java:570)
+	at java.base/java.net.URL.<init>(URL.java:517)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.createConnection(NativeDataLoaderCall.java:134)
+	at eu.europa.esig.dss.spi.client.http.NativeDataLoaderCall.call(NativeDataLoaderCall.java:98)
+	... 88 common frames omitted
+11:41:23.835 [main] WARN eu.europa.esig.dss.validation.SignatureValidationContext - POE extraction is skipped for timestamp : T-20371DB8980D561A40C8836A82721ABE9F89F16A32E96CA0783668826CEF3F46. The message-imprint is not intact!
+11:41:23.836 [main] DEBUG eu.europa.esig.dss.validation.SignatureValidationContext - Revocation data is not required for certificate : C-A4093AF0B3717E51658AC1ECDF923CE5F95CC724B9CDA164B07AA0EA8D5ABC57
+11:41:23.837 [main] WARN eu.europa.esig.dss.validation.SignatureValidationContext - No revocation found for the certificate C-C30B32E75F8277A7F28E6ADFD9EBE48C2CA50564F4DFA899CEEFCB886C1A3572
+11:41:23.837 [main] DEBUG eu.europa.esig.dss.validation.SignatureValidationContext - Revocation data is not required for certificate : C-D83477E0388C40BA092FECA484A5EBD3AD3028BF60220132E95158C00DDCE98F
+11:41:23.838 [main] DEBUG eu.europa.esig.dss.validation.SignatureValidationContext - Revocation data is not required for certificate : C-CB3318E88E441039CA548C83FB444D8B91FD3E78C7D317C6564DD16825154465
+11:41:23.838 [main] INFO eu.europa.esig.dss.validation.SignedDocumentValidator - Default SignaturePolicyProvider instantiated with NativeHTTPDataLoader.
+]]></system-out>
+  </testcase>
+  <testcase name="incorrectTimestamp" classname="eu.europa.esig.dss.validation.TimestampTokenTest" time="0.006"/>
+  <testcase name="timestampWithEmbeddedCRL" classname="eu.europa.esig.dss.validation.TimestampTokenTest" time="0.015">
+    <system-out><![CDATA[11:41:23.859 [main] DEBUG eu.europa.esig.dss.validation.CMSCertificateSource - Found Certificate Hash in signingCertificateAttributeV1 d8e43be9a5e02bb07b2dccaaa606807cbebfb886 with algorithm SHA1
+11:41:23.863 [main] WARN eu.europa.esig.dss.validation.timestamp.TimestampToken - Provided digest value for TimestampToken matchData : 0ZK7TlaEAd6q3O0l3V4vYauEXE6OotQXiYbyoWNOfxLSbKVzsnj+8/TMVl4qeQQtP6QOiITIJLW+BgB5A5Pvag==
+11:41:23.863 [main] WARN eu.europa.esig.dss.validation.timestamp.TimestampToken - Digest (SHA512) present in TimestampToken : 1TK7TlaEAd6q3O0l3V4vYauEXE6OotQXiYbyoWNOfxLSbKVzsnj+8/TMVl4qeQQtP6QOiITIJLW+BgB5A5Pvag==
+11:41:23.863 [main] WARN eu.europa.esig.dss.validation.timestamp.TimestampToken - Digest in TimestampToken matches digest of extracted data from document: false
+]]></system-out>
+  </testcase>
+  <testcase name="timestampSigCert" classname="eu.europa.esig.dss.validation.TimestampTokenTest" time="0.063">
+    <system-out><![CDATA[11:41:23.926 [main] DEBUG eu.europa.esig.dss.validation.CMSCertificateSource - Found Certificate Hash in signingCertificateAttributeV1 6e23cdb967f06d3fda85316c5b47361cd55542ac with algorithm SHA1
+11:41:23.926 [main] DEBUG eu.europa.esig.dss.validation.CMSCertificateSource - Found Certificate Hash in SigningCertificateV2 673be8a1da927db63ccab7cb3e7ac352dc3aeb6a8da3e2a359ca158d0a440db8 with algorithm SHA256
+11:41:23.927 [main] DEBUG eu.europa.esig.dss.validation.timestamp.TimestampToken - Unable to validate timestamp token : 
+org.bouncycastle.tsp.TSPValidationException: signature not created by certificate.
+	at org.bouncycastle.tsp.TimeStampToken.validate(TimeStampToken.java:243)
+	at eu.europa.esig.dss.validation.timestamp.TimestampToken.isValidTimestamp(TimestampToken.java:374)
+	at eu.europa.esig.dss.validation.timestamp.TimestampToken.checkIsSignedBy(TimestampToken.java:348)
+	at eu.europa.esig.dss.validation.timestamp.TimestampToken.isSignedBy(TimestampToken.java:320)
+	at eu.europa.esig.dss.validation.TimestampTokenTest.timestampSigCert(TimestampTokenTest.java:340)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:55)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:223)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:175)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:139)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
+]]></system-out>
+  </testcase>
+  <testcase name="wrongOCSPResponseTest" classname="eu.europa.esig.dss.validation.TimestampTokenTest" time="0.008">
+    <system-out><![CDATA[11:41:23.936 [main] DEBUG eu.europa.esig.dss.validation.CMSCertificateSource - Found Certificate Hash in SigningCertificateV2 18d6051732e476a89aabb2b76f57bc3894bd032c73b7bd93ec64979c641e806d with algorithm SHA256
+11:41:23.937 [main] WARN eu.europa.esig.dss.spi.DSSRevocationUtils - Impossible to create BasicOCSPResp from ASN1Sequence!
+java.lang.IllegalArgumentException: unknown object in getInstance: org.bouncycastle.asn1.ASN1Enumerated
+	at org.bouncycastle.asn1.ASN1Sequence.getInstance(ASN1Sequence.java:105)
+	at org.bouncycastle.asn1.ocsp.ResponseData.getInstance(ResponseData.java:131)
+	at org.bouncycastle.asn1.ocsp.BasicOCSPResponse.<init>(BasicOCSPResponse.java:46)
+	at org.bouncycastle.asn1.ocsp.BasicOCSPResponse.getInstance(BasicOCSPResponse.java:72)
+	at eu.europa.esig.dss.spi.DSSRevocationUtils.getBasicOcspResp(DSSRevocationUtils.java:96)
+	at eu.europa.esig.dss.validation.CMSOCSPSource.addBasicOcspRespFrom_id_pkix_ocsp_basic(CMSOCSPSource.java:174)
+	at eu.europa.esig.dss.validation.CMSOCSPSource.collectFromSignedData(CMSOCSPSource.java:142)
+	at eu.europa.esig.dss.validation.CMSOCSPSource.appendContainedOCSPResponses(CMSOCSPSource.java:87)
+	at eu.europa.esig.dss.validation.CMSOCSPSource.<init>(CMSOCSPSource.java:82)
+	at eu.europa.esig.dss.validation.timestamp.TimestampOCSPSource.<init>(TimestampOCSPSource.java:35)
+	at eu.europa.esig.dss.validation.timestamp.TimestampToken.<init>(TimestampToken.java:240)
+	at eu.europa.esig.dss.validation.timestamp.TimestampToken.<init>(TimestampToken.java:221)
+	at eu.europa.esig.dss.validation.timestamp.TimestampToken.<init>(TimestampToken.java:208)
+	at eu.europa.esig.dss.validation.timestamp.TimestampToken.<init>(TimestampToken.java:194)
+	at eu.europa.esig.dss.validation.TimestampTokenTest.wrongOCSPResponseTest(TimestampTokenTest.java:431)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:147)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:127)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:90)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:55)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:102)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:55)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:223)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:175)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:139)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
+11:41:23.938 [main] WARN eu.europa.esig.dss.validation.CMSOCSPSource - Unable to create an OCSP response from an objects. The entry is skipped.
+]]></system-out>
+  </testcase>
+  <testcase name="eeTSTwithCerts" classname="eu.europa.esig.dss.validation.TimestampTokenTest" time="0.004">
+    <system-out><![CDATA[11:41:23.942 [main] DEBUG eu.europa.esig.dss.validation.CMSCertificateSource - Found Certificate Hash in signingCertificateAttributeV1 02b197ef78aee171f6a1475f50eacc6571f1fc0b with algorithm SHA1
+]]></system-out>
+  </testcase>
+  <testcase name="eeTSTwithoutCerts" classname="eu.europa.esig.dss.validation.TimestampTokenTest" time="0.003">
+    <system-out><![CDATA[11:41:23.946 [main] DEBUG eu.europa.esig.dss.validation.CMSCertificateSource - Found Certificate Hash in signingCertificateAttributeV1 02b197ef78aee171f6a1475f50eacc6571f1fc0b with algorithm SHA1
+]]></system-out>
+  </testcase>
+  <testcase name="cadesArchiveTimestampV2Test" classname="eu.europa.esig.dss.validation.TimestampTokenTest" time="0.017">
+    <system-out><![CDATA[11:41:23.952 [main] DEBUG eu.europa.esig.dss.validation.CMSCertificateSource - Found Certificate Hash in signingCertificateAttributeV1 d8e43be9a5e02bb07b2dccaaa606807cbebfb886 with algorithm SHA1
+]]></system-out>
+  </testcase>
+  <testcase name="dss1913" classname="eu.europa.esig.dss.validation.TimestampTokenTest" time="0.02">
+    <system-out><![CDATA[11:41:23.981 [main] DEBUG eu.europa.esig.dss.validation.CMSCertificateSource - Found Certificate Hash in SigningCertificateV2 3c8ef47f15a8dfdd1269d548ebabdc270454e397938c64447849189532f6481b with algorithm SHA256
+11:41:23.986 [main] DEBUG eu.europa.esig.dss.validation.CMSCertificateSource - Found Certificate Hash in SigningCertificateV2 3c8ef47f15a8dfdd1269d548ebabdc270454e397938c64447849189532f6481b with algorithm SHA256
+]]></system-out>
+  </testcase>
+</testsuite>

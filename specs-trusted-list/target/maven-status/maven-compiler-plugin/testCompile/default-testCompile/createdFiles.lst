@@ -1,0 +1,5 @@
+eu\europa\esig\trustedlist\mra\MRAFacadeTest.class
+eu\europa\esig\trustedlist\parsers\AssertParserTest.class
+eu\europa\esig\trustedlist\mra\XSDConformanceTest.class
+eu\europa\esig\trustedlist\TrustedListUtilsTest.class
+eu\europa\esig\trustedlist\TrustedListFacadeTest.class

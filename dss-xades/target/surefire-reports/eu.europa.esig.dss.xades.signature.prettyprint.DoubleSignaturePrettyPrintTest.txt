@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: eu.europa.esig.dss.xades.signature.prettyprint.DoubleSignaturePrettyPrintTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.972 s - in eu.europa.esig.dss.xades.signature.prettyprint.DoubleSignaturePrettyPrintTest

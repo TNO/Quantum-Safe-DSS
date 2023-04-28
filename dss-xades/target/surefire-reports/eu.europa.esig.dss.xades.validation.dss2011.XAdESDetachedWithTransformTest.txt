@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: eu.europa.esig.dss.xades.validation.dss2011.XAdESDetachedWithTransformTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 s - in eu.europa.esig.dss.xades.validation.dss2011.XAdESDetachedWithTransformTest

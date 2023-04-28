@@ -1,0 +1,13 @@
+eu.europa.esig.dss.pades
+eu.europa.esig.dss.pades.alerts
+eu.europa.esig.dss.pades.exception
+eu.europa.esig.dss.pades.signature
+eu.europa.esig.dss.pades.timestamp
+eu.europa.esig.dss.pades.validation
+eu.europa.esig.dss.pades.validation.dss
+eu.europa.esig.dss.pades.validation.scope
+eu.europa.esig.dss.pades.validation.timestamp
+eu.europa.esig.dss.pdf
+eu.europa.esig.dss.pdf.encryption
+eu.europa.esig.dss.pdf.modifications
+eu.europa.esig.dss.pdf.visible

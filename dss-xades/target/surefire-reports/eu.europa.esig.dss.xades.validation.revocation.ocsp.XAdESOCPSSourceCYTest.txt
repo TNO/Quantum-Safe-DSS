@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: eu.europa.esig.dss.xades.validation.revocation.ocsp.XAdESOCPSSourceCYTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.135 s - in eu.europa.esig.dss.xades.validation.revocation.ocsp.XAdESOCPSSourceCYTest

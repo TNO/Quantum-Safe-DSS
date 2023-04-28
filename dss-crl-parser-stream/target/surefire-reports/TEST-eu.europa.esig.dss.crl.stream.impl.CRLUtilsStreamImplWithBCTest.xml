@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="eu.europa.esig.dss.crl.stream.impl.CRLUtilsStreamImplWithBCTest" time="1.059" tests="4" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="19"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser-stream\target\test-classes;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser-stream\target\classes;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\dss-crl-parser-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-model\target\dss-model-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-enumerations\target\dss-enumerations-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser-stream\libs\bcprov-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser-stream\libs\bcpkix-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser-stream\libs\bcutil-jdk18on-173b20.jar;C:\Users\amadoria\.m2\repository\org\slf4j\slf4j-api\2.0.6\slf4j-api-2.0.6.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\dss-crl-parser-5.12.RC1-tests.jar;C:\Users\amadoria\.m2\repository\ch\qos\logback\logback-classic\1.3.5\logback-classic-1.3.5.jar;C:\Users\amadoria\.m2\repository\ch\qos\logback\logback-core\1.3.5\logback-core-1.3.5.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-launcher\1.9.2\junit-platform-launcher-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-utils-google-guava\target\dss-utils-google-guava-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-utils\target\dss-utils-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\com\google\guava\guava\31.1-jre\guava-31.1-jre.jar;C:\Users\amadoria\.m2\repository\com\google\guava\failureaccess\1.0.1\failureaccess-1.0.1.jar;C:\Users\amadoria\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\amadoria\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\amadoria\.m2\repository\org\checkerframework\checker-qual\3.12.0\checker-qual-3.12.0.jar;C:\Users\amadoria\.m2\repository\com\google\errorprone\error_prone_annotations\2.11.0\error_prone_annotations-2.11.0.jar;C:\Users\amadoria\.m2\repository\com\google\j2objc\j2objc-annotations\1.3\j2objc-annotations-1.3.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Amsterdam"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="java.vm.specification.version" value="19"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-19\bin"/>
+    <property name="sun.java.command" value="C:\Users\amadoria\AppData\Local\Temp\surefire15423486448312700938\surefirebooter-20230428113650928_121.jar C:\Users\amadoria\AppData\Local\Temp\surefire15423486448312700938 2023-04-28T11-29-53_553-jvmRun1 surefire-20230428113650928_119tmp surefire_24-20230428113650928_120tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser-stream\target\test-classes;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser-stream\target\classes;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\dss-crl-parser-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-model\target\dss-model-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-enumerations\target\dss-enumerations-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser-stream\libs\bcprov-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser-stream\libs\bcpkix-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser-stream\libs\bcutil-jdk18on-173b20.jar;C:\Users\amadoria\.m2\repository\org\slf4j\slf4j-api\2.0.6\slf4j-api-2.0.6.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\dss-crl-parser-5.12.RC1-tests.jar;C:\Users\amadoria\.m2\repository\ch\qos\logback\logback-classic\1.3.5\logback-classic-1.3.5.jar;C:\Users\amadoria\.m2\repository\ch\qos\logback\logback-core\1.3.5\logback-core-1.3.5.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-launcher\1.9.2\junit-platform-launcher-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-utils-google-guava\target\dss-utils-google-guava-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-utils\target\dss-utils-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\com\google\guava\guava\31.1-jre\guava-31.1-jre.jar;C:\Users\amadoria\.m2\repository\com\google\guava\failureaccess\1.0.1\failureaccess-1.0.1.jar;C:\Users\amadoria\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\amadoria\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\amadoria\.m2\repository\org\checkerframework\checker-qual\3.12.0\checker-qual-3.12.0.jar;C:\Users\amadoria\.m2\repository\com\google\errorprone\error_prone_annotations\2.11.0\error_prone_annotations-2.11.0.jar;C:\Users\amadoria\.m2\repository\com\google\j2objc\j2objc-annotations\1.3\j2objc-annotations-1.3.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\amadoria"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2023-01-17"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-19"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser-stream"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\amadoria\AppData\Local\Temp\surefire15423486448312700938\surefirebooter-20230428113650928_121.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="19.0.2+7-44"/>
+    <property name="user.name" value="amadoria"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\amadoria\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\amadoria\AppData\Local\Temp\"/>
+    <property name="java.version" value="19.0.2"/>
+    <property name="user.dir" value="C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser-stream"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-19\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Eclipse Adoptium\jdk-17.0.5.8-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\ProgramData\chocolatey\bin;C:\Program Files\Gradle\gradle-8.0.2\bin;C:\Program Files\Maven\apache-maven-3.9.0\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\Users\amadoria\AppData\Local\Programs\Python\Python38\Scripts\;C:\Users\amadoria\AppData\Local\Programs\Python\Python38\;C:\Users\amadoria\AppData\Local\Microsoft\WindowsApps;C:\Users\amadoria\AppData\Local\Programs\MiKTeX\miktex\bin\x64\;C:\Users\amadoria\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\amadoria\AppData\Roaming\Python\Scripts\;C:\Users\amadoria\AppData\Local\Programs\Git\cmd;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.3.3\bin;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="19.0.2+7-44"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="63.0"/>
+  </properties>
+  <testcase name="testPSSwithBouncyCastle" classname="eu.europa.esig.dss.crl.stream.impl.CRLUtilsStreamImplWithBCTest" time="0.403">
+    <system-out><![CDATA[11:36:57.801 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - TBSCertList -> version : 01
+11:36:57.801 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - TBSCertList -> signatureAlgorithm : 06092a864886f70d01010a3030a00d300b0609608648016503040203a11a301806092a864886f70d010108300b0609608648016503040203a203020140
+11:36:57.801 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - TBSCertList -> issuer : 310b300906035504061302444531153013060355040a130c442d547275737420476d6248311f301d06035504031316442d545255535420526f6f7420434120312032303137311730150603550461130e4e545244452d4852423734333436
+11:36:57.803 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - TBSCertList -> thisUpdate : 3138303630353132303735385a
+11:36:57.803 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - TBSCertList -> nextUpdate : 3139303630373132303635385a
+11:36:57.803 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - TBSCertList -> crlExtensions : 302e300b0603551d140404020201ec301f0603551d23041830168014102aa5477753322620ed739cd50d3231eb664160
+11:36:57.803 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - CertificateList -> signatureAlgorithm : 06092a864886f70d01010a3030a00d300b0609608648016503040203a11a301806092a864886f70d010108300b0609608648016503040203a203020140
+11:36:57.803 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - CertificateList -> signatureValue : 00680823c216fcf231296b7f84c1068f44572f16f3f3d48661fe4e7ca82250e13bd9c8b49c0a52a8b06cf90cb110a5f6b7dc99fcee32dea8f7afdabc0fe43aee82ae85aa4873d47b6d316f52844f3d69eef903a661064d20738cbd0ae348887bf1bd754cd4cc2034c27800aceca0102d7a913b217b8923ed56cd0e49b039597f2461808848c2dcaab7f39fc2fa5cdf7d7f247ceff35b5ef0d400c7e0c6312389d9bf638f1c827ede39af8ac77f2c6bf5c235583eda4775ed369803437910d4e34eff91e23c934efa24383a443ea538449da137685aeadebdac8cebe6b0f4cb7657fcf97a5f80718893b1b3ae1e933924300dd38c2204bccdd5b79376a1cc9b1c91771b7803194f569fa876927b108aa3f49179fa66b38f6386f7e455695d0ada51713dcf7598948d8aa5e9424f738a47e40c808e9fdc769929e49294734c9e7c82cf37c7a73a49389b3608dde774d55d524df7be4f81e62065baa53f6af1a754845dfbddbda508ae42cfe90a675f19dc38bfda15dbc79f1c3830364f002707f9702cdd8fc89be6350f63a5ad4e035d25488e987442111e4bad36837bd96fd1435ecaac8c25f0cbc9e0b77f8e525a86683740b82c6a0ca706b3241bb2190b2c2ed1f9a993618e5f02a8f645d6b525732e164e2a7285cdccb96946da75980bcea142be211656f8a5ebd2250dd321785b0d45404e9949f449b474a555726e629d968a
+11:36:57.803 [main] DEBUG eu.europa.esig.dss.crl.AbstractCRLUtils - issuingDistributionPointBinary is null. Issuing Distribution Point fields in CRLValidity cannot be filled.
+]]></system-out>
+  </testcase>
+  <testcase name="rsaSHA256" classname="eu.europa.esig.dss.crl.stream.impl.CRLUtilsStreamImplWithBCTest" time="0.039">
+    <system-out><![CDATA[11:36:57.884 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - TBSCertList -> version : 01
+11:36:57.885 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - TBSCertList -> signatureAlgorithm : 06092a864886f70d01010b0500
+11:36:57.885 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - TBSCertList -> issuer : 310b3009060355040613024245311930170603550403131042656c6769756d20526f6f7420434132
+11:36:57.885 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - TBSCertList -> thisUpdate : 3139303130313131303030305a
+11:36:57.885 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - TBSCertList -> nextUpdate : 3139303733313131303030305a
+11:36:57.885 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - TBSCertList -> revokedCertificates : skipped (length=455)
+11:36:57.886 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - TBSCertList -> crlExtensions : 302d300a0603551d140403020104301f0603551d23041830168014858aebf4c5bbbe0e590394ded6800115e3109c39
+11:36:57.886 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - CertificateList -> signatureAlgorithm : 06092a864886f70d01010b0500
+11:36:57.888 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - CertificateList -> signatureValue : 007e184574310401fa23ca0cef6118018c8c81082caea6ddb4dd0cd0c172140fa024854e935b2a096ad1ce0d9c087f9d46135bc8b4bc43673f356e2fdd3157b2b7ea50a36990d03a348f4b03432c48022b838d2bb45e5b4b5b14f4e44e2298779f6e1889b5d71e7f2ad1f12c25f8e2e72da0dd599103679913f61cfb3a0e386db772d3003d6867f602d2d41db195067da14371d802a2be61cab39d80787eaae31aa59ed69b5275792cc942bc400da156ab714fb0d28b96ab456503fdb7a9eb7551f2524b47bfd0f27fe5e39baf270f26bbac65bb9ff2ef08b24c63371d19dd6df29a1d23e55c3e895429d52ec9f4b94bdf17ba79b2845b541d96eda908109ae87f
+11:36:57.890 [main] DEBUG eu.europa.esig.dss.crl.AbstractCRLUtils - issuingDistributionPointBinary is null. Issuing Distribution Point fields in CRLValidity cannot be filled.
+]]></system-out>
+  </testcase>
+  <testcase name="rsaSHA1" classname="eu.europa.esig.dss.crl.stream.impl.CRLUtilsStreamImplWithBCTest" time="0.012">
+    <system-out><![CDATA[11:36:57.900 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - TBSCertList -> signatureAlgorithm : 06092a864886f70d0101050500
+11:36:57.902 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - TBSCertList -> issuer : 310b3009060355040613024245311930170603550403131042656c6769756d20526f6f7420434132
+11:36:57.903 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - TBSCertList -> thisUpdate : 3134303730313131303030305a
+11:36:57.905 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - TBSCertList -> nextUpdate : 3135303133313131303030305a
+11:36:57.906 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - CertificateList -> signatureAlgorithm : 06092a864886f70d0101050500
+11:36:57.906 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - CertificateList -> signatureValue : 00a50aa7fe1076ff65a7c222b4577449883ab1d5d1f1587c86cb11652130b20305d36070378a8d4381e9d7375a7c5fcae1384739dd05b640d5d943bfbc045fcb31686cc0744475ebab834bf085ef0c15cfcbe80eafa3bb9c68a4dd35572ec535c080e372299d96a5f473c841f6f6132adf36ee6141a97b5a2284eeaf0f49c875bc1941f61f0d6f221f9f23e21d9ec0d01e8c3c906a4821708069be61907fe0342cb0e56e8b4fa4053d7db940634c6d1011eedd2f1653044801a30ab96b1bfddd00577b48fec4e5d9f7bb65536889e756ec2d8dc4d77e3388c57a84a3ec070e8044cabf045eb83fa6b12c850ea9d091698a0cbb67a47d84a816e68cde5da8efd6b0
+11:36:57.906 [main] DEBUG eu.europa.esig.dss.crl.AbstractCRLUtils - issuingDistributionPointBinary is null. Issuing Distribution Point fields in CRLValidity cannot be filled.
+]]></system-out>
+  </testcase>
+  <testcase name="rsaSHA1bis" classname="eu.europa.esig.dss.crl.stream.impl.CRLUtilsStreamImplWithBCTest" time="0.113">
+    <system-out><![CDATA[11:36:58.022 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - TBSCertList -> signatureAlgorithm : 06092a864886f70d0101050500
+11:36:58.022 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - TBSCertList -> issuer : 310b3009060355040613024245311930170603550403131042656c6769756d20526f6f7420434133
+11:36:58.023 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - TBSCertList -> thisUpdate : 3134303730313131303030305a
+11:36:58.023 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - TBSCertList -> nextUpdate : 3135303133313131303030305a
+11:36:58.023 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - CertificateList -> signatureAlgorithm : 06092a864886f70d0101050500
+11:36:58.023 [main] DEBUG eu.europa.esig.dss.crl.stream.impl.CRLParser - CertificateList -> signatureValue : 00607ca31eb5be90cbd25bd3ac08284bc700e0a15559bdace341154c9a57660482d24538df91a2c8a02838604eb4bf43625ae99790425eb93f1c54eb71f39201ed699692e0c985b3ab88af9f20245c9eaf84834ffe988b3c1a8e5345b6e1afcdabaec630385e97cf778db1a4f838aeb87afbb721109d399312683d1e555b199d3074379def4002d73357c0ee559b050f778c75ac4a055d2215ef5b06acb98c669a6552556cc28407b9330213573b1ba86275ebb183f4c370f92178f91147ae5b2835180cd0f657f496acdac7ed95b51f3d3bf13057382b4e082a2edfc6de3373d7767d2f148b1a0d0269201c8c41ac72a5691208993bd651e213adfddd456fe874f6e621169fa8836a10053e3708996deead560bf2f8061218835d1824f0baf6180fde6ab06c9af847bffa15a261070b20c3a371ae682879f35bf46f1b4f6c38fef57c5b892414455adfc6245929aec93809538d0861e2861086a65e76e65a48bacd73d8440a68f3bdea45dfc537689353defcd5b4a067f40e8b667df192401307184601ad7e94c6b02bc0f058380da5517897c41a8835a76d9741e7ced9c2c909c5c27626c545e40e07e4e915f065b5da05f0c146675a9cd4c7127e9af50b753cd08c9899cfa43ff119210959284a0683707cd63f57d98fbab815a59136b72a2e152ec22d1cd73815156ca90f97dacc00f223dcea911444305c05b037a4a69048
+11:36:58.023 [main] DEBUG eu.europa.esig.dss.crl.AbstractCRLUtils - issuingDistributionPointBinary is null. Issuing Distribution Point fields in CRLValidity cannot be filled.
+]]></system-out>
+  </testcase>
+</testsuite>

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="eu.europa.esig.dss.token.SignDigestRSATest" time="0.312" tests="12" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="19"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token\target\test-classes;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token\target\classes;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-model\target\dss-model-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-enumerations\target\dss-enumerations-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token\libs\bcpkix-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token\libs\bcprov-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token\libs\bcutil-jdk18on-173b20.jar;C:\Users\amadoria\.m2\repository\org\slf4j\slf4j-api\2.0.6\slf4j-api-2.0.6.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-spi\target\dss-spi-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-utils\target\dss-utils-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\dss-crl-parser-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-launcher\1.9.2\junit-platform-launcher-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.2\junit-jupiter-params-5.9.2.jar;C:\Users\amadoria\.m2\repository\ch\qos\logback\logback-classic\1.3.5\logback-classic-1.3.5.jar;C:\Users\amadoria\.m2\repository\ch\qos\logback\logback-core\1.3.5\logback-core-1.3.5.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Amsterdam"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="java.vm.specification.version" value="19"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-19\bin"/>
+    <property name="sun.java.command" value="C:\Users\amadoria\AppData\Local\Temp\surefire13431589743088422765\surefirebooter-20230428114237113_477.jar C:\Users\amadoria\AppData\Local\Temp\surefire13431589743088422765 2023-04-28T11-29-53_553-jvmRun1 surefire-20230428114237113_475tmp surefire_29-20230428114237113_476tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token\target\test-classes;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token\target\classes;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-model\target\dss-model-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-enumerations\target\dss-enumerations-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token\libs\bcpkix-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token\libs\bcprov-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token\libs\bcutil-jdk18on-173b20.jar;C:\Users\amadoria\.m2\repository\org\slf4j\slf4j-api\2.0.6\slf4j-api-2.0.6.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-spi\target\dss-spi-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-utils\target\dss-utils-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\dss-crl-parser-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-launcher\1.9.2\junit-platform-launcher-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.2\junit-jupiter-params-5.9.2.jar;C:\Users\amadoria\.m2\repository\ch\qos\logback\logback-classic\1.3.5\logback-classic-1.3.5.jar;C:\Users\amadoria\.m2\repository\ch\qos\logback\logback-core\1.3.5\logback-core-1.3.5.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\amadoria"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2023-01-17"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-19"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\amadoria\AppData\Local\Temp\surefire13431589743088422765\surefirebooter-20230428114237113_477.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="19.0.2+7-44"/>
+    <property name="user.name" value="amadoria"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\amadoria\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\amadoria\AppData\Local\Temp\"/>
+    <property name="java.version" value="19.0.2"/>
+    <property name="user.dir" value="C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-19\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Eclipse Adoptium\jdk-17.0.5.8-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\ProgramData\chocolatey\bin;C:\Program Files\Gradle\gradle-8.0.2\bin;C:\Program Files\Maven\apache-maven-3.9.0\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\Users\amadoria\AppData\Local\Programs\Python\Python38\Scripts\;C:\Users\amadoria\AppData\Local\Programs\Python\Python38\;C:\Users\amadoria\AppData\Local\Microsoft\WindowsApps;C:\Users\amadoria\AppData\Local\Programs\MiKTeX\miktex\bin\x64\;C:\Users\amadoria\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\amadoria\AppData\Roaming\Python\Scripts\;C:\Users\amadoria\AppData\Local\Programs\Git\cmd;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.3.3\bin;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="19.0.2+7-44"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="63.0"/>
+  </properties>
+  <testcase name="testPkcs12(DigestAlgorithm)[1]" classname="eu.europa.esig.dss.token.SignDigestRSATest" time="0.04">
+    <system-out><![CDATA[11:42:49.878 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : SHA1withRSA
+11:42:49.887 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : nYUNdeW7HimV8AYBaaSplT5zGEZFnSXfH7AGOdVBqyqjCW2OzIsvVULg4BheJwlkGfXinCtVJsY7Y0LnGNZJFwoEiyTBf76Pe7Eim3xW7Jnn1Jdva/W5m4EKGO3pna60kr1apXfE7NCc1RJLq6s/ZtPRUUuuTAgYtOzbHVNeIlTj7uJ49KY97D3AQDcglOhUgCqxpeivzXPLw0C/sBr36yGHcPI9kw7OI/gczLdXHoxG2dCvemb0LFb/6bRRBXvoWVI8G1g+ZIYGxUmJnV/LLwX9vmmNoodoiO6zrgjIAbrA6+QNme8cobTLxJtT73Va3Wx2+SHf9JFEzC7EWx/rUQ==
+11:42:49.889 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MCEwCQYFKw4DAhoFAAQUe1AsOh9IyGCa4hLN+2Od7jlnP14=
+11:42:49.889 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : NONEwithRSA
+11:42:49.892 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : nYUNdeW7HimV8AYBaaSplT5zGEZFnSXfH7AGOdVBqyqjCW2OzIsvVULg4BheJwlkGfXinCtVJsY7Y0LnGNZJFwoEiyTBf76Pe7Eim3xW7Jnn1Jdva/W5m4EKGO3pna60kr1apXfE7NCc1RJLq6s/ZtPRUUuuTAgYtOzbHVNeIlTj7uJ49KY97D3AQDcglOhUgCqxpeivzXPLw0C/sBr36yGHcPI9kw7OI/gczLdXHoxG2dCvemb0LFb/6bRRBXvoWVI8G1g+ZIYGxUmJnV/LLwX9vmmNoodoiO6zrgjIAbrA6+QNme8cobTLxJtT73Va3Wx2+SHf9JFEzC7EWx/rUQ==
+11:42:49.895 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MCEwCQYFKw4DAhoFAAQUe1AsOh9IyGCa4hLN+2Od7jlnP14=
+]]></system-out>
+  </testcase>
+  <testcase name="testPkcs12(DigestAlgorithm)[2]" classname="eu.europa.esig.dss.token.SignDigestRSATest" time="0.018">
+    <system-out><![CDATA[11:42:49.907 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : SHA224withRSA
+11:42:49.910 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : QNpTrnn9gYmcy5TIkYMVhySWNREdKw5LdyPFhOfXPCtfcXsbdMzb29UaFTsgB4Eem76ZoYNyqj0VvoS5EozyXNaEP0NwmehupTNk0gIs4R4JMVVkiH90tNG8oRBrSc0vibJdZq6DtXwN+z5KKQDWuIijSMhpiIZfS4TJwlkt7rIBHTLwZaY6ZKbo8/qScbtEWQZorgsVl5NqzcieCA3ypWjdjjNu2+FyrufQs5JPbALWd+eLEbKIo8elHdBwtr60Y37xBKKOit3tsVVnB1pbZSM4G9ZVC6rg7wYnag4hHvy74kYkkQY6R9RBBdrCGeS5E9xERMiTAc2fDdOl4eyF0w==
+11:42:49.911 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MC0wDQYJYIZIAWUDBAIEBQAEHKwjDxX8rn932Pduma30WGShxvgAZV2njeqVYRI=
+11:42:49.912 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : NONEwithRSA
+11:42:49.916 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : QNpTrnn9gYmcy5TIkYMVhySWNREdKw5LdyPFhOfXPCtfcXsbdMzb29UaFTsgB4Eem76ZoYNyqj0VvoS5EozyXNaEP0NwmehupTNk0gIs4R4JMVVkiH90tNG8oRBrSc0vibJdZq6DtXwN+z5KKQDWuIijSMhpiIZfS4TJwlkt7rIBHTLwZaY6ZKbo8/qScbtEWQZorgsVl5NqzcieCA3ypWjdjjNu2+FyrufQs5JPbALWd+eLEbKIo8elHdBwtr60Y37xBKKOit3tsVVnB1pbZSM4G9ZVC6rg7wYnag4hHvy74kYkkQY6R9RBBdrCGeS5E9xERMiTAc2fDdOl4eyF0w==
+11:42:49.917 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MC0wDQYJYIZIAWUDBAIEBQAEHKwjDxX8rn932Pduma30WGShxvgAZV2njeqVYRI=
+]]></system-out>
+  </testcase>
+  <testcase name="testPkcs12(DigestAlgorithm)[3]" classname="eu.europa.esig.dss.token.SignDigestRSATest" time="0.023">
+    <system-out><![CDATA[11:42:49.927 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : SHA256withRSA
+11:42:49.933 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : a/qiK4NLj5NoKl8M0HXqQ8mH/l4kBPToFigmFgav8130KfOScvnkMQ6LX3oTQSGGmvNyYzAmQ8nDd+Yb94Xfe+l4MOfUV1tZ8juyLb4nmStaI8D1x6Ef4xejr6VK8vfQ0VtyCWHYAHuGBDvpKjgzXP9wF3Tw9elFHrdBiAD6AmF9feozCxyZJ/bb5pUeA9DvGhUA1WgSfj49SfAGiv+12paZMSWekaanThKdyRcEnGI6yW40jhdiP2bA+1io76ifbts+85XWc4YAx9q3qQnbb2NwPcBKBvmv2bQAKvY1ax7Gx07uyPsY2zCC0mBUPkW6P7ngPiEnj1JFWOSom/z+wg==
+11:42:49.935 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MDEwDQYJYIZIAWUDBAIBBQAEIGTsiMoAsmjluho1Z4obUxbSEvTzZrJHcjJTSorso388
+11:42:49.936 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : NONEwithRSA
+11:42:49.940 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : a/qiK4NLj5NoKl8M0HXqQ8mH/l4kBPToFigmFgav8130KfOScvnkMQ6LX3oTQSGGmvNyYzAmQ8nDd+Yb94Xfe+l4MOfUV1tZ8juyLb4nmStaI8D1x6Ef4xejr6VK8vfQ0VtyCWHYAHuGBDvpKjgzXP9wF3Tw9elFHrdBiAD6AmF9feozCxyZJ/bb5pUeA9DvGhUA1WgSfj49SfAGiv+12paZMSWekaanThKdyRcEnGI6yW40jhdiP2bA+1io76ifbts+85XWc4YAx9q3qQnbb2NwPcBKBvmv2bQAKvY1ax7Gx07uyPsY2zCC0mBUPkW6P7ngPiEnj1JFWOSom/z+wg==
+11:42:49.942 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MDEwDQYJYIZIAWUDBAIBBQAEIGTsiMoAsmjluho1Z4obUxbSEvTzZrJHcjJTSorso388
+]]></system-out>
+  </testcase>
+  <testcase name="testPkcs12(DigestAlgorithm)[4]" classname="eu.europa.esig.dss.token.SignDigestRSATest" time="0.023">
+    <system-out><![CDATA[11:42:49.959 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : SHA384withRSA
+11:42:49.963 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : bgiHHoyVZC4vjE44w0SIrARFNKgXqY6w08z0Gq/IymYp7DT6wU4qI3QTYTpUhQyQ+xSLnTcPICzz4Yae0/zXwXIL7dbp2cWZZkLvwDkf156Lu/nX54EdPwdXfkqNINSOSCZTDpHNhkG/+CLno2Vt4HNXQqs18zoGyua3OKReD8U7FsagWPWf3PsYdDXSqd91jAuDyWS7tXMwg02AURrBVFen+AaKJpIX6YP+dDEHtLg5vUc8OoRBBJ8TpF7iNSt9g7LAG1c4ZsT1VjBpbVi1XTcMzhWHQAmxY94uMF7hPZQjXwIrAi+EC7LLaS2tGshruBZcO5YAq+88pE5Ids70GA==
+11:42:49.965 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MEEwDQYJYIZIAWUDBAICBQAEMJIDsMRDn9Hmrlh4hmM3t8UyrNbZJgFQyAMY6KuMJ84zAYn435T7iQ3x0pj/NgYn4Q==
+11:42:49.965 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : NONEwithRSA
+11:42:49.969 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : bgiHHoyVZC4vjE44w0SIrARFNKgXqY6w08z0Gq/IymYp7DT6wU4qI3QTYTpUhQyQ+xSLnTcPICzz4Yae0/zXwXIL7dbp2cWZZkLvwDkf156Lu/nX54EdPwdXfkqNINSOSCZTDpHNhkG/+CLno2Vt4HNXQqs18zoGyua3OKReD8U7FsagWPWf3PsYdDXSqd91jAuDyWS7tXMwg02AURrBVFen+AaKJpIX6YP+dDEHtLg5vUc8OoRBBJ8TpF7iNSt9g7LAG1c4ZsT1VjBpbVi1XTcMzhWHQAmxY94uMF7hPZQjXwIrAi+EC7LLaS2tGshruBZcO5YAq+88pE5Ids70GA==
+11:42:49.971 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MEEwDQYJYIZIAWUDBAICBQAEMJIDsMRDn9Hmrlh4hmM3t8UyrNbZJgFQyAMY6KuMJ84zAYn435T7iQ3x0pj/NgYn4Q==
+]]></system-out>
+  </testcase>
+  <testcase name="testPkcs12(DigestAlgorithm)[5]" classname="eu.europa.esig.dss.token.SignDigestRSATest" time="0.019">
+    <system-out><![CDATA[11:42:49.982 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : SHA512withRSA
+11:42:49.985 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : u4GypNY9s6diQJ0E9r9wLcXSDWG0Gn1CGUHqxBCk4CH6pXZFBjnxAo+sYxcjwkPbCZBHD/2lv3T6NwJSunExSEPactDcW22k5FRchVr0Qr7udzTTXlaUnGfG0PZ02pyDuAuXYoZ6yAxov4lw8rr4MdOsH8EVZxk7eJ3RgSzNnAYxG1TBaEAZXUdlIrZkQXKYP77x1PH4gzfZMCg30AT9a3Cgug0xUisFOAZgvAZaHmUJqUEgs4fsnOXhY4aPeKCyZqAHVQxXI3r/+/xTCXoNNPUHcnb8CiJt1rUNffQdh4CGAFnMAUDMc+V+QZWnI3hrQUFn9+EH2SV6nGIplYnllg==
+11:42:49.987 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MFEwDQYJYIZIAWUDBAIDBQAEQLf3g7rtgpfw25F0YhhP9PCOacLV5fealCYA+XJfWM4fKcGBOb+AsGwP/yvdNHOEUuz0DEiMIqfj2Azfb5wcDUc=
+11:42:49.988 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : NONEwithRSA
+11:42:49.992 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : u4GypNY9s6diQJ0E9r9wLcXSDWG0Gn1CGUHqxBCk4CH6pXZFBjnxAo+sYxcjwkPbCZBHD/2lv3T6NwJSunExSEPactDcW22k5FRchVr0Qr7udzTTXlaUnGfG0PZ02pyDuAuXYoZ6yAxov4lw8rr4MdOsH8EVZxk7eJ3RgSzNnAYxG1TBaEAZXUdlIrZkQXKYP77x1PH4gzfZMCg30AT9a3Cgug0xUisFOAZgvAZaHmUJqUEgs4fsnOXhY4aPeKCyZqAHVQxXI3r/+/xTCXoNNPUHcnb8CiJt1rUNffQdh4CGAFnMAUDMc+V+QZWnI3hrQUFn9+EH2SV6nGIplYnllg==
+11:42:49.992 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MFEwDQYJYIZIAWUDBAIDBQAEQLf3g7rtgpfw25F0YhhP9PCOacLV5fealCYA+XJfWM4fKcGBOb+AsGwP/yvdNHOEUuz0DEiMIqfj2Azfb5wcDUc=
+]]></system-out>
+  </testcase>
+  <testcase name="testPkcs12(DigestAlgorithm)[6]" classname="eu.europa.esig.dss.token.SignDigestRSATest" time="0.022">
+    <system-out><![CDATA[11:42:50.007 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : SHA3-224withRSA
+11:42:50.010 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : ojZvdPjg2Mfv6bSNZsNABn20+9o/rSnHZgCRszuRWoCsGDXwPLCMXrq/7bfX5LwUSuvJgiAt0h8TUThbOAyZG5z/X28M4jL2TvCHcLGuN+QK08KaL/sDeBaJofDItNqw6dAjtInGbrjxDxVqhCXcXcb+B5uzpgK9QCrTpuoqG50KI849Jm23bvFS1AqiIAsRCtfJYwodKNNRjXzyrtAFR5Sl+oZlFADKf40dY1784xg7LMVZQEPLvUA1NhCIs6PR+9WbP58GQ2t8zvjGJWxgcFfxzPDsblMcLN0hlbPUjXInkQiX92TWIVDFz4K4ErrifBtWg7VDSeVxPoPfHgxe+Q==
+11:42:50.011 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MC0wDQYJYIZIAWUDBAIHBQAEHDuFcOwTNcRhdH0BZGD/kctB+tCAUZEcUN2OGZU=
+11:42:50.012 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : NONEwithRSA
+11:42:50.015 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : ojZvdPjg2Mfv6bSNZsNABn20+9o/rSnHZgCRszuRWoCsGDXwPLCMXrq/7bfX5LwUSuvJgiAt0h8TUThbOAyZG5z/X28M4jL2TvCHcLGuN+QK08KaL/sDeBaJofDItNqw6dAjtInGbrjxDxVqhCXcXcb+B5uzpgK9QCrTpuoqG50KI849Jm23bvFS1AqiIAsRCtfJYwodKNNRjXzyrtAFR5Sl+oZlFADKf40dY1784xg7LMVZQEPLvUA1NhCIs6PR+9WbP58GQ2t8zvjGJWxgcFfxzPDsblMcLN0hlbPUjXInkQiX92TWIVDFz4K4ErrifBtWg7VDSeVxPoPfHgxe+Q==
+11:42:50.017 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MC0wDQYJYIZIAWUDBAIHBQAEHDuFcOwTNcRhdH0BZGD/kctB+tCAUZEcUN2OGZU=
+]]></system-out>
+  </testcase>
+  <testcase name="testPkcs12(DigestAlgorithm)[7]" classname="eu.europa.esig.dss.token.SignDigestRSATest" time="0.024">
+    <system-out><![CDATA[11:42:50.029 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : SHA3-256withRSA
+11:42:50.032 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : gOughtuFHhngLNt20v5oZZOD6wjNOLiXhrXSW6B10kYG1si5voA7BFhRjj5VztXl36DiN/fL2bEF9iuU/nP1+AXAPNud6UpG2mep4IKOmJQSxV2I8M9jBD0zj+w70L1dn+MHZ1+eG0opw6Xr3ALi49ApnVNIJEpW5ARUOqGwcZNBie6RjFFG/HK/dk63gDBaP4/WLeGfZ5GMWQNIs/cVFF9hgmtJ3r/7tm7HR3OlzAxyvZfqOpqBiXD6v7IIdvlW9cCxo8EKxu7eaufDBBXU1OkJJ8ft52ya/IaYi+HRbilLukTFXirxTcLi4IoNVB32IPz/bX0XRcnnWs53artimw==
+11:42:50.036 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MDEwDQYJYIZIAWUDBAIIBQAEIDaRg9N4Z3PO9OVse4SefvX3QoZ1ELZ21rOPjjiiItii
+11:42:50.038 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : NONEwithRSA
+11:42:50.042 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : gOughtuFHhngLNt20v5oZZOD6wjNOLiXhrXSW6B10kYG1si5voA7BFhRjj5VztXl36DiN/fL2bEF9iuU/nP1+AXAPNud6UpG2mep4IKOmJQSxV2I8M9jBD0zj+w70L1dn+MHZ1+eG0opw6Xr3ALi49ApnVNIJEpW5ARUOqGwcZNBie6RjFFG/HK/dk63gDBaP4/WLeGfZ5GMWQNIs/cVFF9hgmtJ3r/7tm7HR3OlzAxyvZfqOpqBiXD6v7IIdvlW9cCxo8EKxu7eaufDBBXU1OkJJ8ft52ya/IaYi+HRbilLukTFXirxTcLi4IoNVB32IPz/bX0XRcnnWs53artimw==
+11:42:50.043 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MDEwDQYJYIZIAWUDBAIIBQAEIDaRg9N4Z3PO9OVse4SefvX3QoZ1ELZ21rOPjjiiItii
+]]></system-out>
+  </testcase>
+  <testcase name="testPkcs12(DigestAlgorithm)[8]" classname="eu.europa.esig.dss.token.SignDigestRSATest" time="0.024">
+    <system-out><![CDATA[11:42:50.062 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : SHA3-384withRSA
+11:42:50.064 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : RtuuB0bwRjQcC8znnz5LHuAuyedwOGAFzovU/IcZWd3gadB9WN4/ykOfzAIhILww9vOkK+suItc5hsdRtmWJPC7oyvAJdk8nRbsJnayyqh8ByHv5757Wydas9B2Cd2sZi99vxhAD5KiuZBjrVz23yLvAzYyatQ50hcb/nO991zAHR4D76I6TybH7LUF5ecZtW/i17PldrVXK65d/E9py+1xFt2ThzOOnRqrvcy9oYJeRO2JS5+7Zap2CXj71pPM4FOAdXqO/bY94Pcz3gLb1ZVakmp0tWyEsIM7Pmtx9dXkfeSoP1wlRRykBDnpIIaCCELpA61Q2O94br+/CzBInTw==
+11:42:50.066 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MEEwDQYJYIZIAWUDBAIJBQAEMP85FxkkJ+oap/OtR6wQFS0XmvMBJsUoNe6Nx+bqEq7ZGtkbMW4Vw7JQRp7xegPlKQ==
+11:42:50.068 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : NONEwithRSA
+11:42:50.071 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : RtuuB0bwRjQcC8znnz5LHuAuyedwOGAFzovU/IcZWd3gadB9WN4/ykOfzAIhILww9vOkK+suItc5hsdRtmWJPC7oyvAJdk8nRbsJnayyqh8ByHv5757Wydas9B2Cd2sZi99vxhAD5KiuZBjrVz23yLvAzYyatQ50hcb/nO991zAHR4D76I6TybH7LUF5ecZtW/i17PldrVXK65d/E9py+1xFt2ThzOOnRqrvcy9oYJeRO2JS5+7Zap2CXj71pPM4FOAdXqO/bY94Pcz3gLb1ZVakmp0tWyEsIM7Pmtx9dXkfeSoP1wlRRykBDnpIIaCCELpA61Q2O94br+/CzBInTw==
+11:42:50.071 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MEEwDQYJYIZIAWUDBAIJBQAEMP85FxkkJ+oap/OtR6wQFS0XmvMBJsUoNe6Nx+bqEq7ZGtkbMW4Vw7JQRp7xegPlKQ==
+]]></system-out>
+  </testcase>
+  <testcase name="testPkcs12(DigestAlgorithm)[9]" classname="eu.europa.esig.dss.token.SignDigestRSATest" time="0.016">
+    <system-out><![CDATA[11:42:50.081 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : SHA3-512withRSA
+11:42:50.086 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : Cy7LPj0QzNCGhGDoRqWfda56SScmEDVpvb+D9At5LJDacSwqdLr+Z9Pzs0AGQYkOyvbBL+Xm2HW078pvP2UHttg01OnvVyhwLOGpFjdeE9mgCcjnekyAT6zWJVNtZLku1lmXsA4Gy6mDNdFiLV9uIdXmHDw21zVbmBcbz5lCmhCXzfl6I8kwrsrpMmPBVR/edKxtLadZ1G/YwMRuDsC49s8suibQoD277kkYKuAuhBh8h5fHojukn6A0EmnTT86pNmYlAEuec/kZ7CR+wEDhlgZQY7kmV3fSuyPpG4zkRt72dB5chQVvXdUvnC4MvL/m/DoYQ9I7JhDkBdAyNSYQuA==
+11:42:50.087 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MFEwDQYJYIZIAWUDBAIKBQAEQOLhyeUi77JJWheENMi7jxEADKI/H9Z5BYt9fhQfDPNDP5T8Qn7Aub67EvMnoyQAIQU9tgkRlldtXm2b2PrHHAw=
+11:42:50.087 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : NONEwithRSA
+11:42:50.089 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : Cy7LPj0QzNCGhGDoRqWfda56SScmEDVpvb+D9At5LJDacSwqdLr+Z9Pzs0AGQYkOyvbBL+Xm2HW078pvP2UHttg01OnvVyhwLOGpFjdeE9mgCcjnekyAT6zWJVNtZLku1lmXsA4Gy6mDNdFiLV9uIdXmHDw21zVbmBcbz5lCmhCXzfl6I8kwrsrpMmPBVR/edKxtLadZ1G/YwMRuDsC49s8suibQoD277kkYKuAuhBh8h5fHojukn6A0EmnTT86pNmYlAEuec/kZ7CR+wEDhlgZQY7kmV3fSuyPpG4zkRt72dB5chQVvXdUvnC4MvL/m/DoYQ9I7JhDkBdAyNSYQuA==
+11:42:50.090 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MFEwDQYJYIZIAWUDBAIKBQAEQOLhyeUi77JJWheENMi7jxEADKI/H9Z5BYt9fhQfDPNDP5T8Qn7Aub67EvMnoyQAIQU9tgkRlldtXm2b2PrHHAw=
+]]></system-out>
+  </testcase>
+  <testcase name="testPkcs12(DigestAlgorithm)[10]" classname="eu.europa.esig.dss.token.SignDigestRSATest" time="0.018">
+    <system-out><![CDATA[11:42:50.102 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : RIPEMD160withRSA
+11:42:50.106 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : cUqGB2p8wfG5MFLAzCf4GKuQmEW8QwzBJS21X4YgqDvm7uxsH1t/6Hlqd5jXzMEOysz5F6dXvcfm0bQYV12NbCXjKSIFdrml2JCAPy0tAybaT7YTFdSIOqyUSdPZj36W/o8Z+0kpadLfYjz7P9r8wMu4jiX9K7gjca3YrPNgh6jUVLsKGQ3TBZzPvr12E/r8J5+DtT/iqDxSdkMw6EH9405JGbld/icEpWX1ds0ut02iBjKjqYgR0OqVKoUIh+03v5pfRnWt97aydgFgQDuj+58fppdxH72gsdzkcyEnIYiHpmXWdgp6+MPWphO4tSFALavML2gnf9nJot9TePmClw==
+11:42:50.106 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MCEwCQYFKyQDAgEFAAQU2+p70k7vQKLnk4dULjbdQIt3sho=
+11:42:50.107 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : NONEwithRSA
+11:42:50.109 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : cUqGB2p8wfG5MFLAzCf4GKuQmEW8QwzBJS21X4YgqDvm7uxsH1t/6Hlqd5jXzMEOysz5F6dXvcfm0bQYV12NbCXjKSIFdrml2JCAPy0tAybaT7YTFdSIOqyUSdPZj36W/o8Z+0kpadLfYjz7P9r8wMu4jiX9K7gjca3YrPNgh6jUVLsKGQ3TBZzPvr12E/r8J5+DtT/iqDxSdkMw6EH9405JGbld/icEpWX1ds0ut02iBjKjqYgR0OqVKoUIh+03v5pfRnWt97aydgFgQDuj+58fppdxH72gsdzkcyEnIYiHpmXWdgp6+MPWphO4tSFALavML2gnf9nJot9TePmClw==
+11:42:50.109 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MCEwCQYFKyQDAgEFAAQU2+p70k7vQKLnk4dULjbdQIt3sho=
+]]></system-out>
+  </testcase>
+  <testcase name="testPkcs12(DigestAlgorithm)[11]" classname="eu.europa.esig.dss.token.SignDigestRSATest" time="0.02">
+    <system-out><![CDATA[11:42:50.122 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : MD2withRSA
+11:42:50.125 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : IjuNm66IsHb2PicACR4ejotSBgd9wY8lSHpeYJohhk6oFnrlvEKGhyspYJp5ZQMHaGDzP5Z72VH3Ik03LKIruA1t6B6rp6pQc2mDeqFj8YT34xFYMSryXVw7JlMCakejzyYyF5ZAwIoYcImtiayYUwkXR//94BuyUhQIXwf/c+mOXKHHi4WwwIqh3DDFA9v0lJ2/W/guyppAzj7PwWAWgdEFuAhfcqkKEjSQoi0IiwRGnf5/FQLC2pU9K0/M2vtccUnMSkP7pfahjfF9k2c1KKDnxvrXTiIrfEQVYIgCIDxe/Zj/O3ZfQo/ZsArtS7YolyocF3qnx2LrtZ/sgAiU6w==
+11:42:50.126 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MCAwDAYIKoZIhvcNAgIFAAQQGV1bVHXsPmdg+IhRHyC4TQ==
+11:42:50.126 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : NONEwithRSA
+11:42:50.131 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : IjuNm66IsHb2PicACR4ejotSBgd9wY8lSHpeYJohhk6oFnrlvEKGhyspYJp5ZQMHaGDzP5Z72VH3Ik03LKIruA1t6B6rp6pQc2mDeqFj8YT34xFYMSryXVw7JlMCakejzyYyF5ZAwIoYcImtiayYUwkXR//94BuyUhQIXwf/c+mOXKHHi4WwwIqh3DDFA9v0lJ2/W/guyppAzj7PwWAWgdEFuAhfcqkKEjSQoi0IiwRGnf5/FQLC2pU9K0/M2vtccUnMSkP7pfahjfF9k2c1KKDnxvrXTiIrfEQVYIgCIDxe/Zj/O3ZfQo/ZsArtS7YolyocF3qnx2LrtZ/sgAiU6w==
+11:42:50.131 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MCAwDAYIKoZIhvcNAgIFAAQQGV1bVHXsPmdg+IhRHyC4TQ==
+]]></system-out>
+  </testcase>
+  <testcase name="testPkcs12(DigestAlgorithm)[12]" classname="eu.europa.esig.dss.token.SignDigestRSATest" time="0.022">
+    <system-out><![CDATA[11:42:50.147 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : MD5withRSA
+11:42:50.151 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : VL10NtVfnCh+duf4XqXQdXwSsvdSE/bEiKb5ZiHTNeBFnbXAonTQyB4eMOqn/npeGlXfiiu/U6/PTFmitKtO2gk3PNA88oO1Wyz/LzuS0BsndgVPu4FbBSf9/ufNHryzZ0ktmIWutoQ2WklFRu0N/1Fi1i5+wWTfF4SLeX4Gsu5o/sVFR6w7zEmg0I2Xpf7l3jT8tew05b3WL6OlIPOMHx0+25SXnp4gqSHtYTZ6ZW0nx9Zy7BKTlQr8jzc1PfLel0abkK5d/xvdWzH8aS+T3t+LeYWi0KV1jKVHuUFX+nFsICBgQCEuSRDop6PQNsZ69KPHVNgp57yz+o8m7nmxyg==
+11:42:50.152 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MCAwDAYIKoZIhvcNAgUFAAQQPiWWCnnbxptnTNTsZ6csYg==
+11:42:50.152 [main] INFO eu.europa.esig.dss.token.AbstractSignatureTokenConnection - Signature algorithm : NONEwithRSA
+11:42:50.154 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Sig value : VL10NtVfnCh+duf4XqXQdXwSsvdSE/bEiKb5ZiHTNeBFnbXAonTQyB4eMOqn/npeGlXfiiu/U6/PTFmitKtO2gk3PNA88oO1Wyz/LzuS0BsndgVPu4FbBSf9/ufNHryzZ0ktmIWutoQ2WklFRu0N/1Fi1i5+wWTfF4SLeX4Gsu5o/sVFR6w7zEmg0I2Xpf7l3jT8tew05b3WL6OlIPOMHx0+25SXnp4gqSHtYTZ6ZW0nx9Zy7BKTlQr8jzc1PfLel0abkK5d/xvdWzH8aS+T3t+LeYWi0KV1jKVHuUFX+nFsICBgQCEuSRDop6PQNsZ69KPHVNgp57yz+o8m7nmxyg==
+11:42:50.155 [main] INFO eu.europa.esig.dss.token.SignDigestRSATest - Decrypted : MCAwDAYIKoZIhvcNAgUFAAQQPiWWCnnbxptnTNTsZ6csYg==
+]]></system-out>
+  </testcase>
+</testsuite>

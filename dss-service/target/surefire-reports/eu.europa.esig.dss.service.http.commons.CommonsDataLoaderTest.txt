@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: eu.europa.esig.dss.service.http.commons.CommonsDataLoaderTest
+-------------------------------------------------------------------------------
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 23.689 s - in eu.europa.esig.dss.service.http.commons.CommonsDataLoaderTest

@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="eu.europa.esig.dss.cades.signature.CAdESDoubleSignatureTest" time="21.965" tests="10" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="19"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-cades\target\test-classes;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-cades\target\classes;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-document\target\dss-document-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-spi\target\dss-spi-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-model\target\dss-model-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-enumerations\target\dss-enumerations-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-utils\target\dss-utils-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\dss-crl-parser-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\org\slf4j\slf4j-api\2.0.6\slf4j-api-2.0.6.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-cades\libs\bcpkix-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-cades\libs\bcprov-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-cades\libs\bcutil-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\validation-policy-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-policy-jaxb\target\dss-policy-jaxb-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-jaxb-parsers\target\dss-jaxb-parsers-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-jaxb-common\target\dss-jaxb-common-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-alert\target\dss-alert-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.8\jaxb-runtime-2.3.8.jar;C:\Users\amadoria\.m2\repository\org\glassfish\jaxb\txw2\2.3.8\txw2-2.3.8.jar;C:\Users\amadoria\.m2\repository\com\sun\istack\istack-commons-runtime\3.0.12\istack-commons-runtime-3.0.12.jar;C:\Users\amadoria\.m2\repository\com\sun\activation\jakarta.activation\1.2.2\jakarta.activation-1.2.2.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-diagnostic-jaxb\target\dss-diagnostic-jaxb-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-simple-report-jaxb\target\dss-simple-report-jaxb-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-simple-certificate-report-jaxb\target\dss-simple-certificate-report-jaxb-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-detailed-report-jaxb\target\dss-detailed-report-jaxb-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-validation-report\target\specs-validation-report-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\specs-xmldsig-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xades\target\specs-xades-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-trusted-list\target\specs-trusted-list-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-i18n\target\dss-i18n-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-test\target\dss-test-5.12.RC1-tests.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token\target\dss-token-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-service\target\dss-service-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.2.1\httpclient5-5.2.1.jar;C:\Users\amadoria\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.2\httpcore5-5.2.jar;C:\Users\amadoria\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.2\httpcore5-h2-5.2.jar;C:\Users\amadoria\.m2\repository\commons-codec\commons-codec\1.15\commons-codec-1.15.jar;C:\Users\amadoria\.m2\repository\org\apache\santuario\xmlsec\2.3.2\xmlsec-2.3.2.jar;C:\Users\amadoria\.m2\repository\com\fasterxml\woodstox\woodstox-core\6.5.0\woodstox-core-6.5.0.jar;C:\Users\amadoria\.m2\repository\org\codehaus\woodstox\stax2-api\4.2.1\stax2-api-4.2.1.jar;C:\Users\amadoria\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\2.3.3\jakarta.xml.bind-api-2.3.3.jar;C:\Users\amadoria\.m2\repository\org\slf4j\jcl-over-slf4j\2.0.6\jcl-over-slf4j-2.0.6.jar;C:\Users\amadoria\.m2\repository\ch\qos\logback\logback-classic\1.3.5\logback-classic-1.3.5.jar;C:\Users\amadoria\.m2\repository\ch\qos\logback\logback-core\1.3.5\logback-core-1.3.5.jar;C:\Users\amadoria\.m2\repository\com\h2database\h2\2.1.214\h2-2.1.214.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-launcher\1.9.2\junit-platform-launcher-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.2\junit-jupiter-params-5.9.2.jar;C:\Users\amadoria\.m2\repository\org\awaitility\awaitility\4.2.0\awaitility-4.2.0.jar;C:\Users\amadoria\.m2\repository\org\hamcrest\hamcrest\2.1\hamcrest-2.1.jar;C:\Users\amadoria\.m2\repository\org\mockito\mockito-core\4.11.0\mockito-core-4.11.0.jar;C:\Users\amadoria\.m2\repository\net\bytebuddy\byte-buddy\1.12.19\byte-buddy-1.12.19.jar;C:\Users\amadoria\.m2\repository\net\bytebuddy\byte-buddy-agent\1.12.19\byte-buddy-agent-1.12.19.jar;C:\Users\amadoria\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\amadoria\.m2\repository\com\fasterxml\jackson\module\jackson-module-jaxb-annotations\2.14.2\jackson-module-jaxb-annotations-2.14.2.jar;C:\Users\amadoria\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.14.2\jackson-annotations-2.14.2.jar;C:\Users\amadoria\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.14.2\jackson-core-2.14.2.jar;C:\Users\amadoria\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.14.2\jackson-databind-2.14.2.jar;C:\Users\amadoria\.m2\repository\jakarta\activation\jakarta.activation-api\1.2.2\jakarta.activation-api-1.2.2.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-utils-apache-commons\target\dss-utils-apache-commons-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\org\apache\commons\commons-lang3\3.12.0\commons-lang3-3.12.0.jar;C:\Users\amadoria\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\amadoria\.m2\repository\commons-io\commons-io\2.11.0\commons-io-2.11.0.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser-stream\target\dss-crl-parser-stream-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\fop-core\2.8\fop-core-2.8.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-anim\1.16\batik-anim-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-css\1.16\batik-css-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-dom\1.16\batik-dom-1.16.jar;C:\Users\amadoria\.m2\repository\xml-apis\xml-apis\1.4.01\xml-apis-1.4.01.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-ext\1.16\batik-ext-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-parser\1.16\batik-parser-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-shared-resources\1.16\batik-shared-resources-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-svg-dom\1.16\batik-svg-dom-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-util\1.16\batik-util-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-constants\1.16\batik-constants-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-i18n\1.16\batik-i18n-1.16.jar;C:\Users\amadoria\.m2\repository\xml-apis\xml-apis-ext\1.3.04\xml-apis-ext-1.3.04.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-awt-util\1.16\batik-awt-util-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-bridge\1.16\batik-bridge-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-script\1.16\batik-script-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-xml\1.16\batik-xml-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-extension\1.16\batik-extension-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-gvt\1.16\batik-gvt-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-transcoder\1.16\batik-transcoder-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-svggen\1.16\batik-svggen-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\fop-events\2.8\fop-events-2.8.jar;C:\Users\amadoria\.m2\repository\com\thoughtworks\qdox\qdox\1.12\qdox-1.12.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\fop-util\2.8\fop-util-2.8.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\xmlgraphics-commons\2.8\xmlgraphics-commons-2.8.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Amsterdam"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="java.vm.specification.version" value="19"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-19\bin"/>
+    <property name="sun.java.command" value="C:\Users\amadoria\AppData\Local\Temp\surefire7949372902166635188\surefirebooter-20230428115331753_1106.jar C:\Users\amadoria\AppData\Local\Temp\surefire7949372902166635188 2023-04-28T11-29-53_553-jvmRun1 surefire-20230428115331753_1104tmp surefire_32-20230428115331753_1105tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-cades\target\test-classes;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-cades\target\classes;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-document\target\dss-document-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-spi\target\dss-spi-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-model\target\dss-model-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-enumerations\target\dss-enumerations-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-utils\target\dss-utils-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser\target\dss-crl-parser-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\org\slf4j\slf4j-api\2.0.6\slf4j-api-2.0.6.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-cades\libs\bcpkix-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-cades\libs\bcprov-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-cades\libs\bcutil-jdk18on-173b20.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy\target\validation-policy-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-policy-jaxb\target\dss-policy-jaxb-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-jaxb-parsers\target\dss-jaxb-parsers-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-jaxb-common\target\dss-jaxb-common-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-alert\target\dss-alert-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.8\jaxb-runtime-2.3.8.jar;C:\Users\amadoria\.m2\repository\org\glassfish\jaxb\txw2\2.3.8\txw2-2.3.8.jar;C:\Users\amadoria\.m2\repository\com\sun\istack\istack-commons-runtime\3.0.12\istack-commons-runtime-3.0.12.jar;C:\Users\amadoria\.m2\repository\com\sun\activation\jakarta.activation\1.2.2\jakarta.activation-1.2.2.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-diagnostic-jaxb\target\dss-diagnostic-jaxb-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-simple-report-jaxb\target\dss-simple-report-jaxb-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-simple-certificate-report-jaxb\target\dss-simple-certificate-report-jaxb-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-detailed-report-jaxb\target\dss-detailed-report-jaxb-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-validation-report\target\specs-validation-report-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig\target\specs-xmldsig-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xades\target\specs-xades-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-trusted-list\target\specs-trusted-list-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-i18n\target\dss-i18n-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-test\target\dss-test-5.12.RC1-tests.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token\target\dss-token-5.12.RC1.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-service\target\dss-service-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.2.1\httpclient5-5.2.1.jar;C:\Users\amadoria\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.2\httpcore5-5.2.jar;C:\Users\amadoria\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.2\httpcore5-h2-5.2.jar;C:\Users\amadoria\.m2\repository\commons-codec\commons-codec\1.15\commons-codec-1.15.jar;C:\Users\amadoria\.m2\repository\org\apache\santuario\xmlsec\2.3.2\xmlsec-2.3.2.jar;C:\Users\amadoria\.m2\repository\com\fasterxml\woodstox\woodstox-core\6.5.0\woodstox-core-6.5.0.jar;C:\Users\amadoria\.m2\repository\org\codehaus\woodstox\stax2-api\4.2.1\stax2-api-4.2.1.jar;C:\Users\amadoria\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\2.3.3\jakarta.xml.bind-api-2.3.3.jar;C:\Users\amadoria\.m2\repository\org\slf4j\jcl-over-slf4j\2.0.6\jcl-over-slf4j-2.0.6.jar;C:\Users\amadoria\.m2\repository\ch\qos\logback\logback-classic\1.3.5\logback-classic-1.3.5.jar;C:\Users\amadoria\.m2\repository\ch\qos\logback\logback-core\1.3.5\logback-core-1.3.5.jar;C:\Users\amadoria\.m2\repository\com\h2database\h2\2.1.214\h2-2.1.214.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-launcher\1.9.2\junit-platform-launcher-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-engine\1.9.2\junit-platform-engine-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\amadoria\.m2\repository\org\junit\platform\junit-platform-commons\1.9.2\junit-platform-commons-1.9.2.jar;C:\Users\amadoria\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.2\junit-jupiter-engine-5.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.2\junit-jupiter-api-5.9.2.jar;C:\Users\amadoria\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.2\junit-jupiter-params-5.9.2.jar;C:\Users\amadoria\.m2\repository\org\awaitility\awaitility\4.2.0\awaitility-4.2.0.jar;C:\Users\amadoria\.m2\repository\org\hamcrest\hamcrest\2.1\hamcrest-2.1.jar;C:\Users\amadoria\.m2\repository\org\mockito\mockito-core\4.11.0\mockito-core-4.11.0.jar;C:\Users\amadoria\.m2\repository\net\bytebuddy\byte-buddy\1.12.19\byte-buddy-1.12.19.jar;C:\Users\amadoria\.m2\repository\net\bytebuddy\byte-buddy-agent\1.12.19\byte-buddy-agent-1.12.19.jar;C:\Users\amadoria\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\amadoria\.m2\repository\com\fasterxml\jackson\module\jackson-module-jaxb-annotations\2.14.2\jackson-module-jaxb-annotations-2.14.2.jar;C:\Users\amadoria\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.14.2\jackson-annotations-2.14.2.jar;C:\Users\amadoria\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.14.2\jackson-core-2.14.2.jar;C:\Users\amadoria\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.14.2\jackson-databind-2.14.2.jar;C:\Users\amadoria\.m2\repository\jakarta\activation\jakarta.activation-api\1.2.2\jakarta.activation-api-1.2.2.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-utils-apache-commons\target\dss-utils-apache-commons-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\org\apache\commons\commons-lang3\3.12.0\commons-lang3-3.12.0.jar;C:\Users\amadoria\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\amadoria\.m2\repository\commons-io\commons-io\2.11.0\commons-io-2.11.0.jar;C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser-stream\target\dss-crl-parser-stream-5.12.RC1.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\fop-core\2.8\fop-core-2.8.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-anim\1.16\batik-anim-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-css\1.16\batik-css-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-dom\1.16\batik-dom-1.16.jar;C:\Users\amadoria\.m2\repository\xml-apis\xml-apis\1.4.01\xml-apis-1.4.01.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-ext\1.16\batik-ext-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-parser\1.16\batik-parser-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-shared-resources\1.16\batik-shared-resources-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-svg-dom\1.16\batik-svg-dom-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-util\1.16\batik-util-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-constants\1.16\batik-constants-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-i18n\1.16\batik-i18n-1.16.jar;C:\Users\amadoria\.m2\repository\xml-apis\xml-apis-ext\1.3.04\xml-apis-ext-1.3.04.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-awt-util\1.16\batik-awt-util-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-bridge\1.16\batik-bridge-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-script\1.16\batik-script-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-xml\1.16\batik-xml-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-extension\1.16\batik-extension-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-gvt\1.16\batik-gvt-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-transcoder\1.16\batik-transcoder-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\batik-svggen\1.16\batik-svggen-1.16.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\fop-events\2.8\fop-events-2.8.jar;C:\Users\amadoria\.m2\repository\com\thoughtworks\qdox\qdox\1.12\qdox-1.12.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\fop-util\2.8\fop-util-2.8.jar;C:\Users\amadoria\.m2\repository\org\apache\xmlgraphics\xmlgraphics-commons\2.8\xmlgraphics-commons-2.8.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\amadoria"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2023-01-17"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-19"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-cades"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\amadoria\AppData\Local\Temp\surefire7949372902166635188\surefirebooter-20230428115331753_1106.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="19.0.2+7-44"/>
+    <property name="user.name" value="amadoria"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\amadoria\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\amadoria\AppData\Local\Temp\"/>
+    <property name="java.version" value="19.0.2"/>
+    <property name="user.dir" value="C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-cades"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-19\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Eclipse Adoptium\jdk-17.0.5.8-hotspot\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\ProgramData\chocolatey\bin;C:\Program Files\Gradle\gradle-8.0.2\bin;C:\Program Files\Maven\apache-maven-3.9.0\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\Users\amadoria\AppData\Local\Programs\Python\Python38\Scripts\;C:\Users\amadoria\AppData\Local\Programs\Python\Python38\;C:\Users\amadoria\AppData\Local\Microsoft\WindowsApps;C:\Users\amadoria\AppData\Local\Programs\MiKTeX\miktex\bin\x64\;C:\Users\amadoria\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\amadoria\AppData\Roaming\Python\Scripts\;C:\Users\amadoria\AppData\Local\Programs\Git\cmd;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.3.3\bin;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="19.0.2+7-44"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="63.0"/>
+  </properties>
+  <testcase name="signAndVerify" classname="eu.europa.esig.dss.cades.signature.CAdESDoubleSignatureTest" time="2.307">
+    <system-out><![CDATA[2023-04-28 11:55:48,990  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:49,179  INFO | main | e.e.esig.dss.token.AbstractSignatureTokenConnection     | Signature algorithm : SHA256withRSA 
+2023-04-28 11:55:49,289  INFO | main | e.e.esig.dss.cades.signature.CAdESSignatureExtension    | EXTEND CMS SIGNATURES. 
+2023-04-28 11:55:49,292  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:49,295  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:49,298  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:49,303  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:49,446  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:55:49,446  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:55:49,450  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:49,463  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:55:49,469  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2' has been loaded from the cache 
+2023-04-28 11:55:49,470  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473 
+2023-04-28 11:55:49,471  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473' has been loaded from the cache 
+2023-04-28 11:55:49,471  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB 
+2023-04-28 11:55:49,473  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB' has been loaded from the cache 
+2023-04-28 11:55:49,474  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Revocation data is missing for one or more POE(s). NextUpdate time : 2023-10-28T09:53:48Z [C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473: No revocation data found after the best signature time [2023-04-28T09:55:49Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]] 
+2023-04-28 11:55:49,474  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Fresh revocation data is missing for one or more certificate(s). NextUpdate time : 2023-10-28T09:53:48Z [C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB: No revocation data found after the best signature time [2023-04-28T09:55:49Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]; C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2: No revocation data found after the best signature time [2023-04-28T09:55:49Z]!] 
+2023-04-28 11:55:49,478  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:49,620  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:55:49,620  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:55:49,777  INFO | main | e.e.esig.dss.token.AbstractSignatureTokenConnection     | Signature algorithm : SHA256withRSA 
+2023-04-28 11:55:49,910  INFO | main | e.e.esig.dss.cades.signature.CAdESSignatureExtension    | EXTEND CMS SIGNATURES. 
+2023-04-28 11:55:49,913  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:49,919  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:49,923  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:49,928  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:49,933  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:49,941  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:50,071  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:55:50,071  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:55:50,076  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:50,080  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:50,085  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:55:50,088  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:55:50,089  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2' has been loaded from the cache 
+2023-04-28 11:55:50,090  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473 
+2023-04-28 11:55:50,091  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473' has been loaded from the cache 
+2023-04-28 11:55:50,091  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB 
+2023-04-28 11:55:50,092  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB' has been loaded from the cache 
+2023-04-28 11:55:50,093  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Revocation data is missing for one or more POE(s). NextUpdate time : 2023-10-28T09:53:48Z [C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473: No revocation data found after the best signature time [2023-04-28T09:55:50Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]] 
+2023-04-28 11:55:50,093  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Fresh revocation data is missing for one or more certificate(s). NextUpdate time : 2023-10-28T09:53:48Z [C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB: No revocation data found after the best signature time [2023-04-28T09:55:50Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]; C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2: No revocation data found after the best signature time [2023-04-28T09:55:50Z]!] 
+2023-04-28 11:55:50,096  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:50,099  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:50,234  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:55:50,234  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:55:50,241  INFO | main | e.europa.esig.dss.test.AbstractPkiFactoryTestValidation | =================== VALIDATION ================= 
+2023-04-28 11:55:50,251  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:50,258  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:50,261  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:50,263  INFO | main | eu.europa.esig.dss.validation.SignedDocumentValidator   | Document validation... 
+2023-04-28 11:55:50,275  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:50,282  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:55:50,282  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+]]></system-out>
+  </testcase>
+  <testcase name="signAndVerify" classname="eu.europa.esig.dss.cades.signature.CAdESDoubleSignatureTest" time="2.349">
+    <system-out><![CDATA[2023-04-28 11:55:51,233  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:51,427  INFO | main | e.e.esig.dss.token.AbstractSignatureTokenConnection     | Signature algorithm : SHA256withRSA 
+2023-04-28 11:55:51,537  INFO | main | e.e.esig.dss.cades.signature.CAdESSignatureExtension    | EXTEND CMS SIGNATURES. 
+2023-04-28 11:55:51,540  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:51,543  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:51,546  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:51,551  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:51,697  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:55:51,698  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:55:51,702  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:51,706  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:55:51,706  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2' has been loaded from the cache 
+2023-04-28 11:55:51,707  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473 
+2023-04-28 11:55:51,708  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473' has been loaded from the cache 
+2023-04-28 11:55:51,708  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB 
+2023-04-28 11:55:51,709  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB' has been loaded from the cache 
+2023-04-28 11:55:51,710  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Revocation data is missing for one or more POE(s). NextUpdate time : 2023-10-28T09:53:48Z [C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473: No revocation data found after the best signature time [2023-04-28T09:55:51Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]] 
+2023-04-28 11:55:51,710  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Fresh revocation data is missing for one or more certificate(s). NextUpdate time : 2023-10-28T09:53:48Z [C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB: No revocation data found after the best signature time [2023-04-28T09:55:51Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]; C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2: No revocation data found after the best signature time [2023-04-28T09:55:51Z]!] 
+2023-04-28 11:55:51,715  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:51,853  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:55:51,853  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:55:52,025  INFO | main | e.e.esig.dss.token.AbstractSignatureTokenConnection     | Signature algorithm : SHA256withRSA 
+2023-04-28 11:55:52,129  INFO | main | e.e.esig.dss.cades.signature.CAdESSignatureExtension    | EXTEND CMS SIGNATURES. 
+2023-04-28 11:55:52,132  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:52,136  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:52,139  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:52,142  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:52,144  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:52,148  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:52,277  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:55:52,277  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:55:52,281  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:52,283  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:52,289  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:55:52,292  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:55:52,293  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2' has been loaded from the cache 
+2023-04-28 11:55:52,294  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473 
+2023-04-28 11:55:52,296  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473' has been loaded from the cache 
+2023-04-28 11:55:52,297  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB 
+2023-04-28 11:55:52,299  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB' has been loaded from the cache 
+2023-04-28 11:55:52,300  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Revocation data is missing for one or more POE(s). NextUpdate time : 2023-10-28T09:53:48Z [C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473: No revocation data found after the best signature time [2023-04-28T09:55:52Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]] 
+2023-04-28 11:55:52,301  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Fresh revocation data is missing for one or more certificate(s). NextUpdate time : 2023-10-28T09:53:48Z [C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB: No revocation data found after the best signature time [2023-04-28T09:55:52Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]; C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2: No revocation data found after the best signature time [2023-04-28T09:55:52Z]!] 
+2023-04-28 11:55:52,305  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:52,309  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:52,448  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:55:52,448  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:55:52,455  INFO | main | e.europa.esig.dss.test.AbstractPkiFactoryTestValidation | =================== VALIDATION ================= 
+2023-04-28 11:55:52,465  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:52,474  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:52,477  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:52,479  INFO | main | eu.europa.esig.dss.validation.SignedDocumentValidator   | Document validation... 
+2023-04-28 11:55:52,491  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:52,499  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:55:52,500  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+]]></system-out>
+  </testcase>
+  <testcase name="signAndVerify" classname="eu.europa.esig.dss.cades.signature.CAdESDoubleSignatureTest" time="2.219">
+    <system-out><![CDATA[2023-04-28 11:55:53,576  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:53,795  INFO | main | e.e.esig.dss.token.AbstractSignatureTokenConnection     | Signature algorithm : SHA256withRSA 
+2023-04-28 11:55:53,938  INFO | main | e.e.esig.dss.cades.signature.CAdESSignatureExtension    | EXTEND CMS SIGNATURES. 
+2023-04-28 11:55:53,942  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:53,947  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:53,952  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:53,957  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:54,092  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:55:54,092  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:55:54,097  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:54,103  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:55:54,104  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2' has been loaded from the cache 
+2023-04-28 11:55:54,104  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473 
+2023-04-28 11:55:54,106  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473' has been loaded from the cache 
+2023-04-28 11:55:54,107  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB 
+2023-04-28 11:55:54,108  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB' has been loaded from the cache 
+2023-04-28 11:55:54,109  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Revocation data is missing for one or more POE(s). NextUpdate time : 2023-10-28T09:53:48Z [C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473: No revocation data found after the best signature time [2023-04-28T09:55:54Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]] 
+2023-04-28 11:55:54,109  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Fresh revocation data is missing for one or more certificate(s). NextUpdate time : 2023-10-28T09:53:48Z [C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB: No revocation data found after the best signature time [2023-04-28T09:55:54Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]; C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2: No revocation data found after the best signature time [2023-04-28T09:55:54Z]!] 
+2023-04-28 11:55:54,113  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:54,250  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:55:54,250  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:55:54,437  INFO | main | e.e.esig.dss.token.AbstractSignatureTokenConnection     | Signature algorithm : SHA256withRSA 
+2023-04-28 11:55:54,541  INFO | main | e.e.esig.dss.cades.signature.CAdESSignatureExtension    | EXTEND CMS SIGNATURES. 
+2023-04-28 11:55:54,543  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:54,547  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:54,551  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:54,554  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:54,557  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:54,560  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:54,704  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:55:54,704  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:55:54,709  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:54,712  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:54,718  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:55:54,721  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:55:54,721  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2' has been loaded from the cache 
+2023-04-28 11:55:54,721  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473 
+2023-04-28 11:55:54,724  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473' has been loaded from the cache 
+2023-04-28 11:55:54,724  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB 
+2023-04-28 11:55:54,725  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB' has been loaded from the cache 
+2023-04-28 11:55:54,726  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Revocation data is missing for one or more POE(s). NextUpdate time : 2023-10-28T09:53:48Z [C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473: No revocation data found after the best signature time [2023-04-28T09:55:54Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]] 
+2023-04-28 11:55:54,726  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Fresh revocation data is missing for one or more certificate(s). NextUpdate time : 2023-10-28T09:53:48Z [C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB: No revocation data found after the best signature time [2023-04-28T09:55:54Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]; C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2: No revocation data found after the best signature time [2023-04-28T09:55:54Z]!] 
+2023-04-28 11:55:54,731  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:54,734  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:54,868  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:55:54,868  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:55:54,874  INFO | main | e.europa.esig.dss.test.AbstractPkiFactoryTestValidation | =================== VALIDATION ================= 
+2023-04-28 11:55:54,883  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:54,891  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:54,895  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:54,897  INFO | main | eu.europa.esig.dss.validation.SignedDocumentValidator   | Document validation... 
+2023-04-28 11:55:54,910  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:54,917  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:55:54,918  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+]]></system-out>
+  </testcase>
+  <testcase name="signAndVerify" classname="eu.europa.esig.dss.cades.signature.CAdESDoubleSignatureTest" time="2.105">
+    <system-out><![CDATA[2023-04-28 11:55:55,813  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:56,001  INFO | main | e.e.esig.dss.token.AbstractSignatureTokenConnection     | Signature algorithm : SHA256withRSA 
+2023-04-28 11:55:56,106  INFO | main | e.e.esig.dss.cades.signature.CAdESSignatureExtension    | EXTEND CMS SIGNATURES. 
+2023-04-28 11:55:56,108  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:56,112  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:56,115  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:56,119  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:56,275  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:55:56,275  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:55:56,279  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:56,284  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:55:56,285  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2' has been loaded from the cache 
+2023-04-28 11:55:56,286  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473 
+2023-04-28 11:55:56,287  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473' has been loaded from the cache 
+2023-04-28 11:55:56,287  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB 
+2023-04-28 11:55:56,289  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB' has been loaded from the cache 
+2023-04-28 11:55:56,290  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Revocation data is missing for one or more POE(s). NextUpdate time : 2023-10-28T09:53:48Z [C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473: No revocation data found after the best signature time [2023-04-28T09:55:56Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]] 
+2023-04-28 11:55:56,291  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Fresh revocation data is missing for one or more certificate(s). NextUpdate time : 2023-10-28T09:53:48Z [C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB: No revocation data found after the best signature time [2023-04-28T09:55:56Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]; C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2: No revocation data found after the best signature time [2023-04-28T09:55:56Z]!] 
+2023-04-28 11:55:56,296  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:56,436  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:55:56,436  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:55:56,608  INFO | main | e.e.esig.dss.token.AbstractSignatureTokenConnection     | Signature algorithm : SHA256withRSA 
+2023-04-28 11:55:56,719  INFO | main | e.e.esig.dss.cades.signature.CAdESSignatureExtension    | EXTEND CMS SIGNATURES. 
+2023-04-28 11:55:56,721  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:56,725  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:56,727  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:56,729  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:56,732  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:56,736  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:56,870  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:55:56,870  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:55:56,874  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:56,877  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:56,882  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:55:56,884  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:55:56,885  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2' has been loaded from the cache 
+2023-04-28 11:55:56,886  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473 
+2023-04-28 11:55:56,886  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473' has been loaded from the cache 
+2023-04-28 11:55:56,887  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB 
+2023-04-28 11:55:56,889  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB' has been loaded from the cache 
+2023-04-28 11:55:56,889  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Revocation data is missing for one or more POE(s). NextUpdate time : 2023-10-28T09:53:48Z [C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473: No revocation data found after the best signature time [2023-04-28T09:55:56Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]] 
+2023-04-28 11:55:56,889  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Fresh revocation data is missing for one or more certificate(s). NextUpdate time : 2023-10-28T09:53:48Z [C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB: No revocation data found after the best signature time [2023-04-28T09:55:56Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]; C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2: No revocation data found after the best signature time [2023-04-28T09:55:56Z]!] 
+2023-04-28 11:55:56,892  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:56,894  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:57,026  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:55:57,026  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:55:57,031  INFO | main | e.europa.esig.dss.test.AbstractPkiFactoryTestValidation | =================== VALIDATION ================= 
+2023-04-28 11:55:57,040  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:57,046  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:57,048  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:57,050  INFO | main | eu.europa.esig.dss.validation.SignedDocumentValidator   | Document validation... 
+2023-04-28 11:55:57,060  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:57,065  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:55:57,065  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+]]></system-out>
+  </testcase>
+  <testcase name="signAndVerify" classname="eu.europa.esig.dss.cades.signature.CAdESDoubleSignatureTest" time="2.068">
+    <system-out><![CDATA[2023-04-28 11:55:57,904  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:58,071  INFO | main | e.e.esig.dss.token.AbstractSignatureTokenConnection     | Signature algorithm : SHA256withRSA 
+2023-04-28 11:55:58,180  INFO | main | e.e.esig.dss.cades.signature.CAdESSignatureExtension    | EXTEND CMS SIGNATURES. 
+2023-04-28 11:55:58,183  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:58,186  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:58,190  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:58,193  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:58,324  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:55:58,324  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:55:58,328  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:58,333  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:55:58,334  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2' has been loaded from the cache 
+2023-04-28 11:55:58,334  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473 
+2023-04-28 11:55:58,335  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473' has been loaded from the cache 
+2023-04-28 11:55:58,336  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB 
+2023-04-28 11:55:58,337  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB' has been loaded from the cache 
+2023-04-28 11:55:58,337  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Revocation data is missing for one or more POE(s). NextUpdate time : 2023-10-28T09:53:48Z [C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473: No revocation data found after the best signature time [2023-04-28T09:55:58Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]] 
+2023-04-28 11:55:58,337  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Fresh revocation data is missing for one or more certificate(s). NextUpdate time : 2023-10-28T09:53:48Z [C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB: No revocation data found after the best signature time [2023-04-28T09:55:58Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]; C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2: No revocation data found after the best signature time [2023-04-28T09:55:58Z]!] 
+2023-04-28 11:55:58,342  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:58,476  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:55:58,476  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:55:58,643  INFO | main | e.e.esig.dss.token.AbstractSignatureTokenConnection     | Signature algorithm : SHA256withRSA 
+2023-04-28 11:55:58,759  INFO | main | e.e.esig.dss.cades.signature.CAdESSignatureExtension    | EXTEND CMS SIGNATURES. 
+2023-04-28 11:55:58,762  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:58,765  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:58,769  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:58,772  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:58,774  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:58,777  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:58,909  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:55:58,909  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:55:58,914  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:58,918  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:58,923  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:55:58,925  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:55:58,926  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2' has been loaded from the cache 
+2023-04-28 11:55:58,926  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473 
+2023-04-28 11:55:58,928  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473' has been loaded from the cache 
+2023-04-28 11:55:58,930  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB 
+2023-04-28 11:55:58,930  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB' has been loaded from the cache 
+2023-04-28 11:55:58,930  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Revocation data is missing for one or more POE(s). NextUpdate time : 2023-10-28T09:53:48Z [C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473: No revocation data found after the best signature time [2023-04-28T09:55:58Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]] 
+2023-04-28 11:55:58,930  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Fresh revocation data is missing for one or more certificate(s). NextUpdate time : 2023-10-28T09:53:48Z [C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB: No revocation data found after the best signature time [2023-04-28T09:55:58Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]; C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2: No revocation data found after the best signature time [2023-04-28T09:55:58Z]!] 
+2023-04-28 11:55:58,934  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:58,938  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:59,072  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:55:59,072  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:55:59,079  INFO | main | e.europa.esig.dss.test.AbstractPkiFactoryTestValidation | =================== VALIDATION ================= 
+2023-04-28 11:55:59,089  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:59,097  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:59,100  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:59,103  INFO | main | eu.europa.esig.dss.validation.SignedDocumentValidator   | Document validation... 
+2023-04-28 11:55:59,113  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:55:59,117  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:55:59,118  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+]]></system-out>
+  </testcase>
+  <testcase name="signAndVerify" classname="eu.europa.esig.dss.cades.signature.CAdESDoubleSignatureTest" time="2.095">
+    <system-out><![CDATA[2023-04-28 11:55:59,962  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:00,144  INFO | main | e.e.esig.dss.token.AbstractSignatureTokenConnection     | Signature algorithm : SHA256withRSA 
+2023-04-28 11:56:00,245  INFO | main | e.e.esig.dss.cades.signature.CAdESSignatureExtension    | EXTEND CMS SIGNATURES. 
+2023-04-28 11:56:00,248  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:00,253  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:00,258  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:00,261  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:00,392  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:56:00,392  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:56:00,396  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:00,403  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:56:00,404  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2' has been loaded from the cache 
+2023-04-28 11:56:00,404  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473 
+2023-04-28 11:56:00,405  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473' has been loaded from the cache 
+2023-04-28 11:56:00,406  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB 
+2023-04-28 11:56:00,408  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB' has been loaded from the cache 
+2023-04-28 11:56:00,408  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Revocation data is missing for one or more POE(s). NextUpdate time : 2023-10-28T09:53:48Z [C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473: No revocation data found after the best signature time [2023-04-28T09:56:00Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]] 
+2023-04-28 11:56:00,409  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Fresh revocation data is missing for one or more certificate(s). NextUpdate time : 2023-10-28T09:53:48Z [C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB: No revocation data found after the best signature time [2023-04-28T09:56:00Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]; C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2: No revocation data found after the best signature time [2023-04-28T09:56:00Z]!] 
+2023-04-28 11:56:00,412  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:00,544  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:56:00,544  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:56:00,725  INFO | main | e.e.esig.dss.token.AbstractSignatureTokenConnection     | Signature algorithm : SHA256withRSA 
+2023-04-28 11:56:00,839  INFO | main | e.e.esig.dss.cades.signature.CAdESSignatureExtension    | EXTEND CMS SIGNATURES. 
+2023-04-28 11:56:00,843  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:00,848  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:00,851  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:00,854  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:00,856  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:00,859  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:00,993  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:56:00,994  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:56:00,997  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:01,000  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:01,005  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:56:01,008  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:56:01,008  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2' has been loaded from the cache 
+2023-04-28 11:56:01,009  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473 
+2023-04-28 11:56:01,010  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473' has been loaded from the cache 
+2023-04-28 11:56:01,011  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB 
+2023-04-28 11:56:01,012  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB' has been loaded from the cache 
+2023-04-28 11:56:01,012  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Revocation data is missing for one or more POE(s). NextUpdate time : 2023-10-28T09:53:48Z [C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473: No revocation data found after the best signature time [2023-04-28T09:56:00Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]] 
+2023-04-28 11:56:01,013  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Fresh revocation data is missing for one or more certificate(s). NextUpdate time : 2023-10-28T09:53:48Z [C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB: No revocation data found after the best signature time [2023-04-28T09:56:00Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]; C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2: No revocation data found after the best signature time [2023-04-28T09:56:00Z]!] 
+2023-04-28 11:56:01,016  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:01,021  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:01,156  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:56:01,156  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:56:01,160  INFO | main | e.europa.esig.dss.test.AbstractPkiFactoryTestValidation | =================== VALIDATION ================= 
+2023-04-28 11:56:01,169  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:01,176  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:01,178  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:01,180  INFO | main | eu.europa.esig.dss.validation.SignedDocumentValidator   | Document validation... 
+2023-04-28 11:56:01,193  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:01,199  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:56:01,200  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+]]></system-out>
+  </testcase>
+  <testcase name="signAndVerify" classname="eu.europa.esig.dss.cades.signature.CAdESDoubleSignatureTest" time="2.32">
+    <system-out><![CDATA[2023-04-28 11:56:02,068  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:02,239  INFO | main | e.e.esig.dss.token.AbstractSignatureTokenConnection     | Signature algorithm : SHA256withRSA 
+2023-04-28 11:56:02,344  INFO | main | e.e.esig.dss.cades.signature.CAdESSignatureExtension    | EXTEND CMS SIGNATURES. 
+2023-04-28 11:56:02,348  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:02,352  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:02,359  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:02,361  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:02,505  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:56:02,505  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:56:02,509  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:02,515  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:56:02,516  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2' has been loaded from the cache 
+2023-04-28 11:56:02,516  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473 
+2023-04-28 11:56:02,518  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473' has been loaded from the cache 
+2023-04-28 11:56:02,518  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB 
+2023-04-28 11:56:02,519  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB' has been loaded from the cache 
+2023-04-28 11:56:02,520  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Revocation data is missing for one or more POE(s). NextUpdate time : 2023-10-28T09:53:48Z [C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473: No revocation data found after the best signature time [2023-04-28T09:56:02Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]] 
+2023-04-28 11:56:02,520  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Fresh revocation data is missing for one or more certificate(s). NextUpdate time : 2023-10-28T09:53:48Z [C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB: No revocation data found after the best signature time [2023-04-28T09:56:02Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]; C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2: No revocation data found after the best signature time [2023-04-28T09:56:02Z]!] 
+2023-04-28 11:56:02,524  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:02,677  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:56:02,677  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:56:02,912  INFO | main | e.e.esig.dss.token.AbstractSignatureTokenConnection     | Signature algorithm : SHA256withRSA 
+2023-04-28 11:56:03,054  INFO | main | e.e.esig.dss.cades.signature.CAdESSignatureExtension    | EXTEND CMS SIGNATURES. 
+2023-04-28 11:56:03,058  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:03,063  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:03,067  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:03,073  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:03,077  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:03,082  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:03,212  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:56:03,212  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:56:03,218  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:03,222  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:03,229  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:56:03,233  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:56:03,235  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2' has been loaded from the cache 
+2023-04-28 11:56:03,238  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473 
+2023-04-28 11:56:03,241  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473' has been loaded from the cache 
+2023-04-28 11:56:03,242  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB 
+2023-04-28 11:56:03,243  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB' has been loaded from the cache 
+2023-04-28 11:56:03,243  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Revocation data is missing for one or more POE(s). NextUpdate time : 2023-10-28T09:53:48Z [C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473: No revocation data found after the best signature time [2023-04-28T09:56:03Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]] 
+2023-04-28 11:56:03,244  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Fresh revocation data is missing for one or more certificate(s). NextUpdate time : 2023-10-28T09:53:48Z [C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB: No revocation data found after the best signature time [2023-04-28T09:56:03Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]; C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2: No revocation data found after the best signature time [2023-04-28T09:56:03Z]!] 
+2023-04-28 11:56:03,248  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:03,252  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:03,388  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:56:03,388  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:56:03,395  INFO | main | e.europa.esig.dss.test.AbstractPkiFactoryTestValidation | =================== VALIDATION ================= 
+2023-04-28 11:56:03,405  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:03,418  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:03,422  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:03,425  INFO | main | eu.europa.esig.dss.validation.SignedDocumentValidator   | Document validation... 
+2023-04-28 11:56:03,438  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:03,445  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:56:03,445  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+]]></system-out>
+  </testcase>
+  <testcase name="signAndVerify" classname="eu.europa.esig.dss.cades.signature.CAdESDoubleSignatureTest" time="2.143">
+    <system-out><![CDATA[2023-04-28 11:56:04,391  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:04,559  INFO | main | e.e.esig.dss.token.AbstractSignatureTokenConnection     | Signature algorithm : SHA256withRSA 
+2023-04-28 11:56:04,694  INFO | main | e.e.esig.dss.cades.signature.CAdESSignatureExtension    | EXTEND CMS SIGNATURES. 
+2023-04-28 11:56:04,696  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:04,699  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:04,702  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:04,706  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:04,846  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:56:04,847  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:56:04,851  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:04,855  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:56:04,856  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2' has been loaded from the cache 
+2023-04-28 11:56:04,856  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473 
+2023-04-28 11:56:04,857  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473' has been loaded from the cache 
+2023-04-28 11:56:04,858  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB 
+2023-04-28 11:56:04,859  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB' has been loaded from the cache 
+2023-04-28 11:56:04,860  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Revocation data is missing for one or more POE(s). NextUpdate time : 2023-10-28T09:53:48Z [C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473: No revocation data found after the best signature time [2023-04-28T09:56:04Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]] 
+2023-04-28 11:56:04,860  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Fresh revocation data is missing for one or more certificate(s). NextUpdate time : 2023-10-28T09:53:48Z [C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB: No revocation data found after the best signature time [2023-04-28T09:56:04Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]; C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2: No revocation data found after the best signature time [2023-04-28T09:56:04Z]!] 
+2023-04-28 11:56:04,864  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:05,003  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:56:05,003  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:56:05,158  INFO | main | e.e.esig.dss.token.AbstractSignatureTokenConnection     | Signature algorithm : SHA256withRSA 
+2023-04-28 11:56:05,258  INFO | main | e.e.esig.dss.cades.signature.CAdESSignatureExtension    | EXTEND CMS SIGNATURES. 
+2023-04-28 11:56:05,261  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:05,264  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:05,267  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:05,270  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:05,273  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:05,276  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:05,407  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:56:05,407  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:56:05,412  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:05,415  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:05,422  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:56:05,425  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:56:05,425  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2' has been loaded from the cache 
+2023-04-28 11:56:05,427  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473 
+2023-04-28 11:56:05,427  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473' has been loaded from the cache 
+2023-04-28 11:56:05,428  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB 
+2023-04-28 11:56:05,429  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB' has been loaded from the cache 
+2023-04-28 11:56:05,429  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Revocation data is missing for one or more POE(s). NextUpdate time : 2023-10-28T09:53:48Z [C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473: No revocation data found after the best signature time [2023-04-28T09:56:05Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]] 
+2023-04-28 11:56:05,429  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Fresh revocation data is missing for one or more certificate(s). NextUpdate time : 2023-10-28T09:53:48Z [C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB: No revocation data found after the best signature time [2023-04-28T09:56:05Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]; C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2: No revocation data found after the best signature time [2023-04-28T09:56:05Z]!] 
+2023-04-28 11:56:05,433  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:05,438  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:05,576  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:56:05,576  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:56:05,584  INFO | main | e.europa.esig.dss.test.AbstractPkiFactoryTestValidation | =================== VALIDATION ================= 
+2023-04-28 11:56:05,593  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:05,600  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:05,604  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:05,608  INFO | main | eu.europa.esig.dss.validation.SignedDocumentValidator   | Document validation... 
+2023-04-28 11:56:05,622  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:05,628  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:56:05,628  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+]]></system-out>
+  </testcase>
+  <testcase name="signAndVerify" classname="eu.europa.esig.dss.cades.signature.CAdESDoubleSignatureTest" time="2.204">
+    <system-out><![CDATA[2023-04-28 11:56:06,621  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:06,835  INFO | main | e.e.esig.dss.token.AbstractSignatureTokenConnection     | Signature algorithm : SHA256withRSA 
+2023-04-28 11:56:06,948  INFO | main | e.e.esig.dss.cades.signature.CAdESSignatureExtension    | EXTEND CMS SIGNATURES. 
+2023-04-28 11:56:06,952  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:06,956  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:06,959  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:06,961  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:07,092  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:56:07,092  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:56:07,097  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:07,103  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:56:07,104  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2' has been loaded from the cache 
+2023-04-28 11:56:07,104  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473 
+2023-04-28 11:56:07,105  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473' has been loaded from the cache 
+2023-04-28 11:56:07,106  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB 
+2023-04-28 11:56:07,107  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB' has been loaded from the cache 
+2023-04-28 11:56:07,108  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Revocation data is missing for one or more POE(s). NextUpdate time : 2023-10-28T09:53:48Z [C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473: No revocation data found after the best signature time [2023-04-28T09:56:07Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]] 
+2023-04-28 11:56:07,108  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Fresh revocation data is missing for one or more certificate(s). NextUpdate time : 2023-10-28T09:53:48Z [C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB: No revocation data found after the best signature time [2023-04-28T09:56:07Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]; C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2: No revocation data found after the best signature time [2023-04-28T09:56:07Z]!] 
+2023-04-28 11:56:07,111  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:07,247  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:56:07,247  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:56:07,427  INFO | main | e.e.esig.dss.token.AbstractSignatureTokenConnection     | Signature algorithm : SHA256withRSA 
+2023-04-28 11:56:07,532  INFO | main | e.e.esig.dss.cades.signature.CAdESSignatureExtension    | EXTEND CMS SIGNATURES. 
+2023-04-28 11:56:07,536  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:07,540  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:07,542  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:07,545  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:07,547  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:07,550  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:07,683  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:56:07,683  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:56:07,687  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:07,690  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:07,695  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:56:07,697  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:56:07,698  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2' has been loaded from the cache 
+2023-04-28 11:56:07,699  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473 
+2023-04-28 11:56:07,700  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473' has been loaded from the cache 
+2023-04-28 11:56:07,701  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB 
+2023-04-28 11:56:07,702  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB' has been loaded from the cache 
+2023-04-28 11:56:07,703  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Revocation data is missing for one or more POE(s). NextUpdate time : 2023-10-28T09:53:48Z [C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473: No revocation data found after the best signature time [2023-04-28T09:56:07Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]] 
+2023-04-28 11:56:07,703  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Fresh revocation data is missing for one or more certificate(s). NextUpdate time : 2023-10-28T09:53:48Z [C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB: No revocation data found after the best signature time [2023-04-28T09:56:07Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]; C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2: No revocation data found after the best signature time [2023-04-28T09:56:07Z]!] 
+2023-04-28 11:56:07,705  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:07,708  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:07,850  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:56:07,850  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:56:07,856  INFO | main | e.europa.esig.dss.test.AbstractPkiFactoryTestValidation | =================== VALIDATION ================= 
+2023-04-28 11:56:07,865  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:07,871  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:07,874  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:07,876  INFO | main | eu.europa.esig.dss.validation.SignedDocumentValidator   | Document validation... 
+2023-04-28 11:56:07,885  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:07,890  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:56:07,891  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+]]></system-out>
+  </testcase>
+  <testcase name="signAndVerify" classname="eu.europa.esig.dss.cades.signature.CAdESDoubleSignatureTest" time="2.118">
+    <system-out><![CDATA[2023-04-28 11:56:08,728  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:08,892  INFO | main | e.e.esig.dss.token.AbstractSignatureTokenConnection     | Signature algorithm : SHA256withRSA 
+2023-04-28 11:56:09,001  INFO | main | e.e.esig.dss.cades.signature.CAdESSignatureExtension    | EXTEND CMS SIGNATURES. 
+2023-04-28 11:56:09,004  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:09,006  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:09,009  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:09,012  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:09,159  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:56:09,159  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:56:09,163  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:09,167  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:56:09,168  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2' has been loaded from the cache 
+2023-04-28 11:56:09,168  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473 
+2023-04-28 11:56:09,169  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473' has been loaded from the cache 
+2023-04-28 11:56:09,170  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB 
+2023-04-28 11:56:09,171  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB' has been loaded from the cache 
+2023-04-28 11:56:09,171  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Revocation data is missing for one or more POE(s). NextUpdate time : 2023-10-28T09:53:48Z [C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473: No revocation data found after the best signature time [2023-04-28T09:56:09Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]] 
+2023-04-28 11:56:09,171  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Fresh revocation data is missing for one or more certificate(s). NextUpdate time : 2023-10-28T09:53:48Z [C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB: No revocation data found after the best signature time [2023-04-28T09:56:09Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]; C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2: No revocation data found after the best signature time [2023-04-28T09:56:09Z]!] 
+2023-04-28 11:56:09,175  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:09,314  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:56:09,315  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:56:09,464  INFO | main | e.e.esig.dss.token.AbstractSignatureTokenConnection     | Signature algorithm : SHA256withRSA 
+2023-04-28 11:56:09,569  INFO | main | e.e.esig.dss.cades.signature.CAdESSignatureExtension    | EXTEND CMS SIGNATURES. 
+2023-04-28 11:56:09,572  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:09,575  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:09,577  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:09,580  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:09,582  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:09,585  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:09,720  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:56:09,721  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:56:09,724  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:09,727  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:09,733  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:56:09,734  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:56:09,734  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2' has been loaded from the cache 
+2023-04-28 11:56:09,735  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473 
+2023-04-28 11:56:09,736  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473' has been loaded from the cache 
+2023-04-28 11:56:09,737  WARN | main | eu.europa.esig.dss.service.ocsp.OnlineOCSPSource        | No OCSP location found for C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB 
+2023-04-28 11:56:09,739  INFO | main | e.e.e.d.spi.x509.revocation.RepositoryRevocationSource  | Revocation token for certificate with Id 'C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB' has been loaded from the cache 
+2023-04-28 11:56:09,739  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Revocation data is missing for one or more POE(s). NextUpdate time : 2023-10-28T09:53:48Z [C-AA02B99F9C4B57291E3C1744E44647709293D0FE17BB4EED28C99E973C7E8473: No revocation data found after the best signature time [2023-04-28T09:56:09Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]] 
+2023-04-28 11:56:09,739  WARN | main | eu.europa.esig.dss.alert.handler.LogHandler             | Fresh revocation data is missing for one or more certificate(s). NextUpdate time : 2023-10-28T09:53:48Z [C-FCBFEBCB6B78113DFD4C6CCFCBC2B1482992DF4C48E9DE1B3B7F16F33332BFCB: No revocation data found after the best signature time [2023-04-28T09:56:09Z]! The nextUpdate available after : [2023-10-28T09:53:48Z]; C-96DB5CFA7ABACEB5C97C131CBBFB341DDD8E64FE68B587558AA8F082AB2670F2: No revocation data found after the best signature time [2023-04-28T09:56:09Z]!] 
+2023-04-28 11:56:09,743  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:09,746  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:09,878  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP Status: Operation Okay 
+2023-04-28 11:56:09,879  INFO | main | eu.europa.esig.dss.service.tsp.OnlineTSPSource          | TSP SID : SN 500, Issuer CN=root-ca,O=Nowina Solutions,OU=PKI-TEST,C=LU 
+2023-04-28 11:56:09,884  INFO | main | e.europa.esig.dss.test.AbstractPkiFactoryTestValidation | =================== VALIDATION ================= 
+2023-04-28 11:56:09,892  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:09,900  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:09,903  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:09,906  INFO | main | eu.europa.esig.dss.validation.SignedDocumentValidator   | Document validation... 
+2023-04-28 11:56:09,919  INFO | main | e.europa.esig.dss.validation.CommonCertificateVerifier  | + New CommonCertificateVerifier created. 
+2023-04-28 11:56:09,924  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+2023-04-28 11:56:09,925  INFO | main | eu.europa.esig.dss.spi.x509.revocation.ocsp.OCSPToken   | OCSP status is good 
+]]></system-out>
+  </testcase>
+</testsuite>
