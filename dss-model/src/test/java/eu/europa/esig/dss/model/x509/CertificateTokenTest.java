@@ -26,6 +26,7 @@ import eu.europa.esig.dss.enumerations.SignatureAlgorithm;
 import eu.europa.esig.dss.enumerations.SignatureValidity;
 import eu.europa.esig.dss.model.DSSException;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -159,7 +160,17 @@ public class CertificateTokenTest {
 			CertificateToken certificate = getCertificate(fis);
 			assertNotNull(certificate);
 			assertEquals(SignatureAlgorithm.RSA_SSA_PSS_SHA512_MGF1, certificate.getSignatureAlgorithm());
-			//assertEquals(SignatureAlgorithm.DILITHIUM3, certificate.getSignatureAlgorithm());
+		}
+	}
+
+	public void dil() throws IOException {
+		Security.addProvider(new BouncyCastleProvider());
+		Security.addProvider(new BouncyCastlePQCProvider());
+		File certFile = new File("src/test/resources/D-TRUST_CA_3-1_2016.cer");
+		try (FileInputStream fis = new FileInputStream(certFile)) {
+			CertificateToken certificate = getCertificate(fis);
+			assertNotNull(certificate);
+			assertEquals(SignatureAlgorithm.DILITHIUM3, certificate.getSignatureAlgorithm());
 		}
 	}
 

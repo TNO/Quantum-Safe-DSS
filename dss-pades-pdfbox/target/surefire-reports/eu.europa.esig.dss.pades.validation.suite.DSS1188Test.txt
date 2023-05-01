@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: eu.europa.esig.dss.pades.validation.suite.DSS1188Test
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.102 s - in eu.europa.esig.dss.pades.validation.suite.DSS1188Test

@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: eu.europa.esig.dss.crl.x509.impl.CRLUtilsX509CRLImplTest
--------------------------------------------------------------------------------
-Tests run: 23, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 2.096 s - in eu.europa.esig.dss.crl.x509.impl.CRLUtilsX509CRLImplTest

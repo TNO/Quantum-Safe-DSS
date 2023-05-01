@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"eu.europa.esig.dss.pdfa"},{"l":"eu.europa.esig.dss.pdfa.validation"}];updateSearchResults();

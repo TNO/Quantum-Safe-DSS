@@ -21,10 +21,12 @@
 package eu.europa.esig.dss.spi;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
+// import org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.security.Provider;
+import java.security.Security;
 
 /**
  * The default security provider
@@ -48,6 +50,7 @@ public final class DSSSecurityProvider {
 	public static Provider getSecurityProvider() {
 		if (securityProvider == null) {
 			securityProvider = new BouncyCastleProvider();
+			Security.addProvider(new org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider());
 			LOG.debug("DSSSecurityProvider initialized with {}", BouncyCastleProvider.class);
 		}
 		return securityProvider;

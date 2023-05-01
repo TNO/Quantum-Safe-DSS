@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: eu.europa.esig.dss.xades.extension.XAdESExtensionWithContentTimestampTest
--------------------------------------------------------------------------------
-Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.136 s - in eu.europa.esig.dss.xades.extension.XAdESExtensionWithContentTimestampTest

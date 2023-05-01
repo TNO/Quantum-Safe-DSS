@@ -149,7 +149,7 @@ public final class DSSUtils {
 
 	/**
 	 * Formats the date according to the given format (with system TimeZone)
-	 * 
+	 *
 	 * @param date {@link Date} to transform to a String
 	 * @param format {@link String} representing a Date format to be used
 	 * @return {@link String} formatted date
@@ -157,7 +157,7 @@ public final class DSSUtils {
 	public static String formatDateWithCustomFormat(final Date date, final String format) {
 		return formatDateWithCustomFormat(date, format, UTC_TIMEZONE);
 	}
-	
+
 	/**
 	 * Formats the date according to the given format and timeZone as {@code String}.
 	 *

@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: eu.europa.esig.dss.jades.extension.JAdESExtensionInvalidLevelsTest
--------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.336 s - in eu.europa.esig.dss.jades.extension.JAdESExtensionInvalidLevelsTest

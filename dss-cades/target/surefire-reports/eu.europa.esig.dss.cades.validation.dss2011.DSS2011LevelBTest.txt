@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: eu.europa.esig.dss.cades.validation.dss2011.DSS2011LevelBTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 s - in eu.europa.esig.dss.cades.validation.dss2011.DSS2011LevelBTest

@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: eu.europa.esig.dss.jades.requirements.JAdESBaselineBCompactTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.239 s - in eu.europa.esig.dss.jades.requirements.JAdESBaselineBCompactTest

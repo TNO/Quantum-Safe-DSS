@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: eu.europa.esig.dss.cades.signature.CAdESDoubleSignatureBAndLTATest
--------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.348 s - in eu.europa.esig.dss.cades.signature.CAdESDoubleSignatureBAndLTATest

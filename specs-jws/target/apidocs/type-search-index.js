@@ -1,1 +1,0 @@
-typeSearchIndex = [{"p":"eu.europa.esig.jws","l":"AbstractJWSUtils"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"eu.europa.esig.jws","l":"JWSUtils"}];updateSearchResults();

@@ -35,6 +35,7 @@ import eu.europa.esig.dss.utils.Utils;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.cert.X509CertificateHolder;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -49,6 +50,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
+import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.Security;
 import java.security.Signature;
@@ -122,6 +124,7 @@ public class DSSUtilsTest {
 	@Test
 	public void digestTest() {
 		Security.addProvider(DSSSecurityProvider.getSecurityProvider());
+		Security.addProvider(new org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider());
 
 		byte[] data = "Hello world!".getBytes(StandardCharsets.UTF_8);
 		assertEquals("d3486ae9136e7856bc42212385ea797094475802", Utils.toHex(DSSUtils.digest(DigestAlgorithm.SHA1, data)));
@@ -305,7 +308,7 @@ public class DSSUtilsTest {
 		Date d2 = calendar.getTime();
 
 		String deterministicId3 = DSSUtils.getDeterministicId(d2, certificate.getDSSId());
-		
+
 		assertNotEquals(deterministicId2, deterministicId3);
 	}
 
@@ -353,21 +356,21 @@ public class DSSUtilsTest {
 		assertTrue(token.isSignedBy(token));
 		assertEquals(SignatureAlgorithm.RSA_SSA_PSS_SHA256_MGF1, token.getSignatureAlgorithm());
 	}
-	
+
 	@Test
 	public void getUTCDateTest() throws Exception {
 		String pattern = "yyyy-MM-dd HH:mm:ss";
 		SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
 		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
-		
+
 		Date date = DSSUtils.getUtcDate(2001, 0, 1);
 		String formattedDate = dateFormat.format(date);
 		assertEquals("2001-01-01 00:00:00", formattedDate);
-		
+
 		Date parsedDate = dateFormat.parse(formattedDate);
 		assertEquals(date, parsedDate);
 	}
-	
+
 	@Test
 	public void removeControlCharactersTest() {
 		assertNull(DSSUtils.removeControlCharacters(null));
@@ -402,7 +405,7 @@ public class DSSUtilsTest {
 		// RFC 8410
 
 		Security.addProvider(DSSSecurityProvider.getSecurityProvider());
-		
+
 		CertificateToken token = DSSUtils.loadCertificateFromBase64EncodedString(
 				"MIIBLDCB36ADAgECAghWAUdKKo3DMDAFBgMrZXAwGTEXMBUGA1UEAwwOSUVURiBUZXN0IERlbW8wHhcNMTYwODAxMTIxOTI0WhcNNDAxMjMxMjM1OTU5WjAZMRcwFQYDVQQDDA5JRVRGIFRlc3QgRGVtbzAqMAUGAytlbgMhAIUg8AmJMKdUdIt93LQ+91oNvzoNJjga9OukqY6qm05qo0UwQzAPBgNVHRMBAf8EBTADAQEAMA4GA1UdDwEBAAQEAwIDCDAgBgNVHQ4BAQAEFgQUmx9e7e0EM4Xk97xiPFl1uQvIuzswBQYDK2VwA0EAryMB/t3J5v/BzKc9dNZIpDmAgs3babFOTQbs+BolzlDUwsPrdGxO3YNGhW7Ibz3OGhhlxXrCe1Cgw1AH9efZBw==");
 		assertNotNull(token);
@@ -431,6 +434,10 @@ public class DSSUtilsTest {
 		assertTrue(token.isSignedBy(token));
 	}
 
+	// public void loadDilithiumCert() throws NoSuchAlgorithmException, IOException{
+
+	// }
+
 	@Test
 	public void isUrnOidTest() {
 		assertFalse(DSSUtils.isUrnOid(null));
@@ -439,7 +446,7 @@ public class DSSUtilsTest {
 		assertTrue(DSSUtils.isUrnOid("urn:oid:1.2.3.4"));
 		assertTrue(DSSUtils.isUrnOid("URN:OID:1.2.3.4"));
 	}
-	
+
 	@Test
 	public void isOidCode() {
 		assertFalse(DSSUtils.isOidCode(null));
@@ -454,7 +461,7 @@ public class DSSUtilsTest {
 		assertTrue(DSSUtils.isOidCode("0.4.0.19122.1"));
 		assertTrue(DSSUtils.isOidCode("2.16.840.1.113883.3.3190.100"));
 	}
-	
+
 	@Test
 	public void getOidCodeTest() {
 		assertNull(DSSUtils.getOidCode(null));
@@ -464,7 +471,7 @@ public class DSSUtilsTest {
 		assertEquals("1.2.3.4", DSSUtils.getOidCode("URN:OID:1.2.3.4"));
 		assertEquals("urn.oid.1.2.3.4", DSSUtils.getOidCode("urn.oid.1.2.3.4"));
 	}
-	
+
 	@Test
 	public void stripFirstLeadingOccurrenceTest() {
 		assertNull(DSSUtils.stripFirstLeadingOccurrence(null, null));
@@ -509,6 +516,35 @@ public class DSSUtilsTest {
 				SignatureAlgorithm.getAlgorithm(EncryptionAlgorithm.PLAIN_ECDSA, DigestAlgorithm.SHA512), ecPrivateKey);
 		signAndCheckSignatureValue("RIPEMD160withPLAIN-ECDSA",
 				SignatureAlgorithm.getAlgorithm(EncryptionAlgorithm.PLAIN_ECDSA, DigestAlgorithm.RIPEMD160), ecPrivateKey);
+	}
+
+	public void signAndConvertPQCSignatureValueTest() throws Exception {
+		Security.addProvider(new BouncyCastleProvider());
+		Security.addProvider(new BouncyCastlePQCProvider());
+		KeyPairGenerator gen = KeyPairGenerator.getInstance("Dilithium3", "BCPQC");
+		KeyPair dilKp = gen.generateKeyPair();
+
+		PrivateKey dilPrivateKey = dilKp.getPrivate();
+		signAndCheckPQCSignatureValue("Dilithium3",
+				SignatureAlgorithm.getAlgorithm(EncryptionAlgorithm.DILITHIUM3, DigestAlgorithm.SHA384), dilPrivateKey);
+	}
+
+
+	private void signAndCheckPQCSignatureValue(String javaAlgorithm, SignatureAlgorithm currentAlgorithm,
+										PrivateKey privateKey) throws Exception {
+		Signature s = Signature.getInstance(javaAlgorithm);
+		s.initSign(privateKey);
+		s.update("Hello world!".getBytes());
+		byte[] originalBinaries = s.sign();
+		assertPQCSignatureValid(originalBinaries, currentAlgorithm);
+	}
+
+
+	private void assertPQCSignatureValid(byte[] originalBinaries, SignatureAlgorithm currentAlgorithm) throws Exception {
+		SignatureValue signatureValue = new SignatureValue();
+		signatureValue.setAlgorithm(currentAlgorithm);
+		signatureValue.setValue(originalBinaries);
+		assertArrayEquals(originalBinaries, signatureValue.getValue());
 	}
 
 	private void signAndCheckSignatureValue(String javaAlgorithm, SignatureAlgorithm currentAlgorithm,

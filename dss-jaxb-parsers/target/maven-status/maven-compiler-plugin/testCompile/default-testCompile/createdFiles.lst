@@ -1,9 +1,0 @@
-eu\europa\esig\dss\jaxb\parsers\ObjectIdentifierQualifierParserTest.class
-eu\europa\esig\dss\jaxb\parsers\KeyUsageBitParserTest.class
-eu\europa\esig\dss\jaxb\parsers\SignatureFormatParserTest.class
-eu\europa\esig\dss\jaxb\parsers\DateParserTest.class
-eu\europa\esig\dss\jaxb\parsers\EndorsementTypeParserTest.class
-eu\europa\esig\dss\jaxb\parsers\CertificateStatusParserTest.class
-eu\europa\esig\dss\jaxb\parsers\SignatureQualificationParserTest.class
-eu\europa\esig\dss\jaxb\parsers\TimestampQualificationParserTest.class
-eu\europa\esig\dss\jaxb\parsers\EncryptionAlgorithmParserTest.class

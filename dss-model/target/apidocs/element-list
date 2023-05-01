@@ -1,7 +1,0 @@
-eu.europa.esig.dss.model
-eu.europa.esig.dss.model.identifier
-eu.europa.esig.dss.model.x509
-eu.europa.esig.dss.model.x509.extension
-eu.europa.esig.dss.model.x509.revocation
-eu.europa.esig.dss.model.x509.revocation.crl
-eu.europa.esig.dss.model.x509.revocation.ocsp

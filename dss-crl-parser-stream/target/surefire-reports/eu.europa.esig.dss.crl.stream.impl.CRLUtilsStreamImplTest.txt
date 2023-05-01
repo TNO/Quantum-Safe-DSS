@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: eu.europa.esig.dss.crl.stream.impl.CRLUtilsStreamImplTest
--------------------------------------------------------------------------------
-Tests run: 24, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 2.567 s - in eu.europa.esig.dss.crl.stream.impl.CRLUtilsStreamImplTest

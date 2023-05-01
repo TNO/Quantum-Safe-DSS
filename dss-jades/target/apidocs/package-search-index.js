@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"eu.europa.esig.dss.jades"},{"l":"eu.europa.esig.dss.jades.signature"},{"l":"eu.europa.esig.dss.jades.validation"},{"l":"eu.europa.esig.dss.jades.validation.scope"},{"l":"eu.europa.esig.dss.jades.validation.timestamp"}];updateSearchResults();

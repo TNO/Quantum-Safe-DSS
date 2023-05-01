@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"eu.europa.esig.dss.alert"},{"l":"eu.europa.esig.dss.alert.detector"},{"l":"eu.europa.esig.dss.alert.exception"},{"l":"eu.europa.esig.dss.alert.handler"},{"l":"eu.europa.esig.dss.alert.status"}];updateSearchResults();

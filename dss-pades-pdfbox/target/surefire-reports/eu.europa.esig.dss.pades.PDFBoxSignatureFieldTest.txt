@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: eu.europa.esig.dss.pades.PDFBoxSignatureFieldTest
--------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.41 s - in eu.europa.esig.dss.pades.PDFBoxSignatureFieldTest

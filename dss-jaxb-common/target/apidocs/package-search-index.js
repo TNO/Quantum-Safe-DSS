@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"eu.europa.esig.dss.jaxb.common"},{"l":"eu.europa.esig.dss.jaxb.common.exception"}];updateSearchResults();

@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: eu.europa.esig.dss.pades.validation.suite.PAdESMultiplePagesAnnotationsOverlapTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.132 s - in eu.europa.esig.dss.pades.validation.suite.PAdESMultiplePagesAnnotationsOverlapTest

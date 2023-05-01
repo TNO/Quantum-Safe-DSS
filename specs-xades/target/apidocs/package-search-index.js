@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"eu.europa.esig.xades"},{"l":"eu.europa.esig.xades.jaxb.xades111"},{"l":"eu.europa.esig.xades.jaxb.xades122"},{"l":"eu.europa.esig.xades.jaxb.xades132"},{"l":"eu.europa.esig.xades.jaxb.xades141"}];updateSearchResults();

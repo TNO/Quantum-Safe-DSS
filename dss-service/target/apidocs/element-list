@@ -1,7 +1,0 @@
-eu.europa.esig.dss.service
-eu.europa.esig.dss.service.crl
-eu.europa.esig.dss.service.http.commons
-eu.europa.esig.dss.service.http.proxy
-eu.europa.esig.dss.service.ocsp
-eu.europa.esig.dss.service.tsp
-eu.europa.esig.dss.service.x509.aia

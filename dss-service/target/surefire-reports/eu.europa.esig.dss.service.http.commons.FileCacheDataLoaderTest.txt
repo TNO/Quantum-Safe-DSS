@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: eu.europa.esig.dss.service.http.commons.FileCacheDataLoaderTest
--------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.464 s - in eu.europa.esig.dss.service.http.commons.FileCacheDataLoaderTest
