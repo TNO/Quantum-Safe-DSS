@@ -248,6 +248,10 @@ public abstract class PKIFactoryAccess {
 		return (KSPrivateKeyEntry) getToken().getKey(getSigningAlias());
 	}
 
+	protected KSPrivateKeyEntry getAltPrivateKeyEntry() {
+		return (KSPrivateKeyEntry) getToken().getKey("alt" + getSigningAlias());
+	}
+
 	protected AbstractKeyStoreTokenConnection getToken() {
 		return new KeyStoreSignatureTokenConnection(getKeystoreContent(getKeystoreName()), KEYSTORE_TYPE,
 				new PasswordProtection(PKI_FACTORY_KEYSTORE_PASSWORD.toCharArray()));
