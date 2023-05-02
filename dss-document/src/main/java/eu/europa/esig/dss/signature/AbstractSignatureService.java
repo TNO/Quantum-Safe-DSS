@@ -37,7 +37,7 @@ import eu.europa.esig.dss.spi.x509.tsp.TSPSource;
 import eu.europa.esig.dss.validation.CertificateVerifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-// import org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider;
+import org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider;
 import java.security.GeneralSecurityException;
 import java.security.Security;
 import java.security.Signature;
@@ -55,7 +55,7 @@ public abstract class AbstractSignatureService<SP extends SerializableSignatureP
 
 	static {
 		Security.addProvider(DSSSecurityProvider.getSecurityProvider());
-		Security.addProvider(new org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider());
+		// Security.addProvider(new BouncyCastlePQCProvider());
 	}
 
 	private static final Logger LOG = LoggerFactory.getLogger(AbstractSignatureService.class);

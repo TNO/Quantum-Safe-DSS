@@ -45,6 +45,7 @@ import org.bouncycastle.cms.CMSSignedData;
 import org.bouncycastle.crypto.digests.SHAKEDigest;
 import org.bouncycastle.crypto.io.DigestOutputStream;
 import org.bouncycastle.openssl.jcajce.JcaMiscPEMGenerator;
+import org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider;
 import org.bouncycastle.tsp.TimeStampToken;
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
@@ -100,7 +101,7 @@ public final class DSSUtils {
 
 	static {
 		Security.addProvider(DSSSecurityProvider.getSecurityProvider());
-		Security.addProvider(new org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider());
+		// Security.addProvider(new BouncyCastlePQCProvider());
 
 	}
 
@@ -1091,7 +1092,7 @@ public final class DSSUtils {
 		}
 		return sb.toString();
 	}
-	
+
 	/**
 	 * This method encodes a partial URI to be compliant with the RFC 3986 (see DSS-1475 for details)
 	 * @param uriPart the partial uri to be encoded
@@ -1105,12 +1106,12 @@ public final class DSSUtils {
 			return uriPart;
 		}
 	}
-	
+
 	/**
 	 * Returns a message retrieved from an exception,
 	 * its cause message if the first is not defined,
 	 * or exception class name if non of them is specified
-	 * 
+	 *
 	 * @param e {@link Exception} to get message for
 	 * @return {@link String} exception message
 	 */
@@ -1118,16 +1119,16 @@ public final class DSSUtils {
 		if (e == null) {
 			throw new DSSException("Cannot retrieve a message. The exception is null!");
 		}
-		
+
 		if (e.getMessage() != null) {
 			return e.getMessage();
-			
+
 		} else if (e.getCause() != null && e.getCause().getMessage() != null) {
 			return e.getCause().getMessage();
-			
+
 		} else {
 			return e.getClass().getName();
-			
+
 		}
 	}
 

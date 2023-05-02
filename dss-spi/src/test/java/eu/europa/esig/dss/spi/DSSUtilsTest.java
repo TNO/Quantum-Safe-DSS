@@ -126,7 +126,7 @@ public class DSSUtilsTest {
 	@Test
 	public void digestTest() {
 		Security.addProvider(DSSSecurityProvider.getSecurityProvider());
-		Security.addProvider(new org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider());
+		// Security.addProvider(new org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider());
 
 		byte[] data = "Hello world!".getBytes(StandardCharsets.UTF_8);
 		assertEquals("d3486ae9136e7856bc42212385ea797094475802", Utils.toHex(DSSUtils.digest(DigestAlgorithm.SHA1, data)));
@@ -438,7 +438,7 @@ public class DSSUtilsTest {
 
 	public void loadDilithiumCert() throws NoSuchAlgorithmException, IOException{
 		Security.addProvider(DSSSecurityProvider.getSecurityProvider());
-		Security.addProvider(new BouncyCastlePQCProvider());
+		// Security.addProvider(new BouncyCastlePQCProvider());
 		CertificateToken token = DSSUtils.loadCertificateFromBase64EncodedString(
 				"MIIBLDCB36ADAgECAghWAUdKKo3DMDAFBgMrZXAwGTEXMBUGA1UEAwwOSUVURiBUZXN0IERlbW8wHhcNMTYwODAxMTIxOTI0WhcNNDAxMjMxMjM1OTU5WjAZMRcwFQYDVQQDDA5JRVRGIFRlc3QgRGVtbzAqMAUGAytlbgMhAIUg8AmJMKdUdIt93LQ+91oNvzoNJjga9OukqY6qm05qo0UwQzAPBgNVHRMBAf8EBTADAQEAMA4GA1UdDwEBAAQEAwIDCDAgBgNVHQ4BAQAEFgQUmx9e7e0EM4Xk97xiPFl1uQvIuzswBQYDK2VwA0EAryMB/t3J5v/BzKc9dNZIpDmAgs3babFOTQbs+BolzlDUwsPrdGxO3YNGhW7Ibz3OGhhlxXrCe1Cgw1AH9efZBw==");
 		assertNotNull(token);
@@ -551,7 +551,7 @@ public class DSSUtilsTest {
 
 	public void signAndConvertPQCSignatureValueTest() throws Exception {
 		Security.addProvider(new BouncyCastleProvider());
-		Security.addProvider(new BouncyCastlePQCProvider());
+		// Security.addProvider(new BouncyCastlePQCProvider());
 		KeyPairGenerator gen = KeyPairGenerator.getInstance("Dilithium3", "BCPQC");
 		KeyPair dilKp = gen.generateKeyPair();
 
