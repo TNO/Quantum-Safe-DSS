@@ -276,7 +276,12 @@ public class OCSPToken extends RevocationToken<OCSP> {
 	public boolean isValid() {
 		return isSignatureIntact() && isOCSPVersionValid();
 	}
-	
+
+	@Override
+	public boolean isCertificateHybrid() {
+		return false;
+	}
+
 	/**
 	 * Verifies if the current OCSP token has been signed by the specified publicKey
 	 * @param publicKey {@link PublicKey} of a signing candidate
@@ -297,6 +302,11 @@ public class OCSPToken extends RevocationToken<OCSP> {
 			signatureValidity = SignatureValidity.INVALID;
 		}
 		return signatureValidity;
+	}
+
+	@Override
+	protected SignatureValidity checkIsSignedBy(PublicKey publicKey, boolean isAltKey) {
+		return null;
 	}
 
 	/**

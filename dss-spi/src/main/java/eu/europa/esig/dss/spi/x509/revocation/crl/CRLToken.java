@@ -130,8 +130,18 @@ public class CRLToken extends RevocationToken<CRL> {
 	}
 
 	@Override
+	public boolean isCertificateHybrid() {
+		return false;
+	}
+
+	@Override
 	protected SignatureValidity checkIsSignedBy(final PublicKey publicKey) {
 		throw new UnsupportedOperationException(this.getClass().getName());
+	}
+
+	@Override
+	protected SignatureValidity checkIsSignedBy(PublicKey publicKey, boolean isAltKey) {
+		return null;
 	}
 
 	@Override
