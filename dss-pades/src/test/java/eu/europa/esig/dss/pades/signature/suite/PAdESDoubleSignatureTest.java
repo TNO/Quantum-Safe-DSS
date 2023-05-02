@@ -46,7 +46,7 @@ import eu.europa.esig.dss.utils.Utils;
 import eu.europa.esig.dss.validation.SignedDocumentValidator;
 import eu.europa.esig.dss.validation.reports.Reports;
 
-public class PAdESDoubleSignatureTest extends PKIFactoryAccess {
+public class PAdESDoubleSignatureTest extends PKIFactoryAccess { // MARKED AS POTENTIALLY INTERESTING SCRIPT
 
 	@RepeatedTest(10)
 	public void testDoubleSignature() throws Exception {
