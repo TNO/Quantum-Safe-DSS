@@ -62,6 +62,8 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.TimeZone;
 
+import javax.security.auth.Subject;
+
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -434,9 +436,38 @@ public class DSSUtilsTest {
 		assertTrue(token.isSignedBy(token));
 	}
 
-	// public void loadDilithiumCert() throws NoSuchAlgorithmException, IOException{
+	public void loadDilithiumCert() throws NoSuchAlgorithmException, IOException{
+		Security.addProvider(DSSSecurityProvider.getSecurityProvider());
+		Security.addProvider(new BouncyCastlePQCProvider());
+		CertificateToken token = DSSUtils.loadCertificateFromBase64EncodedString(
+				"MIIBLDCB36ADAgECAghWAUdKKo3DMDAFBgMrZXAwGTEXMBUGA1UEAwwOSUVURiBUZXN0IERlbW8wHhcNMTYwODAxMTIxOTI0WhcNNDAxMjMxMjM1OTU5WjAZMRcwFQYDVQQDDA5JRVRGIFRlc3QgRGVtbzAqMAUGAytlbgMhAIUg8AmJMKdUdIt93LQ+91oNvzoNJjga9OukqY6qm05qo0UwQzAPBgNVHRMBAf8EBTADAQEAMA4GA1UdDwEBAAQEAwIDCDAgBgNVHQ4BAQAEFgQUmx9e7e0EM4Xk97xiPFl1uQvIuzswBQYDK2VwA0EAryMB/t3J5v/BzKc9dNZIpDmAgs3babFOTQbs+BolzlDUwsPrdGxO3YNGhW7Ibz3OGhhlxXrCe1Cgw1AH9efZBw==");
+		assertNotNull(token);
+		logger.info("{}", token);
+		logger.info("{}", token.getPublicKey());
+		assertFalse(token.isSelfSigned());
+		assertFalse(token.isSignedBy(token));
+		assertEquals(SignatureAlgorithm.DILITHIUM2, token.getSignatureAlgorithm());
+		assertTrue(token.checkKeyUsage(KeyUsageBit.KEY_AGREEMENT));
+		assertEquals(EncryptionAlgorithm.DILITHIUM2, EncryptionAlgorithm.forKey(token.getPublicKey()));
 
-	// }
+		X509CertificateHolder holder = new X509CertificateHolder(token.getEncoded());
+		SubjectPublicKeyInfo subjectPublicKeyInfo = holder.getSubjectPublicKeyInfo();
+		assertNotNull(subjectPublicKeyInfo);
+		assertEquals(EncryptionAlgorithm.DILITHIUM2.getOid(), subjectPublicKeyInfo.getAlgorithm().getAlgorithm().getId());
+
+		token = DSSUtils
+				.loadCertificateFromBase64EncodedString(
+				"MIIBCDCBuwIUGW78zw0OL0GptJi++a91dBa7DsQwBQYDK2VwMCcxCzAJBgNVBAYTAkRFMRgwFgYDVQQDDA93d3cuZXhhbXBsZS5jb20wHhcNMTkwMzMxMTc1MTIyWhcNMjEwMjI4MTc1MTIyWjAnMQswCQYDVQQGEwJERTEYMBYGA1UEAwwPd3d3LmV4YW1wbGUuY29tMCowBQYDK2VwAyEAK87g0b8CC1eA5mvKXt9uezZwJYWEyg74Y0xTZEkqCcwwBQYDK2VwA0EAIIu/aa3Qtr3IE5to/nvWVY9y3ciwG5DnA70X3ALUhFs+U5aLtfY8sNT1Ng72ht+UBwByuze20UsL9qMsmknQCA==");
+		assertNotNull(token);
+		logger.info("{}", token);
+		logger.info("{}", token.getPublicKey());
+		assertFalse(token.isSelfSigned());
+		assertFalse(token.isSignedBy(token));
+		assertEquals(SignatureAlgorithm.DILITHIUM2, token.getSignatureAlgorithm());
+		assertEquals(EncryptionAlgorithm.DILITHIUM2, EncryptionAlgorithm.forKey((token.getPublicKey())));
+		assertTrue(token.isSelfSigned());
+		assertTrue(token.isSignedBy(token));
+	}
 
 	@Test
 	public void isUrnOidTest() {
@@ -526,7 +557,7 @@ public class DSSUtilsTest {
 
 		PrivateKey dilPrivateKey = dilKp.getPrivate();
 		signAndCheckPQCSignatureValue("Dilithium3",
-				SignatureAlgorithm.getAlgorithm(EncryptionAlgorithm.DILITHIUM3, DigestAlgorithm.SHA384), dilPrivateKey);
+				SignatureAlgorithm.getAlgorithm(EncryptionAlgorithm.DILITHIUM3, null), dilPrivateKey);
 	}
 
 
