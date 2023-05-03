@@ -33,6 +33,8 @@ import org.bouncycastle.asn1.x509.*;
 import org.bouncycastle.asn1.x509.Certificate;
 import org.bouncycastle.cert.CertException;
 import org.bouncycastle.cert.X509CertificateHolder;
+import org.bouncycastle.crypto.params.RSAKeyParameters;
+import org.bouncycastle.crypto.util.PublicKeyFactory;
 import org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.operator.ContentVerifierProvider;
@@ -58,6 +60,8 @@ import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateExpiredException;
 import java.security.cert.CertificateNotYetValidException;
 import java.security.cert.X509Certificate;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.RSAPublicKeySpec;
 import java.util.*;
 
 /**
@@ -216,13 +220,17 @@ public class CertificateToken extends Token {
     public PublicKey getAltPublicKey() { // working
         try {
             SubjectPublicKeyInfo altPublicKeyInfo = getSubjectAltPublicKey(this.x509Certificate);
-            return findAltScheme(altPublicKeyInfo);
+            try {
+                return findAltScheme(altPublicKeyInfo);
+            } catch (InvalidKeySpecException | NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
+            }
         }catch(IOException e){
             return null;
         }
     }
 
-    private PublicKey findAltScheme(SubjectPublicKeyInfo altPub) throws IOException {
+    private PublicKey findAltScheme(SubjectPublicKeyInfo altPub) throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
         ASN1ObjectIdentifier algOID = altPub.getAlgorithm().getAlgorithm();
         if (isDilithium(algOID)) {
             return new DilithiumKeyFactorySpi().generatePublic(altPub);
@@ -244,16 +252,19 @@ public class CertificateToken extends Token {
             return new SNTRUPrimeKeyFactorySpi().generatePublic(altPub); // will this work?
         } else if (isHQC(algOID)) {
             return new HQCKeyFactorySpi().generatePublic(altPub);
-        }else if(isEC(algOID)){
-            return new KeyFactorySpi.EC().generatePublic(altPub);
+        }else if(isRSA(algOID)){
+            RSAKeyParameters rsa = (RSAKeyParameters) PublicKeyFactory.createKey(altPub);
+            RSAPublicKeySpec rsaSpec = new RSAPublicKeySpec(rsa.getModulus(), rsa.getExponent());
+            KeyFactory kf = KeyFactory.getInstance("RSA");
+            return kf.generatePublic(rsaSpec);
         } else {
             throw new IOException("cannot find algorithm with oid " + altPub.getAlgorithm().getAlgorithm());
         }
 
     }
 
-    private boolean isEC(ASN1ObjectIdentifier algOID){
-        return algOID.toString().equals("1.2.840.10045.2.1");
+    private boolean isRSA(ASN1ObjectIdentifier algOID){
+        return algOID.toString().equals("1.2.840.113549.1.1.1");
     }
 
     private boolean isDilithium(ASN1ObjectIdentifier algOID) {

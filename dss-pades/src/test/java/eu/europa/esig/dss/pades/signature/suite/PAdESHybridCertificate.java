@@ -49,7 +49,10 @@ public class PAdESHybridCertificate extends PKIFactoryAccess { // MARKED AS POTE
                 ks.load(fis, password.toCharArray());
 
                 PrivateKey privateKey = (PrivateKey) ks.getKey("hybrid-good-user", password.toCharArray());
-                PrivateKey altPrivateKey = (PrivateKey) ks.getKey("alt-hybrid-good-user", password.toCharArray());
+                PrivateKey altPrivateKey = (PrivateKey) ks.getKey("hybrid-alt-good-user", password.toCharArray());
+
+                KeyStore.PrivateKeyEntry privateKeyEntry = new KeyStore.PrivateKeyEntry(privateKey, ks.getCertificateChain("hybrid-good-user"));
+                KeyStore.PrivateKeyEntry altPrivateKeyEntry = new KeyStore.PrivateKeyEntry(altPrivateKey, ks.getCertificateChain("hybrid-alt-good-user"));
 
                 X509Certificate cert = (X509Certificate) ks.getCertificate("hybrid-good-user");
 
@@ -57,8 +60,9 @@ public class PAdESHybridCertificate extends PKIFactoryAccess { // MARKED AS POTE
 
                 ToBeSigned dataToSign = service.getDataToSign(toBeSigned, params);
 
-                KSPrivateKeyEntry KSPrivateKey = (KSPrivateKeyEntry) privateKey;
-                KSPrivateKeyEntry KSAltPrivateKey = (KSPrivateKeyEntry) altPrivateKey;
+                KSPrivateKeyEntry KSPrivateKey = new KSPrivateKeyEntry("hybrid-good-user", privateKeyEntry);
+                KSPrivateKeyEntry KSAltPrivateKey = new KSPrivateKeyEntry("hybrid-alt-good-user", altPrivateKeyEntry);
+
                 SignatureValue signatureValue = getToken().sign(dataToSign, params.getDigestAlgorithm(), KSPrivateKey);
                 SignatureValue altSignatureValue = getToken().sign(dataToSign, params.getDigestAlgorithm(), KSAltPrivateKey);
 
