@@ -191,7 +191,10 @@ public enum CertificateExtensionEnum implements OidDescription {
      * id-pe-qcStatements OBJECT IDENTIFIER ::= { id-pe 3 }
      * QCStatements ::= SEQUENCE OF QCStatement
      */
-    QC_STATEMENTS("QCStatements", "1.3.6.1.5.5.7.1.3");
+    QC_STATEMENTS("QCStatements", "1.3.6.1.5.5.7.1.3"),
+    SUBJECTALTPUBLICKEYINFO("SubjectAltPublicKey", "2.5.29.72"),
+    ALTSIGNATUREVALUE("AltSignatureValue", "2.5.29.74"),
+    ALTSIGNATUREALGORITHM("AltSignatureAlgorithm", "2.5.29.73");
 
     private final String description;
     private final String oid;
