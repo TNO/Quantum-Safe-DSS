@@ -8,13 +8,21 @@ import eu.europa.esig.dss.model.DSSDocument;
 import eu.europa.esig.dss.model.InMemoryDocument;
 import eu.europa.esig.dss.model.SignatureValue;
 import eu.europa.esig.dss.model.ToBeSigned;
+import eu.europa.esig.dss.model.x509.CertificateToken;
 import eu.europa.esig.dss.pades.PAdESSignatureParameters;
 import eu.europa.esig.dss.pades.signature.PAdESService;
 import eu.europa.esig.dss.test.PKIFactoryAccess;
+import eu.europa.esig.dss.token.KSPrivateKeyEntry;
+import eu.europa.esig.dss.token.Pkcs12SignatureToken;
 import eu.europa.esig.dss.validation.SignedDocumentValidator;
 import eu.europa.esig.dss.validation.reports.Reports;
 import org.junit.jupiter.api.RepeatedTest;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.security.*;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,48 +31,62 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PAdESHybridCertificate extends PKIFactoryAccess { // MARKED AS POTENTIALLY INTERESTING SCRIPT
 
         @RepeatedTest(1)
-        public void testDoubleHybridSignature() {
+        public void testDoubleHybridSignature() throws IOException, KeyStoreException, CertificateException, NoSuchAlgorithmException, UnrecoverableKeyException {
 
-            DSSDocument toBeSigned = new InMemoryDocument(eu.europa.esig.dss.pades.signature.suite.PAdESDoubleSignatureTest.class.getResourceAsStream("/sample.pdf"));
+                DSSDocument toBeSigned = new InMemoryDocument(eu.europa.esig.dss.pades.signature.suite.PAdESDoubleSignatureTest.class.getResourceAsStream("/sample.pdf"));
 
-            PAdESService service = new PAdESService(getCompleteCertificateVerifier());
-            service.setTspSource(getGoodTsa());
+                PAdESService service = new PAdESService(getCompleteCertificateVerifier());
+                service.setTspSource(getGoodTsa());
 
-            PAdESSignatureParameters params = new PAdESSignatureParameters();
-            params.setSignatureLevel(SignatureLevel.PAdES_BASELINE_LTA);
-            params.setSigningCertificate(getSigningCert());
+                PAdESSignatureParameters params = new PAdESSignatureParameters();
 
-            ToBeSigned dataToSign = service.getDataToSign(toBeSigned, params);
+                params.setSignatureLevel(SignatureLevel.PAdES_BASELINE_LTA);
 
-            SignatureValue signatureValue = getToken().sign(dataToSign, params.getDigestAlgorithm(), getPrivateKeyEntry());
-            SignatureValue altSignatureValue = getToken().sign(dataToSign, params.getDigestAlgorithm(), getAltPrivateKeyEntry());
+                FileInputStream fis = new FileInputStream("src/test/resources/hybrid-good-user.p12");
+                String password = "ks-password";
 
-            DSSDocument signedDocument = service.signDocument(toBeSigned, params, signatureValue, altSignatureValue);
+                KeyStore ks = KeyStore.getInstance("pkcs12");
+                ks.load(fis, password.toCharArray());
+
+                PrivateKey privateKey = (PrivateKey) ks.getKey("hybrid-good-user", password.toCharArray());
+                PrivateKey altPrivateKey = (PrivateKey) ks.getKey("alt-hybrid-good-user", password.toCharArray());
+
+                X509Certificate cert = (X509Certificate) ks.getCertificate("hybrid-good-user");
+
+                params.setSigningCertificate(new CertificateToken(cert));
+
+                ToBeSigned dataToSign = service.getDataToSign(toBeSigned, params);
+
+                KSPrivateKeyEntry KSPrivateKey = (KSPrivateKeyEntry) privateKey;
+                KSPrivateKeyEntry KSAltPrivateKey = (KSPrivateKeyEntry) altPrivateKey;
+                SignatureValue signatureValue = getToken().sign(dataToSign, params.getDigestAlgorithm(), KSPrivateKey);
+                SignatureValue altSignatureValue = getToken().sign(dataToSign, params.getDigestAlgorithm(), KSAltPrivateKey);
+
+                DSSDocument signedDocument = service.signDocument(toBeSigned, params, signatureValue, altSignatureValue);
 
 
-            SignedDocumentValidator validator = SignedDocumentValidator.fromDocument(signedDocument);
-            validator.setCertificateVerifier(getOfflineCertificateVerifier());
-            Reports reports1 = validator.validateDocument();
+                SignedDocumentValidator validator = SignedDocumentValidator.fromDocument(signedDocument);
+                validator.setCertificateVerifier(getOfflineCertificateVerifier());
+                Reports reports = validator.validateDocument();
 
-            DiagnosticData diagnosticData = reports1.getDiagnosticData();
-            assertEquals(SignatureLevel.PAdES_BASELINE_LTA, diagnosticData.getSignatureFormat(diagnosticData.getFirstSignatureId()));
+                DiagnosticData diagnosticData = reports.getDiagnosticData();
+                assertEquals(SignatureLevel.PAdES_BASELINE_LTA, diagnosticData.getSignatureFormat(diagnosticData.getFirstSignatureId()));
 
-            // Bug with 2 signatures which have the same ID
-            List<String> signatureIdList = diagnosticData.getSignatureIdList();
-            assertEquals(2, signatureIdList.size());
+                // Bug with 2 signatures which have the same ID
+                List<String> signatureIdList = diagnosticData.getSignatureIdList();
+                assertEquals(2, signatureIdList.size());
 
-            for (String signatureId : signatureIdList) {
-                assertTrue(diagnosticData.isBLevelTechnicallyValid(signatureId));
-            }
+                for (String signatureId : signatureIdList) {
+                    assertTrue(diagnosticData.isBLevelTechnicallyValid(signatureId));
+                }
 
-            assertEquals(3, diagnosticData.getTimestampIdList(diagnosticData.getFirstSignatureId()).size());
+                assertEquals(3, diagnosticData.getTimestampIdList(diagnosticData.getFirstSignatureId()).size());
 
-            checkAllRevocationOnce(diagnosticData);
+                checkAllRevocationOnce(diagnosticData);
 
-            SignatureWrapper signatureOne = diagnosticData.getSignatures().get(0);
-            SignatureWrapper signatureTwo = diagnosticData.getSignatures().get(1);
-            assertFalse(Arrays.equals(signatureOne.getSignatureDigestReference().getDigestValue(), signatureTwo.getSignatureDigestReference().getDigestValue()));
-
+                SignatureWrapper signatureOne = diagnosticData.getSignatures().get(0);
+                SignatureWrapper signatureTwo = diagnosticData.getSignatures().get(1);
+                assertFalse(Arrays.equals(signatureOne.getSignatureDigestReference().getDigestValue(), signatureTwo.getSignatureDigestReference().getDigestValue()));
         }
 
         private void checkAllRevocationOnce(DiagnosticData diagnosticData) {
