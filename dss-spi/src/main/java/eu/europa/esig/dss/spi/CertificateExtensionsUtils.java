@@ -83,7 +83,7 @@ import java.util.List;
  * This class contains utility methods for extraction certificate extension (whether critical or not)
  *
  */
-public class CertificateExtensionsUtils {
+public class CertificateExtensionsUtils { // CHANGE
 
     private static final Logger LOG = LoggerFactory.getLogger(CertificateExtensionsUtils.class);
 
