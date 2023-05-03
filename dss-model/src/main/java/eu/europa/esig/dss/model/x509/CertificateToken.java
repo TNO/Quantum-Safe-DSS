@@ -109,8 +109,8 @@ public class CertificateToken extends Token {
             if (hybrid) {
                 AltSignatureAlgorithm altSignatureAlgorithm = getAltSignatureAlgorithm(x509Certificate);
                 assert altSignatureAlgorithm != null;
-                this.altSignatureAlgorithm = SignatureAlgorithm.forOidAndParams(altSignatureAlgorithm.getAlgorithm().getAlgorithm().getId(), altSignatureAlgorithm.getAlgorithm().getParameters().toASN1Primitive().getEncoded());
-                this.altEntityKey = new EntityIdentifier(x509Certificate.getPublicKey());
+                this.altSignatureAlgorithm = SignatureAlgorithm.forOID(altSignatureAlgorithm.getAlgorithm().getAlgorithm().getId());
+                this.altEntityKey = new EntityIdentifier(getAltPublicKey());
     
             }
         } catch (IOException e) {
