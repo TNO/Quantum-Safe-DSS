@@ -33,6 +33,7 @@ import org.bouncycastle.asn1.x509.*;
 import org.bouncycastle.asn1.x509.Certificate;
 import org.bouncycastle.cert.CertException;
 import org.bouncycastle.cert.X509CertificateHolder;
+import org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.operator.ContentVerifierProvider;
 import org.bouncycastle.operator.OperatorCreationException;
@@ -243,10 +244,16 @@ public class CertificateToken extends Token {
             return new SNTRUPrimeKeyFactorySpi().generatePublic(altPub); // will this work?
         } else if (isHQC(algOID)) {
             return new HQCKeyFactorySpi().generatePublic(altPub);
+        }else if(isEC(algOID)){
+            return new KeyFactorySpi.EC().generatePublic(altPub);
         } else {
             throw new IOException("cannot find algorithm with oid " + altPub.getAlgorithm().getAlgorithm());
         }
 
+    }
+
+    private boolean isEC(ASN1ObjectIdentifier algOID){
+        return algOID.toString().equals("1.2.840.10045.2.1");
     }
 
     private boolean isDilithium(ASN1ObjectIdentifier algOID) {
