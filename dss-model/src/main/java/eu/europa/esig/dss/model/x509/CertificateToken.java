@@ -60,6 +60,7 @@ import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateExpiredException;
 import java.security.cert.CertificateNotYetValidException;
 import java.security.cert.X509Certificate;
+import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.RSAPublicKeySpec;
 import java.util.*;
@@ -353,20 +354,27 @@ public class CertificateToken extends Token {
         X509CertificateHolder x509CertificateHolder = new X509CertificateHolder(Certificate.getInstance(x509Certificate.getEncoded()));
 
         ContentVerifierProvider contentPostQuantumVerifierProvider = new JcaContentVerifierProviderBuilder().setProvider(new BouncyCastlePQCProvider()).build(getAltPublicKey());
-        return x509CertificateHolder.isAlternativeSignatureValid(contentPostQuantumVerifierProvider);
+        boolean b = x509CertificateHolder.isAlternativeSignatureValid(contentPostQuantumVerifierProvider);
+        return b;
     }
 
     private boolean isSignedByAltKey(PublicKey publicKey) throws OperatorCreationException, CertException, IOException {
-        if (!this.providersAdded) { // is this a good way of doing it? Not sure tbh
-            Security.addProvider(new BouncyCastleProvider());
-            Security.addProvider(new BouncyCastlePQCProvider());
-            this.providersAdded = true;
+        X509CertificateHolder x509CertificateHolder = null;
+        try {
+            x509CertificateHolder = new X509CertificateHolder(Certificate.getInstance(this.x509Certificate.getEncoded()));
+        } catch (CertificateEncodingException e) {
+            throw new RuntimeException(e);
+        }
+        ContentVerifierProvider contentVerifierProvider = null;
+
+        if(publicKey.getAlgorithm().contains("RSA")){
+            contentVerifierProvider = new JcaContentVerifierProviderBuilder().setProvider(new BouncyCastleProvider()).build(publicKey);
+        } else{
+            contentVerifierProvider = new JcaContentVerifierProviderBuilder().setProvider(new BouncyCastlePQCProvider()).build(publicKey);
         }
 
-        X509CertificateHolder x509CertificateHolder = new X509CertificateHolder(Certificate.getInstance(this.x509Certificate));
-
-        ContentVerifierProvider contentPostQuantumVerifierProvider = new JcaContentVerifierProviderBuilder().setProvider(new BouncyCastlePQCProvider()).build(publicKey);
-        return x509CertificateHolder.isAlternativeSignatureValid(contentPostQuantumVerifierProvider);
+        boolean b = x509CertificateHolder.isAlternativeSignatureValid(contentVerifierProvider);
+        return b;
     }
 
 
@@ -608,7 +616,7 @@ public class CertificateToken extends Token {
      * @return the alt signature value
      */
     public byte[] getAltSignature() throws IOException {
-        return Objects.requireNonNull(getAltSignatureValue(this.x509Certificate)).getSignature().getOctets();
+        return Objects.requireNonNull(getAltSignatureValue(this.x509Certificate)).getSignature().getBytes();
     }
 
     @Override
