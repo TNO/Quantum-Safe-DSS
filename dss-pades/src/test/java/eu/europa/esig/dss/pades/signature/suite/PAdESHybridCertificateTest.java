@@ -82,9 +82,10 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess { // MARKED AS 
         // Bug with 2 signatures which have the same ID
         List<String> signatureIdList = diagnosticData2.getSignatureIdList();
         assertEquals(2, signatureIdList.size());
-        for (String signatureId : signatureIdList) {
-            assertTrue(diagnosticData2.isBLevelTechnicallyValid(signatureId));
-        }
+
+        assertTrue(diagnosticData2.isBLevelTechnicallyValid(signatureIdList.get(0)));
+        assertTrue(diagnosticData2.isBLevelTechnicallyValid(signatureIdList.get(1)));
+
 
         assertEquals(3, diagnosticData2.getTimestampIdList(diagnosticData2.getFirstSignatureId()).size());
 
