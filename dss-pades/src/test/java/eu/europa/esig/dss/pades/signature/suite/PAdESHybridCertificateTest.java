@@ -21,7 +21,6 @@ import org.junit.jupiter.api.RepeatedTest;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.math.BigInteger;
 import java.security.*;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
@@ -31,7 +30,9 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PAdESHybridCertificate extends PKIFactoryAccess { // MARKED AS POTENTIALLY INTERESTING SCRIPT
+public class PAdESHybridCertificateTest extends PKIFactoryAccess { // MARKED AS POTENTIALLY INTERESTING SCRIPT
+    static final String password = "ks-password";
+    static KeyStore ks = null;
 
     @RepeatedTest(1)
     public void testDoubleHybridSignature() throws IOException, KeyStoreException, CertificateException, NoSuchAlgorithmException, UnrecoverableKeyException {
@@ -44,25 +45,16 @@ public class PAdESHybridCertificate extends PKIFactoryAccess { // MARKED AS POTE
         PAdESSignatureParameters params = new PAdESSignatureParameters();
         params.setSignatureLevel(SignatureLevel.PAdES_BASELINE_T);
 
-        FileInputStream fis = new FileInputStream("src/test/resources/hybrid-good-user.p12");
-        String password = "ks-password";
-        KeyStore ks = KeyStore.getInstance("pkcs12");
-        ks.load(fis, password.toCharArray());
+        X509Certificate cert = prepareCertificate();
+        CertificateToken certificateToken = new CertificateToken(cert);
 
-        X509Certificate cert = (X509Certificate) ks.getCertificate("hybrid-good-user");
-        params.setSigningCertificate(new CertificateToken(cert));
+        params.setSigningCertificate(certificateToken);
 
-        byte[] octetString = new CertificateToken(cert).getAltSignature();
-
-        PrivateKey privateKey = (PrivateKey) ks.getKey("hybrid-good-user", password.toCharArray());
-        PrivateKey altPrivateKey = (PrivateKey) ks.getKey("hybrid-alt-good-user", password.toCharArray());
-        KeyStore.PrivateKeyEntry privateKeyEntry = new KeyStore.PrivateKeyEntry(privateKey, ks.getCertificateChain("hybrid-good-user"));
-        KeyStore.PrivateKeyEntry altPrivateKeyEntry = new KeyStore.PrivateKeyEntry(altPrivateKey, ks.getCertificateChain("hybrid-alt-good-user"));
-        KSPrivateKeyEntry KSPrivateKey = new KSPrivateKeyEntry("hybrid-good-user", privateKeyEntry);
-        KSPrivateKeyEntry KSAltPrivateKey = new KSPrivateKeyEntry("hybrid-alt-good-user", altPrivateKeyEntry);
+        KSPrivateKeyEntry ksPrivateKey = preparePrivateKey();
+        KSPrivateKeyEntry altKSPrivateKey = prepareAltPrivateKey();
 
         ToBeSigned dataToSign = service.getDataToSign(toBeSigned, params);
-        SignatureValue signatureValue = getToken().sign(dataToSign, params.getDigestAlgorithm(), KSPrivateKey);
+        SignatureValue signatureValue = getToken().sign(dataToSign, params.getDigestAlgorithm(), ksPrivateKey);
         DSSDocument signedDocument = service.signDocument(toBeSigned, params, signatureValue);
 
         SignedDocumentValidator validator = SignedDocumentValidator.fromDocument(signedDocument);
@@ -78,7 +70,7 @@ public class PAdESHybridCertificate extends PKIFactoryAccess { // MARKED AS POTE
         service.setTspSource(getAlternateGoodTsa());
 
         dataToSign = service.getDataToSign(signedDocument, params);
-        SignatureValue altSignatureValue = getToken().sign(dataToSign, params.getDigestAlgorithm(), KSAltPrivateKey);
+        SignatureValue altSignatureValue = getToken().sign(dataToSign, params.getDigestAlgorithm(), altKSPrivateKey);
         DSSDocument doubleSignedDocument = service.signDocument(signedDocument, params, altSignatureValue);
 
         validator = SignedDocumentValidator.fromDocument(doubleSignedDocument);
@@ -104,6 +96,26 @@ public class PAdESHybridCertificate extends PKIFactoryAccess { // MARKED AS POTE
         SignatureWrapper signatureTwo = diagnosticData2.getSignatures().get(1);
         assertFalse(Arrays.equals(signatureOne.getSignatureDigestReference().getDigestValue(), signatureTwo.getSignatureDigestReference().getDigestValue()));
 
+    }
+
+    private static KSPrivateKeyEntry preparePrivateKey() throws KeyStoreException, UnrecoverableKeyException, NoSuchAlgorithmException {
+        PrivateKey privateKey = (PrivateKey) ks.getKey("hybrid-good-user", password.toCharArray());
+        KeyStore.PrivateKeyEntry privateKeyEntry = new KeyStore.PrivateKeyEntry(privateKey, ks.getCertificateChain("hybrid-good-user"));
+        return new KSPrivateKeyEntry("hybrid-good-user", privateKeyEntry);
+    }
+
+    private static KSPrivateKeyEntry prepareAltPrivateKey() throws KeyStoreException, UnrecoverableKeyException, NoSuchAlgorithmException {
+        PrivateKey altPrivateKey = (PrivateKey) ks.getKey("hybrid-alt-good-user", password.toCharArray());
+        KeyStore.PrivateKeyEntry altPrivateKeyEntry = new KeyStore.PrivateKeyEntry(altPrivateKey, ks.getCertificateChain("hybrid-alt-good-user"));
+        return new KSPrivateKeyEntry("hybrid-alt-good-user", altPrivateKeyEntry);
+
+    }
+
+    private static X509Certificate prepareCertificate() throws KeyStoreException, CertificateException, IOException, NoSuchAlgorithmException {
+        FileInputStream fis = new FileInputStream("src/test/resources/hybrid-good-user.p12");
+        ks = KeyStore.getInstance("pkcs12");
+        ks.load(fis, password.toCharArray());
+        return (X509Certificate) ks.getCertificate("hybrid-good-user");
     }
 
     private void checkAllPreviousRevocationDataInNewDiagnosticData(DiagnosticData diagnosticData1, DiagnosticData diagnosticData2) {
