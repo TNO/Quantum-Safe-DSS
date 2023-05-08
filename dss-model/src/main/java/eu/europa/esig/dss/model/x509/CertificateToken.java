@@ -236,7 +236,7 @@ public class CertificateToken extends Token {
         } else if (isHQC(algOID)) {
             return new HQCKeyFactorySpi().generatePublic(altPub);
         } else if (isECDSA(algOID)) {
-            return new KeyFactorySpi.EC().generatePublic(altPub);
+            return new KeyFactorySpi.ECDSA().generatePublic(altPub);
         } else {
             throw new IOException("cannot find algorithm with oid " + altPub.getAlgorithm().getAlgorithm());
         }
