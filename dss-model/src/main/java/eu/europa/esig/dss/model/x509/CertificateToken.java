@@ -27,20 +27,15 @@ import eu.europa.esig.dss.model.DSSException;
 import eu.europa.esig.dss.model.identifier.CertificateTokenIdentifier;
 import eu.europa.esig.dss.model.identifier.EntityIdentifier;
 import eu.europa.esig.dss.model.identifier.TokenIdentifier;
-import org.bouncycastle.asn1.*;
+import org.bouncycastle.asn1.ASN1ObjectIdentifier;
 import org.bouncycastle.asn1.bc.BCObjectIdentifiers;
 import org.bouncycastle.asn1.x509.*;
-import org.bouncycastle.asn1.x509.Certificate;
 import org.bouncycastle.cert.CertException;
 import org.bouncycastle.cert.X509CertificateHolder;
-import org.bouncycastle.crypto.params.RSAKeyParameters;
-import org.bouncycastle.crypto.util.PublicKeyFactory;
 import org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.operator.ContentVerifierProvider;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.jcajce.JcaContentVerifierProviderBuilder;
-import org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider;
 import org.bouncycastle.pqc.jcajce.provider.bike.BIKEKeyFactorySpi;
 import org.bouncycastle.pqc.jcajce.provider.dilithium.DilithiumKeyFactorySpi;
 import org.bouncycastle.pqc.jcajce.provider.falcon.FalconKeyFactorySpi;
@@ -52,17 +47,16 @@ import org.bouncycastle.pqc.jcajce.provider.ntruprime.SNTRUPrimeKeyFactorySpi;
 import org.bouncycastle.pqc.jcajce.provider.sphincsplus.SPHINCSPlusKeyFactorySpi;
 
 import javax.security.auth.x500.X500Principal;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.math.BigInteger;
-import java.security.*;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.PublicKey;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateExpiredException;
 import java.security.cert.CertificateNotYetValidException;
 import java.security.cert.X509Certificate;
-import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
-import java.security.spec.RSAPublicKeySpec;
 import java.util.*;
 
 /**
@@ -77,14 +71,17 @@ public class CertificateToken extends Token {
      * Encapsulated X509 certificate.
      */
     private final X509Certificate x509Certificate;
-    private boolean providersAdded = false;
+
+    private final X509CertificateHolder x509CertificateHolder;
     /**
      * Digest of the public key (cross certificates have same public key)
      */
     private final EntityIdentifier entityKey;
+
+    private ContentVerifierProvider contentVerifierProvider;
     private EntityIdentifier altEntityKey = null;
 
-    private  boolean hybrid;
+    private boolean hybrid;
 
     /**
      * Indicates if the certificate is self-signed. This attribute stays null till the first call to
@@ -105,69 +102,54 @@ public class CertificateToken extends Token {
     public CertificateToken(X509Certificate x509Certificate) {
         Objects.requireNonNull(x509Certificate, "X509 certificate is missing");
 
-
         this.x509Certificate = x509Certificate;
+
+        try {
+            this.x509CertificateHolder = new X509CertificateHolder(this.x509Certificate.getEncoded());
+        } catch (IOException | CertificateEncodingException e) {
+            throw new RuntimeException(e);
+        }
         this.entityKey = new EntityIdentifier(x509Certificate.getPublicKey());
         this.signatureAlgorithm = SignatureAlgorithm.forOidAndParams(x509Certificate.getSigAlgOID(), x509Certificate.getSigAlgParams());
 
         try {
-            hybrid = isHybrid(x509Certificate);
+            hybrid = isHybrid();
             if (hybrid) {
-                AltSignatureAlgorithm altSignatureAlgorithm = getAltSignatureAlgorithm(x509Certificate);
+                AltSignatureAlgorithm altSignatureAlgorithm = getAltSignatureAlgorithm_();
                 assert altSignatureAlgorithm != null;
                 this.altSignatureAlgorithm = SignatureAlgorithm.forOID(altSignatureAlgorithm.getAlgorithm().getAlgorithm().getId());
                 this.altEntityKey = new EntityIdentifier(getAltPublicKey());
-    
+                this.contentVerifierProvider = new JcaContentVerifierProviderBuilder().build(getSubjectAltPublicKey());
             }
-        } catch (IOException e) {
+        } catch (IOException | OperatorCreationException e) {
             e.printStackTrace();
         }
-        
+
     }
 
     public boolean isCertificateHybrid() {
         return this.hybrid;
     }
 
-    private SubjectPublicKeyInfo getSubjectAltPublicKey(X509Certificate x509Certificate) throws IOException {
-        ASN1Primitive a = getExtensionValue(x509Certificate, Extension.subjectAltPublicKeyInfo.getId());
-        return  SubjectPublicKeyInfo.getInstance(a);
+
+    private boolean isHybrid() throws IOException {
+        Extensions exts = this.x509CertificateHolder.getExtensions();
+        Extension ext = exts.getExtension(Extension.altSignatureAlgorithm);
+        return ext != null;
     }
 
+    private SubjectPublicKeyInfo getSubjectAltPublicKey() {
+        return SubjectPublicKeyInfo.getInstance(this.x509CertificateHolder.getExtension(Extension.subjectAltPublicKeyInfo).getParsedValue());
 
-    private boolean isHybrid(X509Certificate x509Certificate) throws IOException {
-        return getExtensionValue(x509Certificate, Extension.altSignatureAlgorithm.toString()) != null && getExtensionValue(x509Certificate, Extension.altSignatureValue.toString()) != null;
     }
 
-    private static ASN1Primitive getExtensionValue(X509Certificate certificate, String oid) throws IOException {
-        byte[] bytes = certificate.getExtensionValue(oid);
-        if (bytes == null) {
-            return null;
-        }
-        ASN1InputStream aIn = new ASN1InputStream(new ByteArrayInputStream(bytes));
-        ASN1OctetString octs = (ASN1OctetString) aIn.readObject();
-        aIn = new ASN1InputStream(new ByteArrayInputStream(octs.getOctets()));
-        return aIn.readObject();
+    private AltSignatureAlgorithm getAltSignatureAlgorithm_() {
+        return AltSignatureAlgorithm.getInstance(this.x509CertificateHolder.getExtension(Extension.altSignatureAlgorithm).getParsedValue());
     }
 
-    private AltSignatureAlgorithm getAltSignatureAlgorithm(X509Certificate x509Certificate) throws IOException {
-        if (this.hybrid) {
-            ASN1Primitive a = getExtensionValue(x509Certificate, Extension.altSignatureAlgorithm.getId());
-            return AltSignatureAlgorithm.getInstance(a);
-        }else {
-            return null;
-        }
+    private AltSignatureValue getAltSignatureValue() {
+        return AltSignatureValue.getInstance(this.x509CertificateHolder.getExtension(Extension.altSignatureValue).getParsedValue());
     }
-
-    private AltSignatureValue getAltSignatureValue(X509Certificate x509Certificate) throws IOException {
-        if (this.hybrid) {
-            ASN1Primitive a = getExtensionValue(x509Certificate, Extension.altSignatureValue.getId());
-            return AltSignatureValue.getInstance(a);
-        } else {
-            return null;
-        }
-    }
-
 
     @Override
     public String getAbbreviation() {
@@ -218,15 +200,15 @@ public class CertificateToken extends Token {
      *
      * @return the public key of the certificate
      */
-    public PublicKey getAltPublicKey() { // working
+    public PublicKey getAltPublicKey() {
         try {
-            SubjectPublicKeyInfo altPublicKeyInfo = getSubjectAltPublicKey(this.x509Certificate);
+            SubjectPublicKeyInfo altPublicKeyInfo = getSubjectAltPublicKey();
             try {
                 return findAltScheme(altPublicKeyInfo);
             } catch (InvalidKeySpecException | NoSuchAlgorithmException e) {
                 throw new RuntimeException(e);
             }
-        }catch(IOException e){
+        } catch (IOException e) {
             return null;
         }
     }
@@ -253,19 +235,16 @@ public class CertificateToken extends Token {
             return new SNTRUPrimeKeyFactorySpi().generatePublic(altPub); // will this work?
         } else if (isHQC(algOID)) {
             return new HQCKeyFactorySpi().generatePublic(altPub);
-        }else if(isRSA(algOID)){
-            RSAKeyParameters rsa = (RSAKeyParameters) PublicKeyFactory.createKey(altPub);
-            RSAPublicKeySpec rsaSpec = new RSAPublicKeySpec(rsa.getModulus(), rsa.getExponent());
-            KeyFactory kf = KeyFactory.getInstance("RSA");
-            return kf.generatePublic(rsaSpec);
+        } else if (isECDSA(algOID)) {
+            return new KeyFactorySpi.EC().generatePublic(altPub);
         } else {
             throw new IOException("cannot find algorithm with oid " + altPub.getAlgorithm().getAlgorithm());
         }
 
     }
 
-    private boolean isRSA(ASN1ObjectIdentifier algOID){
-        return algOID.toString().equals("1.2.840.113549.1.1.1");
+    private boolean isECDSA(ASN1ObjectIdentifier algOID) {
+        return algOID.toString().equals("1.2.840.10045.2.1");
     }
 
     private boolean isDilithium(ASN1ObjectIdentifier algOID) {
@@ -350,29 +329,13 @@ public class CertificateToken extends Token {
         }
     }
 
-    private boolean isAltSignatureValid() throws OperatorCreationException, CertException, CertificateEncodingException {
-        X509CertificateHolder x509CertificateHolder = new X509CertificateHolder(Certificate.getInstance(x509Certificate.getEncoded()));
-
-        ContentVerifierProvider contentPostQuantumVerifierProvider = new JcaContentVerifierProviderBuilder().setProvider(new BouncyCastlePQCProvider()).build(getAltPublicKey());
-        boolean b = x509CertificateHolder.isAlternativeSignatureValid(contentPostQuantumVerifierProvider);
+    public boolean isAltSignatureValid() throws CertException {
+        boolean b = x509CertificateHolder.isAlternativeSignatureValid(contentVerifierProvider);
         return b;
+
     }
 
-    private boolean isSignedByAltKey(PublicKey publicKey) throws OperatorCreationException, CertException, IOException {
-        X509CertificateHolder x509CertificateHolder = null;
-        try {
-            x509CertificateHolder = new X509CertificateHolder(Certificate.getInstance(this.x509Certificate.getEncoded()));
-        } catch (CertificateEncodingException e) {
-            throw new RuntimeException(e);
-        }
-        ContentVerifierProvider contentVerifierProvider = null;
-
-        if(publicKey.getAlgorithm().contains("RSA")){
-            contentVerifierProvider = new JcaContentVerifierProviderBuilder().setProvider(new BouncyCastleProvider()).build(publicKey);
-        } else{
-            contentVerifierProvider = new JcaContentVerifierProviderBuilder().setProvider(new BouncyCastlePQCProvider()).build(publicKey);
-        }
-
+    private boolean isSignedByAltKey(PublicKey publicKey) throws CertException {
         boolean b = x509CertificateHolder.isAlternativeSignatureValid(contentVerifierProvider);
         return b;
     }
@@ -528,9 +491,9 @@ public class CertificateToken extends Token {
 
     @Override
     protected SignatureValidity checkIsSignedBy(PublicKey publicKey, boolean isAltKey) {
-        if(isAltKey){
+        if (isAltKey) {
             return checkIsSignedByAlt(publicKey);
-        }else{
+        } else {
             return checkIsSignedBy(publicKey);
         }
     }
@@ -616,7 +579,7 @@ public class CertificateToken extends Token {
      * @return the alt signature value
      */
     public byte[] getAltSignature() throws IOException {
-        return Objects.requireNonNull(getAltSignatureValue(this.x509Certificate)).getSignature().getBytes();
+        return Objects.requireNonNull(getAltSignatureValue()).getSignature().getBytes();
     }
 
     @Override
