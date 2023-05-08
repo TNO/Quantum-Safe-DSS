@@ -394,8 +394,8 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 	public void setAltEncryptionAlgorithm(final EncryptionAlgorithm altEncryptionAlgorithm) {
 		this.altEncryptionAlgorithm = altEncryptionAlgorithm;
 		if (this.digestAlgorithm != null) {
-			altSignatureAlgorithm = SignatureAlgorithm.getAlgorithm(this.altEncryptionAlgorithm, this.digestAlgorithm,
-					this.maskGenerationFunction);
+			altSignatureAlgorithm = SignatureAlgorithm.getAlgorithm(this.altEncryptionAlgorithm, this.altDigestAlgorithm,
+					this.altMaskGenerationFunction);
 		}
 	}
 
