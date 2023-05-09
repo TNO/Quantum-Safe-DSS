@@ -221,6 +221,14 @@ public class PAdESService extends AbstractSignatureService<PAdESSignatureParamet
 		return signature;
 	}
 
+	public DSSDocument signDocument(final DSSDocument toSignDocument, final PAdESSignatureParameters parameters,
+									SignatureValue signatureValue, SignatureValue altSignatureValue) {
+
+		DSSDocument classicallySigned = signDocument(toSignDocument, parameters, signatureValue);
+		return signDocument(classicallySigned, parameters, altSignatureValue);
+
+	}
+
 	private void assertSignaturePossible(DSSDocument toSignDocument) {
 		if (toSignDocument instanceof DigestDocument) {
 			throw new IllegalArgumentException("DigestDocument cannot be used for PAdES!");

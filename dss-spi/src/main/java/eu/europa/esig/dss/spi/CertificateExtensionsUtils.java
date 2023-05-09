@@ -46,34 +46,19 @@ import eu.europa.esig.dss.model.x509.extension.SubjectAlternativeNames;
 import eu.europa.esig.dss.model.x509.extension.SubjectKeyIdentifier;
 import eu.europa.esig.dss.model.x509.extension.ValidityAssuredShortTerm;
 import eu.europa.esig.dss.utils.Utils;
-import org.bouncycastle.asn1.ASN1Encodable;
-import org.bouncycastle.asn1.ASN1Integer;
-import org.bouncycastle.asn1.ASN1ObjectIdentifier;
-import org.bouncycastle.asn1.ASN1Primitive;
-import org.bouncycastle.asn1.ASN1Sequence;
-import org.bouncycastle.asn1.ASN1String;
-import org.bouncycastle.asn1.DEROctetString;
-import org.bouncycastle.asn1.DERTaggedObject;
+import org.bouncycastle.asn1.*;
 import org.bouncycastle.asn1.ocsp.OCSPObjectIdentifiers;
-import org.bouncycastle.asn1.x509.AccessDescription;
-import org.bouncycastle.asn1.x509.CRLDistPoint;
-import org.bouncycastle.asn1.x509.DistributionPoint;
-import org.bouncycastle.asn1.x509.DistributionPointName;
-import org.bouncycastle.asn1.x509.GeneralName;
-import org.bouncycastle.asn1.x509.GeneralNames;
-import org.bouncycastle.asn1.x509.IssuerSerial;
-import org.bouncycastle.asn1.x509.PolicyInformation;
-import org.bouncycastle.asn1.x509.PolicyQualifierId;
-import org.bouncycastle.asn1.x509.PolicyQualifierInfo;
-import org.bouncycastle.asn1.x509.X509ObjectIdentifiers;
+import org.bouncycastle.asn1.x509.*;
 import org.bouncycastle.cert.jcajce.JcaX509ExtensionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.security.auth.x500.X500Principal;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.cert.CertificateParsingException;
+import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -141,10 +126,67 @@ public class CertificateExtensionsUtils {
                     certificateExtensions.setValidityAssuredShortTerm(getValAssuredSTCerts(certificateToken));
                 } else if (isQcStatements(oid)) {
                     certificateExtensions.setQcStatements(getQcStatements(certificateToken));
+                } else if(isAltSignatureValue(oid)){
+                        certificateExtensions.setAltSignatureValue(getAltSignatureValue(certificateToken));
+                }else if(isAltSignatureAlgorithm(oid)){
+                      certificateExtensions.setAltSignatureAlgorithm(getAltSignatureAlgorithm(certificateToken));
+                }else if(isSubjectAltPublicKeyInfo(oid)){
+                        certificateExtensions.setSubjectAltPublicKeyInfo(getAltSubjectPublicKeyInfo(certificateToken));
                 } else {
                     certificateExtensions.addOtherExtension(getOtherCertificateExtension(certificateToken, oid));
                 }
             }
+        }
+    }
+
+    private static ASN1Primitive getExtensionValue(X509Certificate certificate, String oid) throws IOException {
+        byte[] bytes = certificate.getExtensionValue(oid);
+        if (bytes == null) {
+            return null;
+        }
+        ASN1InputStream aIn = new ASN1InputStream(new ByteArrayInputStream(bytes));
+        ASN1OctetString octs = (ASN1OctetString) aIn.readObject();
+        aIn = new ASN1InputStream(new ByteArrayInputStream(octs.getOctets()));
+        return aIn.readObject();
+    }
+    private static SubjectPublicKeyInfo getAltSubjectPublicKeyInfo(CertificateToken certificateToken) {
+        X509Certificate cert = certificateToken.getCertificate();
+        ASN1Primitive a = null;
+        try {
+            a = getExtensionValue(cert, Extension.subjectAltPublicKeyInfo.getId());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return  SubjectPublicKeyInfo.getInstance(a);
+    }
+
+    private static AltSignatureAlgorithm getAltSignatureAlgorithm(CertificateToken certificateToken) {
+        X509Certificate cert = certificateToken.getCertificate();
+        if (certificateToken.isCertificateHybrid()) {
+            ASN1Primitive a;
+            try {
+                a = getExtensionValue(cert, Extension.altSignatureAlgorithm.getId());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return AltSignatureAlgorithm.getInstance(a);
+        } else {
+            return null;
+        }
+    }
+
+    private static AltSignatureValue getAltSignatureValue(CertificateToken certificateToken) {
+        X509Certificate cert = certificateToken.getCertificate();
+        if (certificateToken.isCertificateHybrid()) {
+            ASN1Primitive a;
+            try {
+                a = getExtensionValue(cert, Extension.altSignatureValue.getId());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            return AltSignatureValue.getInstance(a);
+        } else {
+            return null;
         }
     }
 
@@ -186,6 +228,17 @@ public class CertificateExtensionsUtils {
      */
     public static boolean isAuthorityInformationAccess(String oid) {
         return CertificateExtensionEnum.AUTHORITY_INFORMATION_ACCESS.getOid().equals(oid);
+    }
+
+    public static boolean isSubjectAltPublicKeyInfo(String oid){
+        return CertificateExtensionEnum.SUBJECTALTPUBLICKEYINFO.getOid().equals(oid);
+    }
+
+    public static boolean isAltSignatureValue(String oid){
+        return CertificateExtensionEnum.ALTSIGNATUREVALUE.getOid().equals(oid);
+    }
+    public static boolean isAltSignatureAlgorithm(String oid){
+        return CertificateExtensionEnum.ALTSIGNATUREALGORITHM.getOid().equals(oid);
     }
 
     /**

@@ -416,6 +416,11 @@ public class TimestampToken extends Token {
 		throw new UnsupportedOperationException("Use method checkIsSignedBy(certificateToken) for a TimestampToken validation!");
 	}
 
+	@Override
+	protected SignatureValidity checkIsSignedBy(PublicKey publicKey, boolean isAltKey) {
+		return null;
+	}
+
 	/**
 	 * Checks if the {@code TimeStampToken} matches the signed data.
 	 *
@@ -879,6 +884,11 @@ public class TimestampToken extends Token {
 	public SignerInformation getSignerInformation() {
 		Collection<SignerInformation> signers = timeStamp.toCMSSignedData().getSignerInfos().getSigners(timeStamp.getSID());
 		return signers.iterator().next();
+	}
+
+	@Override
+	public boolean isCertificateHybrid() {
+		return false;
 	}
 
 	@Override
