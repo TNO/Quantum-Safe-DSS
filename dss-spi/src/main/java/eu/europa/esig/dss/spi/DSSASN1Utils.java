@@ -95,6 +95,7 @@ import org.bouncycastle.cms.SignerId;
 import org.bouncycastle.cms.SignerInformation;
 import org.bouncycastle.crypto.signers.PlainDSAEncoding;
 import org.bouncycastle.crypto.signers.StandardDSAEncoding;
+import org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider;
 import org.bouncycastle.tsp.TSPException;
 import org.bouncycastle.tsp.TimeStampToken;
 import org.bouncycastle.util.BigIntegers;
@@ -144,6 +145,7 @@ public final class DSSASN1Utils {
 
 	static {
 		Security.addProvider(DSSSecurityProvider.getSecurityProvider());
+		// Security.addProvider(new BouncyCastlePQCProvider());
 
 		timestampOids = new ArrayList<>();
 		timestampOids.add(id_aa_ets_contentTimestamp);
@@ -432,7 +434,7 @@ public final class DSSASN1Utils {
 	}
 
 	/**
-	 * Gets the ASN.1 algorithm identifier structure corresponding to the algorithm 
+	 * Gets the ASN.1 algorithm identifier structure corresponding to the algorithm
 	 * found in the provided Timestamp Hash Index Table, if such algorithm is present
 	 *
 	 * @param atsHashIndexValue

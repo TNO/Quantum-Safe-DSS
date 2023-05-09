@@ -1,0 +1,4 @@
+eu\europa\esig\dss\ws\converter\ColorConverter.class
+eu\europa\esig\dss\ws\converter\DTOConverter.class
+eu\europa\esig\dss\ws\converter\RemoteDocumentConverter.class
+eu\europa\esig\dss\ws\converter\RemoteCertificateConverter.class

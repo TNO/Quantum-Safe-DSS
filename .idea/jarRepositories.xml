@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteRepositoriesConfiguration">
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-asic-cades/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-policy-jaxb/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-signature-remote/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-timestamp-remote/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-utils-google-guava/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-model/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-certificate-validation-soap/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-server-signing-common/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-asic-manifest/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-server-signing-soap-client/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-validation-soap/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-validation-rest/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-validation-report/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-bom/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-signature-rest-client/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-spi/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser-x509crl/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-certificate-validation-rest-client/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-asic-common/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xmldsig/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-pades/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-server-signing-rest-client/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-token/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-certificate-validation-rest/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-timestamp-remote-rest-client/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-utils/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-detailed-report-jaxb/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-alert/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-cades/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-enumerations/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-common-remote-converter/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-document/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-pdfa/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-signature-dto/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-signature-rest/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-certificate-validation-soap-client/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-signature-soap-client/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-server-signing-dto/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-simple-certificate-report-jaxb/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-tsl-validation/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-signature-soap/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-pades-openpdf/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-jaxb-common/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-test/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-xades/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-timestamp-dto/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-timestamp-remote-soap-client/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-certificate-validation-dto/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-xades/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-cookbook/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-jacoco-coverage/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-validation-dto/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-jws/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-jades/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-utils-apache-commons/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-jaxb-parsers/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss.community" />
+      <option name="name" value="JBoss Community repository" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-service/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-validation-rest-client/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-certificate-validation-common/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-timestamp-remote-soap/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-timestamp-remote-rest/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-trusted-list/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-i18n/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-pades-pdfbox/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-crl-parser-stream/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-saml-assertion/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-common-remote-dto/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\validation-policy/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-server-signing-soap/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-asic-xades/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-simple-report-jaxb/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-validation-server-common/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-diagnostic-jaxb/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-server-signing-rest/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\dss-validation-soap-client/libs" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="local-maven-repo" />
+      <option name="name" value="local-maven-repo" />
+      <option name="url" value="file:///C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-jades/libs" />
+    </remote-repository>
+  </component>
+</project>

@@ -1,0 +1,9 @@
+eu\europa\esig\dss\ws\dto\DigestDTO.class
+eu\europa\esig\dss\ws\dto\ToBeSignedDTO.class
+eu\europa\esig\dss\ws\dto\TimestampDTO.class
+eu\europa\esig\dss\ws\dto\RemoteDocument.class
+eu\europa\esig\dss\ws\dto\RemoteColor.class
+eu\europa\esig\dss\ws\dto\RemoteCertificate.class
+eu\europa\esig\dss\ws\dto\exception\DSSRemoteServiceException.class
+eu\europa\esig\dss\ws\dto\SignatureValueDTO.class
+eu\europa\esig\dss\ws\dto\TimestampIncludeDTO.class

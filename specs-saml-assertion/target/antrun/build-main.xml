@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="maven-antrun-" default="main">
+  <target name="main">
+    <delete dir="C:\Users\amadoria\Documents\Projects\HAPKIDO\WP4\dss-fork\specs-saml-assertion/target/generated-sources/xjc/eu/europa/esig/xmldsig/" />
+  </target>
+</project>

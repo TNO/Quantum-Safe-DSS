@@ -1,19 +1,19 @@
 /**
  * DSS - Digital Signature Services
  * Copyright (C) 2015 European Commission, provided under the CEF programme
- * 
+ *
  * This file is part of the "DSS - Digital Signature Services" project.
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
@@ -51,7 +51,31 @@ public enum EncryptionAlgorithm implements OidBasedEnum { //TODO add other schem
 	EDDSA("EdDSA", "", "EdDSA"),
 
 	/** HMAC */
-	HMAC("HMAC", "", "");
+	HMAC("HMAC", "", ""),
+
+	/** DILITHIUM 2 */
+	DILITHIUM2("DILITHUM2", "1.3.6.1.4.1.2.267.7.4.4", ""),
+
+	/** DILITHIUM 2 - AES */
+	DILITHIUM2_AES("DILITHIUM2_AES", "1.3.6.1.4.1.2.267.11.4.4", ""),
+
+	/** DILITHIUM 3 */
+	DILITHIUM3("DILITHIUM3", "1.3.6.1.4.1.2.267.7.6.5", ""),
+
+	/** DILITHIUM 3 - AES */
+	DILITHIUM3_AES("DILITHIUM3_AES", "1.3.6.1.4.1.2.267.11.6.5", ""),
+
+	/** DILITHIUM 5 */
+	DILITHIUM5("DILITHIUM5", "1.3.6.1.4.1.2.267.7.8.7", ""),
+
+	/** DILITHIUM 5 - AES */
+	DILITHIUM5_AES("DILITHIUM5_AES", "1.3.6.1.4.1.2.267.11.8.7", ""),
+
+	/** FALCON 512 */
+	FALCON_512("FALCON_512", "1.3.9999.3.1", ""),
+
+	/** FALCON 1024 */
+	FALCON_1024("FALCON_1024", "1.3.9999.3.4", "");
 
 	/** The name of the algorithm */
 	private String name;
@@ -171,7 +195,7 @@ public enum EncryptionAlgorithm implements OidBasedEnum { //TODO add other schem
 
 	/**
 	 * Get the algorithm name
-	 * 
+	 *
 	 * @return the name
 	 */
 	public String getName() {
@@ -180,7 +204,7 @@ public enum EncryptionAlgorithm implements OidBasedEnum { //TODO add other schem
 
 	/**
 	 * Get the ASN1 algorithm OID
-	 * 
+	 *
 	 * @return the OID
 	 */
 	@Override
@@ -190,7 +214,7 @@ public enum EncryptionAlgorithm implements OidBasedEnum { //TODO add other schem
 
 	/**
 	 * Get the algorithm padding
-	 * 
+	 *
 	 * @return the padding
 	 */
 	public String getPadding() {
@@ -214,6 +238,9 @@ public enum EncryptionAlgorithm implements OidBasedEnum { //TODO add other schem
 		if (this.isEdDSAFamily() && encryptionAlgorithm.isEdDSAFamily()) {
 			return true;
 		}
+		if (this.isDilithiumFamily() && encryptionAlgorithm.isDilithiumFamily()){
+			return true;
+		}
 		return false;
 	}
 
@@ -223,6 +250,10 @@ public enum EncryptionAlgorithm implements OidBasedEnum { //TODO add other schem
 
 	private boolean isEdDSAFamily() {
 		return X25519 == this || X448 == this || EDDSA == this;
+	}
+
+	private boolean isDilithiumFamily(){
+		return DILITHIUM2 == this || DILITHIUM2_AES == this || DILITHIUM3 == this || DILITHIUM3_AES == this || DILITHIUM5 == this || DILITHIUM5_AES == this;
 	}
 
 }

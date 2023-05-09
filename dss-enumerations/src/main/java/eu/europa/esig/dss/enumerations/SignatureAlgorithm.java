@@ -1,19 +1,19 @@
 /**
  * DSS - Digital Signature Services
  * Copyright (C) 2015 European Commission, provided under the CEF programme
- * 
+ *
  * This file is part of the "DSS - Digital Signature Services" project.
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
@@ -235,7 +235,31 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 	ED25519(EncryptionAlgorithm.EDDSA, DigestAlgorithm.SHA512),
 
 	/** EDDSA with SHAKE256-512 */
-	ED448(EncryptionAlgorithm.EDDSA, DigestAlgorithm.SHAKE256_512);
+	ED448(EncryptionAlgorithm.EDDSA, DigestAlgorithm.SHAKE256_512),
+
+	/** Dilithium 2 */
+	DILITHIUM2(EncryptionAlgorithm.DILITHIUM2, null),
+
+	/** Dilithium 2 with AES */
+	DILITHIUM2_AES(EncryptionAlgorithm.DILITHIUM2_AES, null),
+
+	/** Dilithium 3 */
+	DILITHIUM3(EncryptionAlgorithm.DILITHIUM3, null),
+
+	/** Dilithium 3 with AES */
+	DILITHIUM3_AES(EncryptionAlgorithm.DILITHIUM3_AES, null),
+
+	/** Dilithium 5 */
+	DILITHIUM5(EncryptionAlgorithm.DILITHIUM5, null),
+
+	/**Dilithium 5 with AES */
+	DILITHIUM5_AES(EncryptionAlgorithm.DILITHIUM5_AES, null),
+
+	/** Falcon 512 */
+	FALCON_512(EncryptionAlgorithm.FALCON_512, null),
+
+	/** Falcon 1024 */
+	FALCON_1024(EncryptionAlgorithm.FALCON_1024, null);
 
 	/** The encryption algorithm */
 	private final EncryptionAlgorithm encryptionAlgo;
@@ -434,7 +458,7 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 		Map<String, SignatureAlgorithm> javaAlgorithms = new HashMap<>();
 
 		javaAlgorithms.put("NONEwithRSA", RSA_RAW);
-		
+
 		javaAlgorithms.put("SHA1withRSA", RSA_SHA1);
 		javaAlgorithms.put("SHA224withRSA", RSA_SHA224);
 		javaAlgorithms.put("SHA256withRSA", RSA_SHA256);
@@ -447,7 +471,7 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 		javaAlgorithms.put("SHA3-512withRSA", RSA_SHA3_512);
 
 		javaAlgorithms.put("NONEwithRSAandMGF1", RSA_SSA_PSS_RAW_MGF1);
-		
+
 		javaAlgorithms.put("SHA1withRSAandMGF1", RSA_SSA_PSS_SHA1_MGF1);
 		javaAlgorithms.put("SHA224withRSAandMGF1", RSA_SSA_PSS_SHA224_MGF1);
 		javaAlgorithms.put("SHA256withRSAandMGF1", RSA_SSA_PSS_SHA256_MGF1);
@@ -465,7 +489,7 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 		javaAlgorithms.put("MD2withRSA", RSA_MD2);
 
 		javaAlgorithms.put("NONEwithECDSA", ECDSA_RAW);
-		
+
 		javaAlgorithms.put("SHA1withECDSA", ECDSA_SHA1);
 		javaAlgorithms.put("SHA224withECDSA", ECDSA_SHA224);
 		javaAlgorithms.put("SHA256withECDSA", ECDSA_SHA256);
@@ -494,7 +518,7 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 		javaAlgorithms.put("Ed448", ED448);
 
 		javaAlgorithms.put("NONEwithDSA", DSA_RAW);
-		
+
 		javaAlgorithms.put("SHA1withDSA", DSA_SHA1);
 		javaAlgorithms.put("SHA224withDSA", DSA_SHA224);
 		javaAlgorithms.put("SHA256withDSA", DSA_SHA256);
@@ -518,6 +542,17 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 		javaAlgorithms.put("SHA3-512withHMAC", HMAC_SHA3_512);
 
 		javaAlgorithms.put("RIPEMD160withHMAC", HMAC_RIPEMD160);
+
+		javaAlgorithms.put("Dilithium2", DILITHIUM2);
+		javaAlgorithms.put("Dilithium2withAES", DILITHIUM2_AES);
+		javaAlgorithms.put("Dilithium3", DILITHIUM3);
+		javaAlgorithms.put("Dilithium3withAES", DILITHIUM3_AES);
+		javaAlgorithms.put("Dilithium5", DILITHIUM5);
+		javaAlgorithms.put("Dilithium5withAES", DILITHIUM5_AES);
+
+		javaAlgorithms.put("Falcon512", FALCON_512);
+		javaAlgorithms.put("Falcon1024", FALCON_1024);
+
 		return javaAlgorithms;
 	}
 
@@ -534,7 +569,7 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 
 	/** Map of JWA signature algorithm URIs by algorithm */
 	private static final Map<SignatureAlgorithm, String> JWA_ALGORITHMS_FOR_KEY = registerJsonWebAlgorithmsForKey();
-	
+
 	private static Map<String, SignatureAlgorithm> registerJsonWebAlgorithms() {
 
 		// https://tools.ietf.org/html/rfc7518#section-3.1
@@ -551,13 +586,13 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 		jsonWebAlgorithms.put("ES256", ECDSA_SHA256);
 		jsonWebAlgorithms.put("ES384", ECDSA_SHA384);
 		jsonWebAlgorithms.put("ES512", ECDSA_SHA512);
-		
+
 		jsonWebAlgorithms.put("PS256", RSA_SSA_PSS_SHA256_MGF1);
 		jsonWebAlgorithms.put("PS384", RSA_SSA_PSS_SHA384_MGF1);
 		jsonWebAlgorithms.put("PS512", RSA_SSA_PSS_SHA512_MGF1);
 
 		jsonWebAlgorithms.put("EdDSA", ED25519);
-	
+
 		return jsonWebAlgorithms;
 	}
 

@@ -67,6 +67,8 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.ServiceLoader;
 
+import org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider;
+
 /**
  * Validates a signed document. The content of the document is determined
  * automatically. It can be: XML, CAdES(p7m), PDF or ASiC(zip).
@@ -81,6 +83,7 @@ public abstract class SignedDocumentValidator implements DocumentValidator {
 
 	static {
 		Security.addProvider(DSSSecurityProvider.getSecurityProvider());
+		// Security.addProvider(new BouncyCastlePQCProvider());
 	}
 
 	/**

@@ -1,0 +1,15 @@
+eu\europa\esig\dss\jaxb\common\DSSErrorHandlerAlert$DSSErrorHandlerAlertHandler.class
+eu\europa\esig\dss\jaxb\common\DocumentBuilderFactoryBuilder.class
+eu\europa\esig\dss\jaxb\common\DSSErrorHandlerAlert$DSSErrorHandlerAlertDetector.class
+eu\europa\esig\dss\jaxb\common\XmlDefinerUtils.class
+eu\europa\esig\dss\jaxb\common\AbstractJaxbFacade.class
+eu\europa\esig\dss\jaxb\common\SchemaFactoryBuilder.class
+eu\europa\esig\dss\jaxb\common\AbstractFactoryBuilder.class
+eu\europa\esig\dss\jaxb\common\AbstractConfigurator.class
+eu\europa\esig\dss\jaxb\common\DSSErrorHandlerAlert$1.class
+eu\europa\esig\dss\jaxb\common\DSSErrorHandlerAlert.class
+eu\europa\esig\dss\jaxb\common\DSSErrorHandler.class
+eu\europa\esig\dss\jaxb\common\ValidatorConfigurator.class
+eu\europa\esig\dss\jaxb\common\TransformerFactoryBuilder.class
+eu\europa\esig\dss\jaxb\common\exception\SecurityConfigurationException.class
+eu\europa\esig\dss\jaxb\common\exception\XSDValidationException.class

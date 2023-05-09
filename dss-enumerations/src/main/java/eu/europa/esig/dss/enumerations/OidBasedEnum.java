@@ -29,7 +29,7 @@ public interface OidBasedEnum extends Serializable {
 
 	/**
 	 * This method returns the OID value
-	 * 
+	 *
 	 * @return the OID value
 	 */
 	String getOid();

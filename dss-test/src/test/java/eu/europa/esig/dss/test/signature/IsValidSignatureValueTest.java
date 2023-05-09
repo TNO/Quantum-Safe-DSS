@@ -48,7 +48,7 @@ public class IsValidSignatureValueTest extends PKIFactoryAccess {
 		ToBeSigned correct = new ToBeSigned("Hello".getBytes());
 		ToBeSigned wrong = new ToBeSigned("Bye".getBytes());
 		ToBeSigned empty = new ToBeSigned(new byte[] {});
-		
+
 		signingAlias = GOOD_USER;
 
 		SignatureValue signatureValue = getToken().sign(correct, DigestAlgorithm.SHA256, getPrivateKeyEntry());
@@ -82,6 +82,10 @@ public class IsValidSignatureValueTest extends PKIFactoryAccess {
 		signatureValue.setAlgorithm(SignatureAlgorithm.DSA_SHA256);
 		assertFalse(service.isValidSignatureValue(correct, signatureValue, getSigningCert()));
 		signatureValue.setAlgorithm(SignatureAlgorithm.ED25519);
+		assertFalse(service.isValidSignatureValue(correct, signatureValue, getSigningCert()));
+		signatureValue.setAlgorithm(SignatureAlgorithm.DILITHIUM2);
+		assertFalse(service.isValidSignatureValue(correct, signatureValue, getSigningCert()));
+		signatureValue.setAlgorithm(SignatureAlgorithm.RSA_SHA384);
 		assertFalse(service.isValidSignatureValue(correct, signatureValue, getSigningCert()));
 	}
 
