@@ -13,6 +13,7 @@ replay_pid*
 ## Maven
 ##############################
 target/
+*/target/*
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -39,6 +40,7 @@ gradle-app.setting
 ##############################
 out/
 .idea/
+.idea/misc.xml
 .idea_modules/
 *.iml
 *.ipr
