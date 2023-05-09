@@ -108,7 +108,7 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 	 */
 	private DigestAlgorithm digestAlgorithm = signatureAlgorithm.getDigestAlgorithm();
 
-	private DigestAlgorithm altDigestAlgorithm = null;
+	private DigestAlgorithm altDigestAlgorithm = signatureAlgorithm.getDigestAlgorithm();
 
 	/**
 	 * XAdES: The digest algorithm used to hash ds:Reference.
@@ -393,7 +393,7 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 	 */
 	public void setAltEncryptionAlgorithm(final EncryptionAlgorithm altEncryptionAlgorithm) {
 		this.altEncryptionAlgorithm = altEncryptionAlgorithm;
-		if (this.digestAlgorithm != null) {
+		if (this.altDigestAlgorithm != null) {
 			altSignatureAlgorithm = SignatureAlgorithm.getAlgorithm(this.altEncryptionAlgorithm, this.altDigestAlgorithm,
 					this.altMaskGenerationFunction);
 		}

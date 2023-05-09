@@ -81,6 +81,11 @@ public class CertificateToken extends Token {
     private ContentVerifierProvider contentVerifierProvider;
     private EntityIdentifier altEntityKey = null;
 
+    private AltSignatureValue altSignatureValue = null;
+
+    private PublicKey altPublicKey = null;
+
+
     private boolean hybrid;
 
     /**
@@ -115,9 +120,10 @@ public class CertificateToken extends Token {
         try {
             hybrid = isHybrid();
             if (hybrid) {
-                AltSignatureAlgorithm altSignatureAlgorithm = getAltSignatureAlgorithm_();
-                assert altSignatureAlgorithm != null;
-                this.altSignatureAlgorithm = SignatureAlgorithm.forOID(altSignatureAlgorithm.getAlgorithm().getAlgorithm().getId());
+                this.altSignatureAlgorithm = fromAltSignatureAlgorithm();
+                this.altPublicKey = deriveAltPublicKey();
+                this.altSignatureValue = deriveAltSignatureValue();
+
                 this.altEntityKey = new EntityIdentifier(getAltPublicKey());
                 this.contentVerifierProvider = new JcaContentVerifierProviderBuilder().build(getSubjectAltPublicKey());
             }
@@ -125,6 +131,10 @@ public class CertificateToken extends Token {
             e.printStackTrace();
         }
 
+    }
+
+    private SignatureAlgorithm fromAltSignatureAlgorithm(){
+        return SignatureAlgorithm.forOID(deriveAltSignatureAlgorithm().getAlgorithm().getAlgorithm().getId());
     }
 
     public boolean isCertificateHybrid() {
@@ -143,13 +153,19 @@ public class CertificateToken extends Token {
 
     }
 
-    private AltSignatureAlgorithm getAltSignatureAlgorithm_() {
+    private AltSignatureAlgorithm deriveAltSignatureAlgorithm() {
         return AltSignatureAlgorithm.getInstance(this.x509CertificateHolder.getExtension(Extension.altSignatureAlgorithm).getParsedValue());
     }
 
-    private AltSignatureValue getAltSignatureValue() {
+    private AltSignatureValue deriveAltSignatureValue() {
         return AltSignatureValue.getInstance(this.x509CertificateHolder.getExtension(Extension.altSignatureValue).getParsedValue());
     }
+
+    public AltSignatureValue getAltSignatureValue(){
+        return altSignatureValue;
+    }
+
+
 
     @Override
     public String getAbbreviation() {
@@ -200,7 +216,7 @@ public class CertificateToken extends Token {
      *
      * @return the public key of the certificate
      */
-    public PublicKey getAltPublicKey() {
+    private PublicKey deriveAltPublicKey() {
         try {
             SubjectPublicKeyInfo altPublicKeyInfo = getSubjectAltPublicKey();
             try {
@@ -211,6 +227,10 @@ public class CertificateToken extends Token {
         } catch (IOException e) {
             return null;
         }
+    }
+
+    public PublicKey getAltPublicKey(){
+        return altPublicKey;
     }
 
     private PublicKey findAltScheme(SubjectPublicKeyInfo altPub) throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
@@ -236,7 +256,7 @@ public class CertificateToken extends Token {
         } else if (isHQC(algOID)) {
             return new HQCKeyFactorySpi().generatePublic(altPub);
         } else if (isECDSA(algOID)) {
-            return new KeyFactorySpi.ECDSA().generatePublic(altPub);
+            return new KeyFactorySpi.EC().generatePublic(altPub);
         } else {
             throw new IOException("cannot find algorithm with oid " + altPub.getAlgorithm().getAlgorithm());
         }

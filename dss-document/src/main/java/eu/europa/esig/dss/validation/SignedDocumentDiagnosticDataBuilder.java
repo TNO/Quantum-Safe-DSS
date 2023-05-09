@@ -87,18 +87,10 @@ import eu.europa.esig.dss.validation.timestamp.TimestampTokenComparator;
 import eu.europa.esig.dss.validation.timestamp.TimestampedReference;
 
 import javax.security.auth.x500.X500Principal;
+import java.io.IOException;
 import java.security.PublicKey;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Objects;
-import java.util.Set;
 
 /**
  * The common class for DiagnosticData creation from a signed/timestamped document
@@ -443,13 +435,21 @@ public class SignedDocumentDiagnosticDataBuilder extends DiagnosticDataBuilder {
 		final CandidatesForSigningCertificate candidatesForSigningCertificate = signature.getCandidatesForSigningCertificate();
 		final CertificateValidity theCertificateValidity = candidatesForSigningCertificate.getTheCertificateValidity();
 		PublicKey signingCertificatePublicKey = null;
+		PublicKey altSigningCertificatePublicKey = null;
 		if (theCertificateValidity != null) {
 			xmlSignature.setSigningCertificate(getXmlSigningCertificate(signature.getDSSId(), theCertificateValidity));
 			xmlSignature.setCertificateChain(getXmlForCertificateChain(theCertificateValidity, signature.getCertificateSource()));
 			signingCertificatePublicKey = theCertificateValidity.getPublicKey();
+
 		}
 
 		xmlSignature.setBasicSignature(getXmlBasicSignature(signature, signingCertificatePublicKey));
+		if(!xmlSignature.getBasicSignature().isSignatureValid() && theCertificateValidity.getCertificateToken().isCertificateHybrid()){
+				xmlSignature.setBasicSignature(getXmlBasicSignature(signature, theCertificateValidity.getAltPublicKey()));
+				if(!xmlSignature.getBasicSignature().isSignatureValid()){
+					xmlSignature.setBasicSignature(getXmlBasicSignature(signature, signingCertificatePublicKey));
+				}
+		}
 		xmlSignature.setDigestMatchers(getXmlDigestMatchers(signature));
 	}
 

@@ -114,6 +114,10 @@ public class CertificateValidity implements Serializable {
 	public PublicKey getPublicKey() {
 		return certificateToken == null ? publicKey : certificateToken.getPublicKey();
 	}
+
+	public PublicKey getAltPublicKey() {
+		return certificateToken == null ? publicKey : certificateToken.getPublicKey();
+	}
 	
 	/**
 	 * Returns the associated {@link SignerIdentifier}

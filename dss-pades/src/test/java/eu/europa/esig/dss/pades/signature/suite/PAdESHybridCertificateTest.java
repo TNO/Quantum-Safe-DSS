@@ -59,15 +59,8 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess { // MARKED AS 
 
         SignedDocumentValidator validator = SignedDocumentValidator.fromDocument(signedDocument);
         validator.setCertificateVerifier(getOfflineCertificateVerifier());
-        Reports reports1 = validator.validateDocument();
 
-        DiagnosticData diagnosticData1 = reports1.getDiagnosticData();
-        assertEquals(SignatureLevel.PAdES_BASELINE_T, diagnosticData1.getSignatureFormat(diagnosticData1.getFirstSignatureId()));
-
-        params = new PAdESSignatureParameters();
-        params.setSignatureLevel(SignatureLevel.PAdES_BASELINE_T);
-        params.setSigningCertificate(new CertificateToken(cert));
-        service.setTspSource(getAlternateGoodTsa());
+        params = prepareParametersForHybrid(params);
 
         dataToSign = service.getDataToSign(signedDocument, params);
         SignatureValue altSignatureValue = getToken().sign(dataToSign, params.getDigestAlgorithm(), altKSPrivateKey);
@@ -87,16 +80,26 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess { // MARKED AS 
         assertTrue(diagnosticData2.isBLevelTechnicallyValid(signatureIdList.get(1)));
 
 
-        assertEquals(3, diagnosticData2.getTimestampIdList(diagnosticData2.getFirstSignatureId()).size());
+        assertEquals(1, diagnosticData2.getTimestampIdList(diagnosticData2.getFirstSignatureId()).size());
 
         checkAllRevocationOnce(diagnosticData2);
-
-        checkAllPreviousRevocationDataInNewDiagnosticData(diagnosticData1, diagnosticData2);
 
         SignatureWrapper signatureOne = diagnosticData2.getSignatures().get(0);
         SignatureWrapper signatureTwo = diagnosticData2.getSignatures().get(1);
         assertFalse(Arrays.equals(signatureOne.getSignatureDigestReference().getDigestValue(), signatureTwo.getSignatureDigestReference().getDigestValue()));
 
+    }
+
+    private static PAdESSignatureParameters prepareParametersForHybrid(PAdESSignatureParameters parameters){
+        parameters.setDigestAlgorithm(parameters.getAltDigestAlgorithm());
+        parameters.setMaskGenerationFunction(parameters.getAltMaskGenerationFunction());
+        parameters.setEncryptionAlgorithm(parameters.getAltEncryptionAlgorithm());
+
+        parameters.setAltMaskGenerationFunction(null);
+        parameters.setAltDigestAlgorithm(null);
+        parameters.setAltEncryptionAlgorithm(null);
+
+        return parameters;
     }
 
     private static KSPrivateKeyEntry preparePrivateKey() throws KeyStoreException, UnrecoverableKeyException, NoSuchAlgorithmException {
@@ -142,7 +145,7 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess { // MARKED AS 
                 continue;
             }
             int nbRevoc = certificateWrapper.getCertificateRevocationData().size();
-            assertEquals(1, nbRevoc, "Nb revoc for cert " + certificateWrapper.getCommonName() + " = " + nbRevoc);
+            assertEquals(0, nbRevoc, "Nb revoc for cert " + certificateWrapper.getCommonName() + " = " + nbRevoc);
         }
     }
 

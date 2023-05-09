@@ -126,7 +126,8 @@ public abstract class SignatureIntegrityValidator { // CHANGE
 			LOG.debug("Public key matching the signature value found.");
 			return true;
 		} else {
-			return false;
+			PublicKey k = certificateValidity.getCertificateToken().getAltPublicKey();
+			return verify(k);
 		}
 	}
 	
