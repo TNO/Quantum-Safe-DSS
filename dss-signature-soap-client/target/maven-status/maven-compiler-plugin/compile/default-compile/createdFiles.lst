@@ -1,6 +1,0 @@
-eu\europa\esig\dss\ws\signature\soap\client\DateAdapter.class
-eu\europa\esig\dss\ws\signature\soap\client\SoapPAdESWithExternalCMSService.class
-eu\europa\esig\dss\ws\signature\soap\client\SoapDocumentSignatureService.class
-eu\europa\esig\dss\ws\signature\soap\client\SoapExternalCMSService.class
-eu\europa\esig\dss\ws\signature\soap\client\SoapMultipleDocumentsSignatureService.class
-eu\europa\esig\dss\ws\signature\soap\client\SoapTrustedListSignatureService.class

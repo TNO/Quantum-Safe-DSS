@@ -44,11 +44,11 @@ public class DilithiumTest {
 
     @Test
     public void dil2() throws GeneralSecurityException{
-        KeypairGenerator kpg = KeyPairGenerator.getInstance("DILITHIUM2", DSSSecurityProvider.getSecurityProviderName());
+        KeyPairGenerator kpg = KeyPairGenerator.getInstance("DILITHIUM2", DSSSecurityProvider.getSecurityProviderName());
     KeyPair kp = kpg.generateKeyPair();
     assertNotNull(kp);
 
-    PublicKey publickey = kp.getPublic();
+    PublicKey publicKey = kp.getPublic();
     assertNotNull(publicKey);
     assertEquals("DILITHIUM2", publicKey.getAlgorithm());
     assertEquals(EncryptionAlgorithm.DILITHIUM2, EncryptionAlgorithm.forKey(publicKey));

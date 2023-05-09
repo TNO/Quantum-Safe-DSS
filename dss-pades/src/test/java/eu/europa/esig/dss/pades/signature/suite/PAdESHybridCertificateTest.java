@@ -30,7 +30,7 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PAdESHybridCertificateTest extends PKIFactoryAccess { // MARKED AS POTENTIALLY INTERESTING SCRIPT
+public class PAdESHybridCertificateTest extends PKIFactoryAccess {
     static final String password = "ks-password";
     static KeyStore ks = null;
 
@@ -45,7 +45,63 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess { // MARKED AS 
         PAdESSignatureParameters params = new PAdESSignatureParameters();
         params.setSignatureLevel(SignatureLevel.PAdES_BASELINE_T);
 
-        X509Certificate cert = prepareCertificate();
+        X509Certificate cert = prepareCertificate("hybrid-good-user");
+        CertificateToken certificateToken = new CertificateToken(cert);
+
+        params.setSigningCertificate(certificateToken);
+
+        KSPrivateKeyEntry ksPrivateKey = preparePrivateKey();
+        KSPrivateKeyEntry altKSPrivateKey = prepareAltPrivateKey();
+
+        ToBeSigned dataToSign = service.getDataToSign(toBeSigned, params);
+        SignatureValue signatureValue = getToken().sign(dataToSign, params.getDigestAlgorithm(), ksPrivateKey);
+        DSSDocument signedDocument = service.signDocument(toBeSigned, params, signatureValue);
+
+        SignedDocumentValidator validator = SignedDocumentValidator.fromDocument(signedDocument);
+        validator.setCertificateVerifier(getOfflineCertificateVerifier());
+
+        params = prepareParametersForHybrid(params);
+
+        dataToSign = service.getDataToSign(signedDocument, params);
+        SignatureValue altSignatureValue = getToken().sign(dataToSign, params.getDigestAlgorithm(), altKSPrivateKey);
+        DSSDocument doubleSignedDocument = service.signDocument(signedDocument, params, altSignatureValue);
+
+        validator = SignedDocumentValidator.fromDocument(doubleSignedDocument);
+        validator.setCertificateVerifier(getOfflineCertificateVerifier());
+
+        Reports reports2 = validator.validateDocument();
+        DiagnosticData diagnosticData2 = reports2.getDiagnosticData();
+
+        // Bug with 2 signatures which have the same ID
+        List<String> signatureIdList = diagnosticData2.getSignatureIdList();
+        assertEquals(2, signatureIdList.size());
+
+        assertTrue(diagnosticData2.isBLevelTechnicallyValid(signatureIdList.get(0)));
+        assertTrue(diagnosticData2.isBLevelTechnicallyValid(signatureIdList.get(1)));
+
+
+        assertEquals(1, diagnosticData2.getTimestampIdList(diagnosticData2.getFirstSignatureId()).size());
+
+        checkAllRevocationOnce(diagnosticData2);
+
+        SignatureWrapper signatureOne = diagnosticData2.getSignatures().get(0);
+        SignatureWrapper signatureTwo = diagnosticData2.getSignatures().get(1);
+        assertFalse(Arrays.equals(signatureOne.getSignatureDigestReference().getDigestValue(), signatureTwo.getSignatureDigestReference().getDigestValue()));
+
+    }
+
+    @RepeatedTest(1)
+    public void testDoubleHybridSignatureDilithium() throws IOException, KeyStoreException, CertificateException, NoSuchAlgorithmException, UnrecoverableKeyException {
+
+        DSSDocument toBeSigned = new InMemoryDocument(eu.europa.esig.dss.pades.signature.suite.PAdESDoubleSignatureTest.class.getResourceAsStream("/sample.pdf"));
+
+        PAdESService service = new PAdESService(getOfflineCertificateVerifier());
+        service.setTspSource(getGoodTsa());
+
+        PAdESSignatureParameters params = new PAdESSignatureParameters();
+        params.setSignatureLevel(SignatureLevel.PAdES_BASELINE_T);
+
+        X509Certificate cert = prepareCertificate("hybrid-pq-good-user");
         CertificateToken certificateToken = new CertificateToken(cert);
 
         params.setSigningCertificate(certificateToken);
@@ -112,11 +168,10 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess { // MARKED AS 
         PrivateKey altPrivateKey = (PrivateKey) ks.getKey("hybrid-alt-good-user", password.toCharArray());
         KeyStore.PrivateKeyEntry altPrivateKeyEntry = new KeyStore.PrivateKeyEntry(altPrivateKey, ks.getCertificateChain("hybrid-alt-good-user"));
         return new KSPrivateKeyEntry("hybrid-alt-good-user", altPrivateKeyEntry);
-
     }
 
-    private static X509Certificate prepareCertificate() throws KeyStoreException, CertificateException, IOException, NoSuchAlgorithmException {
-        FileInputStream fis = new FileInputStream("src/test/resources/hybrid-good-user.p12");
+    private static X509Certificate prepareCertificate(String name) throws KeyStoreException, CertificateException, IOException, NoSuchAlgorithmException {
+        FileInputStream fis = new FileInputStream("src/test/resources/" + name + ".p12");
         ks = KeyStore.getInstance("pkcs12");
         ks.load(fis, password.toCharArray());
         return (X509Certificate) ks.getCertificate("hybrid-good-user");
