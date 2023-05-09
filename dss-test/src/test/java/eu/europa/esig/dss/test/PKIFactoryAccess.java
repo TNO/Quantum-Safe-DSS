@@ -145,6 +145,9 @@ public abstract class PKIFactoryAccess {
 
 	protected abstract String getSigningAlias();
 
+	protected String getDSASigningAlias(){
+		return DSA_USER;
+	}
 	protected CertificateVerifier getEmptyCertificateVerifier() {
 		return new CommonCertificateVerifier();
 	}
@@ -246,6 +249,23 @@ public abstract class PKIFactoryAccess {
 
 	protected KSPrivateKeyEntry getPrivateKeyEntry() {
 		return (KSPrivateKeyEntry) getToken().getKey(getSigningAlias());
+	}
+
+	protected KSPrivateKeyEntry getOfflinePrivateKeyEntry() {
+		return (KSPrivateKeyEntry) getOfflineToken().getKey(getSigningAlias());
+	}
+
+	protected KSPrivateKeyEntry getAltPrivateKeyEntry() {
+		return (KSPrivateKeyEntry) getToken().getKey(getDSASigningAlias());
+	}
+
+	protected AbstractKeyStoreTokenConnection getOfflineToken() {
+		return new KeyStoreSignatureTokenConnection(getKeystoreContent(getKeystoreName()), KEYSTORE_TYPE,
+				new PasswordProtection(PKI_FACTORY_KEYSTORE_PASSWORD.toCharArray()));
+	}
+	protected AbstractKeyStoreTokenConnection getofflineToken() {
+		return new KeyStoreSignatureTokenConnection(getKeystoreContent(getKeystoreName()), KEYSTORE_TYPE,
+				new PasswordProtection(PKI_FACTORY_KEYSTORE_PASSWORD.toCharArray()));
 	}
 
 	protected AbstractKeyStoreTokenConnection getToken() {

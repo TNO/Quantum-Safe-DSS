@@ -20,6 +20,10 @@
  */
 package eu.europa.esig.dss.model.x509.extension;
 
+import org.bouncycastle.asn1.x509.AltSignatureAlgorithm;
+import org.bouncycastle.asn1.x509.AltSignatureValue;
+import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -76,6 +80,12 @@ public class CertificateExtensions implements Serializable {
 
     /** ETSI EN 319 412-1/5: QCStatements */
     private QcStatements qcStatements;
+
+    private SubjectPublicKeyInfo subjectAltPublicKeyInfo;
+
+    private AltSignatureValue altSignatureValue;
+
+    private AltSignatureAlgorithm altSignatureAlgorithm;
 
     /** List of other extensions */
     private List<CertificateExtension> otherExtensions = new ArrayList<>();
@@ -366,6 +376,29 @@ public class CertificateExtensions implements Serializable {
         return otherExtensions;
     }
 
+    public void setSubjectAltPublicKeyInfo(SubjectPublicKeyInfo subjectAltPublicKeyInfo) {
+        this.subjectAltPublicKeyInfo = subjectAltPublicKeyInfo;
+    }
+
+    public void setAltSignatureValue(AltSignatureValue altSignatureValue) {
+        this.altSignatureValue = altSignatureValue;
+    }
+
+    public void setAltSignatureAlgorithm(AltSignatureAlgorithm altSignatureAlgorithm) {
+        this.altSignatureAlgorithm = altSignatureAlgorithm;
+    }
+
+    public SubjectPublicKeyInfo getSubjectAltPublicKeyInfo(){
+        return subjectAltPublicKeyInfo;
+    }
+
+    public AltSignatureAlgorithm getAltSignatureAlgorithm(){
+        return altSignatureAlgorithm;
+    }
+
+    public AltSignatureValue getAltSignatureValue(){
+        return altSignatureValue;
+    }
     /**
      * Adds another certificate extension
      *

@@ -44,7 +44,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class PAdESDoubleSignatureLTWithVRIAndLTTest extends AbstractPAdESTestSignature {
+public class PAdESDoubleSignatureLTWithVRIAndLTTest extends AbstractPAdESTestSignature { // MARKED AS POTENTIALLY INTERESTING SCRIPT
 
     private DSSDocument originalDocument;
 

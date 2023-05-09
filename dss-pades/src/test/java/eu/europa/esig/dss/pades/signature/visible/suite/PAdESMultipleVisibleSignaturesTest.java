@@ -48,7 +48,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class PAdESMultipleVisibleSignaturesTest extends AbstractPAdESTestValidation {
+public class PAdESMultipleVisibleSignaturesTest extends AbstractPAdESTestValidation { // MARKED AS POTENTIALLY INTERESTING SCRIPT
 	
 	private static DSSDocument image;
 

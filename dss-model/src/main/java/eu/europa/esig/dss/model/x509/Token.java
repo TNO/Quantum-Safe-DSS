@@ -27,6 +27,7 @@ import eu.europa.esig.dss.model.identifier.IdentifierBasedObject;
 import eu.europa.esig.dss.model.identifier.TokenIdentifier;
 
 import javax.security.auth.x500.X500Principal;
+import java.io.IOException;
 import java.io.Serializable;
 import java.security.PublicKey;
 import java.util.Date;
@@ -47,7 +48,7 @@ public abstract class Token implements IdentifierBasedObject, Serializable {
 	 * The publicKey of the signed certificate(s)
 	 */
 	protected PublicKey publicKeyOfTheSigner;
-	protected PublicKey publicKeyOfTheSigner2; //TODO add thing
+	protected PublicKey altPublicKeyOfTheSigner;
 
 	/**
 	 * Indicates a status of token's signature
@@ -55,18 +56,21 @@ public abstract class Token implements IdentifierBasedObject, Serializable {
 	 * Default: NOT_EVALUATED
 	 */
 	protected SignatureValidity signatureValidity = SignatureValidity.NOT_EVALUATED;
-	protected SignatureValidity signatureValidity2 = SignatureValidity.NOT_EVALUATED; //TODO add thing
+	protected SignatureValidity altSignatureValidity = SignatureValidity.NOT_EVALUATED;
 
 	/**
 	 * Indicates the token signature invalidity reason.
 	 */
 	protected String signatureInvalidityReason = "";
 
+	protected String altSignatureInvalidityReason = "";
+
+
 	/**
 	 * The algorithm that was used to sign the token.
 	 */
 	protected SignatureAlgorithm signatureAlgorithm;
-	protected SignatureAlgorithm altsignatureAlgorithm;
+	protected SignatureAlgorithm altSignatureAlgorithm;
 
 	/**
 	 * Default constructor instantiating object with null values
@@ -116,6 +120,8 @@ public abstract class Token implements IdentifierBasedObject, Serializable {
 		return false;
 	}
 
+	public abstract boolean isCertificateHybrid();
+
 	/**
 	 * Returns a DSS unique token identifier.
 	 * 
@@ -152,9 +158,17 @@ public abstract class Token implements IdentifierBasedObject, Serializable {
 	 *              the candidate to be tested
 	 * @return true if this token is signed by the given certificate token
 	 */
-	public synchronized boolean isSignedBy(CertificateToken token) { // TODO look at this
+	public synchronized boolean isSignedBy(CertificateToken token) {
+		if(this.isCertificateHybrid() && !token.isCertificateHybrid()){
+			return false;
+		}
+		if (this.isCertificateHybrid() && token.isCertificateHybrid()){
+			return isSignedBy(token.getPublicKey()) && isSignedBy(token.getAltPublicKey(), true);
+		}
 		return isSignedBy(token.getPublicKey());
-	} // TODO look at this
+	}
+
+
 
 	/**
 	 * Checks if the OCSP token is signed by the given publicKey
@@ -175,6 +189,21 @@ public abstract class Token implements IdentifierBasedObject, Serializable {
 		return false;
 	}
 
+	public synchronized boolean isSignedBy(final PublicKey publicKey, boolean isAltKey) {
+		if(!isAltKey){
+			return isSignedBy(publicKey);
+		}
+		if (altPublicKeyOfTheSigner != null) {
+			return altPublicKeyOfTheSigner.equals(publicKey);
+		} else if (SignatureValidity.VALID == checkIsSignedBy(publicKey, isAltKey)) {
+			if (!isSelfSigned()) {
+				this.altPublicKeyOfTheSigner = publicKey;
+			}
+			return true;
+		}
+		return false;
+	}
+
 	/**
 	 * Verifies if the current token has been signed by the specified publicKey
 	 * @param publicKey {@link PublicKey} of a signing candidate
@@ -182,6 +211,15 @@ public abstract class Token implements IdentifierBasedObject, Serializable {
 	 * @return {@link SignatureValidity}
 	 */
 	protected abstract SignatureValidity checkIsSignedBy(final PublicKey publicKey);
+
+	/**
+	 * Verifies if the current token has been signed by the specified publicKey
+	 * @param publicKey {@link PublicKey} of a signing candidate
+	 * @param isAltKey whether public key belongs to alt signature
+	 *
+	 * @return {@link SignatureValidity}
+	 */
+	protected abstract SignatureValidity checkIsSignedBy(final PublicKey publicKey, boolean isAltKey);
 
 	/**
 	 * Returns the {@code X500Principal} of the certificate which was used to sign
@@ -220,7 +258,17 @@ public abstract class Token implements IdentifierBasedObject, Serializable {
 	 */
 	public SignatureAlgorithm getSignatureAlgorithm() {
 		return signatureAlgorithm;
-	} // TODO look at this
+	}
+
+	/**
+	 * Returns the alt algorithm that was used to sign the token (ex:
+	 * SHA1WithRSAEncryption, SHA1withRSA...).
+	 *
+	 * @return the used alt signature algorithm to sign this token
+	 */
+	public SignatureAlgorithm getAltSignatureAlgorithm() {
+		return altSignatureAlgorithm;
+	}
 
 	/**
 	 * Indicates if the token's signature is intact.
@@ -234,7 +282,21 @@ public abstract class Token implements IdentifierBasedObject, Serializable {
 	 */
 	public boolean isSignatureIntact() {
 		return SignatureValidity.VALID == signatureValidity;
-	} // TODO look at this
+	}
+
+	/**
+	 * Indicates if the token's alt signature is intact.
+	 * NOTE: The method isSignedBy(CertificateToken) must be called to set this flag.
+	 *       Return false if the check isSignedBy() was not performed or
+	 *       the signer's public key does not much.
+	 *       In order to check if the validation has been performed, use
+	 *       the method getAltSignatureValidity() that returns a three-state value.
+	 *
+	 * @return whether the token's alt signature is intact
+	 */
+	public boolean isAltSignatureIntact() {
+		return SignatureValidity.VALID == altSignatureValidity;
+	}
 
 	/**
 	 * Indicates if the token's signature is intact and the token is valid (e.g. token's structure, message-imprint, etc.).
@@ -243,7 +305,12 @@ public abstract class Token implements IdentifierBasedObject, Serializable {
 	 * @return {@code true} if the conditions corresponding to the token validity are met
 	 */
 	public boolean isValid() {
-		return isSignatureIntact();
+		if (altSignatureValidity == SignatureValidity.NOT_EVALUATED) {
+			return isSignatureIntact();
+		}
+		else{
+			return isSignatureIntact() && isAltSignatureIntact();
+		}
 	}
 	
 	/**
@@ -254,7 +321,17 @@ public abstract class Token implements IdentifierBasedObject, Serializable {
 	 */
 	public SignatureValidity getSignatureValidity() {
 		return signatureValidity;
-	} // TODO look at this
+	}
+
+	/**
+	 * Indicates a status of the token's alt signature validity. For each kind of token the
+	 * method isSignedBy(CertificateToken) must be called to set this flag.
+	 *
+	 * @return {@link SignatureValidity}
+	 */
+	public SignatureValidity getAltSignatureValidity() {
+		return altSignatureValidity;
+	}
 
 	/**
 	 * Returns the token invalidity reason when applicable.
@@ -264,8 +341,17 @@ public abstract class Token implements IdentifierBasedObject, Serializable {
 	 */
 	public String getInvalidityReason() {
 		return signatureInvalidityReason;
-	} // TODO look at this
+	}
 
+	/**
+	 * Returns the token invalidity reason when applicable.
+	 * NOTE: method isSignedBy(CertificateToken) shall be called before.
+	 *
+	 * @return {@link String} containing the reason of token invalidity, empty string when token is valid
+	 */
+	public String getAltInvalidityReason() {
+		return altSignatureInvalidityReason;
+	}
 	/**
 	 * This method returns the public key of the token signer
 	 * 
@@ -273,7 +359,16 @@ public abstract class Token implements IdentifierBasedObject, Serializable {
 	 */
 	public PublicKey getPublicKeyOfTheSigner() {
 		return publicKeyOfTheSigner;
-	} // TODO look at this
+	}
+
+	/**
+	 * This method returns the alt public key of the token signer
+	 *
+	 * @return the alt public key which signed this token
+	 */
+	public PublicKey getAltPublicKeyOfTheSigner() {
+		return altPublicKeyOfTheSigner;
+	}
 
 	/**
 	 * Returns a string representation of the token.

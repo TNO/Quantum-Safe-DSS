@@ -32,7 +32,7 @@ import java.util.List;
  * Checks signature integrity among a provided list of signing certificate candidates
  *
  */
-public abstract class SignatureIntegrityValidator {
+public abstract class SignatureIntegrityValidator { // CHANGE
 
 	private static final Logger LOG = LoggerFactory.getLogger(SignatureIntegrityValidator.class);
 
@@ -126,7 +126,8 @@ public abstract class SignatureIntegrityValidator {
 			LOG.debug("Public key matching the signature value found.");
 			return true;
 		} else {
-			return false;
+			PublicKey k = certificateValidity.getCertificateToken().getAltPublicKey();
+			return verify(k);
 		}
 	}
 	

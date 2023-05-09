@@ -24,7 +24,7 @@ import eu.europa.esig.dss.enumerations.DigestAlgorithm;
 import eu.europa.esig.dss.enumerations.EncryptionAlgorithm;
 import eu.europa.esig.dss.enumerations.MaskGenerationFunction;
 import eu.europa.esig.dss.enumerations.SignatureAlgorithm;
-import eu.europa.esig.dss.enumerations.SignatureLevel;
+import eu.europa.esig.dss.enumerations.SignatureLevel; // DONE
 import eu.europa.esig.dss.enumerations.SignaturePackaging;
 
 import java.util.Objects;
@@ -35,24 +35,27 @@ import java.util.Objects;
  * @param <TP> implementation of {@code SerializableTimestampParameters}
  */
 @SuppressWarnings("serial")
-public abstract class AbstractSerializableSignatureParameters<TP extends SerializableTimestampParameters> implements SerializableSignatureParameters {
-
+public abstract class AbstractSerializableSignatureParameters<TP extends SerializableTimestampParameters>
+		implements SerializableSignatureParameters {
 	/**
-	 * This variable indicates if it is possible to sign with an expired certificate.
+	 * This variable indicates if it is possible to sign with an expired
+	 * certificate.
 	 *
 	 * Default : false
 	 */
 	private boolean signWithExpiredCertificate = false;
 
 	/**
-	 * This variable indicates if it is possible to sign with a not yet valid certificate.
+	 * This variable indicates if it is possible to sign with a not yet valid
+	 * certificate.
 	 *
 	 * Default : false
 	 */
 	private boolean signWithNotYetValidCertificate = false;
 
 	/**
-	 * This variable indicates whether a signing certificate revocation shall be checked.
+	 * This variable indicates whether a signing certificate revocation shall be
+	 * checked.
 	 *
 	 * Default : false
 	 */
@@ -77,19 +80,35 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 	private SignaturePackaging signaturePackaging;
 
 	/**
-	 * XAdES: The ds:SignatureMethod indicates the algorithms used to sign ds:SignedInfo.
+	 * XAdES: The ds:SignatureMethod indicates the algorithms used to sign
+	 * ds:SignedInfo.
 	 */
 	private SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.RSA_SHA256;
 
 	/**
-	 * The encryption algorithm shall be automatically extracted from the signing token.
+	 * XAdES: The ds:SignatureMethod indicates the algorithms used to sign
+	 * ds:SignedInfo.
+	 */
+	private SignatureAlgorithm altSignatureAlgorithm = null;
+
+	/**
+	 * The encryption algorithm shall be automatically extracted from the signing
+	 * token.
 	 */
 	private EncryptionAlgorithm encryptionAlgorithm = signatureAlgorithm.getEncryptionAlgorithm();
+
+	/**
+	 * The encryption algorithm shall be automatically extracted from the signing
+	 * token.
+	 */
+	private EncryptionAlgorithm altEncryptionAlgorithm = null;
 
 	/**
 	 * XAdES: The digest algorithm used to hash ds:SignedInfo.
 	 */
 	private DigestAlgorithm digestAlgorithm = signatureAlgorithm.getDigestAlgorithm();
+
+	private DigestAlgorithm altDigestAlgorithm = signatureAlgorithm.getDigestAlgorithm();
 
 	/**
 	 * XAdES: The digest algorithm used to hash ds:Reference.
@@ -101,23 +120,28 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 	 */
 	private MaskGenerationFunction maskGenerationFunction = signatureAlgorithm.getMaskGenerationFunction();
 
+	private MaskGenerationFunction altMaskGenerationFunction = null;
+
 	/**
 	 * The object representing the parameters related to B- level.
 	 */
 	private BLevelParameters bLevelParams = new BLevelParameters();
 
 	/**
-	 * The object representing the parameters related to the content timestamp (Baseline-B)
+	 * The object representing the parameters related to the content timestamp
+	 * (Baseline-B)
 	 */
 	protected TP contentTimestampParameters;
 
 	/**
-	 * The object representing the parameters related to the signature timestamp (Baseline-T)
+	 * The object representing the parameters related to the signature timestamp
+	 * (Baseline-T)
 	 */
 	protected TP signatureTimestampParameters;
 
 	/**
-	 * The object representing the parameters related to the archive timestamp (Baseline-LTA)
+	 * The object representing the parameters related to the archive timestamp
+	 * (Baseline-LTA)
 	 */
 	protected TP archiveTimestampParameters;
 
@@ -134,13 +158,15 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 	}
 
 	/**
-	 * Allows to change the default behavior regarding the use of an expired certificate
+	 * Allows to change the default behavior regarding the use of an expired
+	 * certificate
 	 * on signature creation or T-level extension.
 	 *
 	 * Default : false (forbid signing with an expired signing certificate)
 	 *
 	 * @param signWithExpiredCertificate
-	 *            true if signature with an expired certificate is allowed
+	 *                                   true if signature with an expired
+	 *                                   certificate is allowed
 	 */
 	public void setSignWithExpiredCertificate(boolean signWithExpiredCertificate) {
 		this.signWithExpiredCertificate = signWithExpiredCertificate;
@@ -152,13 +178,15 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 	}
 
 	/**
-	 * Allows to change the default behavior regarding the use of a not yet valid certificate
+	 * Allows to change the default behavior regarding the use of a not yet valid
+	 * certificate
 	 * on signature creation or T-level extension.
 	 *
 	 * Default : false (forbid signing with a not yet valid signing certificate)
 	 *
 	 * @param signWithNotYetValidCertificate
-	 *            true if signature with a not yet valid certificate is allowed
+	 *                                       true if signature with a not yet valid
+	 *                                       certificate is allowed
 	 */
 	public void setSignWithNotYetValidCertificate(boolean signWithNotYetValidCertificate) {
 		this.signWithNotYetValidCertificate = signWithNotYetValidCertificate;
@@ -170,25 +198,32 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 	}
 
 	/**
-	 * Allows setting whether a revocation status for a signing certificate should be checked
+	 * Allows setting whether a revocation status for a signing certificate should
+	 * be checked
 	 * on signature creation or T-level extension.
 	 *
-	 * NOTE: in order to specify a behavior for this check, the relevant alerts should be specified within
-	 * a {@code CertificateVerifier} instance, used in a service for signing/extension
+	 * NOTE: in order to specify a behavior for this check, the relevant alerts
+	 * should be specified within
+	 * a {@code CertificateVerifier} instance, used in a service for
+	 * signing/extension
 	 *
-	 * Default : false (do not perform revocation data check on signature creation/T-level extension)
+	 * Default : false (do not perform revocation data check on signature
+	 * creation/T-level extension)
 	 *
-	 * @param checkCertificateRevocation indicated if a certificate revocation check shall be performed
+	 * @param checkCertificateRevocation indicated if a certificate revocation check
+	 *                                   shall be performed
 	 */
 	public void setCheckCertificateRevocation(boolean checkCertificateRevocation) {
 		this.checkCertificateRevocation = checkCertificateRevocation;
 	}
 
 	/**
-	 * Indicates if it is possible to generate ToBeSigned data without the signing certificate.
+	 * Indicates if it is possible to generate ToBeSigned data without the signing
+	 * certificate.
 	 * The default values is false.
 	 *
-	 * @return true if signing certificate is not required when generating ToBeSigned data.
+	 * @return true if signing certificate is not required when generating
+	 *         ToBeSigned data.
 	 */
 	@Override
 	public boolean isGenerateTBSWithoutCertificate() {
@@ -196,11 +231,14 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 	}
 
 	/**
-	 * Allows to change the default behaviour regarding the requirements of signing certificate
+	 * Allows to change the default behaviour regarding the requirements of signing
+	 * certificate
 	 * to generate ToBeSigned data.
 	 *
 	 * @param generateTBSWithoutCertificate
-	 *            true if it should be possible to generate ToBeSigned data without certificate.
+	 *                                      true if it should be possible to
+	 *                                      generate ToBeSigned data without
+	 *                                      certificate.
 	 */
 	public void setGenerateTBSWithoutCertificate(final boolean generateTBSWithoutCertificate) {
 		this.generateTBSWithoutCertificate = generateTBSWithoutCertificate;
@@ -219,7 +257,7 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 	 * Set signature level. This field cannot be null.
 	 *
 	 * @param signatureLevel
-	 *            the expected signature level
+	 *                       the expected signature level
 	 */
 	public void setSignatureLevel(final SignatureLevel signatureLevel) {
 		Objects.requireNonNull(signatureLevel, "Signature Level cannot be null");
@@ -239,7 +277,7 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 	 * Set Signature packaging
 	 *
 	 * @param signaturePackaging
-	 *            the expected signature packaging
+	 *                           the expected signature packaging
 	 */
 	public void setSignaturePackaging(final SignaturePackaging signaturePackaging) {
 		this.signaturePackaging = signaturePackaging;
@@ -250,17 +288,37 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 		return digestAlgorithm;
 	}
 
+	public DigestAlgorithm getAltDigestAlgorithm() {
+		return altDigestAlgorithm;
+	}
+
 	/**
 	 * Set the digest algorithm
 	 * 
 	 * @param digestAlgorithm
-	 *            the digest algorithm to set
+	 *                        the digest algorithm to set
 	 */
 	public void setDigestAlgorithm(final DigestAlgorithm digestAlgorithm) {
 		Objects.requireNonNull(digestAlgorithm, "DigestAlgorithm cannot be null!");
 		this.digestAlgorithm = digestAlgorithm;
 		if (this.encryptionAlgorithm != null) {
-			signatureAlgorithm = SignatureAlgorithm.getAlgorithm(this.encryptionAlgorithm, this.digestAlgorithm, this.maskGenerationFunction);
+			signatureAlgorithm = SignatureAlgorithm.getAlgorithm(this.encryptionAlgorithm, this.digestAlgorithm,
+					this.maskGenerationFunction);
+		}
+
+	}
+
+	/**
+	 * Set the alt digest algorithm
+	 *
+	 * @param digestAlgorithm
+	 *                        the alt digest algorithm to set
+	 */
+	public void setAltDigestAlgorithm(final DigestAlgorithm digestAlgorithm) {
+		this.altDigestAlgorithm = digestAlgorithm;
+		if (this.altEncryptionAlgorithm != null) {
+			altSignatureAlgorithm = SignatureAlgorithm.getAlgorithm(this.altEncryptionAlgorithm,
+					this.altDigestAlgorithm, this.altMaskGenerationFunction);
 		}
 	}
 
@@ -272,7 +330,22 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 	public void setMaskGenerationFunction(MaskGenerationFunction maskGenerationFunction) {
 		this.maskGenerationFunction = maskGenerationFunction;
 		if ((this.digestAlgorithm != null) && (this.encryptionAlgorithm != null)) {
-			signatureAlgorithm = SignatureAlgorithm.getAlgorithm(this.encryptionAlgorithm, this.digestAlgorithm, this.maskGenerationFunction);
+			signatureAlgorithm = SignatureAlgorithm.getAlgorithm(this.encryptionAlgorithm, this.digestAlgorithm,
+					this.maskGenerationFunction);
+		}
+	}
+
+	/**
+	 * Sets the alt mask generation function if used with the given
+	 * SignatureAlgorithm
+	 *
+	 * @param maskGenerationFunction {@link MaskGenerationFunction}
+	 */
+	public void setAltMaskGenerationFunction(MaskGenerationFunction maskGenerationFunction) {
+		this.altMaskGenerationFunction = maskGenerationFunction;
+		if ((this.altDigestAlgorithm != null) && (this.altEncryptionAlgorithm != null)) {
+			altSignatureAlgorithm = SignatureAlgorithm.getAlgorithm(this.altEncryptionAlgorithm,
+					this.altDigestAlgorithm, this.altMaskGenerationFunction);
 		}
 	}
 
@@ -281,28 +354,58 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 		return maskGenerationFunction;
 	}
 
+	public MaskGenerationFunction getAltMaskGenerationFunction() {
+		return altMaskGenerationFunction;
+	}
+
 	@Override
 	public EncryptionAlgorithm getEncryptionAlgorithm() {
 		return encryptionAlgorithm;
 	}
 
+	public EncryptionAlgorithm getAltEncryptionAlgorithm() {
+		return altEncryptionAlgorithm;
+	}
+
 	/**
-	 * This setter should be used only when dealing with web services (or when signing in three steps). Usually the
+	 * This setter should be used only when dealing with web services (or when
+	 * signing in three steps). Usually the
 	 * encryption algorithm is automatically extrapolated from the private key.
 	 *
 	 * @param encryptionAlgorithm
-	 *            the encryption algorithm to use
+	 *                            the encryption algorithm to use
 	 */
 	public void setEncryptionAlgorithm(final EncryptionAlgorithm encryptionAlgorithm) {
 		this.encryptionAlgorithm = encryptionAlgorithm;
 		if (this.digestAlgorithm != null) {
-			signatureAlgorithm = SignatureAlgorithm.getAlgorithm(this.encryptionAlgorithm, this.digestAlgorithm, this.maskGenerationFunction);
+			signatureAlgorithm = SignatureAlgorithm.getAlgorithm(this.encryptionAlgorithm, this.digestAlgorithm,
+					this.maskGenerationFunction);
+		}
+	}
+
+	/**
+	 * This setter should be used only when dealing with web services (or when
+	 * signing in three steps). Usually the
+	 * alt encryption algorithm is automatically extrapolated from the private key.
+	 *
+	 * @param altEncryptionAlgorithm
+	 *                               the alt encryption algorithm to use
+	 */
+	public void setAltEncryptionAlgorithm(final EncryptionAlgorithm altEncryptionAlgorithm) {
+		this.altEncryptionAlgorithm = altEncryptionAlgorithm;
+		if (this.altDigestAlgorithm != null) {
+			altSignatureAlgorithm = SignatureAlgorithm.getAlgorithm(this.altEncryptionAlgorithm, this.altDigestAlgorithm,
+					this.altMaskGenerationFunction);
 		}
 	}
 
 	@Override
 	public SignatureAlgorithm getSignatureAlgorithm() {
 		return signatureAlgorithm;
+	}
+
+	public SignatureAlgorithm getAltSignatureAlgorithm() {
+		return altSignatureAlgorithm;
 	}
 
 	/**
@@ -337,7 +440,7 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 	 * Set the Baseline B parameters (signed properties)
 	 * 
 	 * @param bLevelParams
-	 *            the baseline B properties
+	 *                     the baseline B properties
 	 */
 	public void setBLevelParams(BLevelParameters bLevelParams) {
 		Objects.requireNonNull(bLevelParams, "bLevelParams cannot be null!");
@@ -350,14 +453,16 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 	 * @return the parameters to produce a content timestamp
 	 */
 	public TP getContentTimestampParameters() {
-		throw new UnsupportedOperationException("Cannot extract ContentTimestampParameters! Not implemented by default.");
+		throw new UnsupportedOperationException(
+				"Cannot extract ContentTimestampParameters! Not implemented by default.");
 	}
 
 	/**
 	 * Set the parameters to produce the content timestamp (Baseline-B)
 	 * 
 	 * @param contentTimestampParameters
-	 *            the parameters to produce the content timestamp
+	 *                                   the parameters to produce the content
+	 *                                   timestamp
 	 */
 	public void setContentTimestampParameters(TP contentTimestampParameters) {
 		this.contentTimestampParameters = contentTimestampParameters;
@@ -369,14 +474,16 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 	 * @return the parameters to produce a signature timestamp
 	 */
 	public TP getSignatureTimestampParameters() {
-		throw new UnsupportedOperationException("Cannot extract SignatureTimestampParameters! Not implemented by default.");
+		throw new UnsupportedOperationException(
+				"Cannot extract SignatureTimestampParameters! Not implemented by default.");
 	}
 
 	/**
 	 * Set the parameters to produce the signature timestamp (Baseline-T)
 	 * 
 	 * @param signatureTimestampParameters
-	 *            the parameters to produce the signature timestamp
+	 *                                     the parameters to produce the signature
+	 *                                     timestamp
 	 */
 	public void setSignatureTimestampParameters(TP signatureTimestampParameters) {
 		this.signatureTimestampParameters = signatureTimestampParameters;
@@ -388,14 +495,16 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 	 * @return the parameters to produce an archive timestamp
 	 */
 	public TP getArchiveTimestampParameters() {
-		throw new UnsupportedOperationException("Cannot extract ArchiveTimestampParameters! Not implemented by default.");
+		throw new UnsupportedOperationException(
+				"Cannot extract ArchiveTimestampParameters! Not implemented by default.");
 	}
 
 	/**
 	 * Set the parameters to produce the archive timestamp (Baseline-LTA)
 	 * 
 	 * @param archiveTimestampParameters
-	 *            the parameters to produce the archive timestamp
+	 *                                   the parameters to produce the archive
+	 *                                   timestamp
 	 */
 	public void setArchiveTimestampParameters(TP archiveTimestampParameters) {
 		this.archiveTimestampParameters = archiveTimestampParameters;
@@ -403,11 +512,17 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 
 	@Override
 	public String toString() {
-		return "AbstractSerializableSignatureParameters [signWithExpiredCertificate=" + signWithExpiredCertificate + ", generateTBSWithoutCertificate="
-				+ generateTBSWithoutCertificate + ", signatureLevel=" + signatureLevel + ", signaturePackaging=" + signaturePackaging + ", signatureAlgorithm="
-				+ signatureAlgorithm + ", encryptionAlgorithm=" + encryptionAlgorithm + ", digestAlgorithm=" + digestAlgorithm + ", referenceDigestAlgorithm="
-				+ referenceDigestAlgorithm + ", maskGenerationFunction=" + maskGenerationFunction + ", bLevelParams=" + bLevelParams
-				+ ", contentTimestampParameters=" + contentTimestampParameters + ", signatureTimestampParameters=" + signatureTimestampParameters
+		return "AbstractSerializableSignatureParameters [signWithExpiredCertificate=" + signWithExpiredCertificate
+				+ ", generateTBSWithoutCertificate="
+				+ generateTBSWithoutCertificate + ", signatureLevel=" + signatureLevel + ", signaturePackaging="
+				+ signaturePackaging + ", signatureAlgorithm="
+				+ signatureAlgorithm + ", altSignatureAlgorithm=" + altSignatureAlgorithm + ", encryptionAlgorithm="
+				+ encryptionAlgorithm + ", altEncryptionAlgorithm=" + altEncryptionAlgorithm + ", digestAlgorithm="
+				+ digestAlgorithm + ", referenceDigestAlgorithm="
+				+ referenceDigestAlgorithm + ", maskGenerationFunction=" + maskGenerationFunction + ", bLevelParams="
+				+ bLevelParams
+				+ ", contentTimestampParameters=" + contentTimestampParameters + ", signatureTimestampParameters="
+				+ signatureTimestampParameters
 				+ ", archiveTimestampParameters=" + archiveTimestampParameters + "]";
 	}
 
@@ -419,15 +534,20 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 		result = prime * result + ((bLevelParams == null) ? 0 : bLevelParams.hashCode());
 		result = prime * result + ((contentTimestampParameters == null) ? 0 : contentTimestampParameters.hashCode());
 		result = prime * result + ((digestAlgorithm == null) ? 0 : digestAlgorithm.hashCode());
+		result = prime * result + ((altDigestAlgorithm == null) ? 0 : altDigestAlgorithm.hashCode());
 		result = prime * result + ((encryptionAlgorithm == null) ? 0 : encryptionAlgorithm.hashCode());
+		result = prime * result + ((altEncryptionAlgorithm == null) ? 0 : altEncryptionAlgorithm.hashCode());
 		result = prime * result + (generateTBSWithoutCertificate ? 1231 : 1237);
 		result = prime * result + ((maskGenerationFunction == null) ? 0 : maskGenerationFunction.hashCode());
+		result = prime * result + ((altMaskGenerationFunction == null) ? 0 : altMaskGenerationFunction.hashCode());
 		result = prime * result + ((referenceDigestAlgorithm == null) ? 0 : referenceDigestAlgorithm.hashCode());
 		result = prime * result + (signWithExpiredCertificate ? 1231 : 1237);
 		result = prime * result + ((signatureAlgorithm == null) ? 0 : signatureAlgorithm.hashCode());
+		result = prime * result + ((altSignatureAlgorithm == null) ? 0 : altSignatureAlgorithm.hashCode());
 		result = prime * result + ((signatureLevel == null) ? 0 : signatureLevel.hashCode());
 		result = prime * result + ((signaturePackaging == null) ? 0 : signaturePackaging.hashCode());
-		result = prime * result + ((signatureTimestampParameters == null) ? 0 : signatureTimestampParameters.hashCode());
+		result = prime * result
+				+ ((signatureTimestampParameters == null) ? 0 : signatureTimestampParameters.hashCode());
 		return result;
 	}
 
@@ -468,13 +588,22 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 		if (digestAlgorithm != other.digestAlgorithm) {
 			return false;
 		}
+		if (altDigestAlgorithm != other.altDigestAlgorithm) {
+			return false;
+		}
 		if (encryptionAlgorithm != other.encryptionAlgorithm) {
+			return false;
+		}
+		if (altEncryptionAlgorithm != other.altEncryptionAlgorithm) {
 			return false;
 		}
 		if (generateTBSWithoutCertificate != other.generateTBSWithoutCertificate) {
 			return false;
 		}
 		if (maskGenerationFunction != other.maskGenerationFunction) {
+			return false;
+		}
+		if (altMaskGenerationFunction != other.altMaskGenerationFunction) {
 			return false;
 		}
 		if (referenceDigestAlgorithm != other.referenceDigestAlgorithm) {
@@ -484,6 +613,9 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 			return false;
 		}
 		if (signatureAlgorithm != other.signatureAlgorithm) {
+			return false;
+		}
+		if (altSignatureAlgorithm != other.altSignatureAlgorithm) {
 			return false;
 		}
 		if (signatureLevel != other.signatureLevel) {
