@@ -34,18 +34,7 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
     static final String password = "ks-password";
     static KeyStore ks = null;
 
-    private static PAdESSignatureParameters prepareParametersForHybrid(PAdESSignatureParameters parameters) {
-        parameters.setDigestAlgorithm(parameters.getAltDigestAlgorithm());
-        parameters.setMaskGenerationFunction(parameters.getAltMaskGenerationFunction());
-        parameters.setEncryptionAlgorithm(parameters.getAltEncryptionAlgorithm());
-        parameters.setContentSize(12118); // no idea why but whatever
 
-        parameters.setAltDigestAlgorithm(null);
-        parameters.setAltMaskGenerationFunction(null);
-        parameters.setAltEncryptionAlgorithm(null);
-
-        return parameters;
-    }
 
     private static KSPrivateKeyEntry preparePrivateKey() throws KeyStoreException, UnrecoverableKeyException, NoSuchAlgorithmException {
         PrivateKey privateKey = (PrivateKey) ks.getKey("hybrid-good-user", password.toCharArray());
@@ -92,7 +81,7 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
         SignedDocumentValidator validator = SignedDocumentValidator.fromDocument(signedDocument);
         validator.setCertificateVerifier(getOfflineCertificateVerifier());
 
-        params = prepareParametersForHybrid(params);
+        params.prepareParametersForHybrid();
 
         dataToSign = service.getDataToSign(signedDocument, params);
         SignatureValue altSignatureValue = getToken().sign(dataToSign, params.getDigestAlgorithm(), altKSPrivateKey);
@@ -147,7 +136,7 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
         SignedDocumentValidator validator = SignedDocumentValidator.fromDocument(signedDocument);
         validator.setCertificateVerifier(getOfflineCertificateVerifier());
 
-        params = prepareParametersForHybrid(params);
+        params.prepareParametersForHybrid();
 
         dataToSign = service.getDataToSign(signedDocument, params);
         SignatureValue altSignatureValue = getToken().sign(dataToSign, params.getDigestAlgorithm(), altKSPrivateKey);
@@ -202,7 +191,7 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
         SignedDocumentValidator validator = SignedDocumentValidator.fromDocument(signedDocument);
         validator.setCertificateVerifier(getOfflineCertificateVerifier());
 
-        params = prepareParametersForHybrid(params);
+        params.prepareParametersForHybrid();
 
         dataToSign = service.getDataToSign(signedDocument, params);
         SignatureValue altSignatureValue = getToken().sign(dataToSign, params.getDigestAlgorithm(), altKSPrivateKey);
