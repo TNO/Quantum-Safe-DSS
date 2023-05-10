@@ -38,6 +38,7 @@ import org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi;
 import org.bouncycastle.operator.ContentVerifierProvider;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.jcajce.JcaContentVerifierProviderBuilder;
+import org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider;
 import org.bouncycastle.pqc.jcajce.provider.bike.BIKEKeyFactorySpi;
 import org.bouncycastle.pqc.jcajce.provider.dilithium.DilithiumKeyFactorySpi;
 import org.bouncycastle.pqc.jcajce.provider.falcon.FalconKeyFactorySpi;
@@ -129,7 +130,14 @@ public class CertificateToken extends Token {
                 this.altSignatureValue = deriveAltSignatureValue();
 
                 this.altEntityKey = new EntityIdentifier(getAltPublicKey());
-                this.contentVerifierProvider = new JcaContentVerifierProviderBuilder().build(getSubjectAltPublicKey());
+                SubjectPublicKeyInfo subjectPublicKeyInfo = getSubjectAltPublicKey();
+
+                if(isECDSA(subjectPublicKeyInfo.getAlgorithm().getAlgorithm()) || isRSA(subjectPublicKeyInfo.getAlgorithm().getAlgorithm())){
+                    this.contentVerifierProvider = new JcaContentVerifierProviderBuilder().build(subjectPublicKeyInfo);
+                }else{
+                    this.contentVerifierProvider = new JcaContentVerifierProviderBuilder().setProvider(new BouncyCastlePQCProvider()).build(subjectPublicKeyInfo);
+
+                }
             }
         } catch (IOException | OperatorCreationException e) {
             e.printStackTrace();
@@ -137,7 +145,7 @@ public class CertificateToken extends Token {
 
     }
 
-    private SignatureAlgorithm fromAltSignatureAlgorithm(){
+    private SignatureAlgorithm fromAltSignatureAlgorithm() {
         return SignatureAlgorithm.forOID(deriveAltSignatureAlgorithm().getAlgorithm().getAlgorithm().getId());
     }
 
@@ -165,10 +173,9 @@ public class CertificateToken extends Token {
         return AltSignatureValue.getInstance(this.x509CertificateHolder.getExtension(Extension.altSignatureValue).getParsedValue());
     }
 
-    public AltSignatureValue getAltSignatureValue(){
+    public AltSignatureValue getAltSignatureValue() {
         return altSignatureValue;
     }
-
 
 
     @Override
@@ -233,7 +240,7 @@ public class CertificateToken extends Token {
         }
     }
 
-    public PublicKey getAltPublicKey(){
+    public PublicKey getAltPublicKey() {
         return altPublicKey;
     }
 
@@ -261,7 +268,7 @@ public class CertificateToken extends Token {
             return new HQCKeyFactorySpi().generatePublic(altPub);
         } else if (isECDSA(algOID)) {
             return new KeyFactorySpi.EC().generatePublic(altPub);
-        }else if (isRSA(algOID)) {
+        } else if (isRSA(algOID)) {
             RSAKeyParameters rsa = (RSAKeyParameters) PublicKeyFactory.createKey(altPub);
             RSAPublicKeySpec rsaSpec = new RSAPublicKeySpec(rsa.getModulus(), rsa.getExponent());
             KeyFactory kf = KeyFactory.getInstance("RSA");
