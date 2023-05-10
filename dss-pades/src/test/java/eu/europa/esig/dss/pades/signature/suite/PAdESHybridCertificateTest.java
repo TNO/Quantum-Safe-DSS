@@ -123,7 +123,6 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
 
     @RepeatedTest(1)
     public void testDoubleHybridSignatureWithECDSAAndRSAKeys() throws IOException, KeyStoreException, CertificateException, NoSuchAlgorithmException, UnrecoverableKeyException {
-        // TODO: generate ECDSA-RSA p12
         DSSDocument toBeSigned = new InMemoryDocument(eu.europa.esig.dss.pades.signature.suite.PAdESDoubleSignatureTest.class.getResourceAsStream("/sample.pdf"));
 
         PAdESService service = new PAdESService(getOfflineCertificateVerifier());

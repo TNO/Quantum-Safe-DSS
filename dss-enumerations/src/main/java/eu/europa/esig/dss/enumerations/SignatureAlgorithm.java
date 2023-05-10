@@ -36,7 +36,6 @@ import java.util.Objects;
  */
 public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 
-	// TODO: add OIDs here
 
 	/** RSA without digest algorithm */
 	RSA_RAW(EncryptionAlgorithm.RSA, null),

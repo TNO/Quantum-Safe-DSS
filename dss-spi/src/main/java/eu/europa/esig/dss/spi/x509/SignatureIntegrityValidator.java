@@ -32,7 +32,7 @@ import java.util.List;
  * Checks signature integrity among a provided list of signing certificate candidates
  *
  */
-public abstract class SignatureIntegrityValidator { // CHANGE
+public abstract class SignatureIntegrityValidator {
 
 	private static final Logger LOG = LoggerFactory.getLogger(SignatureIntegrityValidator.class);
 
