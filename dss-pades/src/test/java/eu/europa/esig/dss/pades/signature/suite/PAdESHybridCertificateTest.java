@@ -77,7 +77,7 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
         params.setSignatureLevel(SignatureLevel.PAdES_BASELINE_T);
 
 
-        X509Certificate cert = prepareCertificate("hybrid-ecdsa-rsa-good-user");
+        X509Certificate cert = prepareCertificate("hybrid-good-user");
         CertificateToken certificateToken = new CertificateToken(cert);
 
         params.setSigningCertificate(certificateToken);
@@ -133,7 +133,7 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
         params.setSignatureLevel(SignatureLevel.PAdES_BASELINE_T);
 
 
-        X509Certificate cert = prepareCertificate("hybrid-good-user");
+        X509Certificate cert = prepareCertificate("hybrid-ecdsa-rsa-good-user");
         CertificateToken certificateToken = new CertificateToken(cert);
 
         params.setSigningCertificate(certificateToken);
