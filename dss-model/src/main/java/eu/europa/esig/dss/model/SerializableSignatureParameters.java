@@ -94,8 +94,7 @@ public interface SerializableSignatureParameters extends Serializable {
 	 *
 	 * @return the alt digest algorithm
 	 */
-	DigestAlgorithm getAltDigestAlgorithm();
-	
+
 	/**
 	 * Returns the mask generation function
 	 * 

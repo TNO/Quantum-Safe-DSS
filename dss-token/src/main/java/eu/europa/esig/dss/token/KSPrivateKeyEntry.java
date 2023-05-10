@@ -49,9 +49,11 @@ public class KSPrivateKeyEntry implements DSSPrivateKeyEntry {
 	/** The private key */
 	private final PrivateKey privateKey;
 
+	private final EncryptionAlgorithm encryptionAlgorithm;
+
 	/**
 	 * The default constructor for KSPrivateKeyEntry.
-	 * 
+	 *
 	 * @param alias
 	 *            the given alias
 	 * @param privateKeyEntry
@@ -68,11 +70,40 @@ public class KSPrivateKeyEntry implements DSSPrivateKeyEntry {
 		final CertificateToken[] certificateChainArray = new CertificateToken[x509CertificateList.size()];
 		certificateChain = x509CertificateList.toArray(certificateChainArray);
 		privateKey = privateKeyEntry.getPrivateKey();
+		this.encryptionAlgorithm = deriveEncryptionAlgorithm();
+	}
+
+	public KSPrivateKeyEntry(final String alias, final PrivateKeyEntry privateKeyEntry, EncryptionAlgorithm encryptionAlgorithm) {
+		this.alias = alias;
+		certificate = new CertificateToken((X509Certificate) privateKeyEntry.getCertificate());
+		final List<CertificateToken> x509CertificateList = new ArrayList<>();
+		final Certificate[] simpleCertificateChain = privateKeyEntry.getCertificateChain();
+		for (final Certificate currentCertificate : simpleCertificateChain) {
+			x509CertificateList.add(new CertificateToken((X509Certificate) currentCertificate));
+		}
+		final CertificateToken[] certificateChainArray = new CertificateToken[x509CertificateList.size()];
+		certificateChain = x509CertificateList.toArray(certificateChainArray);
+		privateKey = privateKeyEntry.getPrivateKey();
+		this.encryptionAlgorithm = encryptionAlgorithm;
+	}
+
+	public KSPrivateKeyEntry(final String alias, final PrivateKey privateKey, final X509Certificate x509Certificate, final Certificate[] certificates, EncryptionAlgorithm encryptionAlgorithm) {
+		this.alias = alias;
+		certificate = new CertificateToken(x509Certificate);
+		this.encryptionAlgorithm = encryptionAlgorithm;
+		final List<CertificateToken> x509CertificateList = new ArrayList<>();
+		final Certificate[] simpleCertificateChain = certificates;
+		for (final Certificate currentCertificate : simpleCertificateChain) {
+			x509CertificateList.add(new CertificateToken((X509Certificate) currentCertificate));
+		}
+		final CertificateToken[] certificateChainArray = new CertificateToken[x509CertificateList.size()];
+		certificateChain = x509CertificateList.toArray(certificateChainArray);
+		this.privateKey = privateKey;
 	}
 
 	/**
 	 * Get the entry alias
-	 * 
+	 *
 	 * @return the alias
 	 */
 	public String getAlias() {
@@ -91,16 +122,20 @@ public class KSPrivateKeyEntry implements DSSPrivateKeyEntry {
 
 	/**
 	 * Get the private key
-	 * 
+	 *
 	 * @return the private key
 	 */
 	public PrivateKey getPrivateKey() {
 		return privateKey;
 	}
 
+	private EncryptionAlgorithm deriveEncryptionAlgorithm() throws DSSException {
+		return EncryptionAlgorithm.forKey(certificate.getPublicKey());
+	}
+
 	@Override
 	public EncryptionAlgorithm getEncryptionAlgorithm() throws DSSException {
-		return EncryptionAlgorithm.forKey(certificate.getPublicKey());
+		return this.encryptionAlgorithm;
 	}
 
 }

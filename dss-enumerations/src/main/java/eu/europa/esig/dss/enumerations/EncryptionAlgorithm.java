@@ -252,7 +252,7 @@ public enum EncryptionAlgorithm implements OidBasedEnum { //TODO add other schem
 		return X25519 == this || X448 == this || EDDSA == this;
 	}
 
-	private boolean isDilithiumFamily(){
+	public boolean isDilithiumFamily(){
 		return DILITHIUM2 == this || DILITHIUM2_AES == this || DILITHIUM3 == this || DILITHIUM3_AES == this || DILITHIUM5 == this || DILITHIUM5_AES == this;
 	}
 
