@@ -23,6 +23,7 @@ package eu.europa.esig.dss.cades.validation;
 import eu.europa.esig.dss.model.DSSException;
 import eu.europa.esig.dss.spi.DSSSecurityProvider;
 import eu.europa.esig.dss.spi.x509.SignatureIntegrityValidator;
+import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.cms.CMSSignerDigestMismatchException;
 import org.bouncycastle.cms.SignerInformation;
 import org.bouncycastle.cms.SignerInformationVerifier;
@@ -64,7 +65,9 @@ public class CAdESSignatureIntegrityValidator extends SignatureIntegrityValidato
 			return signerInformation.verify(signerInformationVerifier);
 		} catch (CMSSignerDigestMismatchException e) {
 			throw new DSSException(String.format("Unable to validate CMS Signature : %s", e.getMessage()));
-		} catch (Exception e) {
+		} catch (CMSException e) {
+			return false;
+		}catch (Exception e) {
 			throw new DSSException(String.format("Unable to validate CMS Signature : %s", e.getMessage()), e);
 		}
 	}

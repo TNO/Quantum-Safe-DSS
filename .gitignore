@@ -3,7 +3,6 @@
 ##############################
 .mtj.tmp/
 *.class
-*.jar
 *.war
 *.ear
 *.nar
@@ -40,6 +39,7 @@ gradle-app.setting
 ##############################
 out/
 .idea/
+.idea/misc.xml
 .idea_modules/
 *.iml
 *.ipr

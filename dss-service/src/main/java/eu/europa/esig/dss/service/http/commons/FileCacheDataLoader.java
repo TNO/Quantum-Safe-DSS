@@ -214,7 +214,7 @@ public class FileCacheDataLoader implements DataLoader, DSSFileLoader {
 	private DSSDocument getDocument(final String url, final boolean refresh) throws DSSException {
 		Objects.requireNonNull(dataLoader, DATA_LOADER_NOT_CONFIGURED);
 
-		// TODO: review
+
 		if ((toBeLoaded != null) && !toBeLoaded.contains(url)) {
 			throw new DSSExternalResourceException(String.format("The toBeLoaded list does not contain URL [%s]!", url));
 		}

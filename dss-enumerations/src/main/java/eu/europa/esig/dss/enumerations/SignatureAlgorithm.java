@@ -36,7 +36,6 @@ import java.util.Objects;
  */
 public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 
-	// TODO: add OIDs here
 
 	/** RSA without digest algorithm */
 	RSA_RAW(EncryptionAlgorithm.RSA, null),
@@ -238,28 +237,28 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 	ED448(EncryptionAlgorithm.EDDSA, DigestAlgorithm.SHAKE256_512),
 
 	/** Dilithium 2 */
-	DILITHIUM2(EncryptionAlgorithm.DILITHIUM2, null),
+	DILITHIUM2(EncryptionAlgorithm.DILITHIUM2, DigestAlgorithm.SHAKE256_512),
 
 	/** Dilithium 2 with AES */
-	DILITHIUM2_AES(EncryptionAlgorithm.DILITHIUM2_AES, null),
+	DILITHIUM2_AES(EncryptionAlgorithm.DILITHIUM2_AES, DigestAlgorithm.SHAKE256_512),
 
 	/** Dilithium 3 */
-	DILITHIUM3(EncryptionAlgorithm.DILITHIUM3, null),
+	DILITHIUM3(EncryptionAlgorithm.DILITHIUM3, DigestAlgorithm.SHAKE256_512),
 
 	/** Dilithium 3 with AES */
-	DILITHIUM3_AES(EncryptionAlgorithm.DILITHIUM3_AES, null),
+	DILITHIUM3_AES(EncryptionAlgorithm.DILITHIUM3_AES, DigestAlgorithm.SHAKE256_512),
 
 	/** Dilithium 5 */
-	DILITHIUM5(EncryptionAlgorithm.DILITHIUM5, null),
+	DILITHIUM5(EncryptionAlgorithm.DILITHIUM5, DigestAlgorithm.SHAKE256_512),
 
 	/**Dilithium 5 with AES */
-	DILITHIUM5_AES(EncryptionAlgorithm.DILITHIUM5_AES, null),
+	DILITHIUM5_AES(EncryptionAlgorithm.DILITHIUM5_AES, DigestAlgorithm.SHAKE256_512),
 
 	/** Falcon 512 */
-	FALCON_512(EncryptionAlgorithm.FALCON_512, null),
+	FALCON_512(EncryptionAlgorithm.FALCON_512, DigestAlgorithm.SHAKE256_512),
 
 	/** Falcon 1024 */
-	FALCON_1024(EncryptionAlgorithm.FALCON_1024, null);
+	FALCON_1024(EncryptionAlgorithm.FALCON_1024, DigestAlgorithm.SHAKE256_512);
 
 	/** The encryption algorithm */
 	private final EncryptionAlgorithm encryptionAlgo;
@@ -435,6 +434,16 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 		oidAlgorithms.put("2.16.840.1.101.3.4.2.16", HMAC_SHA3_512);
 
 		oidAlgorithms.put("1.2.840.113549.1.1.10", RSA_SSA_PSS_SHA1_MGF1);
+
+		oidAlgorithms.put("1.3.6.1.4.1.2.267.7.4.4", DILITHIUM2);
+		oidAlgorithms.put("1.3.6.1.4.1.2.267.11.4.4", DILITHIUM2_AES);
+		oidAlgorithms.put("1.3.6.1.4.1.2.267.7.6.5", DILITHIUM3);
+		oidAlgorithms.put("1.3.6.1.4.1.2.267.11.6.5", DILITHIUM3_AES);
+		oidAlgorithms.put("1.3.6.1.4.1.2.267.7.8.7", DILITHIUM5);
+		oidAlgorithms.put("1.3.6.1.4.1.2.267.11.8.7", DILITHIUM5_AES);
+
+		oidAlgorithms.put("1.3.9999.3.1", FALCON_512);
+		oidAlgorithms.put("1.3.9999.3.4", FALCON_1024);
 
 		return oidAlgorithms;
 	}

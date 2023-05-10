@@ -1,5 +1,0 @@
-eu\europa\esig\dss\ws\signature\soap\SoapExternalCMSServiceImpl.class
-eu\europa\esig\dss\ws\signature\soap\SoapDocumentSignatureServiceImpl.class
-eu\europa\esig\dss\ws\signature\soap\SoapMultipleDocumentsSignatureServiceImpl.class
-eu\europa\esig\dss\ws\signature\soap\SoapPAdESWithExternalCMSServiceImpl.class
-eu\europa\esig\dss\ws\signature\soap\SoapTrustedListSignatureServiceImpl.class

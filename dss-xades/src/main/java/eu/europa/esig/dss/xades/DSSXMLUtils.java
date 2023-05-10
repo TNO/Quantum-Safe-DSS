@@ -667,7 +667,7 @@ public final class DSSXMLUtils {
 		case Node.DOCUMENT_NODE:
 			byte[] bytes = serializeNode(node);
 			String str = new String(bytes);
-			// TODO: better
+
 			// remove <?xml version="1.0" encoding="UTF-8"?>
 			if (str.startsWith("<?")) {
 				str = str.substring(str.indexOf("?>") + 2);

@@ -32,10 +32,13 @@ import org.bouncycastle.asn1.bc.BCObjectIdentifiers;
 import org.bouncycastle.asn1.x509.*;
 import org.bouncycastle.cert.CertException;
 import org.bouncycastle.cert.X509CertificateHolder;
+import org.bouncycastle.crypto.params.RSAKeyParameters;
+import org.bouncycastle.crypto.util.PublicKeyFactory;
 import org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi;
 import org.bouncycastle.operator.ContentVerifierProvider;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.jcajce.JcaContentVerifierProviderBuilder;
+import org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider;
 import org.bouncycastle.pqc.jcajce.provider.bike.BIKEKeyFactorySpi;
 import org.bouncycastle.pqc.jcajce.provider.dilithium.DilithiumKeyFactorySpi;
 import org.bouncycastle.pqc.jcajce.provider.falcon.FalconKeyFactorySpi;
@@ -49,6 +52,7 @@ import org.bouncycastle.pqc.jcajce.provider.sphincsplus.SPHINCSPlusKeyFactorySpi
 import javax.security.auth.x500.X500Principal;
 import java.io.IOException;
 import java.math.BigInteger;
+import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.PublicKey;
@@ -57,6 +61,7 @@ import java.security.cert.CertificateExpiredException;
 import java.security.cert.CertificateNotYetValidException;
 import java.security.cert.X509Certificate;
 import java.security.spec.InvalidKeySpecException;
+import java.security.spec.RSAPublicKeySpec;
 import java.util.*;
 
 /**
@@ -125,7 +130,14 @@ public class CertificateToken extends Token {
                 this.altSignatureValue = deriveAltSignatureValue();
 
                 this.altEntityKey = new EntityIdentifier(getAltPublicKey());
-                this.contentVerifierProvider = new JcaContentVerifierProviderBuilder().build(getSubjectAltPublicKey());
+                SubjectPublicKeyInfo subjectPublicKeyInfo = getSubjectAltPublicKey();
+
+                if(isECDSA(subjectPublicKeyInfo.getAlgorithm().getAlgorithm()) || isRSA(subjectPublicKeyInfo.getAlgorithm().getAlgorithm())){
+                    this.contentVerifierProvider = new JcaContentVerifierProviderBuilder().build(subjectPublicKeyInfo);
+                }else{
+                    this.contentVerifierProvider = new JcaContentVerifierProviderBuilder().setProvider(new BouncyCastlePQCProvider()).build(subjectPublicKeyInfo);
+
+                }
             }
         } catch (IOException | OperatorCreationException e) {
             e.printStackTrace();
@@ -133,7 +145,7 @@ public class CertificateToken extends Token {
 
     }
 
-    private SignatureAlgorithm fromAltSignatureAlgorithm(){
+    private SignatureAlgorithm fromAltSignatureAlgorithm() {
         return SignatureAlgorithm.forOID(deriveAltSignatureAlgorithm().getAlgorithm().getAlgorithm().getId());
     }
 
@@ -161,10 +173,9 @@ public class CertificateToken extends Token {
         return AltSignatureValue.getInstance(this.x509CertificateHolder.getExtension(Extension.altSignatureValue).getParsedValue());
     }
 
-    public AltSignatureValue getAltSignatureValue(){
+    public AltSignatureValue getAltSignatureValue() {
         return altSignatureValue;
     }
-
 
 
     @Override
@@ -229,7 +240,7 @@ public class CertificateToken extends Token {
         }
     }
 
-    public PublicKey getAltPublicKey(){
+    public PublicKey getAltPublicKey() {
         return altPublicKey;
     }
 
@@ -257,6 +268,11 @@ public class CertificateToken extends Token {
             return new HQCKeyFactorySpi().generatePublic(altPub);
         } else if (isECDSA(algOID)) {
             return new KeyFactorySpi.EC().generatePublic(altPub);
+        } else if (isRSA(algOID)) {
+            RSAKeyParameters rsa = (RSAKeyParameters) PublicKeyFactory.createKey(altPub);
+            RSAPublicKeySpec rsaSpec = new RSAPublicKeySpec(rsa.getModulus(), rsa.getExponent());
+            KeyFactory kf = KeyFactory.getInstance("RSA");
+            return kf.generatePublic(rsaSpec);
         } else {
             throw new IOException("cannot find algorithm with oid " + altPub.getAlgorithm().getAlgorithm());
         }
@@ -266,6 +282,11 @@ public class CertificateToken extends Token {
     private boolean isECDSA(ASN1ObjectIdentifier algOID) {
         return algOID.toString().equals("1.2.840.10045.2.1");
     }
+
+    private boolean isRSA(ASN1ObjectIdentifier algOID) {
+        return algOID.toString().equals("1.2.840.113549.1.1.1");
+    }
+
 
     private boolean isDilithium(ASN1ObjectIdentifier algOID) {
         return algOID.equals(BCObjectIdentifiers.dilithium2) || algOID.equals(BCObjectIdentifiers.dilithium3) || algOID.equals(BCObjectIdentifiers.dilithium5) || algOID.equals(BCObjectIdentifiers.dilithium) || algOID.equals(BCObjectIdentifiers.dilithium2_aes) || algOID.equals(BCObjectIdentifiers.dilithium3_aes) || algOID.equals(BCObjectIdentifiers.dilithium5_aes);
