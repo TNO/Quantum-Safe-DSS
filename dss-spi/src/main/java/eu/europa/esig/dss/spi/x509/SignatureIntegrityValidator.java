@@ -119,13 +119,21 @@ public abstract class SignatureIntegrityValidator {
 		
 		return bestCertificateValidity;
 	}
-	
+
+	/**
+	 * Changed from original. Verifies (alt-) signature. If the verification of signature using the primary public key
+	 * failed, try to verify the alt public key. If none of these successfully verify, signature is not intact.
+	 *
+	 * @param certificateValidity Object that encodes certificate of which we want to check its signature validity
+	 * @return whether signatuew was valid
+	 */
 	private boolean isSignatureIntact(CertificateValidity certificateValidity) {
 		final PublicKey publicKey = certificateValidity.getPublicKey();
 		if (verify(publicKey)) {
 			LOG.debug("Public key matching the signature value found.");
 			return true;
 		} else {
+			// try alt public key
 			PublicKey k = certificateValidity.getCertificateToken().getAltPublicKey();
 			return verify(k);
 		}
