@@ -42,7 +42,7 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
 
     // Default password for the local keystores used in this test.
     static final String password = "ks-password";
-    // Allow keystore to be accessed in any method in the test.
+    // Allow keystore to be accessed in any method in the test (no need to pass it between functions).
     static KeyStore ks = null;
 
 
@@ -146,6 +146,7 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
         SignatureValue altSignatureValue = getToken().sign(dataToSign, params.getDigestAlgorithm(), altKSPrivateKey);
         DSSDocument doubleSignedDocument = service.signDocument(signedDocument, params, altSignatureValue);
 
+        // Object to validate the signed document
         SignedDocumentValidator validator = SignedDocumentValidator.fromDocument(doubleSignedDocument);
         validator.setCertificateVerifier(getOfflineCertificateVerifier());
 
