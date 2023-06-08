@@ -13,19 +13,28 @@ import eu.europa.esig.dss.pades.SignatureFieldParameters;
 import eu.europa.esig.dss.pades.SignatureImageParameters;
 import eu.europa.esig.dss.pades.signature.PAdESService;
 import eu.europa.esig.dss.pades.validation.suite.AbstractPAdESTestValidation;
+import eu.europa.esig.dss.spi.x509.CommonTrustedCertificateSource;
+import eu.europa.esig.dss.spi.x509.KeyStoreCertificateSource;
 import eu.europa.esig.dss.token.KSPrivateKeyEntry;
+import eu.europa.esig.dss.validation.CertificateVerifier;
+import eu.europa.esig.dss.validation.CommonCertificateVerifier;
 import eu.europa.esig.dss.validation.SignedDocumentValidator;
 import eu.europa.esig.dss.validation.reports.Reports;
+import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.security.*;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -117,11 +126,20 @@ public class PAdESHybridVisibleSignaturesTest extends AbstractPAdESTestValidatio
         signatureParameters.setSignatureLevel(SignatureLevel.PAdES_BASELINE_B);
 
         // This PAdESService object creates and extends PAdES signatures
-        service = new PAdESService(getCompleteCertificateVerifier());
-        service.setTspSource(getGoodTsa());
-
+        service = new PAdESService(getSelfSignedCertificateVerifier());
         // Visible signature stamp image
         image = new InMemoryDocument(getClass().getResourceAsStream("/small-red.jpg"), "small-red.jpg", MimeTypeEnum.JPEG);
+    }
+
+    protected CertificateVerifier getSelfSignedCertificateVerifier() throws IOException {
+        CertificateVerifier cv = new CommonCertificateVerifier();
+        cv.setAIASource(null);
+
+        CommonTrustedCertificateSource trusted = new CommonTrustedCertificateSource();
+        trusted.importAsTrusted(new KeyStoreCertificateSource(new ByteArrayInputStream(IOUtils.toByteArray(Objects.requireNonNull(getClass().getResourceAsStream("/self-signed.jks")))), "JKS", password));
+
+        cv.setTrustedCertSources(getTrustedCertificateSource());
+        return cv;
     }
 
     /**
@@ -166,6 +184,8 @@ public class PAdESHybridVisibleSignaturesTest extends AbstractPAdESTestValidatio
 
         // documentSign cannot be null
         assertNotNull(documentToSign);
+
+        documentToSign.save("/home/joao/visible.pdf");
     }
 
     /**

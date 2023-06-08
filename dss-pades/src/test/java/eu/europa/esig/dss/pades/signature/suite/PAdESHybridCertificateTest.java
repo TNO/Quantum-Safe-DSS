@@ -12,14 +12,20 @@ import eu.europa.esig.dss.model.ToBeSigned;
 import eu.europa.esig.dss.model.x509.CertificateToken;
 import eu.europa.esig.dss.pades.PAdESSignatureParameters;
 import eu.europa.esig.dss.pades.signature.PAdESService;
+import eu.europa.esig.dss.spi.x509.CommonTrustedCertificateSource;
+import eu.europa.esig.dss.spi.x509.KeyStoreCertificateSource;
 import eu.europa.esig.dss.test.PKIFactoryAccess;
 import eu.europa.esig.dss.token.KSPrivateKeyEntry;
 import eu.europa.esig.dss.utils.Utils;
+import eu.europa.esig.dss.validation.CertificateVerifier;
+import eu.europa.esig.dss.validation.CommonCertificateVerifier;
 import eu.europa.esig.dss.validation.SignedDocumentValidator;
 import eu.europa.esig.dss.validation.reports.Reports;
+import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.*;
@@ -112,12 +118,12 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
         DSSDocument toBeSigned = new InMemoryDocument(eu.europa.esig.dss.pades.signature.suite.PAdESDoubleSignatureTest.class.getResourceAsStream("/sample.pdf"));
 
         // This PAdESService object creates and extends PAdES signatures
-        PAdESService service = new PAdESService(getOfflineCertificateVerifier());
-        service.setTspSource(getGoodTsa());
+        PAdESService service = new PAdESService(getSelfSignedCertificateVerifier());
+//        service.setTspSource(getGoodTsa());
 
         // Parameters for the PAdES signature, which includes things like (alt-)signature algorithm and (if visible) position in page
         PAdESSignatureParameters params = new PAdESSignatureParameters();
-        params.setSignatureLevel(SignatureLevel.PAdES_BASELINE_T);
+        params.setSignatureLevel(SignatureLevel.PAdES_BASELINE_B);
 
         // Get our signing certificate and encode it into yet another object, CertificateToken
         X509Certificate cert = prepareCertificate(name);
@@ -168,6 +174,8 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
         SignatureWrapper signatureOne = diagnosticData.getSignatures().get(0);
         SignatureWrapper signatureTwo = diagnosticData.getSignatures().get(1);
         assertFalse(Arrays.equals(signatureOne.getSignatureDigestReference().getDigestValue(), signatureTwo.getSignatureDigestReference().getDigestValue()));
+        doubleSignedDocument.save("/home/joao/test.pdf");
+
     }
 
     /**
@@ -244,5 +252,15 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
         return GOOD_USER;
     }
 
+    protected CertificateVerifier getSelfSignedCertificateVerifier() throws IOException {
+        CertificateVerifier cv = new CommonCertificateVerifier();
+        cv.setAIASource(null);
+
+        CommonTrustedCertificateSource trusted = new CommonTrustedCertificateSource();
+        trusted.importAsTrusted(new KeyStoreCertificateSource(new ByteArrayInputStream(IOUtils.toByteArray(Objects.requireNonNull(getClass().getResourceAsStream("/self-signed.jks")))), "JKS", password));
+
+        cv.setTrustedCertSources(getTrustedCertificateSource());
+        return cv;
+    }
 }
 
