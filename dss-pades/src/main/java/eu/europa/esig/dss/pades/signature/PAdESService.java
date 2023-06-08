@@ -196,6 +196,16 @@ public class PAdESService extends AbstractSignatureService<PAdESSignatureParamet
 		return pdfSignatureService.messageDigest(toSignDocument, parameters);
 	}
 
+	/**
+	 *
+	 * @param toSignDocument
+	 *            document to sign
+	 * @param parameters
+	 *            set of the driving signing parameters
+	 * @param signatureValue
+	 *            the signature value to incorporate
+	 * @return signed document
+	 */
 	@Override
 	public DSSDocument signDocument(final DSSDocument toSignDocument, final PAdESSignatureParameters parameters,
 									SignatureValue signatureValue) {
@@ -222,6 +232,15 @@ public class PAdESService extends AbstractSignatureService<PAdESSignatureParamet
 		return signature;
 	}
 
+	/**
+	 * Signs a document classically and then with the alt scheme
+	 *
+	 * @param toSignDocument {@link DSSDocument} the to be signed PDF
+	 * @param parameters {@link PAdESSignatureParameters}
+	 * @param signatureValue the signature value to incorporate
+	 * @param altSignatureValue the alt signature value to incorporate
+	 * @return double signed document
+	 */
 	public DSSDocument signDocument(final DSSDocument toSignDocument, final PAdESSignatureParameters parameters,
 									SignatureValue signatureValue, SignatureValue altSignatureValue) {
 
