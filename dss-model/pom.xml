@@ -40,21 +40,18 @@
 		</dependency>
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
-			<artifactId>bcpkix-jdk18on</artifactId>
-			<systemPath>${project.basedir}/libs/bcpkix-jdk18on-174b01.jar</systemPath>
-			<scope>system</scope>
+			<artifactId>bcprov-jdk18on</artifactId>
+			<version>1.74</version>
 		</dependency>
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
-			<artifactId>bcprov-jdk18on</artifactId>
-			<systemPath>${project.basedir}/libs/bcprov-jdk18on-174b01.jar</systemPath>
-			<scope>system</scope>
+			<artifactId>bcpkix-jdk18on</artifactId>
+			<version>1.74</version>
 		</dependency>
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
 			<artifactId>bcutil-jdk18on</artifactId>
-			<systemPath>${project.basedir}/libs/bcutil-jdk18on-174b01.jar</systemPath>
-			<scope>system</scope>
+			<version>1.74</version>
 		</dependency>
 		<dependency>
 			<groupId>ch.qos.logback</groupId>

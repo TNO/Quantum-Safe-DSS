@@ -20,36 +20,7 @@
  */
 package eu.europa.esig.dss.diagnostic;
 
-import eu.europa.esig.dss.diagnostic.jaxb.XmlAuthorityInformationAccess;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlBasicConstraints;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlBasicSignature;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlCRLDistributionPoints;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlCertificate;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlCertificateExtension;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlCertificatePolicies;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlCertificatePolicy;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlCertificateRevocation;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlChainItem;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlDigestAlgoAndValue;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlExtendedKeyUsages;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlGeneralSubtree;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlIdPkixOcspNoCheck;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlInhibitAnyPolicy;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlKeyUsages;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlLangAndValue;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlMRATrustServiceMapping;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlNameConstraints;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlOID;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlOriginalThirdCountryQcStatementsMapping;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlOriginalThirdCountryTrustedServiceMapping;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlPolicyConstraints;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlQcStatements;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlSigningCertificate;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlSubjectAlternativeNames;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlSubjectKeyIdentifier;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlTrustedService;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlTrustedServiceProvider;
-import eu.europa.esig.dss.diagnostic.jaxb.XmlValAssuredShortTermCertificate;
+import eu.europa.esig.dss.diagnostic.jaxb.*;
 import eu.europa.esig.dss.enumerations.CertificateExtensionEnum;
 import eu.europa.esig.dss.enumerations.CertificateSourceType;
 import eu.europa.esig.dss.enumerations.ExtendedKeyUsage;
@@ -156,7 +127,7 @@ public class CertificateWrapper extends AbstractTokenProxy {
 	 *
 	 * @return a list of {@link String}s
 	 */
-	public List<String> getSubjectAlternativeNames() {
+	public List<XmlGeneralName> getSubjectAlternativeNames() {
 		XmlSubjectAlternativeNames subjectAlternativeNames = getXmlSubjectAlternativeNames();
 		return subjectAlternativeNames != null ? subjectAlternativeNames.getSubjectAlternativeName() : Collections.emptyList();
 	}
@@ -338,7 +309,7 @@ public class CertificateWrapper extends AbstractTokenProxy {
 	public boolean isIdKpOCSPSigning() {
 		XmlExtendedKeyUsages extendedKeyUsage = getXmlExtendedKeyUsages();
 		if (extendedKeyUsage != null) {
-			for (XmlOID xmlOID : extendedKeyUsage.getExtendedKeyUsagesOid()) {
+			for (XmlOID xmlOID : extendedKeyUsage.getExtendedKeyUsageOid()) {
 				if (ExtendedKeyUsage.OCSP_SIGNING.getOid().equals(xmlOID.getValue())) {
 					return true;
 				}
@@ -368,7 +339,7 @@ public class CertificateWrapper extends AbstractTokenProxy {
 	 */
 	public List<XmlOID> getExtendedKeyUsages() {
 		XmlExtendedKeyUsages extendedKeyUsage = getXmlExtendedKeyUsages();
-		return extendedKeyUsage != null ? extendedKeyUsage.getExtendedKeyUsagesOid() : Collections.emptyList();
+		return extendedKeyUsage != null ? extendedKeyUsage.getExtendedKeyUsageOid() : Collections.emptyList();
 	}
 
 	private XmlExtendedKeyUsages getXmlExtendedKeyUsages() {
