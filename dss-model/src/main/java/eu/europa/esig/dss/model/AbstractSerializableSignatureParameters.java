@@ -86,37 +86,15 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 	private SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.RSA_SHA256;
 
 	/**
-	 * XAdES: The ds:SignatureMethod indicates the algorithms used to sign
-	 * ds:SignedInfo.
-	 */
-	private SignatureAlgorithm altSignatureAlgorithm = null;
-
-	/**
 	 * The encryption algorithm shall be automatically extracted from the signing
 	 * token.
 	 */
 	private EncryptionAlgorithm encryptionAlgorithm = signatureAlgorithm.getEncryptionAlgorithm();
 
 	/**
-	 * The encryption algorithm shall be automatically extracted from the signing
-	 * token.
-	 */
-	private EncryptionAlgorithm altEncryptionAlgorithm = null;
-
-	/**
 	 * XAdES: The digest algorithm used to hash ds:SignedInfo.
 	 */
 	private DigestAlgorithm digestAlgorithm = signatureAlgorithm.getDigestAlgorithm();
-
-	public DigestAlgorithm getAltDigestAlgorithm() {
-		return altDigestAlgorithm;
-	}
-
-	public void setAltDigestAlgorithm(DigestAlgorithm altDigestAlgorithm) {
-		this.altDigestAlgorithm = altDigestAlgorithm;
-	}
-
-	private DigestAlgorithm altDigestAlgorithm = null;
 
 	/**
 	 * XAdES: The digest algorithm used to hash ds:Reference.
@@ -127,8 +105,6 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 	 * The mask generation function
 	 */
 	private MaskGenerationFunction maskGenerationFunction = signatureAlgorithm.getMaskGenerationFunction();
-
-	private MaskGenerationFunction altMaskGenerationFunction = null;
 
 	/**
 	 * The object representing the parameters related to B- level.
@@ -326,27 +302,10 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 		}
 	}
 
-	/**
-	 * Sets the alt mask generation function if used with the given
-	 * SignatureAlgorithm
-	 *
-	 * @param maskGenerationFunction {@link MaskGenerationFunction}
-	 */
-	public void setAltMaskGenerationFunction(MaskGenerationFunction maskGenerationFunction) {
-		this.altMaskGenerationFunction = maskGenerationFunction;
-		if ((this.digestAlgorithm != null) && (this.altEncryptionAlgorithm != null)) {
-			altSignatureAlgorithm = SignatureAlgorithm.getAlgorithm(this.altEncryptionAlgorithm,
-					this.digestAlgorithm, this.altMaskGenerationFunction);
-		}
-	}
 
 	@Override
 	public MaskGenerationFunction getMaskGenerationFunction() {
 		return maskGenerationFunction;
-	}
-
-	public MaskGenerationFunction getAltMaskGenerationFunction() {
-		return altMaskGenerationFunction;
 	}
 
 	@Override
@@ -354,9 +313,6 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 		return encryptionAlgorithm;
 	}
 
-	public EncryptionAlgorithm getAltEncryptionAlgorithm() {
-		return altEncryptionAlgorithm;
-	}
 
 	/**
 	 * This setter should be used only when dealing with web services (or when
@@ -373,31 +329,11 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 					this.maskGenerationFunction);
 		}
 	}
-
-	/**
-	 * This setter should be used only when dealing with web services (or when
-	 * signing in three steps). Usually the
-	 * alt encryption algorithm is automatically extrapolated from the private key.
-	 *
-	 * @param altEncryptionAlgorithm
-	 *                               the alt encryption algorithm to use
-	 */
-	public void setAltEncryptionAlgorithm(final EncryptionAlgorithm altEncryptionAlgorithm) {
-		this.altEncryptionAlgorithm = altEncryptionAlgorithm;
-		if (this.altDigestAlgorithm != null) {
-			altSignatureAlgorithm = SignatureAlgorithm.getAlgorithm(this.altEncryptionAlgorithm, this.altDigestAlgorithm,
-					this.altMaskGenerationFunction);
-		}
-	}
-
 	@Override
 	public SignatureAlgorithm getSignatureAlgorithm() {
 		return signatureAlgorithm;
 	}
 
-	public SignatureAlgorithm getAltSignatureAlgorithm() {
-		return altSignatureAlgorithm;
-	}
 
 	/**
 	 * Get the digest algorithm for ds:Reference or message-digest attribute
@@ -507,8 +443,6 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 				+ ", generateTBSWithoutCertificate="
 				+ generateTBSWithoutCertificate + ", signatureLevel=" + signatureLevel + ", signaturePackaging="
 				+ signaturePackaging + ", signatureAlgorithm="
-				+ signatureAlgorithm + ", altSignatureAlgorithm=" + altSignatureAlgorithm + ", encryptionAlgorithm="
-				+ encryptionAlgorithm + ", altEncryptionAlgorithm=" + altEncryptionAlgorithm + ", digestAlgorithm="
 				+ digestAlgorithm + ", referenceDigestAlgorithm="
 				+ referenceDigestAlgorithm + ", maskGenerationFunction=" + maskGenerationFunction + ", bLevelParams="
 				+ bLevelParams
@@ -526,14 +460,11 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 		result = prime * result + ((contentTimestampParameters == null) ? 0 : contentTimestampParameters.hashCode());
 		result = prime * result + ((digestAlgorithm == null) ? 0 : digestAlgorithm.hashCode());
 		result = prime * result + ((encryptionAlgorithm == null) ? 0 : encryptionAlgorithm.hashCode());
-		result = prime * result + ((altEncryptionAlgorithm == null) ? 0 : altEncryptionAlgorithm.hashCode());
 		result = prime * result + (generateTBSWithoutCertificate ? 1231 : 1237);
 		result = prime * result + ((maskGenerationFunction == null) ? 0 : maskGenerationFunction.hashCode());
-		result = prime * result + ((altMaskGenerationFunction == null) ? 0 : altMaskGenerationFunction.hashCode());
 		result = prime * result + ((referenceDigestAlgorithm == null) ? 0 : referenceDigestAlgorithm.hashCode());
 		result = prime * result + (signWithExpiredCertificate ? 1231 : 1237);
 		result = prime * result + ((signatureAlgorithm == null) ? 0 : signatureAlgorithm.hashCode());
-		result = prime * result + ((altSignatureAlgorithm == null) ? 0 : altSignatureAlgorithm.hashCode());
 		result = prime * result + ((signatureLevel == null) ? 0 : signatureLevel.hashCode());
 		result = prime * result + ((signaturePackaging == null) ? 0 : signaturePackaging.hashCode());
 		result = prime * result
@@ -582,16 +513,10 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 		if (encryptionAlgorithm != other.encryptionAlgorithm) {
 			return false;
 		}
-		if (altEncryptionAlgorithm != other.altEncryptionAlgorithm) {
-			return false;
-		}
 		if (generateTBSWithoutCertificate != other.generateTBSWithoutCertificate) {
 			return false;
 		}
 		if (maskGenerationFunction != other.maskGenerationFunction) {
-			return false;
-		}
-		if (altMaskGenerationFunction != other.altMaskGenerationFunction) {
 			return false;
 		}
 		if (referenceDigestAlgorithm != other.referenceDigestAlgorithm) {
@@ -601,9 +526,6 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 			return false;
 		}
 		if (signatureAlgorithm != other.signatureAlgorithm) {
-			return false;
-		}
-		if (altSignatureAlgorithm != other.altSignatureAlgorithm) {
 			return false;
 		}
 		if (signatureLevel != other.signatureLevel) {
