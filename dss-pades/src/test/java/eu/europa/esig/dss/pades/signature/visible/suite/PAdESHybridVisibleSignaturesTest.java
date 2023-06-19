@@ -55,6 +55,9 @@ public class PAdESHybridVisibleSignaturesTest extends AbstractPAdESTestValidatio
     private static DSSDocument image;
     // Parameters for PAdES signature.
     private static PAdESSignatureParameters signatureParameters;
+
+    private static PAdESSignatureParameters altSignatureParameters;
+
     // Creates and extends PAdES signatures.
     private PAdESService service;
     // The document to sign.
@@ -102,7 +105,7 @@ public class PAdESHybridVisibleSignaturesTest extends AbstractPAdESTestValidatio
      */
     private static KSPrivateKeyEntry prepareAltPrivateKey(X509Certificate x509Certificate) throws KeyStoreException, UnrecoverableKeyException, NoSuchAlgorithmException {
         PrivateKey altPrivateKey = (PrivateKey) ks.getKey("hybrid-alt-good-user", password.toCharArray());
-        return new KSPrivateKeyEntry("hybrid-alt-good-user", altPrivateKey, x509Certificate, ks.getCertificateChain("hybrid-good-user"), signatureParameters.getAltEncryptionAlgorithm());
+        return new KSPrivateKeyEntry("hybrid-alt-good-user", altPrivateKey, x509Certificate, ks.getCertificateChain("hybrid-good-user"), signatureParameters.getEncryptionAlgorithm());
     }
 
     /**
@@ -118,12 +121,22 @@ public class PAdESHybridVisibleSignaturesTest extends AbstractPAdESTestValidatio
         signatureParameters = new PAdESSignatureParameters();
         signatureParameters.bLevel().setSigningDate(new Date());
 
+        altSignatureParameters = new PAdESSignatureParameters();
+        altSignatureParameters.bLevel().setSigningDate(new Date());
+        altSignatureParameters.setUseAltSignatureAndPublicKey(true);
+
+
         // Get our signing certificate and encode it into yet another object, CertificateToken
         X509Certificate cert = prepareCertificate();
         CertificateToken certificateToken = new CertificateToken(cert);
         signatureParameters.setSigningCertificate(certificateToken);
         signatureParameters.setCertificateChain(getCertificateChain());
         signatureParameters.setSignatureLevel(SignatureLevel.PAdES_BASELINE_B);
+
+        altSignatureParameters.setSigningCertificate(certificateToken);
+        altSignatureParameters.setCertificateChain(getCertificateChain());
+        altSignatureParameters.setSignatureLevel(SignatureLevel.PAdES_BASELINE_B);
+        altSignatureParameters.setContentSize(12118);
 
         // This PAdESService object creates and extends PAdES signatures
         service = new PAdESService(getSelfSignedCertificateVerifier());
@@ -154,7 +167,6 @@ public class PAdESHybridVisibleSignaturesTest extends AbstractPAdESTestValidatio
     public void hybridVisibleSignature() throws IOException, UnrecoverableKeyException, KeyStoreException, NoSuchAlgorithmException {
         // Prepare our primary and alt private key
         KSPrivateKeyEntry ksPrivateKey = preparePrivateKey();
-        KSPrivateKeyEntry altKSPrivateKey = prepareAltPrivateKey(signatureParameters.getSigningCertificate().getCertificate());
 
         // Parameters for the signature stamp image.
         SignatureImageParameters imageParameters = new SignatureImageParameters();
@@ -172,12 +184,16 @@ public class PAdESHybridVisibleSignaturesTest extends AbstractPAdESTestValidatio
         // signs document
         documentToSign = signDSSDocument(ksPrivateKey);
 
+
+        KSPrivateKeyEntry altKSPrivateKey = prepareAltPrivateKey(altSignatureParameters.getSigningCertificate().getCertificate());
+        altSignatureParameters.setImageParameters(imageParameters);
+
         // change the field parameters for the alt signature stamp.
         fieldParameters.setOriginX(300);
         fieldParameters.setOriginY(100);
 
-        // See method description for this sneaky way of doing things
-        signatureParameters.prepareParametersForHybrid();
+//        // See method description for this sneaky way of doing things
+//        signatureParameters.prepareParametersForHybrid();
 
         // signs document using alternative private key
         documentToSign = signDSSDocument(altKSPrivateKey);
