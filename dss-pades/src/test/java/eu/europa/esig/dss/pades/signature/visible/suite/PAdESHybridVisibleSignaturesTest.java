@@ -105,7 +105,7 @@ public class PAdESHybridVisibleSignaturesTest extends AbstractPAdESTestValidatio
      */
     private static KSPrivateKeyEntry prepareAltPrivateKey(X509Certificate x509Certificate) throws KeyStoreException, UnrecoverableKeyException, NoSuchAlgorithmException {
         PrivateKey altPrivateKey = (PrivateKey) ks.getKey("hybrid-alt-good-user", password.toCharArray());
-        return new KSPrivateKeyEntry("hybrid-alt-good-user", altPrivateKey, x509Certificate, ks.getCertificateChain("hybrid-good-user"), signatureParameters.getEncryptionAlgorithm());
+        return new KSPrivateKeyEntry("hybrid-alt-good-user", altPrivateKey, x509Certificate, ks.getCertificateChain("hybrid-good-user"), altSignatureParameters.getEncryptionAlgorithm());
     }
 
     /**
@@ -182,7 +182,7 @@ public class PAdESHybridVisibleSignaturesTest extends AbstractPAdESTestValidatio
         imageParameters.setFieldParameters(fieldParameters);
 
         // signs document
-        documentToSign = signDSSDocument(ksPrivateKey);
+        documentToSign = signDSSDocument(ksPrivateKey, signatureParameters);
 
 
         KSPrivateKeyEntry altKSPrivateKey = prepareAltPrivateKey(altSignatureParameters.getSigningCertificate().getCertificate());
@@ -192,11 +192,8 @@ public class PAdESHybridVisibleSignaturesTest extends AbstractPAdESTestValidatio
         fieldParameters.setOriginX(300);
         fieldParameters.setOriginY(100);
 
-//        // See method description for this sneaky way of doing things
-//        signatureParameters.prepareParametersForHybrid();
-
         // signs document using alternative private key
-        documentToSign = signDSSDocument(altKSPrivateKey);
+        documentToSign = signDSSDocument(altKSPrivateKey, altSignatureParameters);
 
         // documentSign cannot be null
         assertNotNull(documentToSign);
@@ -211,16 +208,16 @@ public class PAdESHybridVisibleSignaturesTest extends AbstractPAdESTestValidatio
      * @return Signed document.
      * @throws IOException
      */
-    private DSSDocument signDSSDocument(KSPrivateKeyEntry privateKeyEntry) throws IOException {
+    private DSSDocument signDSSDocument(KSPrivateKeyEntry privateKeyEntry, PAdESSignatureParameters params) throws IOException {
         // This is a really stupid way of doing this, but alas its Java - essentially, ToBeSigned is just a byte[] variable.
         // All this does is hash the pdf document and the byte[] is the hash output.
-        ToBeSigned dataToSign = service.getDataToSign(documentToSign, signatureParameters);
+        ToBeSigned dataToSign = service.getDataToSign(documentToSign, params);
         // Signs the hash of the document.
-        SignatureValue signatureValue = getToken().sign(dataToSign, signatureParameters.getDigestAlgorithm(), privateKeyEntry);
+        SignatureValue signatureValue = getToken().sign(dataToSign, params.getDigestAlgorithm(), privateKeyEntry);
         // Noww this is stupid, this isn't just signDocument (which uses the params and signatureValue to generate a PAdES signature),
         // but will also verify whether the signature is correct and store it within the encoded bytes in the DSSDocument (use debugger to
         // see this in action and see file SignatureIntegrityValdiator.java in package eu.europa.esig.dss.spi.x509.
-        DSSDocument signedDocument = service.signDocument(documentToSign, signatureParameters, signatureValue);
+        DSSDocument signedDocument = service.signDocument(documentToSign, params, signatureValue);
 
         // Object to validate the signed document
         SignedDocumentValidator validator = SignedDocumentValidator.fromDocument(signedDocument);
