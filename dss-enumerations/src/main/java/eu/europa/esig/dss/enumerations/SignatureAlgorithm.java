@@ -346,7 +346,7 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 	/** Map of signature algorithm OIDs by algorithms */
 	private static final Map<SignatureAlgorithm, String> OID_ALGORITHMS_FOR_KEY = registerOidAlgorithmsForKey();
 
-	private static Map<String, SignatureAlgorithm> registerOIDAlgorithms() { // TODO make our own
+	private static Map<String, SignatureAlgorithm> registerOIDAlgorithms() {
 
 		Map<String, SignatureAlgorithm> oidAlgorithms = new HashMap<>();
 
