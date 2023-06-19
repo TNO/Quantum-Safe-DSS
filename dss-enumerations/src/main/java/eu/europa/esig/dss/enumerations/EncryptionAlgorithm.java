@@ -244,6 +244,14 @@ public enum EncryptionAlgorithm implements OidBasedEnum { //TODO add other schem
 		return false;
 	}
 
+	public boolean isRSAFamily() {
+		return RSA == this;
+	}
+
+	public boolean isDSAFamily() {
+		return DSA == this;
+	}
+
 	private boolean isEcDSAFamily() {
 		return ECDSA == this || PLAIN_ECDSA == this;
 	}
@@ -252,8 +260,20 @@ public enum EncryptionAlgorithm implements OidBasedEnum { //TODO add other schem
 		return X25519 == this || X448 == this || EDDSA == this;
 	}
 
-	public boolean isDilithiumFamily(){
+	private boolean isDilithiumFamily(){
 		return DILITHIUM2 == this || DILITHIUM2_AES == this || DILITHIUM3 == this || DILITHIUM3_AES == this || DILITHIUM5 == this || DILITHIUM5_AES == this;
+	}
+
+	private boolean isFalcon(){
+		return FALCON_512 == this || FALCON_1024 == this;
+	}
+
+	public boolean isClassical(){
+		return isRSAFamily() || isDSAFamily() ||  isEdDSAFamily() || isEcDSAFamily();
+	}
+
+	public boolean isPostQuantum(){
+		return isDilithiumFamily() || isDSAFamily() ||  isEdDSAFamily() || isEcDSAFamily();
 	}
 
 }
