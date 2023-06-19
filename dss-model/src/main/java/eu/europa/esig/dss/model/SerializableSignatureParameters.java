@@ -103,24 +103,11 @@ public interface SerializableSignatureParameters extends Serializable {
 	MaskGenerationFunction getMaskGenerationFunction();
 
 	/**
-	 * Returns the alt mask generation function
-	 *
-	 * @return {@link MaskGenerationFunction}
-	 */
-	MaskGenerationFunction getAltMaskGenerationFunction();
-
-	/**
 	 * Get the encryption algorithm
 	 *
 	 * @return the encryption algorithm.
 	 */
 	EncryptionAlgorithm getEncryptionAlgorithm();
-	/**
-	 * Get the alt encryption algorithm
-	 *
-	 * @return the alt encryption algorithm.
-	 */
-	EncryptionAlgorithm getAltEncryptionAlgorithm();
 
 	/**
 	 * Gets the signature algorithm.
@@ -128,13 +115,6 @@ public interface SerializableSignatureParameters extends Serializable {
 	 * @return the signature algorithm
 	 */
 	SignatureAlgorithm getSignatureAlgorithm();
-
-	/**
-	 * Gets the alt signature algorithm.
-	 *
-	 * @return the alt signature algorithm
-	 */
-	SignatureAlgorithm getAltSignatureAlgorithm();
 
 
 }
