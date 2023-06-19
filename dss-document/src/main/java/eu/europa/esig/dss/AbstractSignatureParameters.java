@@ -31,6 +31,7 @@ import eu.europa.esig.dss.spi.DSSUtils;
 import eu.europa.esig.dss.utils.Utils;
 import eu.europa.esig.dss.validation.timestamp.TimestampToken;
 
+import java.security.PublicKey;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -48,6 +49,7 @@ public abstract class AbstractSignatureParameters<TP extends SerializableTimesta
      */
     protected ProfileParameters context;
 
+    private boolean useAltSignatureAndPublicKey = false;
     /**
      * The documents to be signed
      */
@@ -81,6 +83,14 @@ public abstract class AbstractSignatureParameters<TP extends SerializableTimesta
      */
     protected AbstractSignatureParameters() {
         // empty
+    }
+
+    public boolean getUseAltSignatureAndPublicKey(){
+        return useAltSignatureAndPublicKey;
+    }
+
+    public void setUseAltSignatureAndPublicKey(boolean useAltSignatureAndPublicKey) {
+        this.useAltSignatureAndPublicKey = useAltSignatureAndPublicKey;
     }
 
     /**
@@ -151,17 +161,12 @@ public abstract class AbstractSignatureParameters<TP extends SerializableTimesta
      */
     public void setSigningCertificate(final CertificateToken signingCertificate) {
         this.signingCertificate = signingCertificate;
-        setEncryptionAlgorithm(EncryptionAlgorithm.forKey(signingCertificate.getPublicKey()));
-		setDigestAlgorithm(signingCertificate.getSignatureAlgorithm().getDigestAlgorithm());
-        if (signingCertificate.isCertificateHybrid()) {
-            if (signingCertificate.getAltSignatureAlgorithm().getEncryptionAlgorithm().isDilithiumFamily()) {
-                setAltDigestAlgorithm(DigestAlgorithm.SHAKE256_512);
-            } else {
-                setAltDigestAlgorithm(signingCertificate.getAltSignatureAlgorithm().getDigestAlgorithm());
-            }
-            setAltEncryptionAlgorithm(EncryptionAlgorithm.forKey(signingCertificate.getAltPublicKey()));
 
-        }
+        PublicKey publicKey = useAltSignatureAndPublicKey ? signingCertificate.getAltPublicKey() : signingCertificate.getPublicKey();
+        DigestAlgorithm digestAlgorithm = useAltSignatureAndPublicKey ? signingCertificate.getAltSignatureAlgorithm().getDigestAlgorithm() : signingCertificate.getSignatureAlgorithm().getDigestAlgorithm();
+
+        setEncryptionAlgorithm(EncryptionAlgorithm.forKey(publicKey));
+		setDigestAlgorithm(digestAlgorithm);
     }
 
     /**
