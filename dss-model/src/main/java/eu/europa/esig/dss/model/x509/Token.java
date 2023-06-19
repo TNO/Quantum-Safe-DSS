@@ -27,7 +27,6 @@ import eu.europa.esig.dss.model.identifier.IdentifierBasedObject;
 import eu.europa.esig.dss.model.identifier.TokenIdentifier;
 
 import javax.security.auth.x500.X500Principal;
-import java.io.IOException;
 import java.io.Serializable;
 import java.security.PublicKey;
 import java.util.Date;

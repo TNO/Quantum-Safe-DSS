@@ -399,6 +399,7 @@ public class CertificateExtensions implements Serializable {
     public AltSignatureValue getAltSignatureValue(){
         return altSignatureValue;
     }
+    
     /**
      * Adds another certificate extension
      *

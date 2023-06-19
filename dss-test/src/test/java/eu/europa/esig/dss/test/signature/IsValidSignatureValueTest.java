@@ -48,7 +48,7 @@ public class IsValidSignatureValueTest extends PKIFactoryAccess {
 		ToBeSigned correct = new ToBeSigned("Hello".getBytes());
 		ToBeSigned wrong = new ToBeSigned("Bye".getBytes());
 		ToBeSigned empty = new ToBeSigned(new byte[] {});
-
+		
 		signingAlias = GOOD_USER;
 
 		SignatureValue signatureValue = getToken().sign(correct, DigestAlgorithm.SHA256, getPrivateKeyEntry());

@@ -5,16 +5,9 @@ import org.bouncycastle.asn1.bc.BCObjectIdentifiers;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.bouncycastle.crypto.params.RSAKeyParameters;
 import org.bouncycastle.crypto.util.PublicKeyFactory;
-import org.bouncycastle.pqc.jcajce.provider.bike.BIKEKeyFactorySpi;
+import org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi;
 import org.bouncycastle.pqc.jcajce.provider.dilithium.DilithiumKeyFactorySpi;
 import org.bouncycastle.pqc.jcajce.provider.falcon.FalconKeyFactorySpi;
-import org.bouncycastle.pqc.jcajce.provider.frodo.FrodoKeyFactorySpi;
-import org.bouncycastle.pqc.jcajce.provider.hqc.HQCKeyFactorySpi;
-import org.bouncycastle.pqc.jcajce.provider.kyber.KyberKeyFactorySpi;
-import org.bouncycastle.pqc.jcajce.provider.mceliece.McElieceKeyFactorySpi;
-import org.bouncycastle.pqc.jcajce.provider.ntruprime.SNTRUPrimeKeyFactorySpi;
-import org.bouncycastle.pqc.jcajce.provider.sphincsplus.SPHINCSPlusKeyFactorySpi;
-import org.bouncycastle.jcajce.provider.asymmetric.ec.KeyFactorySpi;
 
 import java.io.IOException;
 import java.security.KeyFactory;

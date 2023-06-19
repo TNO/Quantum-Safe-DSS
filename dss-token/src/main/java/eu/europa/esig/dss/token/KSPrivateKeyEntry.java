@@ -53,7 +53,7 @@ public class KSPrivateKeyEntry implements DSSPrivateKeyEntry {
 
 	/**
 	 * The default constructor for KSPrivateKeyEntry.
-	 *
+	 * 
 	 * @param alias
 	 *            the given alias
 	 * @param privateKeyEntry
@@ -122,7 +122,7 @@ public class KSPrivateKeyEntry implements DSSPrivateKeyEntry {
 
 	/**
 	 * Get the private key
-	 *
+	 * 
 	 * @return the private key
 	 */
 	public PrivateKey getPrivateKey() {

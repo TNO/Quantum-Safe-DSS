@@ -36,7 +36,7 @@ import eu.europa.esig.dss.model.InMemoryDocument;
 import eu.europa.esig.dss.pades.validation.suite.AbstractPAdESTestValidation;
 import eu.europa.esig.dss.validation.AdvancedSignature;
 
-public class PAdESMultiSignedDocRevocTest extends AbstractPAdESTestValidation { // MARKED AS POTENTIALLY INTERESTING SCRIPT
+public class PAdESMultiSignedDocRevocTest extends AbstractPAdESTestValidation {
 
 	@Override
 	protected DSSDocument getSignedDocument() {
