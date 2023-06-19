@@ -118,7 +118,7 @@ public class CertificateToken extends Token {
                 this.altEntityKey = new EntityIdentifier(getAltPublicKey());
                 SubjectPublicKeyInfo subjectPublicKeyInfo = getSubjectAltPublicKey();
 
-                if(isECDSA(subjectPublicKeyInfo.getAlgorithm().getAlgorithm()) || isRSA(subjectPublicKeyInfo.getAlgorithm().getAlgorithm())){
+                if(altSignatureAlgorithm.getEncryptionAlgorithm().isClassical()){
                     this.contentVerifierProvider = new JcaContentVerifierProviderBuilder().build(subjectPublicKeyInfo);
                 }else{
                     this.contentVerifierProvider = new JcaContentVerifierProviderBuilder().setProvider(new BouncyCastlePQCProvider()).build(subjectPublicKeyInfo);
