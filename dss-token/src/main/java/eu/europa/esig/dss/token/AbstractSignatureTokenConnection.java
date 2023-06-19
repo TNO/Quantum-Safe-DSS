@@ -84,27 +84,8 @@ public abstract class AbstractSignatureTokenConnection implements SignatureToken
             value.setAlgorithm(signatureAlgorithm);
             value.setValue(signatureValue);
             return value;
-        } catch (Exception e) {
-            try {
-                final EncryptionAlgorithm altEncryptionAlgorithm = keyEntry.getCertificate().getAltSignatureAlgorithm().getEncryptionAlgorithm();
-                final DigestAlgorithm altDigestAlgorithm = keyEntry.getCertificate().getAltSignatureAlgorithm().getDigestAlgorithm();
-                final SignatureAlgorithm altSignatureAlgorithm = getSignatureAlgorithm(altEncryptionAlgorithm, altDigestAlgorithm, null);
-
-                final String altJavaSignatureAlgorithm = altSignatureAlgorithm.getJCEId();
-                AlgorithmParameterSpec altParam = null;
-                if (altSignatureAlgorithm.getMaskGenerationFunction() != null) {
-                    altParam = createPSSParam(altSignatureAlgorithm.getDigestAlgorithm());
-                }
-
-                final byte[] altSignatureValue = sign(bytes, altJavaSignatureAlgorithm, altParam, keyEntry);
-                SignatureValue altValue = new SignatureValue();
-
-                altValue.setAlgorithm(altSignatureAlgorithm);
-                altValue.setValue(altSignatureValue);
-                return altValue;
-            } catch (Exception e1) {
+        } catch (Exception e1) {
                 throw new DSSException(String.format("Unable to sign : %s", e1.getMessage()), e1);
-            }
         }
 
     }
