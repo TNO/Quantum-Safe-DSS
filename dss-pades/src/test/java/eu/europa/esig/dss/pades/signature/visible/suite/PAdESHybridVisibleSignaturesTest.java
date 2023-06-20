@@ -197,8 +197,6 @@ public class PAdESHybridVisibleSignaturesTest extends AbstractPAdESTestValidatio
 
         // documentSign cannot be null
         assertNotNull(documentToSign);
-
-        documentToSign.save("/home/joao/visible.pdf");
     }
 
     /**

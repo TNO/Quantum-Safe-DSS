@@ -174,7 +174,6 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
         SignatureWrapper signatureOne = diagnosticData.getSignatures().get(0);
         SignatureWrapper signatureTwo = diagnosticData.getSignatures().get(1);
         assertFalse(Arrays.equals(signatureOne.getSignatureDigestReference().getDigestValue(), signatureTwo.getSignatureDigestReference().getDigestValue()));
-        doubleSignedDocument.save("/home/joao/test.pdf");
 
     }
 
