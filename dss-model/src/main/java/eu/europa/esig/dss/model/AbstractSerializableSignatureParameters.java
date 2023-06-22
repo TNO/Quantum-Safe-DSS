@@ -403,15 +403,11 @@ public abstract class AbstractSerializableSignatureParameters<TP extends Seriali
 
 	@Override
 	public String toString() {
-		return "AbstractSerializableSignatureParameters [signWithExpiredCertificate=" + signWithExpiredCertificate
-				+ ", generateTBSWithoutCertificate="
-				+ generateTBSWithoutCertificate + ", signatureLevel=" + signatureLevel + ", signaturePackaging="
-				+ signaturePackaging + ", signatureAlgorithm="
-				+ digestAlgorithm + ", referenceDigestAlgorithm="
-				+ referenceDigestAlgorithm + ", maskGenerationFunction=" + maskGenerationFunction + ", bLevelParams="
-				+ bLevelParams
-				+ ", contentTimestampParameters=" + contentTimestampParameters + ", signatureTimestampParameters="
-				+ signatureTimestampParameters
+		return "AbstractSerializableSignatureParameters [signWithExpiredCertificate=" + signWithExpiredCertificate + ", generateTBSWithoutCertificate="
+				+ generateTBSWithoutCertificate + ", signatureLevel=" + signatureLevel + ", signaturePackaging=" + signaturePackaging + ", signatureAlgorithm="
+				+ signatureAlgorithm + ", encryptionAlgorithm=" + encryptionAlgorithm + ", digestAlgorithm=" + digestAlgorithm + ", referenceDigestAlgorithm="
+				+ referenceDigestAlgorithm + ", maskGenerationFunction=" + maskGenerationFunction + ", bLevelParams=" + bLevelParams
+				+ ", contentTimestampParameters=" + contentTimestampParameters + ", signatureTimestampParameters=" + signatureTimestampParameters
 				+ ", archiveTimestampParameters=" + archiveTimestampParameters + "]";
 	}
 
