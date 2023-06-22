@@ -140,8 +140,8 @@ public class CRLToken extends RevocationToken<CRL> {
 	}
 
 	@Override
-	protected SignatureValidity checkIsSignedBy(PublicKey publicKey, boolean isAltKey) {
-		return null;
+	protected SignatureValidity checkIsSignedByAlt(PublicKey publicKey) {
+		throw new UnsupportedOperationException(this.getClass().getName());
 	}
 
 	@Override

@@ -194,7 +194,7 @@ public abstract class Token implements IdentifierBasedObject, Serializable {
 		}
 		if (altPublicKeyOfTheSigner != null) {
 			return altPublicKeyOfTheSigner.equals(publicKey);
-		} else if (SignatureValidity.VALID == checkIsSignedBy(publicKey, isAltKey)) {
+		} else if (SignatureValidity.VALID == checkIsSignedByAlt(publicKey)) {
 			if (!isSelfSigned()) {
 				this.altPublicKeyOfTheSigner = publicKey;
 			}
@@ -214,11 +214,10 @@ public abstract class Token implements IdentifierBasedObject, Serializable {
 	/**
 	 * Verifies if the current token has been signed by the specified publicKey
 	 * @param publicKey {@link PublicKey} of a signing candidate
-	 * @param isAltKey whether public key belongs to alt signature
 	 *
 	 * @return {@link SignatureValidity}
 	 */
-	protected abstract SignatureValidity checkIsSignedBy(final PublicKey publicKey, boolean isAltKey);
+	protected abstract SignatureValidity checkIsSignedByAlt(final PublicKey publicKey);
 
 	/**
 	 * Returns the {@code X500Principal} of the certificate which was used to sign

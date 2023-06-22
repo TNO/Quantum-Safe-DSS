@@ -417,8 +417,8 @@ public class TimestampToken extends Token {
 	}
 
 	@Override
-	protected SignatureValidity checkIsSignedBy(PublicKey publicKey, boolean isAltKey) {
-		return null;
+	protected SignatureValidity checkIsSignedByAlt(PublicKey publicKey) {
+		throw new UnsupportedOperationException("Use method checkIsSignedBy(certificateToken) for a TimestampToken validation!");
 	}
 
 	/**

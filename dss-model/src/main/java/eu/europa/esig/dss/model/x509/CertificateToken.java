@@ -434,14 +434,6 @@ public class CertificateToken extends Token {
 	}
 
     @Override
-    protected SignatureValidity checkIsSignedBy(PublicKey publicKey, boolean isAltKey) {
-        if (isAltKey) {
-            return checkIsSignedByAlt(publicKey);
-        } else {
-            return checkIsSignedBy(publicKey);
-        }
-    }
-
     protected SignatureValidity checkIsSignedByAlt(final PublicKey publicKey) {
         altSignatureValidity = SignatureValidity.INVALID;
         altSignatureInvalidityReason = "";

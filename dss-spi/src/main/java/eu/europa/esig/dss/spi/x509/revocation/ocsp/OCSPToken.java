@@ -305,8 +305,8 @@ public class OCSPToken extends RevocationToken<OCSP> {
 	}
 
 	@Override
-	protected SignatureValidity checkIsSignedBy(PublicKey publicKey, boolean isAltKey) {
-		return null;
+	protected SignatureValidity checkIsSignedByAlt(PublicKey publicKey) {
+		throw new UnsupportedOperationException(this.getClass().getName());
 	}
 
 	/**
