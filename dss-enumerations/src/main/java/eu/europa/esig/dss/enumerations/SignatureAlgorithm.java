@@ -1,19 +1,19 @@
 /**
  * DSS - Digital Signature Services
  * Copyright (C) 2015 European Commission, provided under the CEF programme
- *
+ * 
  * This file is part of the "DSS - Digital Signature Services" project.
- *
+ * 
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- *
+ * 
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- *
+ * 
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
@@ -35,8 +35,7 @@ import java.util.Objects;
  *
  */
 public enum SignatureAlgorithm implements OidAndUriBasedEnum {
-
-
+	
 	/** RSA without digest algorithm */
 	RSA_RAW(EncryptionAlgorithm.RSA, null),
 
@@ -346,7 +345,7 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 	/** Map of signature algorithm OIDs by algorithms */
 	private static final Map<SignatureAlgorithm, String> OID_ALGORITHMS_FOR_KEY = registerOidAlgorithmsForKey();
 
-	private static Map<String, SignatureAlgorithm> registerOIDAlgorithms() { // TODO make our own
+	private static Map<String, SignatureAlgorithm> registerOIDAlgorithms() {
 
 		Map<String, SignatureAlgorithm> oidAlgorithms = new HashMap<>();
 
@@ -467,7 +466,7 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 		Map<String, SignatureAlgorithm> javaAlgorithms = new HashMap<>();
 
 		javaAlgorithms.put("NONEwithRSA", RSA_RAW);
-
+		
 		javaAlgorithms.put("SHA1withRSA", RSA_SHA1);
 		javaAlgorithms.put("SHA224withRSA", RSA_SHA224);
 		javaAlgorithms.put("SHA256withRSA", RSA_SHA256);
@@ -480,7 +479,7 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 		javaAlgorithms.put("SHA3-512withRSA", RSA_SHA3_512);
 
 		javaAlgorithms.put("NONEwithRSAandMGF1", RSA_SSA_PSS_RAW_MGF1);
-
+		
 		javaAlgorithms.put("SHA1withRSAandMGF1", RSA_SSA_PSS_SHA1_MGF1);
 		javaAlgorithms.put("SHA224withRSAandMGF1", RSA_SSA_PSS_SHA224_MGF1);
 		javaAlgorithms.put("SHA256withRSAandMGF1", RSA_SSA_PSS_SHA256_MGF1);
@@ -498,7 +497,7 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 		javaAlgorithms.put("MD2withRSA", RSA_MD2);
 
 		javaAlgorithms.put("NONEwithECDSA", ECDSA_RAW);
-
+		
 		javaAlgorithms.put("SHA1withECDSA", ECDSA_SHA1);
 		javaAlgorithms.put("SHA224withECDSA", ECDSA_SHA224);
 		javaAlgorithms.put("SHA256withECDSA", ECDSA_SHA256);
@@ -527,7 +526,7 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 		javaAlgorithms.put("Ed448", ED448);
 
 		javaAlgorithms.put("NONEwithDSA", DSA_RAW);
-
+		
 		javaAlgorithms.put("SHA1withDSA", DSA_SHA1);
 		javaAlgorithms.put("SHA224withDSA", DSA_SHA224);
 		javaAlgorithms.put("SHA256withDSA", DSA_SHA256);
@@ -578,7 +577,7 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 
 	/** Map of JWA signature algorithm URIs by algorithm */
 	private static final Map<SignatureAlgorithm, String> JWA_ALGORITHMS_FOR_KEY = registerJsonWebAlgorithmsForKey();
-
+	
 	private static Map<String, SignatureAlgorithm> registerJsonWebAlgorithms() {
 
 		// https://tools.ietf.org/html/rfc7518#section-3.1
@@ -595,13 +594,13 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 		jsonWebAlgorithms.put("ES256", ECDSA_SHA256);
 		jsonWebAlgorithms.put("ES384", ECDSA_SHA384);
 		jsonWebAlgorithms.put("ES512", ECDSA_SHA512);
-
+		
 		jsonWebAlgorithms.put("PS256", RSA_SSA_PSS_SHA256_MGF1);
 		jsonWebAlgorithms.put("PS384", RSA_SSA_PSS_SHA384_MGF1);
 		jsonWebAlgorithms.put("PS512", RSA_SSA_PSS_SHA512_MGF1);
 
 		jsonWebAlgorithms.put("EdDSA", ED25519);
-
+	
 		return jsonWebAlgorithms;
 	}
 

@@ -918,9 +918,8 @@ public class SignatureValidationContext implements ValidationContext {
 		}
 		boolean success = status.isEmpty();
 		if (!success) {
-			return true;
-//			status.setMessage("Revocation data is missing for one or more certificate(s).");
-//			certificateVerifier.getAlertOnMissingRevocationData().alert(status);
+			status.setMessage("Revocation data is missing for one or more certificate(s).");
+			certificateVerifier.getAlertOnMissingRevocationData().alert(status);
 		}
 		return success;
 	}

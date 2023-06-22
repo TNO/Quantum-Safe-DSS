@@ -123,17 +123,6 @@ public class PAdESSignatureParameters extends CAdESSignatureParameters implement
 		// empty
 	}
 
-	public void  prepareParametersForHybrid() {
-		setDigestAlgorithm(getAltDigestAlgorithm());
-		setMaskGenerationFunction(getAltMaskGenerationFunction());
-		setEncryptionAlgorithm(getAltEncryptionAlgorithm());
-		setContentSize(12118); // no idea why but whatever
-
-		setAltDigestAlgorithm(null);
-		setAltMaskGenerationFunction(null);
-		setAltEncryptionAlgorithm(null);
-}
-
 	@Override
 	public void setSignatureLevel(SignatureLevel signatureLevel) {
 		if (signatureLevel == null || SignatureForm.PAdES != signatureLevel.getSignatureForm()) {

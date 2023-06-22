@@ -192,9 +192,31 @@ public enum CertificateExtensionEnum implements OidDescription {
      * QCStatements ::= SEQUENCE OF QCStatement
      */
     QC_STATEMENTS("QCStatements", "1.3.6.1.5.5.7.1.3"),
+
+    /**
+     * ITU-T X.509. 9.8.2 Subject alternative public key information extension
+     * id-ce-subjectAltPublicKeyInfo OBJECT IDENTIFIER ::= { }
+     * SubjectAltPublicKey ::= SEQUENCE {
+     *      algorithm AlgorithmIdentifier{{SupportedAlgorithms}},
+     *      subjectAltPublicKey BIT STRING }
+     */
     SUBJECTALTPUBLICKEYINFO("SubjectAltPublicKey", "2.5.29.72"),
-    ALTSIGNATUREVALUE("AltSignatureValue", "2.5.29.74"),
-    ALTSIGNATUREALGORITHM("AltSignatureAlgorithm", "2.5.29.73");
+    
+    /**
+     * ITU-T X.509. 9.8.3 Alternative signature algorithm extension
+     * id-ce-altSignatureValue OBJECT IDENTIFIER ::= { }
+     * AltSignatureValue ::= SEQUENCE {
+     *      algorithm AlgorithmIdentifier{{SupportedAlgorithms}},
+     *      subjectAltPublicKey BIT STRING }
+     */
+    ALTSIGNATUREVALUE("altSignatureValue", "2.5.29.74"),
+
+    /**
+     * ITU-T X.509. 9.8.4 Alternative signature value
+     * id-ce-altSignatureValue OBJECT IDENTIFIER ::= { }
+     * AltSignatureValue ::= BIT STRING
+     */
+    ALTSIGNATUREALGORITHM("altSignatureAlgorithm", "2.5.29.73");
 
     private final String description;
     private final String oid;

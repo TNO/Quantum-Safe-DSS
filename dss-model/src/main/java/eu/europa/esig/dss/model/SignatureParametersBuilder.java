@@ -20,8 +20,6 @@
  */
 package eu.europa.esig.dss.model;
 
-import java.io.IOException;
-
 /**
  * A helper interface to hide complexity of a configuration for particular usages
  * and simplify the signature creation
@@ -35,6 +33,6 @@ public interface SignatureParametersBuilder<SP extends SerializableSignaturePara
 	 * 
 	 * @return {@code SP} signature parameters
 	 */
-	SP build() throws IOException;
+	SP build();
 
 }

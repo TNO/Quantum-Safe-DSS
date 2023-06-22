@@ -65,7 +65,7 @@ public class CAdESSignatureIntegrityValidator extends SignatureIntegrityValidato
 			return signerInformation.verify(signerInformationVerifier);
 		} catch (CMSSignerDigestMismatchException e) {
 			throw new DSSException(String.format("Unable to validate CMS Signature : %s", e.getMessage()));
-		} catch (CMSException e) {
+		} catch (CMSException e) { // this allows for signature verification to fail without throwing an error message so we can test the alt signature value
 			return false;
 		}catch (Exception e) {
 			throw new DSSException(String.format("Unable to validate CMS Signature : %s", e.getMessage()), e);

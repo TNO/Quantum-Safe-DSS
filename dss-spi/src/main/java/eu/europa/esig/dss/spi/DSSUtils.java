@@ -45,7 +45,6 @@ import org.bouncycastle.cms.CMSSignedData;
 import org.bouncycastle.crypto.digests.SHAKEDigest;
 import org.bouncycastle.crypto.io.DigestOutputStream;
 import org.bouncycastle.openssl.jcajce.JcaMiscPEMGenerator;
-import org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider;
 import org.bouncycastle.tsp.TimeStampToken;
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
@@ -101,8 +100,6 @@ public final class DSSUtils {
 
 	static {
 		Security.addProvider(DSSSecurityProvider.getSecurityProvider());
-		// Security.addProvider(new BouncyCastlePQCProvider());
-
 	}
 
 	/** Empty byte array */
@@ -150,7 +147,7 @@ public final class DSSUtils {
 
 	/**
 	 * Formats the date according to the given format (with system TimeZone)
-	 *
+	 * 
 	 * @param date {@link Date} to transform to a String
 	 * @param format {@link String} representing a Date format to be used
 	 * @return {@link String} formatted date
@@ -158,7 +155,7 @@ public final class DSSUtils {
 	public static String formatDateWithCustomFormat(final Date date, final String format) {
 		return formatDateWithCustomFormat(date, format, UTC_TIMEZONE);
 	}
-
+	
 	/**
 	 * Formats the date according to the given format and timeZone as {@code String}.
 	 *
@@ -1092,7 +1089,7 @@ public final class DSSUtils {
 		}
 		return sb.toString();
 	}
-
+	
 	/**
 	 * This method encodes a partial URI to be compliant with the RFC 3986 (see DSS-1475 for details)
 	 * @param uriPart the partial uri to be encoded
@@ -1106,12 +1103,12 @@ public final class DSSUtils {
 			return uriPart;
 		}
 	}
-
+	
 	/**
 	 * Returns a message retrieved from an exception,
 	 * its cause message if the first is not defined,
 	 * or exception class name if non of them is specified
-	 *
+	 * 
 	 * @param e {@link Exception} to get message for
 	 * @return {@link String} exception message
 	 */
@@ -1119,16 +1116,16 @@ public final class DSSUtils {
 		if (e == null) {
 			throw new DSSException("Cannot retrieve a message. The exception is null!");
 		}
-
+		
 		if (e.getMessage() != null) {
 			return e.getMessage();
-
+			
 		} else if (e.getCause() != null && e.getCause().getMessage() != null) {
 			return e.getCause().getMessage();
-
+			
 		} else {
 			return e.getClass().getName();
-
+			
 		}
 	}
 

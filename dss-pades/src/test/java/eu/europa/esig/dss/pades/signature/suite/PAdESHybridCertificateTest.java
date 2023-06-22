@@ -2,7 +2,6 @@ package eu.europa.esig.dss.pades.signature.suite;
 
 import eu.europa.esig.dss.diagnostic.CertificateWrapper;
 import eu.europa.esig.dss.diagnostic.DiagnosticData;
-import eu.europa.esig.dss.diagnostic.RevocationWrapper;
 import eu.europa.esig.dss.diagnostic.SignatureWrapper;
 import eu.europa.esig.dss.enumerations.SignatureLevel;
 import eu.europa.esig.dss.model.DSSDocument;
@@ -16,13 +15,11 @@ import eu.europa.esig.dss.spi.x509.CommonTrustedCertificateSource;
 import eu.europa.esig.dss.spi.x509.KeyStoreCertificateSource;
 import eu.europa.esig.dss.test.PKIFactoryAccess;
 import eu.europa.esig.dss.token.KSPrivateKeyEntry;
-import eu.europa.esig.dss.utils.Utils;
 import eu.europa.esig.dss.validation.CertificateVerifier;
 import eu.europa.esig.dss.validation.CommonCertificateVerifier;
 import eu.europa.esig.dss.validation.SignedDocumentValidator;
 import eu.europa.esig.dss.validation.reports.Reports;
 import org.apache.commons.io.IOUtils;
-import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -34,7 +31,6 @@ import java.security.cert.X509Certificate;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -81,7 +77,7 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
         // We assume that the alternative private key is stored in the keystore with alias "hybrid-alt-good-user".
         PrivateKey altPrivateKey = (PrivateKey) ks.getKey("hybrid-alt-good-user", password.toCharArray());
         // Recall that the alternative private key has the same signing certificate as the private key.
-        return new KSPrivateKeyEntry("hybrid-alt-good-user", altPrivateKey, x509Certificate, ks.getCertificateChain("hybrid-good-user"), parameters.getAltEncryptionAlgorithm());
+        return new KSPrivateKeyEntry("hybrid-alt-good-user", altPrivateKey, x509Certificate, ks.getCertificateChain("hybrid-good-user"), parameters.getEncryptionAlgorithm());
     }
 
     /**
@@ -119,7 +115,7 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
 
         // This PAdESService object creates and extends PAdES signatures
         PAdESService service = new PAdESService(getSelfSignedCertificateVerifier());
-//        service.setTspSource(getGoodTsa());
+        // service.setTspSource(getGoodTsa());
 
         // Parameters for the PAdES signature, which includes things like (alt-)signature algorithm and (if visible) position in page
         PAdESSignatureParameters params = new PAdESSignatureParameters();
@@ -132,20 +128,24 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
 
         // Prepare our primary and alt private key
         KSPrivateKeyEntry ksPrivateKey = preparePrivateKey();
-        KSPrivateKeyEntry altKSPrivateKey = prepareAltPrivateKey(cert, params);
-
         // This is a really stupid way of doing this, but alas its Java - essentially, ToBeSigned is just a byte[] variable.
         // All this does is hash the pdf document and the byte[] is the hash output.
         ToBeSigned dataToSign = service.getDataToSign(toBeSigned, params);
         // Signs the hash of the document.
         SignatureValue signatureValue = getToken().sign(dataToSign, params.getDigestAlgorithm(), ksPrivateKey);
-        // Noww this is stupid, this isn't just signDocument (which uses the params and signatureValue to generate a PAdES signature),
+        // Now this is stupid, this isn't just signDocument (which uses the params and signatureValue to generate a PAdES signature),
         // but will also verify whether the signature is correct and store it within the encoded bytes in the DSSDocument (use debugger to
         // see this in action and see file SignatureIntegrityValdiator.java in package eu.europa.esig.dss.spi.x509.
         DSSDocument signedDocument = service.signDocument(toBeSigned, params, signatureValue);
 
-        // See method description for this sneaky way of doing things
-        params.prepareParametersForHybrid();
+        // The content size needs to be increased if we are dealing with PQ schemes
+        params = new PAdESSignatureParameters();
+        params.setSignatureLevel(SignatureLevel.PAdES_BASELINE_B);
+        params.setUseAltSignatureAndPublicKey(true);
+        params.setSigningCertificate(certificateToken);
+        params.setContentSize(12118);
+
+        KSPrivateKeyEntry altKSPrivateKey = prepareAltPrivateKey(cert, params);
 
         // Same as above, except we are resigning our entire document (hence alt signature signs pdf content + classical PAdES signature
         dataToSign = service.getDataToSign(signedDocument, params);
@@ -174,7 +174,6 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
         SignatureWrapper signatureOne = diagnosticData.getSignatures().get(0);
         SignatureWrapper signatureTwo = diagnosticData.getSignatures().get(1);
         assertFalse(Arrays.equals(signatureOne.getSignatureDigestReference().getDigestValue(), signatureTwo.getSignatureDigestReference().getDigestValue()));
-        doubleSignedDocument.save("/home/joao/test.pdf");
 
     }
 
