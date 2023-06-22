@@ -81,10 +81,13 @@ public class CertificateExtensions implements Serializable {
     /** ETSI EN 319 412-1/5: QCStatements */
     private QcStatements qcStatements;
 
+    /** ITU-T X.509. 9.8.2: Subject alternative public key information extension  */
     private SubjectPublicKeyInfo subjectAltPublicKeyInfo;
 
+    /** ITU-T X.509. 9.8.3: Alternative signature algorithm extension */
     private AltSignatureValue altSignatureValue;
 
+    /** ITU-T X.509. 9.8.4: Alternative signature value */
     private AltSignatureAlgorithm altSignatureAlgorithm;
 
     /** List of other extensions */

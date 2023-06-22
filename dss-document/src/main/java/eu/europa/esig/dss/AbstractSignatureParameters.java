@@ -32,6 +32,7 @@ import eu.europa.esig.dss.utils.Utils;
 import eu.europa.esig.dss.validation.timestamp.TimestampToken;
 
 import java.security.PublicKey;
+import java.security.cert.CertificateException;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -45,7 +46,7 @@ import java.util.List;
 public abstract class AbstractSignatureParameters<TP extends SerializableTimestampParameters> extends AbstractSerializableSignatureParameters<TP> {
 
     /**
-     * Whether we are signing with the hybrid key
+     * Whether we are signing with the hybrid key and will produce an alt sig
      */
     private boolean useAltSignatureAndPublicKey = false;
     
@@ -89,12 +90,22 @@ public abstract class AbstractSignatureParameters<TP extends SerializableTimesta
 		// empty
 	}
 
+	/**
+	 * Returns if we are creating an alt signature
+	 *
+	 * @return {@code boolean} whether we are creating an alt signature
+	 */
     public boolean getUseAltSignatureAndPublicKey(){
         return useAltSignatureAndPublicKey;
     }
 
+	/**
+	 * Sets whether we are creating an alt signature
+	 *
+	 * @param useAltSignatureAndPublicKey whether we are creating an alt signature 
+	 */
     public void setUseAltSignatureAndPublicKey(boolean useAltSignatureAndPublicKey) {
-        this.useAltSignatureAndPublicKey = useAltSignatureAndPublicKey;
+		this.useAltSignatureAndPublicKey = useAltSignatureAndPublicKey;
     }
 
 	/**
@@ -159,7 +170,7 @@ public abstract class AbstractSignatureParameters<TP extends SerializableTimesta
 
     /**
      * Set the signing certificate. The encryption algorithm is also set from the
-     * public key.
+     * public key. Will use the alt public key if {@code useAltSignatureAndPublicKey} is true.
      *
      * @param signingCertificate the signing certificate
      */

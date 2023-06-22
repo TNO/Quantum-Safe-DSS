@@ -18,6 +18,11 @@ import java.security.spec.RSAPublicKeySpec;
 
 public class AlternateSignatureHelper {
 
+    /**
+     * Converts a {@code SubjectPublicKeyInfo} into a {@code PublicKey} 
+     * @param altPub {@code SubjectPublicKeyInfo} to be converted
+     * @return {@code PublicKey}
+     */
     public static PublicKey convertToPublicKey(SubjectPublicKeyInfo altPub) throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
         ASN1ObjectIdentifier algOID = altPub.getAlgorithm().getAlgorithm();
         if (isDilithium(algOID)) {
@@ -34,21 +39,40 @@ public class AlternateSignatureHelper {
         } else {
             throw new IOException("cannot find algorithm with oid " + altPub.getAlgorithm().getAlgorithm());
         }
-
     }
 
+    /**
+     * Whether OID points to an ECDSA instance.
+     * @param algOID {@code ASN1ObjectIdentifier}
+     * @return {@code boolean} if the OID points to an ECDSA instance 
+     */
     public static boolean isECDSA(ASN1ObjectIdentifier algOID) {
         return algOID.toString().equals("1.2.840.10045.2.1");
     }
 
+    /**
+     * Whether OID points to an RSA instance.
+     * @param algOID {@code ASN1ObjectIdentifier}
+     * @return {@code boolean} if the OID points to an RSA instance 
+     */
     public static boolean isRSA(ASN1ObjectIdentifier algOID) {
         return algOID.toString().equals("1.2.840.113549.1.1.1");
     }
 
+    /**
+     * Whether OID points to an Dilithium instance.
+     * @param algOID {@code ASN1ObjectIdentifier}
+     * @return {@code boolean} if the OID points to an Dilithium instance 
+     */
     private static boolean isDilithium(ASN1ObjectIdentifier algOID) {
         return algOID.equals(BCObjectIdentifiers.dilithium2) || algOID.equals(BCObjectIdentifiers.dilithium3) || algOID.equals(BCObjectIdentifiers.dilithium5) || algOID.equals(BCObjectIdentifiers.dilithium) || algOID.equals(BCObjectIdentifiers.dilithium2_aes) || algOID.equals(BCObjectIdentifiers.dilithium3_aes) || algOID.equals(BCObjectIdentifiers.dilithium5_aes);
     }
 
+    /**
+     * Whether OID points to an Falcon instance.
+     * @param algOID {@code ASN1ObjectIdentifier}
+     * @return {@code boolean} if the OID points to an Falcon instance 
+     */
     private static boolean isFalcon(ASN1ObjectIdentifier algOID) {
         return algOID.equals(BCObjectIdentifiers.falcon) || algOID.equals(BCObjectIdentifiers.falcon_512) || algOID.equals(BCObjectIdentifiers.falcon_1024);
     }
