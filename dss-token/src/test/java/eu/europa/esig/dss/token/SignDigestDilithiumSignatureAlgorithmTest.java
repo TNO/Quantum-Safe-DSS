@@ -27,6 +27,8 @@ import eu.europa.esig.dss.model.Digest;
 import eu.europa.esig.dss.model.SignatureValue;
 import eu.europa.esig.dss.model.ToBeSigned;
 import eu.europa.esig.dss.spi.DSSUtils;
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.pqc.jcajce.provider.BouncyCastlePQCProvider;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -36,6 +38,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.security.KeyStore.PasswordProtection;
+import java.security.Security;
 import java.security.Signature;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -61,8 +64,10 @@ public class SignDigestDilithiumSignatureAlgorithmTest {
     }
     @ParameterizedTest(name = "DigestAlgorithm {index} : {0}")
 	@MethodSource("data")
-	public void testPkcs12(DigestAlgorithm digestAlgo) throws IOException {
-		try (Pkcs12SignatureToken signatureToken = new Pkcs12SignatureToken("src/test/resources/good-ecdsa-user.p12",
+	public void testPkcs12(SignatureAlgorithm signatureAlgorithm) throws IOException {
+		// it is expected that we only have a single digest algorithm on SHAKE256_512, since that is used internally with Dilithium.
+		DigestAlgorithm digestAlgo = signatureAlgorithm.getDigestAlgorithm();
+		try (Pkcs12SignatureToken signatureToken = new Pkcs12SignatureToken("src/test/resources/dilithium_keys.p12",
 				new PasswordProtection("ks-password".toCharArray()))) {
 
 			List<DSSPrivateKeyEntry> keys = signatureToken.getKeys();
@@ -82,24 +87,7 @@ public class SignDigestDilithiumSignatureAlgorithmTest {
 				Assertions.fail(e.getMessage());
 			}
 
-			final byte[] digestBinaries = DSSUtils.digest(digestAlgo, toBeSigned.getBytes());
-			Digest digest = new Digest(digestAlgo, digestBinaries);
-
-			SignatureValue signDigestValue = signatureToken.signDigest(digest, entry);
-			assertNotNull(signDigestValue.getAlgorithm());
-			LOG.info("Sig value : {}", Base64.getEncoder().encodeToString(signDigestValue.getValue()));
-
-			try {
-				Signature sig = Signature.getInstance(signDigestValue.getAlgorithm().getJCEId());
-				sig.initVerify(entry.getCertificate().getPublicKey());
-				sig.update(toBeSigned.getBytes());
-				assertTrue(sig.verify(signDigestValue.getValue()));
-			} catch (GeneralSecurityException e) {
-				Assertions.fail(e.getMessage());
-			}
-
-			// Sig values are not equals like with RSA. (random number is generated on
-			// signature creation)
+			// Removed the other testcase, since the digest algorithm is of no use for the Dilithium algorithm.
 		}
 	}
 }

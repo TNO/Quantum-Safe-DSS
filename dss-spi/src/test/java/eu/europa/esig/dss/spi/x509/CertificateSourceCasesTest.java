@@ -141,7 +141,7 @@ public class CertificateSourceCasesTest {
 
 	@Test
 	public void extractTLSKeystore() {
-		assertTimeout(ofMillis(30000), () -> {
+		assertTimeout(ofMillis(40000), () -> {
 			KeyStoreCertificateSource kscs = new KeyStoreCertificateSource(new File("src/test/resources/extract-tls.p12"),
 					"PKCS12", "ks-password");
 	

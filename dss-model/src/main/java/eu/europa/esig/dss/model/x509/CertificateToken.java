@@ -144,6 +144,9 @@ public class CertificateToken extends Token {
 
     private boolean isHybrid() throws IOException {
         Extensions exts = this.x509CertificateHolder.getExtensions();
+		if (exts == null) {
+			return false;
+		}
         Extension ext = exts.getExtension(Extension.altSignatureAlgorithm);
         return ext != null;
     }

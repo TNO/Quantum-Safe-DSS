@@ -33,6 +33,7 @@ import eu.europa.esig.dss.spi.x509.aia.DefaultAIASource;
 import eu.europa.esig.dss.validation.SignedDocumentValidator;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.text.ParseException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -76,7 +77,7 @@ public class DKExpectedSigCertTest extends AbstractDKTestCertificate {
 	}
 
 	@Test
-	public void certs() {
+	public void certs() throws IOException {
 		// System.out.println(PREVIOUS_SIG_CERT);
 		// System.out.println(EXPECTED_SIG_CERT);
 
