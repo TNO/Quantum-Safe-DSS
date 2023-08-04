@@ -443,16 +443,18 @@ public class SignedDocumentDiagnosticDataBuilder extends DiagnosticDataBuilder {
 		final CandidatesForSigningCertificate candidatesForSigningCertificate = signature.getCandidatesForSigningCertificate();
 		final CertificateValidity theCertificateValidity = candidatesForSigningCertificate.getTheCertificateValidity();
 		PublicKey signingCertificatePublicKey = null;
-		if (theCertificateValidity != null) {
+		final Boolean validCertificatExists = theCertificateValidity != null;
+		if (validCertificatExists) {
 			xmlSignature.setSigningCertificate(getXmlSigningCertificate(signature.getDSSId(), theCertificateValidity));
 			xmlSignature.setCertificateChain(getXmlForCertificateChain(theCertificateValidity, signature.getCertificateSource()));
 			signingCertificatePublicKey = theCertificateValidity.getPublicKey();
 		}
 
 		xmlSignature.setBasicSignature(getXmlBasicSignature(signature, signingCertificatePublicKey));
-		// if we have verified that main signature and the certificate is hybrid, validate the alt signature
-		if(!xmlSignature.getBasicSignature().isSignatureValid()) {
-			assert theCertificateValidity != null;
+
+		// if a valid certificate but the public key did not create a valid signature
+		if(validCertificatExists && !xmlSignature.getBasicSignature().isSignatureValid()) {
+			// then we check the hybrid certificate
 			if (theCertificateValidity.getCertificateToken().isCertificateHybrid()) {
 					xmlSignature.setBasicSignature(getXmlBasicSignature(signature, theCertificateValidity.getCertificateToken().getAltPublicKey()));
 					if (!xmlSignature.getBasicSignature().isSignatureValid()) {
