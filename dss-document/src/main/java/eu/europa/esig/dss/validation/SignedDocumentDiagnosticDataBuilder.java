@@ -443,8 +443,8 @@ public class SignedDocumentDiagnosticDataBuilder extends DiagnosticDataBuilder {
 		final CandidatesForSigningCertificate candidatesForSigningCertificate = signature.getCandidatesForSigningCertificate();
 		final CertificateValidity theCertificateValidity = candidatesForSigningCertificate.getTheCertificateValidity();
 		PublicKey signingCertificatePublicKey = null;
-		final Boolean validCertificatExists = theCertificateValidity != null;
-		if (validCertificatExists) {
+		final Boolean validCertificateExists = theCertificateValidity != null;
+		if (validCertificateExists) {
 			xmlSignature.setSigningCertificate(getXmlSigningCertificate(signature.getDSSId(), theCertificateValidity));
 			xmlSignature.setCertificateChain(getXmlForCertificateChain(theCertificateValidity, signature.getCertificateSource()));
 			signingCertificatePublicKey = theCertificateValidity.getPublicKey();
@@ -453,7 +453,7 @@ public class SignedDocumentDiagnosticDataBuilder extends DiagnosticDataBuilder {
 		xmlSignature.setBasicSignature(getXmlBasicSignature(signature, signingCertificatePublicKey));
 
 		// if a valid certificate but the public key did not create a valid signature
-		if(validCertificatExists && !xmlSignature.getBasicSignature().isSignatureValid()) {
+		if(validCertificateExists && !xmlSignature.getBasicSignature().isSignatureValid()) {
 			// then we check the hybrid certificate
 			if (theCertificateValidity.getCertificateToken().isCertificateHybrid()) {
 					xmlSignature.setBasicSignature(getXmlBasicSignature(signature, theCertificateValidity.getCertificateToken().getAltPublicKey()));
