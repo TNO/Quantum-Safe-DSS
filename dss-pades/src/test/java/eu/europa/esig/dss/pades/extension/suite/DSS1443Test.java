@@ -20,6 +20,7 @@
  */
 package eu.europa.esig.dss.pades.extension.suite;
 
+import eu.europa.esig.dss.alert.LogOnStatusAlert;
 import eu.europa.esig.dss.diagnostic.DiagnosticData;
 import eu.europa.esig.dss.diagnostic.SignatureWrapper;
 import eu.europa.esig.dss.diagnostic.TimestampWrapper;
@@ -40,6 +41,7 @@ import eu.europa.esig.dss.validation.CommonCertificateVerifier;
 import eu.europa.esig.dss.validation.SignedDocumentValidator;
 import eu.europa.esig.dss.validation.reports.Reports;
 import org.junit.jupiter.api.Test;
+import org.slf4j.event.Level;
 
 import java.util.List;
 
@@ -96,7 +98,7 @@ public class DSS1443Test extends PKIFactoryAccess {
 
 	private CertificateVerifier getCertificateVerifier() {
 		CommonCertificateVerifier certificateVerifier = new CommonCertificateVerifier();
-
+		certificateVerifier.setAlertOnExpiredSignature(new LogOnStatusAlert(Level.WARN));
 		certificateVerifier.setCrlSource(new OnlineCRLSource());
 
 		CertificateSource trustedCertSource = getTrustedCertificateSource();
