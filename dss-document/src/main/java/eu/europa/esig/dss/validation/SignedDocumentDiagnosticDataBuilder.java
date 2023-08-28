@@ -454,8 +454,8 @@ public class SignedDocumentDiagnosticDataBuilder extends DiagnosticDataBuilder {
 
 		// if a valid certificate but the public key did not create a valid signature
 		if(validCertificateExists && !xmlSignature.getBasicSignature().isSignatureValid()) {
-			// then we check the hybrid certificate
-			if (theCertificateValidity.getCertificateToken().isCertificateHybrid()) {
+			// then we check the hybrid certificate if it exists
+			if (theCertificateValidity.getCertificateToken()!= null && theCertificateValidity.getCertificateToken().isCertificateHybrid()) {
 					xmlSignature.setBasicSignature(getXmlBasicSignature(signature, theCertificateValidity.getCertificateToken().getAltPublicKey()));
 					if (!xmlSignature.getBasicSignature().isSignatureValid()) {
 						xmlSignature.setBasicSignature(getXmlBasicSignature(signature, signingCertificatePublicKey));
