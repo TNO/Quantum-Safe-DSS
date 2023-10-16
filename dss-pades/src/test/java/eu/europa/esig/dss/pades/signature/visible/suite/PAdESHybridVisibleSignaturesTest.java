@@ -1,6 +1,7 @@
 package eu.europa.esig.dss.pades.signature.visible.suite;
 
 import eu.europa.esig.dss.diagnostic.DiagnosticData;
+import eu.europa.esig.dss.enumerations.EncryptionAlgorithm;
 import eu.europa.esig.dss.enumerations.MimeTypeEnum;
 import eu.europa.esig.dss.enumerations.SignatureLevel;
 import eu.europa.esig.dss.model.DSSDocument;
@@ -105,7 +106,8 @@ public class PAdESHybridVisibleSignaturesTest extends AbstractPAdESTestValidatio
      */
     private static KSPrivateKeyEntry prepareAltPrivateKey(X509Certificate x509Certificate) throws KeyStoreException, UnrecoverableKeyException, NoSuchAlgorithmException {
         PrivateKey altPrivateKey = (PrivateKey) ks.getKey("hybrid-alt-good-user", password.toCharArray());
-        return new KSPrivateKeyEntry("hybrid-alt-good-user", altPrivateKey, x509Certificate, ks.getCertificateChain("hybrid-good-user"), altSignatureParameters.getEncryptionAlgorithm());
+        EncryptionAlgorithm encryptionAlgorithm = altSignatureParameters.getEncryptionAlgorithm();
+        return new KSPrivateKeyEntry("hybrid-alt-good-user", altPrivateKey, x509Certificate, ks.getCertificateChain("hybrid-good-user"), encryptionAlgorithm);
     }
 
     /**

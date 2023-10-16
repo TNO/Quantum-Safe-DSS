@@ -144,6 +144,9 @@ public class CertificateToken extends Token {
 
     private boolean isHybrid() throws IOException {
         Extensions exts = this.x509CertificateHolder.getExtensions();
+		if (exts == null) {
+			return false;
+		}
         Extension ext = exts.getExtension(Extension.altSignatureAlgorithm);
         return ext != null;
     }
@@ -348,7 +351,7 @@ public class CertificateToken extends Token {
      * @param token the token to be compared
      * @return true if the given certificate has the same public key
      */
-    public boolean isEquivalent(CertificateToken token) throws IOException {
+    public boolean isEquivalent(CertificateToken token)  {
         PublicKey currentPublicKey = getPublicKey();
         PublicKey tokenPublicKey = token.getPublicKey();
         if (!hybrid) {
@@ -514,7 +517,7 @@ public class CertificateToken extends Token {
      *
      * @return the alt signature value
      */
-    public byte[] getAltSignature() throws IOException {
+    public byte[] getAltSignature() {
         return Objects.requireNonNull(getAltSignatureValue()).getSignature().getBytes();
     }
 

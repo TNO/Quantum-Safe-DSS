@@ -21,6 +21,7 @@
 package eu.europa.esig.dss.spi.x509;
 
 import eu.europa.esig.dss.model.DSSException;
+import eu.europa.esig.dss.model.x509.CertificateToken;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -122,13 +123,16 @@ public abstract class SignatureIntegrityValidator {
 	
 	private boolean isSignatureIntact(CertificateValidity certificateValidity) {
 		final PublicKey publicKey = certificateValidity.getPublicKey();
+		final CertificateToken certificateToken = certificateValidity.getCertificateToken();
+		final PublicKey altPublicKey = certificateToken==null ? null : certificateToken.getAltPublicKey();
 		if (verify(publicKey)) {
 			LOG.debug("Public key matching the signature value found.");
 			return true;
-		} else {
+		} else if (altPublicKey != null){
 			// try alt public key
-			PublicKey k = certificateValidity.getCertificateToken().getAltPublicKey();
-			return verify(k);
+			return verify(altPublicKey);
+		}else{
+			return false;
 		}
 	}
 	

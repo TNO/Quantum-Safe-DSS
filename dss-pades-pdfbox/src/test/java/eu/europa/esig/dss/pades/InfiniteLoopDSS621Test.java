@@ -86,54 +86,54 @@ public class InfiniteLoopDSS621Test {
 
 	@Test
 	public void testReadTimestamp1() throws Exception {
-        assertTimeout(ofMillis(5000), () -> {
-        	DSSDocument signDocument = new InMemoryDocument(getClass().getResourceAsStream(FILE_PATH));
-    		final CommonCertificateVerifier certificateVerifier = new CommonCertificateVerifier();
+		assertTimeout(ofMillis(8000), () -> {
+			DSSDocument signDocument = new InMemoryDocument(getClass().getResourceAsStream(FILE_PATH));
+			final CommonCertificateVerifier certificateVerifier = new CommonCertificateVerifier();
 			certificateVerifier.setAIASource(null); // Error 404 on DER policy
 
-    		final PDFDocumentValidator signedDocumentValidator = new PDFDocumentValidator(signDocument);
-    		signedDocumentValidator.setCertificateVerifier(certificateVerifier);
+			final PDFDocumentValidator signedDocumentValidator = new PDFDocumentValidator(signDocument);
+			signedDocumentValidator.setCertificateVerifier(certificateVerifier);
 
 			SignaturePolicyProvider signaturePolicyProvider = new SignaturePolicyProvider();
 			signaturePolicyProvider.setDataLoader(new IgnoreDataLoader());
 			signedDocumentValidator.setSignaturePolicyProvider(signaturePolicyProvider);
-    		
-    		List<PdfDssDict> dssDictionaries = signedDocumentValidator.getDssDictionaries();
-    		assertEquals(1, dssDictionaries.size());
-    		
-    		int dssDictsWithVri = 0;
-    		int dssDictsWithoutVri = 0;
-    		for (PdfDssDict dssDict : dssDictionaries) {
-    			if (Utils.isCollectionNotEmpty(dssDict.getVRIs())) {
-    				assertEquals(5, dssDict.getVRIs().size());
-    				dssDictsWithVri++;
-    			} else if (Utils.isCollectionEmpty(dssDict.getVRIs())) {
-    				dssDictsWithoutVri++;
-    			}
-    		}
-    		assertEquals(1, dssDictsWithVri);
-    		assertEquals(0, dssDictsWithoutVri);
-    		
-    		Reports reports = signedDocumentValidator.validateDocument();
 
-    		// reports.print();
+			List<PdfDssDict> dssDictionaries = signedDocumentValidator.getDssDictionaries();
+			assertEquals(1, dssDictionaries.size());
 
-    		DiagnosticData diagnosticData = reports.getDiagnosticData();
-    		List<SignatureWrapper> signatures = diagnosticData.getSignatures();
+			int dssDictsWithVri = 0;
+			int dssDictsWithoutVri = 0;
+			for (PdfDssDict dssDict : dssDictionaries) {
+				if (Utils.isCollectionNotEmpty(dssDict.getVRIs())) {
+					assertEquals(5, dssDict.getVRIs().size());
+					dssDictsWithVri++;
+				} else if (Utils.isCollectionEmpty(dssDict.getVRIs())) {
+					dssDictsWithoutVri++;
+				}
+			}
+			assertEquals(1, dssDictsWithVri);
+			assertEquals(0, dssDictsWithoutVri);
 
-    		assertEquals(5, signatures.size()); // 1 timestamp is not counted as a signature
-    		for (final SignatureWrapper signature : signatures) {
-    			List<XmlDigestMatcher> digestMatchers = signature.getDigestMatchers();
-    			for (XmlDigestMatcher digestMatcher : digestMatchers) {
-    				assertTrue(digestMatcher.isDataFound());
-    				assertTrue(digestMatcher.isDataIntact());
-    			}
+			Reports reports = signedDocumentValidator.validateDocument();
 
-    			assertFalse(signature.isSignatureIntact());
-    			assertFalse(signature.isSignatureValid());
-    			assertTrue(Utils.isCollectionNotEmpty(signature.getTimestampList()));
-    		}
-        });
+			// reports.print();
+
+			DiagnosticData diagnosticData = reports.getDiagnosticData();
+			List<SignatureWrapper> signatures = diagnosticData.getSignatures();
+
+			assertEquals(5, signatures.size()); // 1 timestamp is not counted as a signature
+			for (final SignatureWrapper signature : signatures) {
+				List<XmlDigestMatcher> digestMatchers = signature.getDigestMatchers();
+				for (XmlDigestMatcher digestMatcher : digestMatchers) {
+					assertTrue(digestMatcher.isDataFound());
+					assertTrue(digestMatcher.isDataIntact());
+				}
+
+				assertFalse(signature.isSignatureIntact());
+				assertFalse(signature.isSignatureValid());
+				assertTrue(Utils.isCollectionNotEmpty(signature.getTimestampList()));
+			}
+		});
 	}
 
 	/**

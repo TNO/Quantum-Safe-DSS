@@ -177,11 +177,20 @@ public abstract class AbstractSignatureParameters<TP extends SerializableTimesta
     public void setSigningCertificate(final CertificateToken signingCertificate) {
         this.signingCertificate = signingCertificate;
 
-        PublicKey publicKey = useAltSignatureAndPublicKey ? signingCertificate.getAltPublicKey() : signingCertificate.getPublicKey();
-        DigestAlgorithm digestAlgorithm = useAltSignatureAndPublicKey ? signingCertificate.getAltSignatureAlgorithm().getDigestAlgorithm() : signingCertificate.getSignatureAlgorithm().getDigestAlgorithm();
+		if (useAltSignatureAndPublicKey){
+			PublicKey publicKey = signingCertificate.getAltPublicKey();
+			// If digest algorithm is not set the encryption algorithm does not set the SignatureAlgorithm => therefore we set the digestalgorithm
+			DigestAlgorithm digestAlgorithm = signingCertificate.getAltSignatureAlgorithm().getDigestAlgorithm();
+			setDigestAlgorithm(digestAlgorithm);
 
-        setEncryptionAlgorithm(EncryptionAlgorithm.forKey(publicKey));
-		setDigestAlgorithm(digestAlgorithm);
+			setEncryptionAlgorithm(EncryptionAlgorithm.forKey(publicKey));
+		}else{
+			setEncryptionAlgorithm(EncryptionAlgorithm.forKey(signingCertificate.getPublicKey()));
+		}
+
+
+
+
     }
 
 	/**
