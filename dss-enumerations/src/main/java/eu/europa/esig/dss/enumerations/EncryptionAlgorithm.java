@@ -72,10 +72,10 @@ public enum EncryptionAlgorithm implements OidBasedEnum { //TODO add other schem
 	DILITHIUM5_AES("DILITHIUM5_AES", "1.3.6.1.4.1.2.267.11.8.7", ""),
 
 	/** FALCON 512 */
-	FALCON_512("FALCON_512", "1.3.9999.3.1", ""),
+	FALCON_512("FALCON-512", "1.3.9999.3.1", ""),
 
 	/** FALCON 1024 */
-	FALCON_1024("FALCON_1024", "1.3.9999.3.4", "");
+	FALCON_1024("FALCON-1024", "1.3.9999.3.4", ""),
 
 	/** The name of the algorithm */
 	private String name;

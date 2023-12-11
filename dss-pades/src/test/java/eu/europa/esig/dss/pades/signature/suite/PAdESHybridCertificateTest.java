@@ -222,6 +222,10 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
         testHybridCertificate("hybrid-pq-good-user");
     }
 
+    @Test
+    public void testDoubleHybridSignatureTest() throws IOException, KeyStoreException, CertificateException, NoSuchAlgorithmException, UnrecoverableKeyException, NoSuchProviderException {
+        testHybridCertificate("test-falcon-works");
+    }
 
     /**
      * Checks all revocations at once.

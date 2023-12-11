@@ -558,8 +558,8 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 		javaAlgorithms.put("Dilithium5", DILITHIUM5);
 		javaAlgorithms.put("Dilithium5withAES", DILITHIUM5_AES);
 
-		javaAlgorithms.put("Falcon512", FALCON_512);
-		javaAlgorithms.put("Falcon1024", FALCON_1024);
+		javaAlgorithms.put("Falcon-512", FALCON_512);
+		javaAlgorithms.put("Falcon-1024", FALCON_1024);
 
 		return javaAlgorithms;
 	}
