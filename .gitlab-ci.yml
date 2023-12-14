@@ -1,0 +1,60 @@
+variables:
+    #taken from https://gitlab.com/gitlab-org/gitlab-foss/-/blob/master/lib/gitlab/ci/templates/Maven.gitlab-ci.yml
+    MAVEN_OPTS: >-
+        -Dhttps.protocols=TLSv1.2
+        -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository
+        -Dorg.slf4j.simpleLogger.showDateTime=true
+        -Djava.awt.headless=true
+
+    # take from https://gitlab.com/gitlab-org/gitlab-foss/-/blob/master/lib/gitlab/ci/templates/Maven.gitlab-ci.yml
+    MAVEN_CLI_OPTS: >-
+        --batch-mode
+        --errors
+        --fail-at-end
+        --show-version
+        --no-transfer-progress
+        -DinstallAtEnd=true
+        -DdeployAtEnd=true
+
+
+
+image: maven:latest
+
+stages:
+    - build
+    - test
+    - package
+    - deploy
+
+cache:
+  paths:
+    - .m2/repository
+    - target
+
+build_job:
+  stage: build
+  tags:
+    - docker 
+
+  script: 
+    - echo "Maven build started"
+    - "mvn $MAVEN_CLI_OPTS build"
+
+
+test_job:
+  stage: test
+  tags:
+    - docker 
+
+  script: 
+    - echo "Maven test started"
+    - "mvn $MAVEN_CLI_OPTS test"
+
+package_job:
+  stage: package
+  tags:
+    - docker 
+
+  script: 
+    - echo "Maven packaging started"
+    - "mvn $MAVEN_CLI_OPTS package"
