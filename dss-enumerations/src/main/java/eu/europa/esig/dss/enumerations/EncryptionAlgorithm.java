@@ -75,7 +75,7 @@ public enum EncryptionAlgorithm implements OidBasedEnum { //TODO add other schem
 	FALCON_512("FALCON-512", "1.3.9999.3.1", ""),
 
 	/** FALCON 1024 */
-	FALCON_1024("FALCON-1024", "1.3.9999.3.4", ""),
+	FALCON_1024("FALCON-1024", "1.3.9999.3.4", "");
 
 	/** The name of the algorithm */
 	private String name;
