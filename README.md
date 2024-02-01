@@ -1,12 +1,21 @@
+
+
 ## DSS FORK : Digital Signature Service with Hybrid Certificates
 
-This is the official repository for project DSS : https://ec.europa.eu/digital-building-blocks/wikis/display/DIGITAL/Digital+Signature+Service+-++DSS.
-To use the library first run the install method of the entire 
+This is a fork of the official repository for project DSS : https://ec.europa.eu/digital-building-blocks/wikis/display/DIGITAL/Digital+Signature+Service+-++DSS. The DSS project provides a digital signature service to sign and validate digital signatures on different types of files. In this fork we have mainly look at the PAdES functionality. PAdES is a standard to sign and validate pdf documents. In the official repository several types of certificates and cryptographic algorithms are supported. We have extended the functionality with hybrid certificates.
+
+## Hybrid certificates
+Hybrid certificates apply multiple cryptographic algorithms in during signing. By using multiple algorithms when signing a document enables the verifier to check one of the signatures to check the validity. If one of the algorithms is broken or bugged the other algoirthm can still be used to validate the signature. 
+
+In the light of the quantum computer arriving within the next 30-ish years the advantage is being able to use a classical algorithm and a post-quantum secure algorithm. Allowing backwards compatibility to the user that have not migrated to post-quantum secure algorithms, while also supporting the people that have transitioned. Being able to support post-quantum secure algorithms and classical algorithms prolongs the validaty of PDF documents. 
+
+In the fork we have added functionality for a hybrid certificate. The hybrid certificate adheres to [X.509 ITU-T](https://www.itu.int/rec/T-REC-X.509-201910-I) (the catalyst approach). The current implementation supports a hybrid certificate with any classical algorithm and FALCON-512 (provided by bouncy castle). Support for other algorithms can be extended by loading other encryption algorithms from the bounce castle framework.
 
 
-# Issue Tracker
+____
 
-Please, use the new JIRA for project is on https://ec.europa.eu/digital-building-blocks/tracker/projects/DSS/issues. 
+The remainder of the README is from the original repository and left in, since the build and install steps are still the same.
+
 
 # Requirements
 
