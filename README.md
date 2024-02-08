@@ -1,11 +1,14 @@
 
 
-## DSS FORK : Digital Signature Service with Hybrid Certificates
+## DSS FORK : Digital Signature Service with Quantum Safe Hybrid Certificates
 
-This is a fork of the official repository for project DSS : https://ec.europa.eu/digital-building-blocks/wikis/display/DIGITAL/Digital+Signature+Service+-++DSS. The DSS project provides a digital signature service to sign and validate digital signatures on different types of files. In this fork we have mainly look at the PAdES functionality. PAdES is a standard to sign and validate pdf documents. In the official repository several types of certificates and cryptographic algorithms are supported. We have extended the functionality with hybrid certificates.
+This is a fork of the official repository for project DSS : https://ec.europa.eu/digital-building-blocks/wikis/display/DIGITAL/Digital+Signature+Service+-++DSS. The DSS project provides a digital signature service to sign and validate digital signatures on different types of files. In this fork we have mainly look at the PAdES functionality. PAdES is a standard to sign and validate pdf documents. In the official repository several types of certificates and cryptographic algorithms are supported. We have extended the functionality with quantum safe hybrid certificates.
+
+This work has been performed under the [Hapkido project](https://hapkido.tno.nl/). The Hybrid Approach for quantum-safe Public Key Infrastructure Development for Organisations (HAPKIDO) project is a five-year initiative that aims to develop a roadmap for the transition to quantum-safe Public Key Infrastructures (PKIs).
+
 
 ## Hybrid certificates
-Hybrid certificates apply multiple cryptographic algorithms in during signing. By using multiple algorithms when signing a document enables the verifier to check one of the signatures to check the validity. If one of the algorithms is broken or bugged the other algoirthm can still be used to validate the signature. 
+Hybrid certificates apply multiple cryptographic algorithms during signing. By using multiple algorithms when signing a document enables the verifier to check one of the signatures to check the validity. If one of the algorithms is broken or bugged the other algoirthm can still be used to validate the signature. 
 
 In the light of the quantum computer arriving within the next 30-ish years the advantage is being able to use a classical algorithm and a post-quantum secure algorithm. Allowing backwards compatibility to the user that have not migrated to post-quantum secure algorithms, while also supporting the people that have transitioned. Being able to support post-quantum secure algorithms and classical algorithms prolongs the validaty of PDF documents. 
 
@@ -113,9 +116,6 @@ The code of the demonstration can be found on https://ec.europa.eu/digital-build
 
 # Licenses
 
-The DSS project is delivered under the terms of the Lesser General Public License (LPGL), version 2.1 ([![License (LGPL version 2.1)](https://img.shields.io/badge/license-GNU%20LGPL%20version%202.1-blue.svg?style=flat-square)](https://opensource.org/licenses/LGPL-2.1)
+The DSS project is delivered under the terms of the Lesser General Public License (LPGL), version 2.1 [![License (LGPL version 2.1)](https://img.shields.io/badge/license-GNU%20LGPL%20version%202.1-blue.svg?style=flat-square)](https://opensource.org/licenses/LGPL-2.1)
 
 SPDX-License-Identifier : LGPL-2.1
-
-
-[![SonarCloud](https://sonarcloud.io/api/project_badges/measure?project=eu.europa.ec.joinup.sd-dss%3Asd-dss&metric=alert_status)](https://sonarcloud.io/dashboard?id=eu.europa.ec.joinup.sd-dss%3Asd-dss)
