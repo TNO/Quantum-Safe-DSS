@@ -1,4 +1,4 @@
-
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10684270.svg)](https://doi.org/10.5281/zenodo.10684270)
 
 ## DSS FORK : Digital Signature Service with Quantum Safe Hybrid Certificates
 
