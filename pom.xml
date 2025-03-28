@@ -917,12 +917,12 @@
 			<dependency>
 				<groupId>org.bouncycastle</groupId>
 				<artifactId>bcpkix-jdk18on</artifactId>
-				<version>1.74</version>
+				<version>1.79</version>
 			</dependency>
 			<dependency>
 				<groupId>org.bouncycastle</groupId>
 				<artifactId>bcutil-jdk18on</artifactId>
-				<version>1.74</version>
+				<version>1.79</version>
 			</dependency>
 			<dependency>
 				<groupId>org.bitbucket.b_c</groupId>
