@@ -23,10 +23,13 @@ package eu.europa.esig.dss.validation;
 import eu.europa.esig.dss.model.x509.CertificateToken;
 import eu.europa.esig.dss.model.x509.Token;
 import eu.europa.esig.dss.utils.Utils;
+import org.bouncycastle.jcajce.CompositePublicKey;
 import org.bouncycastle.jcajce.interfaces.EdDSAPublicKey;
 import org.bouncycastle.jcajce.interfaces.XDHPublicKey;
 import org.bouncycastle.jce.provider.JCEECPublicKey;
 import org.bouncycastle.jce.spec.ECParameterSpec;
+import org.bouncycastle.pqc.jcajce.provider.dilithium.BCDilithiumPublicKey;
+import org.bouncycastle.pqc.jcajce.provider.falcon.BCFalconPublicKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -140,6 +143,20 @@ public final class DSSPKUtils {
 //			int prefixSize = Utils.fromHex("302a300506032b656e032100").length;
 			int prefixSize = Utils.fromHex("3042300506032b656f033900").length;
 			return xdhPK.getEncoded().length - prefixSize;
+		} else if (publicKey instanceof BCFalconPublicKey) {
+			// Falcon key size is determined by the number of bits in the public key
+			BCFalconPublicKey falconPublicKey = (BCFalconPublicKey) publicKey;
+			byte[] encoded = falconPublicKey.getEncoded();
+			// Falcon public key size (in bits) is just the length of the encoded key in bits
+			publicKeySize = encoded.length * 8;  // Convert bytes to bits
+		} else if (publicKey instanceof CompositePublicKey) {
+			CompositePublicKey compositePublicKey = (CompositePublicKey) publicKey;
+			byte[] encoded = compositePublicKey.getEncoded();
+			publicKeySize = encoded.length * 8;
+		} else if (publicKey instanceof BCDilithiumPublicKey) {
+			BCDilithiumPublicKey dilithiumPublicKey = (BCDilithiumPublicKey) publicKey;
+			byte[] encoded = dilithiumPublicKey.getEncoded();
+			publicKeySize = encoded.length * 8;
 		} else {
 			LOG.error("Unknown public key infrastructure: {}", publicKey.getClass().getName());
 		}
