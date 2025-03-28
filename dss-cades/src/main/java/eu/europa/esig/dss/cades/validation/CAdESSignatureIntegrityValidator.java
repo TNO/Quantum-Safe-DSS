@@ -20,6 +20,7 @@
  */
 package eu.europa.esig.dss.cades.validation;
 
+import eu.europa.esig.dss.cades.signature.CustomCMSSignatureAlgorithmNameGenerator;
 import eu.europa.esig.dss.model.DSSException;
 import eu.europa.esig.dss.spi.DSSSecurityProvider;
 import eu.europa.esig.dss.spi.x509.SignatureIntegrityValidator;
@@ -27,7 +28,9 @@ import org.bouncycastle.cms.CMSException;
 import org.bouncycastle.cms.CMSSignerDigestMismatchException;
 import org.bouncycastle.cms.SignerInformation;
 import org.bouncycastle.cms.SignerInformationVerifier;
-import org.bouncycastle.cms.jcajce.JcaSimpleSignerInfoVerifierBuilder;
+import org.bouncycastle.operator.DefaultSignatureAlgorithmIdentifierFinder;
+import org.bouncycastle.operator.jcajce.JcaContentVerifierProviderBuilder;
+import org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder;
 
 import java.security.PublicKey;
 
@@ -40,7 +43,6 @@ public class CAdESSignatureIntegrityValidator extends SignatureIntegrityValidato
 	private final SignerInformation signerInformation;
 
 	/** The instance of the verifier builder */
-	private final JcaSimpleSignerInfoVerifierBuilder verifierBuilder;
 
 	/**
 	 * The default constructor
@@ -49,19 +51,17 @@ public class CAdESSignatureIntegrityValidator extends SignatureIntegrityValidato
 	 */
 	public CAdESSignatureIntegrityValidator(final SignerInformation signerInformation) {
 		this.signerInformation = signerInformation;
-		this.verifierBuilder = instantiateVerifier();
-	}
-	
-	private JcaSimpleSignerInfoVerifierBuilder instantiateVerifier() {
-		final JcaSimpleSignerInfoVerifierBuilder jcaVerifierBuilder = new JcaSimpleSignerInfoVerifierBuilder();
-		jcaVerifierBuilder.setProvider(DSSSecurityProvider.getSecurityProviderName());
-		return jcaVerifierBuilder;
 	}
 
 	@Override
 	protected boolean verify(PublicKey publicKey) throws DSSException {
 		try {
-			final SignerInformationVerifier signerInformationVerifier = verifierBuilder.build(publicKey);
+			final SignerInformationVerifier signerInformationVerifier = new SignerInformationVerifier(
+					new CustomCMSSignatureAlgorithmNameGenerator(),
+					new DefaultSignatureAlgorithmIdentifierFinder(),
+					new JcaContentVerifierProviderBuilder().setProvider(DSSSecurityProvider.getSecurityProviderName()).build(publicKey),
+					new JcaDigestCalculatorProviderBuilder().setProvider(DSSSecurityProvider.getSecurityProviderName()).build()
+			);
 			return signerInformation.verify(signerInformationVerifier);
 		} catch (CMSSignerDigestMismatchException e) {
 			throw new DSSException(String.format("Unable to validate CMS Signature : %s", e.getMessage()));
