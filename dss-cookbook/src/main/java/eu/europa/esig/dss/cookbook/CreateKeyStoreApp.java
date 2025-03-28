@@ -68,14 +68,14 @@ public class CreateKeyStoreApp {
 
 		KeyStoreCertificateSource kscs = new KeyStoreCertificateSource((InputStream) null, KEYSTORE_TYPE, getKeystorePassword());
 
-		addCertificate(kscs, "src/main/resources/oj_2019/ec.europa.eu.1.cer");
-		addCertificate(kscs, "src/main/resources/oj_2019/ec.europa.eu.2.cer");
-		addCertificate(kscs, "src/main/resources/oj_2019/ec.europa.eu.3.cer");
-		addCertificate(kscs, "src/main/resources/oj_2019/ec.europa.eu.4.cer");
-		addCertificate(kscs, "src/main/resources/oj_2019/ec.europa.eu.5.cer");
-		addCertificate(kscs, "src/main/resources/oj_2019/ec.europa.eu.6.cer");
-		addCertificate(kscs, "src/main/resources/oj_2019/ec.europa.eu.7.cer");
-		addCertificate(kscs, "src/main/resources/oj_2019/ec.europa.eu.8.cer");
+		addCertificate(kscs, "dss-cookbook/src/main/resources/oj_2019/ec.europa.eu.1.cer");
+		addCertificate(kscs, "dss-cookbook/src/main/resources/oj_2019/ec.europa.eu.2.cer");
+		addCertificate(kscs, "dss-cookbook/src/main/resources/oj_2019/ec.europa.eu.3.cer");
+		addCertificate(kscs, "dss-cookbook/src/main/resources/oj_2019/ec.europa.eu.4.cer");
+		addCertificate(kscs, "dss-cookbook/src/main/resources/oj_2019/ec.europa.eu.5.cer");
+		addCertificate(kscs, "dss-cookbook/src/main/resources/oj_2019/ec.europa.eu.6.cer");
+		addCertificate(kscs, "dss-cookbook/src/main/resources/oj_2019/ec.europa.eu.7.cer");
+		addCertificate(kscs, "dss-cookbook/src/main/resources/oj_2019/ec.europa.eu.8.cer");
 
 		try (OutputStream fos = Files.newOutputStream(Paths.get(KEYSTORE_FILEPATH))) {
 			kscs.store(fos);
