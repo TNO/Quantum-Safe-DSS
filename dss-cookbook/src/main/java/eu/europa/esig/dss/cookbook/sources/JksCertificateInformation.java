@@ -51,7 +51,7 @@ public class JksCertificateInformation {
 	 */
 	public static void main(final String[] args) throws Exception {
 
-		try (InputStream is = new FileInputStream("src/main/resources/keystore.jks");
+		try (InputStream is = new FileInputStream("dss-cookbook/src/main/resources/keystore.jks");
 			 JKSSignatureToken jksSignatureToken = new JKSSignatureToken(is, new PasswordProtection("dss-password".toCharArray()))) {
 
 			DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
