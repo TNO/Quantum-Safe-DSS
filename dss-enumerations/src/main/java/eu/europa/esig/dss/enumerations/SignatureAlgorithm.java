@@ -254,7 +254,7 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 	DILITHIUM5_AES(EncryptionAlgorithm.DILITHIUM5_AES, DigestAlgorithm.SHAKE256_512),
 
 	/** Falcon 512 */
-	FALCON_512(EncryptionAlgorithm.FALCON_512, DigestAlgorithm.SHAKE256_512),
+	FALCON_512(EncryptionAlgorithm.FALCON_512, DigestAlgorithm.SHA256),
 
 	/** Falcon 1024 */
 	FALCON_1024(EncryptionAlgorithm.FALCON_1024, DigestAlgorithm.SHAKE256_512);
