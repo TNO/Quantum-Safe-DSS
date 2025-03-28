@@ -242,7 +242,7 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 	DILITHIUM2_AES(EncryptionAlgorithm.DILITHIUM2_AES, DigestAlgorithm.SHAKE256_512),
 
 	/** Dilithium 3 */
-	DILITHIUM3(EncryptionAlgorithm.DILITHIUM3, DigestAlgorithm.SHAKE256_512),
+	DILITHIUM3(EncryptionAlgorithm.DILITHIUM3, DigestAlgorithm.SHAKE256),
 
 	/** Dilithium 3 with AES */
 	DILITHIUM3_AES(EncryptionAlgorithm.DILITHIUM3_AES, DigestAlgorithm.SHAKE256_512),
