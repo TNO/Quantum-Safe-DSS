@@ -77,6 +77,11 @@ public enum EncryptionAlgorithm implements OidBasedEnum { //TODO add other schem
 	/** FALCON 1024 */
 	FALCON_1024("FALCON-1024", "1.3.9999.3.9", ""),
 
+	/** ML_ */
+	MLDSA44_RSA2048_PSS_SHA256("MLDSA44-RSA2048-PSS-SHA256","2.16.840.1.114027.80.8.1.1",""),
+	MLDSA65_ECDSA_P256_SHA512("MLDSA65-ECDSA-P256-SHA512","2.16.840.1.114027.80.8.1.8",""),
+	Falcon512_ECDSA_P256_SHA256("Falcon512-ECDSA-P256-SHA256","2.16.840.1.114027.80.8.1.14","");
+
 	/** The name of the algorithm */
 	private String name;
 

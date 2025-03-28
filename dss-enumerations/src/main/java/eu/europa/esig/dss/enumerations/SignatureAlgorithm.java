@@ -450,6 +450,10 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 		oidAlgorithms.put("1.3.9999.3.6", FALCON_512);
 		oidAlgorithms.put("1.3.9999.3.9", FALCON_1024);
 
+		oidAlgorithms.put("2.16.840.1.114027.80.8.1.1",MLDSA44_RSA2048_PSS_SHA256);
+		oidAlgorithms.put("2.16.840.1.114027.80.8.1.8",MLDSA65_ECDSA_P256_SHA512);
+		oidAlgorithms.put("2.16.840.1.114027.80.8.1.14",Falcon512_ECDSA_P256_SHA256);
+
 		return oidAlgorithms;
 	}
 
@@ -566,6 +570,10 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 
 		javaAlgorithms.put("Falcon-512", FALCON_512);
 		javaAlgorithms.put("Falcon-1024", FALCON_1024);
+
+		javaAlgorithms.put("MLDSA44-RSA2048-PSS-SHA256",MLDSA44_RSA2048_PSS_SHA256);
+		javaAlgorithms.put("MLDSA65-ECDSA-P256-SHA512",MLDSA65_ECDSA_P256_SHA512);
+		javaAlgorithms.put("Falcon512-ECDSA-P256-SHA256",Falcon512_ECDSA_P256_SHA256);
 
 		return javaAlgorithms;
 	}
