@@ -60,7 +60,7 @@ public enum EncryptionAlgorithm implements OidBasedEnum { //TODO add other schem
 	DILITHIUM2_AES("DILITHIUM2_AES", "1.3.6.1.4.1.2.267.11.4.4", ""),
 
 	/** DILITHIUM 3 */
-	DILITHIUM3("DILITHIUM3", "1.3.6.1.4.1.2.267.7.6.5", ""),
+	DILITHIUM3("DILITHIUM3", "2.16.840.1.101.3.4.3.18", ""),
 
 	/** DILITHIUM 3 - AES */
 	DILITHIUM3_AES("DILITHIUM3_AES", "1.3.6.1.4.1.2.267.11.6.5", ""),
