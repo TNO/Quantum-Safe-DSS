@@ -447,8 +447,8 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 		oidAlgorithms.put("1.3.6.1.4.1.2.267.7.8.7", DILITHIUM5);
 		oidAlgorithms.put("1.3.6.1.4.1.2.267.11.8.7", DILITHIUM5_AES);
 
-		oidAlgorithms.put("1.3.9999.3.1", FALCON_512);
-		oidAlgorithms.put("1.3.9999.3.4", FALCON_1024);
+		oidAlgorithms.put("1.3.9999.3.6", FALCON_512);
+		oidAlgorithms.put("1.3.9999.3.9", FALCON_1024);
 
 		return oidAlgorithms;
 	}
