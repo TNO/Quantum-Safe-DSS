@@ -257,7 +257,13 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 	FALCON_512(EncryptionAlgorithm.FALCON_512, DigestAlgorithm.SHA256),
 
 	/** Falcon 1024 */
-	FALCON_1024(EncryptionAlgorithm.FALCON_1024, DigestAlgorithm.SHAKE256_512);
+	FALCON_1024(EncryptionAlgorithm.FALCON_1024, DigestAlgorithm.SHAKE256_512),
+
+	/** ML-DSA-44 combined with RSASA with SHA256*/
+	MLDSA44_RSA2048_PSS_SHA256(EncryptionAlgorithm.MLDSA44_RSA2048_PSS_SHA256,DigestAlgorithm.SHA256),
+	MLDSA65_ECDSA_P256_SHA512(EncryptionAlgorithm.MLDSA65_ECDSA_P256_SHA512,DigestAlgorithm.SHA512),
+	Falcon512_ECDSA_P256_SHA256(EncryptionAlgorithm.Falcon512_ECDSA_P256_SHA256,DigestAlgorithm.SHA256);
+
 
 	/** The encryption algorithm */
 	private final EncryptionAlgorithm encryptionAlgo;
