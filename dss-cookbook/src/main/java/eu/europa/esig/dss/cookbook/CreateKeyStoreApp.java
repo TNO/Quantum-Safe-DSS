@@ -47,7 +47,7 @@ public class CreateKeyStoreApp {
 
 	private static final Logger LOG = LoggerFactory.getLogger(CreateKeyStoreApp.class);
 
-	private static final boolean ALLOW_EXPIRED = false;
+	private static final boolean ALLOW_EXPIRED = true;
 	private static final String KEYSTORE_TYPE = "PKCS12";
 	private static final String KEYSTORE_FILEPATH = "target/keystore.p12";
 
