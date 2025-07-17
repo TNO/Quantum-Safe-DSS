@@ -1,8 +1,11 @@
 package eu.europa.esig.dss.pades.signature.suite;
 
+import eu.europa.esig.dss.CreateCompositeCertificateApp;
 import eu.europa.esig.dss.diagnostic.CertificateWrapper;
 import eu.europa.esig.dss.diagnostic.DiagnosticData;
 import eu.europa.esig.dss.diagnostic.SignatureWrapper;
+import eu.europa.esig.dss.enumerations.DigestAlgorithm;
+import eu.europa.esig.dss.enumerations.SignatureAlgorithm;
 import eu.europa.esig.dss.enumerations.SignatureLevel;
 import eu.europa.esig.dss.model.DSSDocument;
 import eu.europa.esig.dss.model.InMemoryDocument;
@@ -22,10 +25,9 @@ import eu.europa.esig.dss.validation.reports.Reports;
 import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.security.*;
+import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.Arrays;
@@ -97,6 +99,72 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
         return (X509Certificate) ks.getCertificate("hybrid-good-user");
     }
 
+    private static X509Certificate prepareCompositeCertificate() throws Exception {
+        long time = System.currentTimeMillis();
+        KeyPair keyPair = CreateCompositeCertificateApp.generateKeyPair(SignatureAlgorithm.MLDSA65_ECDSA_P256_SHA512);
+        X509Certificate certificate = CreateCompositeCertificateApp.generateCertificate(keyPair);
+        System.out.println("Creation: " + (System.currentTimeMillis()-time));
+        ks = KeyStore.getInstance("PKCS12","BC");
+        ks.load(null, null);
+
+        KeyStore.PrivateKeyEntry privateKeyEntry = new KeyStore.PrivateKeyEntry(
+                keyPair.getPrivate(),
+                new Certificate[]{certificate}
+        );
+        ks.setEntry("hybrid-good-user", privateKeyEntry, new KeyStore.PasswordProtection(password.toCharArray()));
+        return certificate;
+    }
+
+    public void testCompositeCertificate(String name) throws Exception {
+        X509Certificate cert = prepareCompositeCertificate();
+        long start = System.currentTimeMillis();
+        // Encodes a PDF file into a DSSDocument object
+        DSSDocument toBeSigned = new InMemoryDocument(eu.europa.esig.dss.pades.signature.suite.PAdESDoubleSignatureTest.class.getResourceAsStream("/sample.pdf"));
+
+        // This PAdESService object creates and extends PAdES signatures
+        PAdESService service = new PAdESService(getSelfSignedCertificateVerifier());
+        // service.setTspSource(getGoodTsa());
+
+        // Parameters for the PAdES signature, which includes things like (alt-)signature algorithm and (if visible) position in page
+        PAdESSignatureParameters params = new PAdESSignatureParameters();
+        params.setSignWithExpiredCertificate(true);
+        params.setSignatureLevel(SignatureLevel.PAdES_BASELINE_B);
+        params.setDigestAlgorithm(DigestAlgorithm.SHA512);
+        // Get our signing certificate and encode it into yet another object, CertificateToken
+        CertificateToken certificateToken = new CertificateToken(cert);
+        params.setSigningCertificate(certificateToken);
+
+        // Prepare our primary and alt private key
+        KSPrivateKeyEntry ksPrivateKey = preparePrivateKey();
+        // This is a really stupid way of doing this, but alas its Java - essentially, ToBeSigned is just a byte[] variable.
+        // All this does is hash the pdf document and the byte[] is the hash output.
+        ToBeSigned dataToSign = service.getDataToSign(toBeSigned, params);
+        // Signs the hash of the document.
+        SignatureValue signatureValue = getToken().sign(dataToSign, params.getDigestAlgorithm(), ksPrivateKey);
+        // Now this is stupid, this isn't just signDocument (which uses the params and signatureValue to generate a PAdES signature),
+        // but will also verify whether the signature is correct and store it within the encoded bytes in the DSSDocument (use debugger to
+        // see this in action and see file SignatureIntegrityValdiator.java in package eu.europa.esig.dss.spi.x509.
+        DSSDocument signedDocument = service.signDocument(toBeSigned, params, signatureValue);
+        long inbetween = System.currentTimeMillis();
+        System.out.println("Sign: " + (inbetween-start));
+        SignedDocumentValidator validator = SignedDocumentValidator.fromDocument(signedDocument);
+        validator.setCertificateVerifier(getOfflineCertificateVerifier());
+
+        // Init report object which will hold reports of the validation process
+        Reports reports = validator.validateDocument();
+        DiagnosticData diagnosticData = reports.getDiagnosticData();
+
+        // Bug with 2 signatures which have the same ID
+        List<String> signatureIdList = diagnosticData.getSignatureIdList();
+        assertEquals(1, signatureIdList.size());
+
+        // This does not actually perform any sort of validation, just returns a boolean that is set in the signDocument function.
+        assertTrue(diagnosticData.isBLevelTechnicallyValid(signatureIdList.get(0)));
+
+        checkAllRevocationOnce(diagnosticData);
+        System.out.println("Verify: " + (System.currentTimeMillis()-inbetween));
+    }
+
     /**
      * Tests whether we can sign & verify two PAdES signatures from a hybrid signing certificate. Intended to be used
      * inside a wrapper function that passes the .p12 store as an argument.
@@ -109,7 +177,7 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
      * @throws IOException
      */
     public void testHybridCertificate(String name) throws UnrecoverableKeyException, KeyStoreException, NoSuchAlgorithmException, CertificateException, IOException {
-
+        long start = System.currentTimeMillis();
         // Encodes a PDF file into a DSSDocument object
         DSSDocument toBeSigned = new InMemoryDocument(eu.europa.esig.dss.pades.signature.suite.PAdESDoubleSignatureTest.class.getResourceAsStream("/sample.pdf"));
 
@@ -119,6 +187,7 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
 
         // Parameters for the PAdES signature, which includes things like (alt-)signature algorithm and (if visible) position in page
         PAdESSignatureParameters params = new PAdESSignatureParameters();
+        params.setSignWithExpiredCertificate(true);
         params.setSignatureLevel(SignatureLevel.PAdES_BASELINE_B);
 
         // Get our signing certificate and encode it into yet another object, CertificateToken
@@ -140,6 +209,7 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
 
         // The content size needs to be increased if we are dealing with PQ schemes
         params = new PAdESSignatureParameters();
+        params.setSignWithExpiredCertificate(true);
         params.setSignatureLevel(SignatureLevel.PAdES_BASELINE_B);
         params.setUseAltSignatureAndPublicKey(true);
         params.setSigningCertificate(certificateToken);
@@ -151,7 +221,8 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
         dataToSign = service.getDataToSign(signedDocument, params);
         SignatureValue altSignatureValue = getToken().sign(dataToSign, params.getDigestAlgorithm(), altKSPrivateKey);
         DSSDocument doubleSignedDocument = service.signDocument(signedDocument, params, altSignatureValue);
-
+        long inbetween = System.currentTimeMillis();
+        System.out.println("Sign: " + (inbetween-start));
         // Object to validate the signed document
         SignedDocumentValidator validator = SignedDocumentValidator.fromDocument(doubleSignedDocument);
         validator.setCertificateVerifier(getOfflineCertificateVerifier());
@@ -174,7 +245,7 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
         SignatureWrapper signatureOne = diagnosticData.getSignatures().get(0);
         SignatureWrapper signatureTwo = diagnosticData.getSignatures().get(1);
         assertFalse(Arrays.equals(signatureOne.getSignatureDigestReference().getDigestValue(), signatureTwo.getSignatureDigestReference().getDigestValue()));
-
+        System.out.println("Verify: " + (System.currentTimeMillis()-inbetween));
     }
 
     /**
@@ -219,12 +290,17 @@ public class PAdESHybridCertificateTest extends PKIFactoryAccess {
      */
     @Test
     public void testDoubleHybridSignatureDilithium() throws IOException, KeyStoreException, CertificateException, NoSuchAlgorithmException, UnrecoverableKeyException {
-        testHybridCertificate("hybrid-pq-good-user");
+        testHybridCertificate("hybrid-pq-good-user-bc179");
     }
 
     @Test
     public void testDoubleHybridSignatureTest() throws IOException, KeyStoreException, CertificateException, NoSuchAlgorithmException, UnrecoverableKeyException, NoSuchProviderException {
-        testHybridCertificate("test-falcon-works");
+        testHybridCertificate("test-falcon-works-bc179");
+    }
+
+    @Test
+    public void testCompositeSignatureTest() throws Exception {
+        testCompositeCertificate("composite");
     }
 
     /**

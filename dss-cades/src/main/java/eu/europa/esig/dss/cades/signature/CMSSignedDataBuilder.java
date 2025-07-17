@@ -50,6 +50,7 @@ import org.bouncycastle.cms.SignerInfoGenerator;
 import org.bouncycastle.cms.SignerInfoGeneratorBuilder;
 import org.bouncycastle.cms.SimpleAttributeTableGenerator;
 import org.bouncycastle.operator.ContentSigner;
+import org.bouncycastle.operator.DefaultDigestAlgorithmIdentifierFinder;
 import org.bouncycastle.operator.DigestCalculatorProvider;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.util.CollectionStore;
@@ -250,6 +251,11 @@ public class CMSSignedDataBuilder {
 		}
 
 		final X509CertificateHolder certHolder = DSSASN1Utils.getX509CertificateHolder(signingCertificate);
+		//The builder will try to get the digest algorithm from the signature algorithm in the build process.
+		//Composite signature algorithm oids are not added in this list, therefore this is required.
+		//Can be removed when org.bouncycastle.operator.DefaultDigestAlgorithmIdentifierFinder includes composite sigs.
+		signerInfoGeneratorBuilder.setContentDigest(new DefaultDigestAlgorithmIdentifierFinder().find(
+				parameters.getDigestAlgorithm().getJavaName()));
 		return signerInfoGeneratorBuilder.build(contentSigner, certHolder);
 	}
 

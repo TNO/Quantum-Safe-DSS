@@ -67,7 +67,7 @@ public enum DigestAlgorithm implements OidAndUriBasedEnum {
 	SHAKE128("SHAKE-128", "SHAKE-128", "2.16.840.1.101.3.4.2.11", null),
 
 	/** SHAKE-256 */
-	SHAKE256("SHAKE-256", "SHAKE-256", "2.16.840.1.101.3.4.2.12", null),
+	SHAKE256("SHAKE-256", "SHAKE256", "2.16.840.1.101.3.4.2.12", null),
 
 	/** SHAKE-256 + output 512bits */
 	SHAKE256_512("SHAKE256-512", "SHAKE256-512", "2.16.840.1.101.3.4.2.18", null),

@@ -60,7 +60,7 @@ public enum EncryptionAlgorithm implements OidBasedEnum { //TODO add other schem
 	DILITHIUM2_AES("DILITHIUM2_AES", "1.3.6.1.4.1.2.267.11.4.4", ""),
 
 	/** DILITHIUM 3 */
-	DILITHIUM3("DILITHIUM3", "1.3.6.1.4.1.2.267.7.6.5", ""),
+	DILITHIUM3("DILITHIUM3", "2.16.840.1.101.3.4.3.18", ""),
 
 	/** DILITHIUM 3 - AES */
 	DILITHIUM3_AES("DILITHIUM3_AES", "1.3.6.1.4.1.2.267.11.6.5", ""),
@@ -72,10 +72,15 @@ public enum EncryptionAlgorithm implements OidBasedEnum { //TODO add other schem
 	DILITHIUM5_AES("DILITHIUM5_AES", "1.3.6.1.4.1.2.267.11.8.7", ""),
 
 	/** FALCON 512 */
-	FALCON_512("FALCON-512", "1.3.9999.3.1", ""),
+	FALCON_512("FALCON-512", "1.3.9999.3.6", ""),
 
 	/** FALCON 1024 */
-	FALCON_1024("FALCON-1024", "1.3.9999.3.4", "");
+	FALCON_1024("FALCON-1024", "1.3.9999.3.9", ""),
+
+	/** ML_ */
+	MLDSA44_RSA2048_PSS_SHA256("MLDSA44-RSA2048-PSS-SHA256","2.16.840.1.114027.80.8.1.1",""),
+	MLDSA65_ECDSA_P256_SHA512("MLDSA65-ECDSA-P256-SHA512","2.16.840.1.114027.80.8.1.8",""),
+	Falcon512_ECDSA_P256_SHA256("Falcon512-ECDSA-P256-SHA256","2.16.840.1.114027.80.8.1.14","");
 
 	/** The name of the algorithm */
 	private String name;

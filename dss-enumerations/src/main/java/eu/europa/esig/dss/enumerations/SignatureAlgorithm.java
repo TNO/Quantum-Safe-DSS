@@ -242,7 +242,7 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 	DILITHIUM2_AES(EncryptionAlgorithm.DILITHIUM2_AES, DigestAlgorithm.SHAKE256_512),
 
 	/** Dilithium 3 */
-	DILITHIUM3(EncryptionAlgorithm.DILITHIUM3, DigestAlgorithm.SHAKE256_512),
+	DILITHIUM3(EncryptionAlgorithm.DILITHIUM3, DigestAlgorithm.SHAKE256),
 
 	/** Dilithium 3 with AES */
 	DILITHIUM3_AES(EncryptionAlgorithm.DILITHIUM3_AES, DigestAlgorithm.SHAKE256_512),
@@ -254,10 +254,16 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 	DILITHIUM5_AES(EncryptionAlgorithm.DILITHIUM5_AES, DigestAlgorithm.SHAKE256_512),
 
 	/** Falcon 512 */
-	FALCON_512(EncryptionAlgorithm.FALCON_512, DigestAlgorithm.SHAKE256_512),
+	FALCON_512(EncryptionAlgorithm.FALCON_512, DigestAlgorithm.SHA256),
 
 	/** Falcon 1024 */
-	FALCON_1024(EncryptionAlgorithm.FALCON_1024, DigestAlgorithm.SHAKE256_512);
+	FALCON_1024(EncryptionAlgorithm.FALCON_1024, DigestAlgorithm.SHAKE256_512),
+
+	/** ML-DSA-44 combined with RSASA with SHA256*/
+	MLDSA44_RSA2048_PSS_SHA256(EncryptionAlgorithm.MLDSA44_RSA2048_PSS_SHA256,DigestAlgorithm.SHA256),
+	MLDSA65_ECDSA_P256_SHA512(EncryptionAlgorithm.MLDSA65_ECDSA_P256_SHA512,DigestAlgorithm.SHA512),
+	Falcon512_ECDSA_P256_SHA256(EncryptionAlgorithm.Falcon512_ECDSA_P256_SHA256,DigestAlgorithm.SHA256);
+
 
 	/** The encryption algorithm */
 	private final EncryptionAlgorithm encryptionAlgo;
@@ -441,8 +447,12 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 		oidAlgorithms.put("1.3.6.1.4.1.2.267.7.8.7", DILITHIUM5);
 		oidAlgorithms.put("1.3.6.1.4.1.2.267.11.8.7", DILITHIUM5_AES);
 
-		oidAlgorithms.put("1.3.9999.3.1", FALCON_512);
-		oidAlgorithms.put("1.3.9999.3.4", FALCON_1024);
+		oidAlgorithms.put("1.3.9999.3.6", FALCON_512);
+		oidAlgorithms.put("1.3.9999.3.9", FALCON_1024);
+
+		oidAlgorithms.put("2.16.840.1.114027.80.8.1.1",MLDSA44_RSA2048_PSS_SHA256);
+		oidAlgorithms.put("2.16.840.1.114027.80.8.1.8",MLDSA65_ECDSA_P256_SHA512);
+		oidAlgorithms.put("2.16.840.1.114027.80.8.1.14",Falcon512_ECDSA_P256_SHA256);
 
 		return oidAlgorithms;
 	}
@@ -560,6 +570,10 @@ public enum SignatureAlgorithm implements OidAndUriBasedEnum {
 
 		javaAlgorithms.put("Falcon-512", FALCON_512);
 		javaAlgorithms.put("Falcon-1024", FALCON_1024);
+
+		javaAlgorithms.put("MLDSA44-RSA2048-PSS-SHA256",MLDSA44_RSA2048_PSS_SHA256);
+		javaAlgorithms.put("MLDSA65-ECDSA-P256-SHA512",MLDSA65_ECDSA_P256_SHA512);
+		javaAlgorithms.put("Falcon512-ECDSA-P256-SHA256",Falcon512_ECDSA_P256_SHA256);
 
 		return javaAlgorithms;
 	}

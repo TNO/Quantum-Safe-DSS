@@ -35,6 +35,11 @@
 		    <artifactId>junit-jupiter-engine</artifactId>
 		    <scope>test</scope>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>jakarta.jws</groupId>
+            <artifactId>jakarta.jws-api</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+    </dependencies>
 
 </project>
